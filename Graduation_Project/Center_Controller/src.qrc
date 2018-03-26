@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>image/wireless.bmp</file>
+    </qresource>
+</RCC>
