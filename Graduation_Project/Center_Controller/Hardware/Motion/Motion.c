@@ -1,31 +1,26 @@
 #include "Motion.h"
 
-void GPIO_Configure(char num)
+void GPIO_Configure(char* num,char* dir)
 {
     char tmp[60];
-    sprintf(tmp,"echo %d >"DEV_PATH"export",num);
-    system(tmp);
-    sprintf(tmp,"echo out >"DEV_PATH"gpio%d/direction",num);
-    system(tmp);
-}
+    int fd;
+    fd = open(SYSFS_GPIO_EXPORT, O_WRONLY);
+    write(fd, num ,sizeof(num));
+    close(fd);
 
-void Turnoff_Motion(char num)
-{
-    char tmp[60];
-    sprintf(tmp,"echo 0 >"DEV_PATH"gpio%d/value",num);
-    system(tmp);
+    sprintf(tmp,SYSFS_GPIO_BASE"gpip%s/direction",num);
+    fd = open(tmp, O_WRONLY);
+    write(fd, dir , sizeof(dir));
+    close(fd);
 
 }
 
-void Turnon_Motion(char num)
+void Motion_gpio(char* num,char value)
 {
     char tmp[60];
-    sprintf(tmp,"echo 1 >"DEV_PATH"gpio%d/value",num);
-    system(tmp);
-}
-void GPIO_close(char num)
-{
-    char tmp[60];
-    sprintf(tmp,"echo %d >"DEV_PATH"unexport",num);
-    system(tmp);
+    int fd;
+    printf(tmp,SYSFS_GPIO_BASE"gpip%s/value",num);
+    fd = open(tmp, O_RDWR);
+    write(fd, value , sizeof(value));
+    close(fd);
 }

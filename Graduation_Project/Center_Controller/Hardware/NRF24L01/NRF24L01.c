@@ -1,53 +1,47 @@
 #include "NRF24L01.h"
 
+int CE_fd;
+int IRQ_fd;
+int CSN_fd;
+int SCK_fd;
+int MISO_fd;
+int MOSI_fd;
+
 const u8 TX_ADDRESS[TX_ADR_WIDTH] = {0X34,0X43,0X10,0X10,0X01};
 const u8 RX_ADDRESS[RX_ADR_WIDTH] = {0X34,0X43,0X10,0X10,0X01};
 
-static void GPIO_Configure(void)
+static int GPIO_Configure(char* address,char* num,char* dir)
 {
-    system("echo 14 >"DEV_PATH"export");  //CE
-    system("echo 175 >"DEV_PATH"export"); //CSN
-    system("echo 13 >"DEV_PATH"export");  //SCK
-    system("echo 15 >"DEV_PATH"export");  //IRQ
-    system("echo 10 >"DEV_PATH"export");  //MISO
-    system("echo 12 >"DEV_PATH"export");  //MOSI
-
-    system("echo out >"DEV_PATH"gpio14/direction");  //CE
-    system("echo out >"DEV_PATH"gpio175/direction"); //CSN
-    system("echo out >"DEV_PATH"gpio13/direction");  //SCK
-    system("echo in  >"DEV_PATH"gpio15/direction");  //IRQ
-    system("echo in  >"DEV_PATH"gpio10/direction");  //MISO
-    system("echo out >"DEV_PATH"gpio12/direction");  //MOSI
+    char tmp[60];
+    int fd;
+    fd = open(SYSFS_GPIO_EXPORT, O_WRONLY);
+    write(fd, num ,sizeof(num));
+    close(fd);
+    sprintf(tmp,"%sdirecton",address);
+    fd = open(tmp, O_WRONLY);
+    write(fd, dir , sizeof(dir));
+    close(fd);
+    fd = open(address,O_RDWR);
+    return fd;
 }
 
 void NRF24L01_Init(void)
 {
-    GPIO_Configure();
+    CE_fd = GPIO_Configure(CE,"14","out");
+    IRQ_fd = GPIO_Configure(CE,"15","in");
+    CSN_fd = GPIO_Configure(CE,"175","out");
+    SCK_fd = GPIO_Configure(CE,"13","out");
+    MISO_fd = GPIO_Configure(CE,"10","in");
+    MOSI_fd = GPIO_Configure(CE,"12","out");
     CE_L;
     CSN_H;
 }
 
 
-static u8 NRF24L01_IO_read(u8 num)
+static u8 NRF24L01_IO_read(int fd)
 {
     u8 buf[3];//at least 3
-    u8 tmp[40];
-    FILE *fp;
-    sprintf(tmp,"cat "DEV_PATH"/gpio%d/value",num);
-    if((fp = popen(tmp, "r")) == NULL)
-    {
-        perror("popen failed");
-        return -1;
-    }
-    while (fgets(buf, 3, fp) != NULL)
-    {
-        //printf("%s",buf);
-    }
-    if (pclose(fp) == -1)
-    {
-        perror("pclose failed");
-        return -2;
-    }
+    while (read(buf, 3, fd) != NULL)
     return (buf[0]-48);
 }
 
@@ -81,7 +75,7 @@ static u8 SPI_read_Byte(void)
     {
 
         SCK_H;
-        sta = NRF24L01_IO_read(MISO);
+        sta = NRF24L01_IO_read(MISO_fd);
         Temp_data = Temp_data << 1;
         if(sta)
         {
@@ -176,9 +170,6 @@ void NRF24L01_TX_Mode(void)
     CE_H;
 }
 
-//启动NRF24L01发送一次数据
-//txbuf:待发送数据首地址
-//返回值:0，接收完成；其他，错误代码
 u8 NRF24L01_RxPacket(u8 *rxbuf)
 {
     u8 sta;
@@ -193,16 +184,13 @@ u8 NRF24L01_RxPacket(u8 *rxbuf)
     return 1;//没收到任何数据
 }
 
-//启动NRF24L01发送一次数据
-//txbuf:待发送数据首地址
-//返回值:发送完成状况
 u8 NRF24L01_TxPacket(u8 *txbuf)
 {
     u8 sta;  
     CE_L;
     NRF24L01_write_buf(WR_TX_PLOAD,txbuf,TX_PLOAD_WIDTH);//写数据到TX BUF  32个字节
     CE_H;//启动发送
-    while(NRF24L01_IO_read(IRQ)!=0);//等待发送完成
+    while(NRF24L01_IO_read(IRQ_fd)!=0);//等待发送完成
     sta=NRF24L01_read_reg(STATUS);  //读取状态寄存器的值
     NRF24L01_write_reg(NRF_WRITE_REG+STATUS,sta); //清除TX_DS或MAX_RT中断标志
     if(sta&MAX_TX)//达到最大重发次数

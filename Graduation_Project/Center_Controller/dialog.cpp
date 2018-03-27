@@ -19,7 +19,7 @@ Dialog::Dialog(QWidget *parent) :
     this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
     Rx_thread *Reciver = new Rx_thread(this);
     connect(Reciver,SIGNAL(Rx_flag(QString)),this,SLOT(Disp_Rx_value(QString)),Qt::QueuedConnection);
-    GPIO_Configure(80);
+    GPIO_Configure("80","out");
     NRF24L01_Init();
     if(NRF24L01_check())
     {
@@ -36,13 +36,6 @@ Dialog::Dialog(QWidget *parent) :
 
 Dialog::~Dialog()
 {
-//    GPIO_close(80);
-//    GPIO_close(14);
-//    GPIO_close(175);
-//    GPIO_close(13);
-//    GPIO_close(15);
-//    GPIO_close(10);
-//    GPIO_close(12);
     delete ui;
 }
 
@@ -61,13 +54,13 @@ void Dialog::changeEvent(QEvent *e)
 
 void Dialog::on_pushButton_clicked()
 {
-    Turnon_Motion(80);
+    Motion_gpio("80",'1');
 }
 
 void Dialog::on_pushButton_2_clicked()
 {
     ui->textEdit->setText("OFF");
-    Turnoff_Motion(80);
+    Motion_gpio("80",'0');
 }
 
 void Dialog::Disp_Rx_value(QString str)

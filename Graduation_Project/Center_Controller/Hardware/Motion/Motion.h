@@ -8,12 +8,12 @@ extern "C" {
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
-#define DEV_PATH "/sys/class/gpio/"
 
-void GPIO_Configure(char num);
-void Turnoff_Motion(char num);
-void Turnon_Motion(char num);
-void GPIO_close(char num);
+#define SYSFS_GPIO_BASE "/sys/class/gpio/"
+#define SYSFS_GPIO_EXPORT "/sys/class/gpio/export"
+
+void GPIO_Configure(char* num,char* dir);
+void Motion_gpio(char* num,char value);
 
 #ifdef __cplusplus
 }
