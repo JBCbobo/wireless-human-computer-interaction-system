@@ -13,7 +13,7 @@ extern "C" {
 #define SYSFS_GPIO_EXPORT "/sys/class/gpio/export"
 
 void GPIO_Configure(char* num,char* dir);
-void Motion_gpio(char* num,char value);
+void Motion_gpio(char* num,char* value);
 
 #ifdef __cplusplus
 }

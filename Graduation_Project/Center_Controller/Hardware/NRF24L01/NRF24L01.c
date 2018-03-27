@@ -12,36 +12,45 @@ const u8 RX_ADDRESS[RX_ADR_WIDTH] = {0X34,0X43,0X10,0X10,0X01};
 
 static int GPIO_Configure(char* address,char* num,char* dir)
 {
-    char tmp[60];
+    char tmp[2][60];
     int fd;
     fd = open(SYSFS_GPIO_EXPORT, O_WRONLY);
     write(fd, num ,sizeof(num));
     close(fd);
-    sprintf(tmp,"%sdirecton",address);
-    fd = open(tmp, O_WRONLY);
+
+    sprintf(tmp[0],"%sdirection",address);
+    fd = open(tmp[0], O_WRONLY);
     write(fd, dir , sizeof(dir));
     close(fd);
-    fd = open(address,O_RDWR);
+
+    sprintf(tmp[1],"%svalue",address);
+    fd = open(tmp[1],O_RDWR);
     return fd;
 }
+
 
 void NRF24L01_Init(void)
 {
     CE_fd = GPIO_Configure(CE,"14","out");
-    IRQ_fd = GPIO_Configure(CE,"15","in");
-    CSN_fd = GPIO_Configure(CE,"175","out");
-    SCK_fd = GPIO_Configure(CE,"13","out");
-    MISO_fd = GPIO_Configure(CE,"10","in");
-    MOSI_fd = GPIO_Configure(CE,"12","out");
+    IRQ_fd = GPIO_Configure(IRQ,"15","in");
+    CSN_fd = GPIO_Configure(CSN,"175","out");
+    SCK_fd = GPIO_Configure(SCK,"13","out");
+    MISO_fd = GPIO_Configure(MISO,"10","in");
+    MOSI_fd = GPIO_Configure(MOSI,"12","out");
     CE_L;
     CSN_H;
+
 }
 
-
-static u8 NRF24L01_IO_read(int fd)
+static u8 NRF24L01_IO_read(char *address)
 {
+    char tmp[60];
+    int fd;
     u8 buf[3];//at least 3
-    while (read(buf, 3, fd) != NULL)
+    sprintf(tmp,"%svalue",address);
+    fd = open(tmp,O_RDWR);
+    read(fd,buf,3);
+    close(fd);
     return (buf[0]-48);
 }
 
@@ -70,12 +79,12 @@ static u8 SPI_read_Byte(void)
     u8 i;
     u8 sta;
     u8 Temp_data = 0;
+    int fd;
 
     for(i=0;i<8;i++)
     {
-
         SCK_H;
-        sta = NRF24L01_IO_read(MISO_fd);
+        sta = NRF24L01_IO_read(MISO);
         Temp_data = Temp_data << 1;
         if(sta)
         {
@@ -190,7 +199,7 @@ u8 NRF24L01_TxPacket(u8 *txbuf)
     CE_L;
     NRF24L01_write_buf(WR_TX_PLOAD,txbuf,TX_PLOAD_WIDTH);//写数据到TX BUF  32个字节
     CE_H;//启动发送
-    while(NRF24L01_IO_read(IRQ_fd)!=0);//等待发送完成
+    while(NRF24L01_IO_read(IRQ)!=0);//等待发送完成
     sta=NRF24L01_read_reg(STATUS);  //读取状态寄存器的值
     NRF24L01_write_reg(NRF_WRITE_REG+STATUS,sta); //清除TX_DS或MAX_RT中断标志
     if(sta&MAX_TX)//达到最大重发次数

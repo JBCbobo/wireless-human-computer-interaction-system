@@ -54,13 +54,13 @@ void Dialog::changeEvent(QEvent *e)
 
 void Dialog::on_pushButton_clicked()
 {
-    Motion_gpio("80",'1');
+    Motion_gpio("80","1");
 }
 
 void Dialog::on_pushButton_2_clicked()
 {
     ui->textEdit->setText("OFF");
-    Motion_gpio("80",'0');
+    Motion_gpio("80","0");
 }
 
 void Dialog::Disp_Rx_value(QString str)

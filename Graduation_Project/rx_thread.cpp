@@ -21,7 +21,7 @@ void Rx_thread::timerEvent(QTimerEvent *event)
         NRF24L01_RX_Mode();
         if(!NRF24L01_RxPacket((unsigned char*)buf))
         {
-            emit Rx_flag("Heelo");
+            emit Rx_flag(buf);
         }
     }
 }
