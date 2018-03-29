@@ -6,6 +6,8 @@
 #include "../rx_thread.h"
 #include "Hardware/NRF24L01/NRF24L01.h"
 
+extern User_data *u;
+
 Dialog::Dialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Dialog)
@@ -14,8 +16,10 @@ Dialog::Dialog(QWidget *parent) :
     ui->setupUi(this);
     ui->comboBox->addItem("M1");
     ui->comboBox->addItem("M2");
-    ui->comboBox->addItem("M2");
-    ui->textEdit->setText("360");
+    ui->comboBox->addItem("M3");
+    ui->comboBox->addItem("M4");
+    ui->comboBox->addItem("M5");
+    ui->comboBox->addItem("M6");
     this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
     Rx_thread *Reciver = new Rx_thread(this);
     connect(Reciver,SIGNAL(Rx_flag(QString)),this,SLOT(Disp_Rx_value(QString)),Qt::QueuedConnection);
@@ -65,6 +69,25 @@ void Dialog::on_pushButton_2_clicked()
 
 void Dialog::Disp_Rx_value(QString str)
 {
-    ui->textEdit->setText(str);
+    char tmp[10];
+    if(str=="success")
+    {
+        sprintf(tmp,"%u",u->vm);
+        ui->textEdit->setText(tmp);
+        sprintf(tmp,"%u",u->vt);
+        ui->textEdit_2->setText(tmp);
+        sprintf(tmp,"%u",u->num);
+        ui->textEdit_3->setText(tmp);
+        sprintf(tmp,"%u",u->depth);
+        ui->textEdit_4->setText(tmp);
+        sprintf(tmp,"%u",u->h_space);
+        ui->textEdit_5->setText(tmp);
+        sprintf(tmp,"%u",u->v_space);
+        ui->textEdit_6->setText(tmp);
+    }
+    else
+    {
+
+    }
 }
 
