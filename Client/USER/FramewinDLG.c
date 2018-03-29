@@ -21,10 +21,13 @@
 // USER START (Optionally insert additional includes)
 #include "key.h"
 #include "stdio.h"
-#include "FramewinDLG.h"
-#include "EmWinHZFont.h"
+#include "stdlib.h" 
 #include "led.h"
 #include "24L01.h"
+#include "EmWinHZFont.h"
+#include "FramewinDLG.h"
+
+
 
 #define x 20
 
@@ -34,8 +37,19 @@ extern GUI_CONST_STORAGE GUI_BITMAP bmappstore;
 extern GUI_CONST_STORAGE GUI_BITMAP bmset;
 extern GUI_CONST_STORAGE GUI_BITMAP bmnotebook;
 
+typedef struct User_data 
+{
+    uint8_t motion_num;//电机号
+    uint16_t vm;      //转动速度
+    uint8_t vt;       //钻孔速度
+    uint8_t num;      //打孔次数
+    uint8_t depth;    //打孔深度
+    uint8_t h_space;  //间距
+    uint8_t v_space;  //行距
+}User_data;
 
-
+User_data *u;
+uint8_t buf[32];
 /*********************************************************************
 *
 *       _aDialogCreate
@@ -70,21 +84,40 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   
 };
 
-/*********************************************************************
-*
-*       Static code
-*
-**********************************************************************
-*/
 void _SendMsg(char *pStr)
 {
-
     WM_MESSAGE Message;
     Message.MsgId =  MSG_KEY_DOWN;
     Message.Data.p = pStr;
     WM_SendMessage(WM_GetClientWindow(DialogWin),&Message);
-    WM_InvalidateWindow(DialogWin);
+    WM_InvalidateWindow(DialogWin);  
+}
+
+static int Get_widget_value(GUI_HWIN hWin,int id)
+{
+    char tmp[10];
+    WM_HWIN hItem;
+    hItem = WM_GetDialogItem(hWin, id);
+    EDIT_GetText(hItem,tmp,10);
+    return atoi(tmp);
+}
+
+void User_data_encode(GUI_HWIN hwin)
+{
+    u->vm = Get_widget_value(hwin,ID_EDIT_0);
+    u->vt = Get_widget_value(hwin,ID_EDIT_1);
+    u->num = Get_widget_value(hwin,ID_EDIT_2);
+    u->depth = Get_widget_value(hwin,ID_EDIT_3);
+    u->h_space = Get_widget_value(hwin,ID_EDIT_4);
+    u->v_space = Get_widget_value(hwin,ID_EDIT_5); 
     
+    buf[0] = (uint8_t)(u->vm>>8);
+    buf[1] = (uint8_t)(u->vm) ;
+    buf[2] = u->vt;
+    buf[3] = u->num;
+    buf[4] = u->depth;
+    buf[5] = u->h_space;
+    buf[6] = u->v_space;
 }
 
 static void _cbDesktop(WM_MESSAGE * pMsg) 
@@ -139,7 +172,7 @@ static void InitDialog(WM_MESSAGE * pMsg)
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_2);
     TEXT_SetFont(hItem, &GUI_FontHZ12);
     
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_3);
+    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_3);   
     TEXT_SetFont(hItem, &GUI_FontHZ12);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_4);
@@ -153,6 +186,7 @@ static void InitDialog(WM_MESSAGE * pMsg)
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_7);
     TEXT_SetFont(hItem, &GUI_FontHZ12);
+    
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
     EDIT_SetText(hItem, "360");
@@ -179,6 +213,7 @@ static void InitDialog(WM_MESSAGE * pMsg)
     EDIT_SetText(hItem, "4");
     EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
 
+
     hItem = WM_GetDialogItem(pMsg->hWin,ID_DROPDOWN_0);
     DROPDOWN_SetFont(hItem,GUI_FONT_16_ASCII);
     DROPDOWN_SetAutoScroll(hItem,1);
@@ -198,7 +233,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   WM_HWIN hItem;
   int     NCode;
   int     Id;
-  u8 buf[32];
+  User_data u;
 
   switch (pMsg->MsgId) {
               
@@ -220,31 +255,16 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   case WM_PAINT:
       GUI_SetBkColor(GUI_LIGHTGRAY);
       GUI_Clear();
-//      GUI_DrawBitmap(&bmwireless,170,30);
-//      GUI_DrawBitmap(&bmappstore,170,100);
-//      GUI_DrawBitmap(&bmset,170,170);
-//      GUI_DrawBitmap(&bmnotebook,170,240);
       break;      
     
   case WM_NOTIFY_PARENT:
     Id    = WM_GetId(pMsg->hWinSrc);
     NCode = pMsg->Data.v;
     switch(Id) {
-    case ID_DROPDOWN_0: // Notifications sent by 'Dropdown'
-      switch(NCode) {
-      case WM_NOTIFICATION_CLICKED:
-        break;
-      case WM_NOTIFICATION_RELEASED:
-        break;
-      case WM_NOTIFICATION_SEL_CHANGED:
-        break;
-      }
-      break;
     case ID_BUTTON_0: // Notifications sent by 'YES'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
-        hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
-        EDIT_GetText(hItem,buf,32);
+        User_data_encode(pMsg->hWin);
         NRF24L01_TX_Mode();
         if(NRF24L01_TxPacket(buf)==TX_OK)
         {
@@ -263,20 +283,6 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
         break;
       }
       break;
-    case ID_EDIT_0: // Notifications sent by 'Edit'
-      switch(NCode) {
-      case WM_NOTIFICATION_CLICKED:
-        break;
-      case WM_NOTIFICATION_RELEASED:
-
-        break;
-      case WM_NOTIFICATION_VALUE_CHANGED:
-
-        break;
-
-      }
-      break;
-
     }
     break;
 
