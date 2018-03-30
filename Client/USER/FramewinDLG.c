@@ -97,27 +97,30 @@ static int Get_widget_value(GUI_HWIN hWin,int id)
 {
     char tmp[10];
     WM_HWIN hItem;
+    WM_CALLBACK *pCb;
     hItem = WM_GetDialogItem(hWin, id);
-    EDIT_GetText(hItem,tmp,10);
-    return atoi(tmp);
+    pCb = WM_GetCallback(hItem);
+    if(pCb == DROPDOWN_Callback)
+    {    
+        return DROPDOWN_GetSel(hItem);
+    }
+    else if(pCb == EDIT_Callback)
+    {
+        EDIT_GetText(hItem,tmp,10);
+        return atoi(tmp);
+    }
+    
 }
 
 void User_data_encode(GUI_HWIN hwin)
 {
-    u->vm = Get_widget_value(hwin,ID_EDIT_0);
-    u->vt = Get_widget_value(hwin,ID_EDIT_1);
-    u->num = Get_widget_value(hwin,ID_EDIT_2);
-    u->depth = Get_widget_value(hwin,ID_EDIT_3);
-    u->h_space = Get_widget_value(hwin,ID_EDIT_4);
-    u->v_space = Get_widget_value(hwin,ID_EDIT_5); 
-    
-    buf[0] = (uint8_t)(u->vm>>8);
-    buf[1] = (uint8_t)(u->vm) ;
-    buf[2] = u->vt;
-    buf[3] = u->num;
-    buf[4] = u->depth;
-    buf[5] = u->h_space;
-    buf[6] = u->v_space;
+    buf[0] = Get_widget_value(hwin,ID_DROPDOWN_0);
+    buf[1] = Get_widget_value(hwin,ID_EDIT_0);
+    buf[2] = Get_widget_value(hwin,ID_EDIT_1);
+    buf[3] = Get_widget_value(hwin,ID_EDIT_2);
+    buf[4] = Get_widget_value(hwin,ID_EDIT_3);
+    buf[5] = Get_widget_value(hwin,ID_EDIT_4);
+    buf[6] = Get_widget_value(hwin,ID_EDIT_5); 
 }
 
 static void _cbDesktop(WM_MESSAGE * pMsg) 
@@ -189,7 +192,7 @@ static void InitDialog(WM_MESSAGE * pMsg)
     
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
-    EDIT_SetText(hItem, "360");
+    EDIT_SetText(hItem, "30");
     EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
     WM_SetFocus(hItem);
  
@@ -264,6 +267,8 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
     case ID_BUTTON_0: // Notifications sent by 'YES'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
+//        hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
+//        EDIT_GetText(hItem,buf,32);
         User_data_encode(pMsg->hWin);
         NRF24L01_TX_Mode();
         if(NRF24L01_TxPacket(buf)==TX_OK)
