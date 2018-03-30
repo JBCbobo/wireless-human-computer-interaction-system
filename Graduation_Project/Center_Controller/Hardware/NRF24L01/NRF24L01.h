@@ -10,21 +10,19 @@
 extern "C" {
 #endif
 
-
-
 #define u8 unsigned char
 #define u16 unsigned int
 
-typedef struct User_data
-{
-    u8 motion_num;//电机号
-    u16 vm;      //转动速度
-    u8 vt;       //钻孔速度
-    u8 num;      //打孔次数
-    u8 depth;    //打孔深度
-    u8 h_space;  //间距
-    u8 v_space;  //行距
-}User_data;
+//typedef struct User_data
+//{
+//    u8 motion_num;//电机号
+//    u16 vm;      //转动速度
+//    u8 vt;       //钻孔速度
+//    u8 num;      //打孔次数
+//    u8 depth;    //打孔深度
+//    u8 h_space;  //间距
+//    u8 v_space;  //行距
+//}User_data;
 
 #define SYSFS_GPIO_EXPORT  "/sys/class/gpio/export"
 #define CE "/sys/class/gpio/gpio14/"

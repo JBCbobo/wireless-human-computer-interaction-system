@@ -22,28 +22,33 @@ static const uint qt_meta_data_Dialog[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       4,   14, // methods
+       7,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
        8,    7,    7,    7, 0x05,
+      25,    7,    7,    7, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      25,    7,    7,    7, 0x0a,
-      48,    7,    7,    7, 0x08,
-      74,    7,    7,    7, 0x08,
+      43,    7,    7,    7, 0x0a,
+      66,    7,    7,    7, 0x0a,
+      80,    7,    7,    7, 0x0a,
+     103,    7,    7,    7, 0x08,
+     130,    7,    7,    7, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Dialog[] = {
-    "Dialog\0\0Rx_flag(QString)\0"
-    "Disp_Rx_value(QString)\0on_pushButton_2_clicked()\0"
-    "on_pushButton_clicked()\0"
+    "Dialog\0\0Rx_flag(QString)\0Keyvalue(QString)\0"
+    "Disp_Rx_value(QString)\0Getkeyvalue()\0"
+    "Update_number(QString)\0"
+    "on_pushButton_no_clicked()\0"
+    "on_pushButton_yes_clicked()\0"
 };
 
 void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -53,9 +58,12 @@ void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         Dialog *_t = static_cast<Dialog *>(_o);
         switch (_id) {
         case 0: _t->Rx_flag((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 1: _t->Disp_Rx_value((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->on_pushButton_2_clicked(); break;
-        case 3: _t->on_pushButton_clicked(); break;
+        case 1: _t->Keyvalue((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->Disp_Rx_value((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->Getkeyvalue(); break;
+        case 4: _t->Update_number((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 5: _t->on_pushButton_no_clicked(); break;
+        case 6: _t->on_pushButton_yes_clicked(); break;
         default: ;
         }
     }
@@ -93,9 +101,9 @@ int Dialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 4)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 4;
+        _id -= 7;
     }
     return _id;
 }
@@ -105,5 +113,12 @@ void Dialog::Rx_flag(QString _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void Dialog::Keyvalue(QString _t1)
+{
+    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_END_MOC_NAMESPACE

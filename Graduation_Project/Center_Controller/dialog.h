@@ -20,15 +20,20 @@ protected:
 private:
     Ui::Dialog *ui;
     int time;
+    QString str;
 
 signals:
     void Rx_flag(QString);
+    void Keyvalue(QString);
+
 public slots:
     void Disp_Rx_value(QString);
+    void Getkeyvalue();
+    void Update_number(QString);
 
 private slots:
-    void on_pushButton_2_clicked();
-    void on_pushButton_clicked();
+    void on_pushButton_no_clicked();
+    void on_pushButton_yes_clicked();
 };
 
 #endif // DIALOG_H

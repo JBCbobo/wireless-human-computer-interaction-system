@@ -79,18 +79,18 @@
     <value type="QString">CLUTTER_IM_MODULE=xim</value>
     <value type="QString">COMPIZ_BIN_PATH=/usr/bin/</value>
     <value type="QString">COMPIZ_CONFIG_PROFILE=ubuntu</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-MflcfY8xMu</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-yHC4ccELuO</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path</value>
     <value type="QString">DESKTOP_SESSION=ubuntu</value>
     <value type="QString">DISPLAY=:0</value>
     <value type="QString">GDMSESSION=ubuntu</value>
     <value type="QString">GDM_LANG=en_US</value>
     <value type="QString">GIO_LAUNCHED_DESKTOP_FILE=/home/jbc/.local/share/applications/Nokia-QtCreator.desktop</value>
-    <value type="QString">GIO_LAUNCHED_DESKTOP_FILE_PID=2789</value>
+    <value type="QString">GIO_LAUNCHED_DESKTOP_FILE_PID=2927</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/run/user/1000/keyring-vV3gtv</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/run/user/1000/keyring-TRRH4X</value>
     <value type="QString">GNOME_KEYRING_PID=</value>
-    <value type="QString">GPG_AGENT_INFO=/run/user/1000/keyring-vV3gtv/gpg:0:1</value>
+    <value type="QString">GPG_AGENT_INFO=/run/user/1000/keyring-TRRH4X/gpg:0:1</value>
     <value type="QString">GTK_IM_MODULE=ibus</value>
     <value type="QString">GTK_MODULES=overlay-scrollbar:unity-gtk-module</value>
     <value type="QString">HOME=/home/jbc</value>
@@ -121,13 +121,13 @@
     <value type="QString">SELINUX_INIT=YES</value>
     <value type="QString">SESSION=ubuntu</value>
     <value type="QString">SESSIONTYPE=gnome-session</value>
-    <value type="QString">SESSION_MANAGER=local/jbc-virtual-machine:@/tmp/.ICE-unix/2074,unix/jbc-virtual-machine:/tmp/.ICE-unix/2074</value>
+    <value type="QString">SESSION_MANAGER=local/jbc-virtual-machine:@/tmp/.ICE-unix/2045,unix/jbc-virtual-machine:/tmp/.ICE-unix/2045</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=0</value>
-    <value type="QString">SSH_AUTH_SOCK=/run/user/1000/keyring-vV3gtv/ssh</value>
+    <value type="QString">SSH_AUTH_SOCK=/run/user/1000/keyring-TRRH4X/ssh</value>
     <value type="QString">TEXTDOMAIN=im-config</value>
     <value type="QString">TEXTDOMAINDIR=/usr/share/locale/</value>
-    <value type="QString">UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/1883</value>
+    <value type="QString">UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/1856</value>
     <value type="QString">USER=jbc</value>
     <value type="QString">XAUTHORITY=/home/jbc/.Xauthority</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg</value>
@@ -163,18 +163,18 @@
     <value type="QString">CLUTTER_IM_MODULE=xim</value>
     <value type="QString">COMPIZ_BIN_PATH=/usr/bin/</value>
     <value type="QString">COMPIZ_CONFIG_PROFILE=ubuntu</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-MflcfY8xMu</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-yHC4ccELuO</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path</value>
     <value type="QString">DESKTOP_SESSION=ubuntu</value>
     <value type="QString">DISPLAY=:0</value>
     <value type="QString">GDMSESSION=ubuntu</value>
     <value type="QString">GDM_LANG=en_US</value>
     <value type="QString">GIO_LAUNCHED_DESKTOP_FILE=/home/jbc/.local/share/applications/Nokia-QtCreator.desktop</value>
-    <value type="QString">GIO_LAUNCHED_DESKTOP_FILE_PID=2789</value>
+    <value type="QString">GIO_LAUNCHED_DESKTOP_FILE_PID=2927</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/run/user/1000/keyring-vV3gtv</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/run/user/1000/keyring-TRRH4X</value>
     <value type="QString">GNOME_KEYRING_PID=</value>
-    <value type="QString">GPG_AGENT_INFO=/run/user/1000/keyring-vV3gtv/gpg:0:1</value>
+    <value type="QString">GPG_AGENT_INFO=/run/user/1000/keyring-TRRH4X/gpg:0:1</value>
     <value type="QString">GTK_IM_MODULE=ibus</value>
     <value type="QString">GTK_MODULES=overlay-scrollbar:unity-gtk-module</value>
     <value type="QString">HOME=/home/jbc</value>
@@ -205,13 +205,13 @@
     <value type="QString">SELINUX_INIT=YES</value>
     <value type="QString">SESSION=ubuntu</value>
     <value type="QString">SESSIONTYPE=gnome-session</value>
-    <value type="QString">SESSION_MANAGER=local/jbc-virtual-machine:@/tmp/.ICE-unix/2074,unix/jbc-virtual-machine:/tmp/.ICE-unix/2074</value>
+    <value type="QString">SESSION_MANAGER=local/jbc-virtual-machine:@/tmp/.ICE-unix/2045,unix/jbc-virtual-machine:/tmp/.ICE-unix/2045</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=0</value>
-    <value type="QString">SSH_AUTH_SOCK=/run/user/1000/keyring-vV3gtv/ssh</value>
+    <value type="QString">SSH_AUTH_SOCK=/run/user/1000/keyring-TRRH4X/ssh</value>
     <value type="QString">TEXTDOMAIN=im-config</value>
     <value type="QString">TEXTDOMAINDIR=/usr/share/locale/</value>
-    <value type="QString">UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/1883</value>
+    <value type="QString">UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/1856</value>
     <value type="QString">USER=jbc</value>
     <value type="QString">XAUTHORITY=/home/jbc/.Xauthority</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg</value>
@@ -244,18 +244,18 @@
     <value type="QString">CLUTTER_IM_MODULE=xim</value>
     <value type="QString">COMPIZ_BIN_PATH=/usr/bin/</value>
     <value type="QString">COMPIZ_CONFIG_PROFILE=ubuntu</value>
-    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-q1PEGLGpc3</value>
+    <value type="QString">DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-yHC4ccELuO</value>
     <value type="QString">DEFAULTS_PATH=/usr/share/gconf/ubuntu.default.path</value>
     <value type="QString">DESKTOP_SESSION=ubuntu</value>
     <value type="QString">DISPLAY=:0</value>
     <value type="QString">GDMSESSION=ubuntu</value>
     <value type="QString">GDM_LANG=en_US</value>
     <value type="QString">GIO_LAUNCHED_DESKTOP_FILE=/home/jbc/.local/share/applications/Nokia-QtCreator.desktop</value>
-    <value type="QString">GIO_LAUNCHED_DESKTOP_FILE_PID=3111</value>
+    <value type="QString">GIO_LAUNCHED_DESKTOP_FILE_PID=2927</value>
     <value type="QString">GNOME_DESKTOP_SESSION_ID=this-is-deprecated</value>
-    <value type="QString">GNOME_KEYRING_CONTROL=/run/user/1000/keyring-qVNi5O</value>
+    <value type="QString">GNOME_KEYRING_CONTROL=/run/user/1000/keyring-TRRH4X</value>
     <value type="QString">GNOME_KEYRING_PID=</value>
-    <value type="QString">GPG_AGENT_INFO=/run/user/1000/keyring-qVNi5O/gpg:0:1</value>
+    <value type="QString">GPG_AGENT_INFO=/run/user/1000/keyring-TRRH4X/gpg:0:1</value>
     <value type="QString">GTK_IM_MODULE=ibus</value>
     <value type="QString">GTK_MODULES=overlay-scrollbar:unity-gtk-module</value>
     <value type="QString">HOME=/home/jbc</value>
@@ -286,13 +286,13 @@
     <value type="QString">SELINUX_INIT=YES</value>
     <value type="QString">SESSION=ubuntu</value>
     <value type="QString">SESSIONTYPE=gnome-session</value>
-    <value type="QString">SESSION_MANAGER=local/jbc-virtual-machine:@/tmp/.ICE-unix/2029,unix/jbc-virtual-machine:/tmp/.ICE-unix/2029</value>
+    <value type="QString">SESSION_MANAGER=local/jbc-virtual-machine:@/tmp/.ICE-unix/2045,unix/jbc-virtual-machine:/tmp/.ICE-unix/2045</value>
     <value type="QString">SHELL=/bin/bash</value>
     <value type="QString">SHLVL=0</value>
-    <value type="QString">SSH_AUTH_SOCK=/run/user/1000/keyring-qVNi5O/ssh</value>
+    <value type="QString">SSH_AUTH_SOCK=/run/user/1000/keyring-TRRH4X/ssh</value>
     <value type="QString">TEXTDOMAIN=im-config</value>
     <value type="QString">TEXTDOMAINDIR=/usr/share/locale/</value>
-    <value type="QString">UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/1885</value>
+    <value type="QString">UPSTART_SESSION=unix:abstract=/com/ubuntu/upstart-session/1000/1856</value>
     <value type="QString">USER=jbc</value>
     <value type="QString">XAUTHORITY=/home/jbc/.Xauthority</value>
     <value type="QString">XDG_CONFIG_DIRS=/etc/xdg/xdg-ubuntu:/usr/share/upstart/xdg:/etc/xdg</value>

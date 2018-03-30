@@ -8,20 +8,19 @@ int MISO_fd;
 int MOSI_fd;
 u8 buf[32];
 
-User_data *u;
 
 const u8 TX_ADDRESS[TX_ADR_WIDTH] = {0X34,0X43,0X10,0X10,0X01};
 const u8 RX_ADDRESS[RX_ADR_WIDTH] = {0X34,0X43,0X10,0X10,0X01};
 
-void User_data_decode(void)
-{
-    u->vm = buf[0]<<8|buf[1];
-    u->vt = buf[2];
-    u->num = buf[3];
-    u->depth = buf[4];
-    u->h_space = buf[5];
-    u->v_space = buf[6];
-}
+//void User_data_decode(void)
+//{
+//    u->vm = buf[0]<<8|buf[1];
+//    u->vt = buf[2];
+//    u->num = buf[3];
+//    u->depth = buf[4];
+//    u->h_space = buf[5];
+//    u->v_space = buf[6];
+//}
 
 static int GPIO_Configure(char* address,char* num,char* dir)
 {

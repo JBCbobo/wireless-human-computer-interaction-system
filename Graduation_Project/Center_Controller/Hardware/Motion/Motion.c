@@ -12,7 +12,6 @@ void GPIO_Configure(char* num,char* dir)
     fd = open(tmp, O_WRONLY);
     write(fd, dir , sizeof(dir));
     close(fd);
-
 }
 
 void Motion_gpio(char* num,char* value)
