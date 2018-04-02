@@ -75,27 +75,43 @@ void Dialog::changeEvent(QEvent *e)
     }
 }
 
+void Dialog::keyPressEvent(QKeyEvent *e)
+{
+    e->ignore();
+}
+
 void Dialog::Update_number(QString value)
 {
-
+    QWidget *current_focus_w = this->focusWidget(); //获取当前具有焦点的部件
+    if(current_focus_w->inherits("QLineEdit"))
+    {
+        QLineEdit * display = qobject_cast<QLineEdit*>(current_focus_w);
+        if(value == "backspace")
+        {
+            display->backspace();
+        }
+        else
+        {
+            display->setText(display->text()+value);
+        }
+    }
 }
 
 void Dialog::Getkeyvalue()
 {
     QString value = ((QPushButton * )sender())->text();//获取按键值
-    str.append(value);
-    emit Keyvalue(str);
+    emit Keyvalue(value);
 }
 
 void Dialog::on_pushButton_yes_clicked()
 {
-    Motion_gpio("80","1");
+    //Motion_gpio("80","1");
 }
 
 void Dialog::on_pushButton_no_clicked()
 {
-    ui->lineEdit->setText("OFF");
-    Motion_gpio("80","0");
+    emit Keyvalue("backspace");
+    //Motion_gpio("80","0");
 }
 
 void Dialog::Disp_Rx_value(QString str)
