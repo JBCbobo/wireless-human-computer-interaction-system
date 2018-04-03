@@ -31,6 +31,12 @@
 
 #define x 20
 
+static int     _PaintCount2;
+
+static GUI_COLOR _aColors[]={
+GUI_BLUE, GUI_YELLOW, GUI_RED, GUI_LIGHTCYAN, GUI_DARKRED, GUI_DARKRED
+};
+
 static WM_HWIN DialogWin;
 extern GUI_CONST_STORAGE GUI_BITMAP bmwireless;
 extern GUI_CONST_STORAGE GUI_BITMAP bmappstore;
@@ -143,27 +149,27 @@ static void InitDialog(WM_MESSAGE * pMsg)
 
     hItem = pMsg->hWin;
     FRAMEWIN_SetTitleVis(hItem, 0);
-    
+   
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_2);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     BUTTON_SetBitmapEx(hItem,0,&bmwireless,0,0);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_3);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     BUTTON_SetBitmapEx(hItem,0,&bmappstore,0,0);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_4);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     BUTTON_SetBitmapEx(hItem,0,&bmset,0,0);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_5);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     BUTTON_SetBitmapEx(hItem,0,&bmnotebook,0,0);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_1);
@@ -258,17 +264,17 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   case WM_PAINT:
       GUI_SetBkColor(GUI_LIGHTGRAY);
       GUI_Clear();
+      //WM_InvalidateWindow(WM_HBKWIN);
       break;      
     
   case WM_NOTIFY_PARENT:
+    WM_InvalidateWindow(WM_GetClientWindow(DialogWin));
     Id    = WM_GetId(pMsg->hWinSrc);
     NCode = pMsg->Data.v;
     switch(Id) {
     case ID_BUTTON_0: // Notifications sent by 'YES'
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
-//        hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
-//        EDIT_GetText(hItem,buf,32);
         User_data_encode(pMsg->hWin);
         NRF24L01_TX_Mode();
         if(NRF24L01_TxPacket(buf)==TX_OK)
@@ -308,7 +314,7 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 WM_HWIN CreateFramewin(void) {
     
   WM_HWIN hWin;
-  
+  BUTTON_SetDefaultSkin(BUTTON_SKIN_FLEX);
   DialogWin = GUI_CreateDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), _cbDialog, WM_HBKWIN, 0, 0);
   hWin = DialogWin;  
   WM_SetCallback(WM_HBKWIN,_cbDesktop);

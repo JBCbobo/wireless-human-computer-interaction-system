@@ -155,6 +155,7 @@ static unsigned int _GetPixelIndex(GUI_DEVICE * pDevice, int x, int y) {
     GUI_USE_PARA(y);
     {
 			PixelIndex = LCD_ReadPoint(x,y);
+            //PixelIndex = LCD_ReadPoint(x,y);
     }
     #if (LCD_MIRROR_X == 0) && (LCD_MIRROR_Y == 0) && (LCD_SWAP_XY == 0)
       #undef xPhys

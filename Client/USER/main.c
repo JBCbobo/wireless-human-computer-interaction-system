@@ -65,8 +65,10 @@ int main(void)
     HWIN = CreateFramewin();
     while(1)
     {
+
         SendKeyMsg();
         GUI_Delay(20);
+
     }
 
 }
