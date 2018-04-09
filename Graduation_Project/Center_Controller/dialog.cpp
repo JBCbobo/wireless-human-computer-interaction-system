@@ -62,7 +62,6 @@ Dialog::~Dialog()
     delete ui;
 }
 
-
 void Dialog::changeEvent(QEvent *e)
 {
     QDialog::changeEvent(e);
@@ -105,13 +104,13 @@ void Dialog::Getkeyvalue()
 
 void Dialog::on_pushButton_yes_clicked()
 {
-    //Motion_gpio("80","1");
+    QString str_time = ui->lineEdit->text();
+    time = startTimer(str_time.toInt());
 }
 
 void Dialog::on_pushButton_no_clicked()
 {
     emit Keyvalue("backspace");
-    //Motion_gpio("80","0");
 }
 
 void Dialog::Disp_Rx_value(QString str)
@@ -134,4 +133,25 @@ void Dialog::Disp_Rx_value(QString str)
         ui->lineEdit_6->setText(tmp);
     }
 
+}
+
+void Dialog::on_pushButton_cancel_clicked()
+{
+
+    killTimer(time);
+    Motion_gpio("80","0");
+}
+
+void Dialog::timerEvent(QTimerEvent *event)
+{
+
+    static char flag = 0;
+    if(event->timerId() == time)
+    {
+        flag = ~ flag;
+        if(flag == 0)
+            Motion_gpio("80","0");
+        else
+            Motion_gpio("80","1");
+    }
 }

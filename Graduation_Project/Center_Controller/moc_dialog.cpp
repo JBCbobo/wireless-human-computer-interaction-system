@@ -22,7 +22,7 @@ static const uint qt_meta_data_Dialog[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       7,   14, // methods
+       9,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -37,8 +37,10 @@ static const uint qt_meta_data_Dialog[] = {
       43,    7,    7,    7, 0x0a,
       66,    7,    7,    7, 0x0a,
       80,    7,    7,    7, 0x0a,
-     103,    7,    7,    7, 0x08,
-     130,    7,    7,    7, 0x08,
+     109,  103,    7,    7, 0x0a,
+     134,    7,    7,    7, 0x08,
+     165,    7,    7,    7, 0x08,
+     192,    7,    7,    7, 0x08,
 
        0        // eod
 };
@@ -46,7 +48,9 @@ static const uint qt_meta_data_Dialog[] = {
 static const char qt_meta_stringdata_Dialog[] = {
     "Dialog\0\0Rx_flag(QString)\0Keyvalue(QString)\0"
     "Disp_Rx_value(QString)\0Getkeyvalue()\0"
-    "Update_number(QString)\0"
+    "Update_number(QString)\0event\0"
+    "timerEvent(QTimerEvent*)\0"
+    "on_pushButton_cancel_clicked()\0"
     "on_pushButton_no_clicked()\0"
     "on_pushButton_yes_clicked()\0"
 };
@@ -62,8 +66,10 @@ void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 2: _t->Disp_Rx_value((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 3: _t->Getkeyvalue(); break;
         case 4: _t->Update_number((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 5: _t->on_pushButton_no_clicked(); break;
-        case 6: _t->on_pushButton_yes_clicked(); break;
+        case 5: _t->timerEvent((*reinterpret_cast< QTimerEvent*(*)>(_a[1]))); break;
+        case 6: _t->on_pushButton_cancel_clicked(); break;
+        case 7: _t->on_pushButton_no_clicked(); break;
+        case 8: _t->on_pushButton_yes_clicked(); break;
         default: ;
         }
     }
@@ -101,9 +107,9 @@ int Dialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 7)
+        if (_id < 9)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 7;
+        _id -= 9;
     }
     return _id;
 }

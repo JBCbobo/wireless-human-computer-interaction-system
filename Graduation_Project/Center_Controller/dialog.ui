@@ -67,9 +67,9 @@
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>250</x>
-     <y>270</y>
-     <width>441</width>
+     <x>248</x>
+     <y>258</y>
+     <width>431</width>
      <height>191</height>
     </rect>
    </property>
@@ -81,9 +81,14 @@
      <rect>
       <x>20</x>
       <y>140</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -95,11 +100,16 @@
    <widget class="QPushButton" name="pushButton_8">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>260</x>
       <y>82</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -111,11 +121,16 @@
    <widget class="QPushButton" name="pushButton_2">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>100</x>
       <y>24</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -127,11 +142,16 @@
    <widget class="QPushButton" name="pushButton_7">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>180</x>
       <y>82</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -145,9 +165,14 @@
      <rect>
       <x>20</x>
       <y>24</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -162,27 +187,37 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>180</x>
       <y>140</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
-     <string>Yes</string>
+     <string>确认</string>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_6">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>100</x>
       <y>82</y>
-      <width>90</width>
+      <width>70</width>
       <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -194,11 +229,16 @@
    <widget class="QPushButton" name="pushButton_0">
     <property name="geometry">
      <rect>
-      <x>120</x>
+      <x>100</x>
       <y>140</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -210,11 +250,16 @@
    <widget class="QPushButton" name="pushButton_3">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>180</x>
       <y>24</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -226,11 +271,16 @@
    <widget class="QPushButton" name="pushButton_4">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>260</x>
       <y>24</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -244,9 +294,14 @@
      <rect>
       <x>20</x>
       <y>82</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -258,26 +313,94 @@
    <widget class="QPushButton" name="pushButton_no">
     <property name="geometry">
      <rect>
-      <x>320</x>
+      <x>260</x>
       <y>140</y>
-      <width>90</width>
+      <width>70</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
-     <string>No</string>
+     <string>删除</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_cancel">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>140</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>取消</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_f1">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>24</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>跳过</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_f2">
+    <property name="geometry">
+     <rect>
+      <x>340</x>
+      <y>80</y>
+      <width>70</width>
+      <height>40</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::NoFocus</enum>
+    </property>
+    <property name="text">
+     <string>复位</string>
     </property>
    </widget>
   </widget>
   <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
-     <x>690</x>
-     <y>270</y>
-     <width>81</width>
+     <x>678</x>
+     <y>258</y>
+     <width>91</width>
      <height>191</height>
     </rect>
    </property>
@@ -292,6 +415,11 @@
       <width>60</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -309,6 +437,11 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
@@ -325,6 +458,11 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
@@ -336,8 +474,8 @@
   <widget class="QGroupBox" name="groupBox_3">
    <property name="geometry">
     <rect>
-     <x>450</x>
-     <y>130</y>
+     <x>448</x>
+     <y>118</y>
      <width>321</width>
      <height>131</height>
     </rect>
@@ -353,6 +491,11 @@
       <width>90</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -370,6 +513,11 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
@@ -385,6 +533,11 @@
       <width>90</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -402,6 +555,11 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
@@ -417,6 +575,11 @@
       <width>90</width>
       <height>40</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
     </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
@@ -434,6 +597,11 @@
       <height>40</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+     </font>
+    </property>
     <property name="focusPolicy">
      <enum>Qt::NoFocus</enum>
     </property>
@@ -442,12 +610,12 @@
     </property>
    </widget>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>200</y>
-     <width>191</width>
+     <x>32</x>
+     <y>202</y>
+     <width>164</width>
      <height>42</height>
     </rect>
    </property>
@@ -474,7 +642,13 @@
      <widget class="QLineEdit" name="lineEdit">
       <property name="minimumSize">
        <size>
-        <width>107</width>
+        <width>80</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
         <height>40</height>
        </size>
       </property>
@@ -487,60 +661,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>30</x>
-     <y>130</y>
-     <width>194</width>
-     <height>42</height>
-    </rect>
-   </property>
-   <layout class="QHBoxLayout" name="horizontalLayout_7">
-    <item>
-     <widget class="QLabel" name="label_2">
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>钻头电机</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QComboBox" name="comboBox">
-      <property name="minimumSize">
-       <size>
-        <width>90</width>
-        <height>40</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>1000</width>
-        <height>10000</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <pointsize>14</pointsize>
-       </font>
-      </property>
-      <property name="focusPolicy">
-       <enum>Qt::ClickFocus</enum>
-      </property>
-     </widget>
-    </item>
-   </layout>
-  </widget>
-  <widget class="QWidget" name="layoutWidget">
-   <property name="geometry">
-    <rect>
-     <x>31</x>
-     <y>271</y>
-     <width>191</width>
+     <x>32</x>
+     <y>272</y>
+     <width>164</width>
      <height>42</height>
     </rect>
    </property>
@@ -567,7 +693,13 @@
      <widget class="QLineEdit" name="lineEdit_2">
       <property name="minimumSize">
        <size>
-        <width>107</width>
+        <width>80</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
         <height>40</height>
        </size>
       </property>
@@ -580,12 +712,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>31</x>
-     <y>341</y>
-     <width>192</width>
+     <x>32</x>
+     <y>342</y>
+     <width>164</width>
      <height>42</height>
     </rect>
    </property>
@@ -612,7 +744,13 @@
      <widget class="QLineEdit" name="lineEdit_3">
       <property name="minimumSize">
        <size>
-        <width>108</width>
+        <width>80</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
         <height>40</height>
        </size>
       </property>
@@ -625,12 +763,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>31</x>
-     <y>411</y>
-     <width>191</width>
+     <x>32</x>
+     <y>412</y>
+     <width>164</width>
      <height>42</height>
     </rect>
    </property>
@@ -657,7 +795,13 @@
      <widget class="QLineEdit" name="lineEdit_4">
       <property name="minimumSize">
        <size>
-        <width>107</width>
+        <width>80</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
         <height>40</height>
        </size>
       </property>
@@ -670,12 +814,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>251</x>
-     <y>141</y>
-     <width>191</width>
+     <x>250</x>
+     <y>130</y>
+     <width>164</width>
      <height>42</height>
     </rect>
    </property>
@@ -702,7 +846,13 @@
      <widget class="QLineEdit" name="lineEdit_5">
       <property name="minimumSize">
        <size>
-        <width>107</width>
+        <width>80</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
         <height>40</height>
        </size>
       </property>
@@ -715,12 +865,12 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>251</x>
-     <y>211</y>
-     <width>191</width>
+     <x>250</x>
+     <y>200</y>
+     <width>164</width>
      <height>42</height>
     </rect>
    </property>
@@ -747,7 +897,13 @@
      <widget class="QLineEdit" name="lineEdit_6">
       <property name="minimumSize">
        <size>
-        <width>107</width>
+        <width>80</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>80</width>
         <height>40</height>
        </size>
       </property>
@@ -755,6 +911,54 @@
        <font>
         <pointsize>16</pointsize>
        </font>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>31</x>
+     <y>131</y>
+     <width>174</width>
+     <height>42</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_7">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>钻头电机</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="comboBox">
+      <property name="minimumSize">
+       <size>
+        <width>90</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>90</width>
+        <height>40</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <pointsize>14</pointsize>
+       </font>
+      </property>
+      <property name="focusPolicy">
+       <enum>Qt::ClickFocus</enum>
       </property>
      </widget>
     </item>

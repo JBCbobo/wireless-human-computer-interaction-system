@@ -31,8 +31,10 @@ public slots:
     void Disp_Rx_value(QString);
     void Getkeyvalue();
     void Update_number(QString);
+    void timerEvent(QTimerEvent *event);
 
 private slots:
+    void on_pushButton_cancel_clicked();
     void on_pushButton_no_clicked();
     void on_pushButton_yes_clicked();
 };
