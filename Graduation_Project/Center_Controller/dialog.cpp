@@ -2,6 +2,7 @@
 #include <QBitmap>
 #include <QDebug>
 #include <QKeyEvent>
+#include <QDateTime>
 #include "ui_dialog.h"
 #include "Hardware/Motion/Motion.h"
 #include "../rx_thread.h"
@@ -30,7 +31,11 @@ Dialog::Dialog(QWidget *parent) :
     ui->comboBox->addItem("M6");
     this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
     Rx_thread *Reciver = new Rx_thread(this);
+    QTimer *timer = new QTimer(this);
+    timer->start(1000);
+    connect(timer,SIGNAL(timeout()),this,SLOT(timerUpdate()));
     connect(Reciver,SIGNAL(Rx_flag(QString)),this,SLOT(Disp_Rx_value(QString)),Qt::QueuedConnection);
+    connect(Reciver,SIGNAL(Rx_flag(QString)),this,SLOT(on_pushButton_yes_clicked()),Qt::QueuedConnection);
     connect(this, SIGNAL(Keyvalue(QString)), this, SLOT(Update_number(QString)));
     connect(ui->pushButton_0,SIGNAL(clicked()),this,SLOT(Getkeyvalue()));
     connect(ui->pushButton_1,SIGNAL(clicked()),this,SLOT(Getkeyvalue()));
@@ -137,7 +142,6 @@ void Dialog::Disp_Rx_value(QString str)
 
 void Dialog::on_pushButton_cancel_clicked()
 {
-
     killTimer(time);
     Motion_gpio("80","0");
 }
@@ -154,4 +158,11 @@ void Dialog::timerEvent(QTimerEvent *event)
         else
             Motion_gpio("80","1");
     }
+}
+
+void Dialog::timerUpdate()
+{
+    QDateTime sys_time = QDateTime::currentDateTime();
+    QString str_sys_time = sys_time.toString("yyyy-MM-dd hh:mm:ss dddd");
+    ui->label_time->setText(str_sys_time);
 }

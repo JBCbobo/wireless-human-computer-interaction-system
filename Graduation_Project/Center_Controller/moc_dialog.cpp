@@ -22,7 +22,7 @@ static const uint qt_meta_data_Dialog[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      10,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -34,25 +34,26 @@ static const uint qt_meta_data_Dialog[] = {
       25,    7,    7,    7, 0x05,
 
  // slots: signature, parameters, type, tag, flags
-      43,    7,    7,    7, 0x0a,
-      66,    7,    7,    7, 0x0a,
-      80,    7,    7,    7, 0x0a,
-     109,  103,    7,    7, 0x0a,
-     134,    7,    7,    7, 0x08,
-     165,    7,    7,    7, 0x08,
-     192,    7,    7,    7, 0x08,
+      43,    7,    7,    7, 0x08,
+      74,    7,    7,    7, 0x08,
+     101,    7,    7,    7, 0x08,
+     129,    7,    7,    7, 0x08,
+     152,    7,    7,    7, 0x08,
+     166,    7,    7,    7, 0x08,
+     195,  189,    7,    7, 0x08,
+     220,    7,    7,    7, 0x08,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Dialog[] = {
     "Dialog\0\0Rx_flag(QString)\0Keyvalue(QString)\0"
-    "Disp_Rx_value(QString)\0Getkeyvalue()\0"
-    "Update_number(QString)\0event\0"
-    "timerEvent(QTimerEvent*)\0"
     "on_pushButton_cancel_clicked()\0"
     "on_pushButton_no_clicked()\0"
     "on_pushButton_yes_clicked()\0"
+    "Disp_Rx_value(QString)\0Getkeyvalue()\0"
+    "Update_number(QString)\0event\0"
+    "timerEvent(QTimerEvent*)\0timerUpdate()\0"
 };
 
 void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -63,13 +64,14 @@ void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         switch (_id) {
         case 0: _t->Rx_flag((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 1: _t->Keyvalue((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 2: _t->Disp_Rx_value((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 3: _t->Getkeyvalue(); break;
-        case 4: _t->Update_number((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 5: _t->timerEvent((*reinterpret_cast< QTimerEvent*(*)>(_a[1]))); break;
-        case 6: _t->on_pushButton_cancel_clicked(); break;
-        case 7: _t->on_pushButton_no_clicked(); break;
-        case 8: _t->on_pushButton_yes_clicked(); break;
+        case 2: _t->on_pushButton_cancel_clicked(); break;
+        case 3: _t->on_pushButton_no_clicked(); break;
+        case 4: _t->on_pushButton_yes_clicked(); break;
+        case 5: _t->Disp_Rx_value((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 6: _t->Getkeyvalue(); break;
+        case 7: _t->Update_number((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 8: _t->timerEvent((*reinterpret_cast< QTimerEvent*(*)>(_a[1]))); break;
+        case 9: _t->timerUpdate(); break;
         default: ;
         }
     }
@@ -107,9 +109,9 @@ int Dialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 10)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 10;
     }
     return _id;
 }

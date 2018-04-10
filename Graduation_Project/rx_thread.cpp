@@ -23,9 +23,5 @@ void Rx_thread::timerEvent(QTimerEvent *event)
         {
             emit Rx_flag("success");
         }
-        else
-        {
-            emit Rx_flag("failed");
-        }
     }
 }

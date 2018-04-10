@@ -57,34 +57,35 @@ public:
     QPushButton *pushButton_14;
     QPushButton *pushButton_15;
     QPushButton *pushButton_18;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QHBoxLayout *horizontalLayout;
     QLabel *label;
     QLineEdit *lineEdit;
-    QWidget *widget1;
+    QWidget *layoutWidget1;
     QHBoxLayout *horizontalLayout_2;
     QLabel *label_5;
     QLineEdit *lineEdit_2;
-    QWidget *widget2;
+    QWidget *layoutWidget2;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_6;
     QLineEdit *lineEdit_3;
-    QWidget *widget3;
+    QWidget *layoutWidget3;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_7;
     QLineEdit *lineEdit_4;
-    QWidget *widget4;
+    QWidget *layoutWidget4;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label_8;
     QLineEdit *lineEdit_5;
-    QWidget *widget5;
+    QWidget *layoutWidget5;
     QHBoxLayout *horizontalLayout_6;
     QLabel *label_9;
     QLineEdit *lineEdit_6;
-    QWidget *widget6;
+    QWidget *layoutWidget6;
     QHBoxLayout *horizontalLayout_7;
     QLabel *label_2;
     QComboBox *comboBox;
+    QLabel *label_time;
 
     void setupUi(QDialog *Dialog)
     {
@@ -100,7 +101,7 @@ public:
         Dialog->setContextMenuPolicy(Qt::NoContextMenu);
         label_3 = new QLabel(Dialog);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(180, 10, 371, 71));
+        label_3->setGeometry(QRect(40, 10, 371, 71));
         QFont font1;
         font1.setPointSize(28);
         label_3->setFont(font1);
@@ -240,15 +241,15 @@ public:
         pushButton_18->setGeometry(QRect(220, 80, 90, 40));
         pushButton_18->setFont(font2);
         pushButton_18->setFocusPolicy(Qt::NoFocus);
-        widget = new QWidget(Dialog);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(32, 202, 164, 42));
-        horizontalLayout = new QHBoxLayout(widget);
+        layoutWidget = new QWidget(Dialog);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(32, 202, 164, 42));
+        horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(0, 0, 0, 0);
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
         label->setMaximumSize(QSize(16777215, 49));
         QFont font3;
@@ -257,7 +258,7 @@ public:
 
         horizontalLayout->addWidget(label);
 
-        lineEdit = new QLineEdit(widget);
+        lineEdit = new QLineEdit(layoutWidget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
         lineEdit->setMinimumSize(QSize(80, 40));
         lineEdit->setMaximumSize(QSize(80, 40));
@@ -267,22 +268,22 @@ public:
 
         horizontalLayout->addWidget(lineEdit);
 
-        widget1 = new QWidget(Dialog);
-        widget1->setObjectName(QString::fromUtf8("widget1"));
-        widget1->setGeometry(QRect(32, 272, 164, 42));
-        horizontalLayout_2 = new QHBoxLayout(widget1);
+        layoutWidget1 = new QWidget(Dialog);
+        layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
+        layoutWidget1->setGeometry(QRect(32, 272, 164, 42));
+        horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_5 = new QLabel(widget1);
+        label_5 = new QLabel(layoutWidget1);
         label_5->setObjectName(QString::fromUtf8("label_5"));
         label_5->setMaximumSize(QSize(16777215, 49));
         label_5->setFont(font3);
 
         horizontalLayout_2->addWidget(label_5);
 
-        lineEdit_2 = new QLineEdit(widget1);
+        lineEdit_2 = new QLineEdit(layoutWidget1);
         lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
         lineEdit_2->setMinimumSize(QSize(80, 40));
         lineEdit_2->setMaximumSize(QSize(80, 40));
@@ -290,22 +291,22 @@ public:
 
         horizontalLayout_2->addWidget(lineEdit_2);
 
-        widget2 = new QWidget(Dialog);
-        widget2->setObjectName(QString::fromUtf8("widget2"));
-        widget2->setGeometry(QRect(32, 342, 164, 42));
-        horizontalLayout_3 = new QHBoxLayout(widget2);
+        layoutWidget2 = new QWidget(Dialog);
+        layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
+        layoutWidget2->setGeometry(QRect(32, 342, 164, 42));
+        horizontalLayout_3 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         horizontalLayout_3->setContentsMargins(0, 0, 0, 0);
-        label_6 = new QLabel(widget2);
+        label_6 = new QLabel(layoutWidget2);
         label_6->setObjectName(QString::fromUtf8("label_6"));
         label_6->setMaximumSize(QSize(16777215, 49));
         label_6->setFont(font3);
 
         horizontalLayout_3->addWidget(label_6);
 
-        lineEdit_3 = new QLineEdit(widget2);
+        lineEdit_3 = new QLineEdit(layoutWidget2);
         lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
         lineEdit_3->setMinimumSize(QSize(80, 40));
         lineEdit_3->setMaximumSize(QSize(80, 40));
@@ -313,22 +314,22 @@ public:
 
         horizontalLayout_3->addWidget(lineEdit_3);
 
-        widget3 = new QWidget(Dialog);
-        widget3->setObjectName(QString::fromUtf8("widget3"));
-        widget3->setGeometry(QRect(32, 412, 164, 42));
-        horizontalLayout_4 = new QHBoxLayout(widget3);
+        layoutWidget3 = new QWidget(Dialog);
+        layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
+        layoutWidget3->setGeometry(QRect(32, 412, 164, 42));
+        horizontalLayout_4 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         horizontalLayout_4->setContentsMargins(0, 0, 0, 0);
-        label_7 = new QLabel(widget3);
+        label_7 = new QLabel(layoutWidget3);
         label_7->setObjectName(QString::fromUtf8("label_7"));
         label_7->setMaximumSize(QSize(16777215, 49));
         label_7->setFont(font3);
 
         horizontalLayout_4->addWidget(label_7);
 
-        lineEdit_4 = new QLineEdit(widget3);
+        lineEdit_4 = new QLineEdit(layoutWidget3);
         lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
         lineEdit_4->setMinimumSize(QSize(80, 40));
         lineEdit_4->setMaximumSize(QSize(80, 40));
@@ -336,22 +337,22 @@ public:
 
         horizontalLayout_4->addWidget(lineEdit_4);
 
-        widget4 = new QWidget(Dialog);
-        widget4->setObjectName(QString::fromUtf8("widget4"));
-        widget4->setGeometry(QRect(250, 130, 164, 42));
-        horizontalLayout_5 = new QHBoxLayout(widget4);
+        layoutWidget4 = new QWidget(Dialog);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(250, 130, 164, 42));
+        horizontalLayout_5 = new QHBoxLayout(layoutWidget4);
         horizontalLayout_5->setSpacing(6);
         horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_8 = new QLabel(widget4);
+        label_8 = new QLabel(layoutWidget4);
         label_8->setObjectName(QString::fromUtf8("label_8"));
         label_8->setMaximumSize(QSize(16777215, 49));
         label_8->setFont(font3);
 
         horizontalLayout_5->addWidget(label_8);
 
-        lineEdit_5 = new QLineEdit(widget4);
+        lineEdit_5 = new QLineEdit(layoutWidget4);
         lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
         lineEdit_5->setMinimumSize(QSize(80, 40));
         lineEdit_5->setMaximumSize(QSize(80, 40));
@@ -359,22 +360,22 @@ public:
 
         horizontalLayout_5->addWidget(lineEdit_5);
 
-        widget5 = new QWidget(Dialog);
-        widget5->setObjectName(QString::fromUtf8("widget5"));
-        widget5->setGeometry(QRect(250, 200, 164, 42));
-        horizontalLayout_6 = new QHBoxLayout(widget5);
+        layoutWidget5 = new QWidget(Dialog);
+        layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
+        layoutWidget5->setGeometry(QRect(250, 200, 164, 42));
+        horizontalLayout_6 = new QHBoxLayout(layoutWidget5);
         horizontalLayout_6->setSpacing(6);
         horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
         horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(widget5);
+        label_9 = new QLabel(layoutWidget5);
         label_9->setObjectName(QString::fromUtf8("label_9"));
         label_9->setMaximumSize(QSize(16777215, 49));
         label_9->setFont(font3);
 
         horizontalLayout_6->addWidget(label_9);
 
-        lineEdit_6 = new QLineEdit(widget5);
+        lineEdit_6 = new QLineEdit(layoutWidget5);
         lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
         lineEdit_6->setMinimumSize(QSize(80, 40));
         lineEdit_6->setMaximumSize(QSize(80, 40));
@@ -382,21 +383,21 @@ public:
 
         horizontalLayout_6->addWidget(lineEdit_6);
 
-        widget6 = new QWidget(Dialog);
-        widget6->setObjectName(QString::fromUtf8("widget6"));
-        widget6->setGeometry(QRect(31, 131, 174, 42));
-        horizontalLayout_7 = new QHBoxLayout(widget6);
+        layoutWidget6 = new QWidget(Dialog);
+        layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
+        layoutWidget6->setGeometry(QRect(31, 131, 174, 42));
+        horizontalLayout_7 = new QHBoxLayout(layoutWidget6);
         horizontalLayout_7->setSpacing(6);
         horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
         horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(widget6);
+        label_2 = new QLabel(layoutWidget6);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         label_2->setFont(font3);
 
         horizontalLayout_7->addWidget(label_2);
 
-        comboBox = new QComboBox(widget6);
+        comboBox = new QComboBox(layoutWidget6);
         comboBox->setObjectName(QString::fromUtf8("comboBox"));
         comboBox->setMinimumSize(QSize(90, 40));
         comboBox->setMaximumSize(QSize(90, 40));
@@ -405,6 +406,10 @@ public:
 
         horizontalLayout_7->addWidget(comboBox);
 
+        label_time = new QLabel(Dialog);
+        label_time->setObjectName(QString::fromUtf8("label_time"));
+        label_time->setGeometry(QRect(460, 30, 211, 31));
+        label_time->setFont(font4);
         QWidget::setTabOrder(comboBox, pushButton_1);
         QWidget::setTabOrder(pushButton_1, pushButton_2);
         QWidget::setTabOrder(pushButton_2, pushButton_3);
@@ -471,6 +476,7 @@ public:
         label_8->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\351\227\264\350\267\235", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\350\241\214\350\267\235", 0, QApplication::UnicodeUTF8));
         label_2->setText(QApplication::translate("Dialog", "\351\222\273\345\244\264\347\224\265\346\234\272", 0, QApplication::UnicodeUTF8));
+        label_time->setText(QApplication::translate("Dialog", "timer", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
