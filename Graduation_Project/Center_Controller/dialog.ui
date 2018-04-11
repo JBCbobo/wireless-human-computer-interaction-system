@@ -391,7 +391,7 @@
      <enum>Qt::NoFocus</enum>
     </property>
     <property name="text">
-     <string>复位</string>
+     <string>开始</string>
     </property>
    </widget>
   </widget>
@@ -657,6 +657,15 @@
         <pointsize>16</pointsize>
        </font>
       </property>
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="maxLength">
+       <number>3</number>
+      </property>
      </widget>
     </item>
    </layout>
@@ -707,6 +716,9 @@
        <font>
         <pointsize>16</pointsize>
        </font>
+      </property>
+      <property name="maxLength">
+       <number>3</number>
       </property>
      </widget>
     </item>
@@ -759,6 +771,12 @@
         <pointsize>16</pointsize>
        </font>
       </property>
+      <property name="inputMask">
+       <string/>
+      </property>
+      <property name="maxLength">
+       <number>3</number>
+      </property>
      </widget>
     </item>
    </layout>
@@ -809,6 +827,9 @@
        <font>
         <pointsize>16</pointsize>
        </font>
+      </property>
+      <property name="maxLength">
+       <number>3</number>
       </property>
      </widget>
     </item>
@@ -861,6 +882,9 @@
         <pointsize>16</pointsize>
        </font>
       </property>
+      <property name="maxLength">
+       <number>3</number>
+      </property>
      </widget>
     </item>
    </layout>
@@ -911,6 +935,9 @@
        <font>
         <pointsize>16</pointsize>
        </font>
+      </property>
+      <property name="maxLength">
+       <number>3</number>
       </property>
      </widget>
     </item>
@@ -967,9 +994,9 @@
   <widget class="QLabel" name="label_time">
    <property name="geometry">
     <rect>
-     <x>460</x>
+     <x>440</x>
      <y>30</y>
-     <width>211</width>
+     <width>241</width>
      <height>31</height>
     </rect>
    </property>

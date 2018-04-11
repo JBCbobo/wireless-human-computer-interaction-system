@@ -3,6 +3,7 @@
 #include <QDebug>
 #include <QKeyEvent>
 #include <QDateTime>
+#include <QValidator>
 #include "ui_dialog.h"
 #include "Hardware/Motion/Motion.h"
 #include "../rx_thread.h"
@@ -16,27 +17,31 @@ Dialog::Dialog(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    QValidator *validator = new QIntValidator(-1,255,this);
+
+    QValidator *validator = new QIntValidator(0,255,this);
     ui->lineEdit->setValidator(validator);
     ui->lineEdit_2->setValidator(validator);
     ui->lineEdit_3->setValidator(validator);
     ui->lineEdit_4->setValidator(validator);
     ui->lineEdit_5->setValidator(validator);
     ui->lineEdit_6->setValidator(validator);
+
     ui->comboBox->addItem("M1");
     ui->comboBox->addItem("M2");
     ui->comboBox->addItem("M3");
     ui->comboBox->addItem("M4");
     ui->comboBox->addItem("M5");
     ui->comboBox->addItem("M6");
-    this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
+   this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
     Rx_thread *Reciver = new Rx_thread(this);
     QTimer *timer = new QTimer(this);
     timer->start(1000);
     connect(timer,SIGNAL(timeout()),this,SLOT(timerUpdate()));
     connect(Reciver,SIGNAL(Rx_flag(QString)),this,SLOT(Disp_Rx_value(QString)),Qt::QueuedConnection);
-    connect(Reciver,SIGNAL(Rx_flag(QString)),this,SLOT(on_pushButton_yes_clicked()),Qt::QueuedConnection);
+    connect(Reciver,SIGNAL(Rx_flag(QString)),this,SLOT(on_pushButton_f2_clicked()),Qt::QueuedConnection);
+    connect(Reciver,SIGNAL(Motion_stop()),this,SLOT(on_pushButton_cancel_clicked()),Qt::QueuedConnection);
     connect(this, SIGNAL(Keyvalue(QString)), this, SLOT(Update_number(QString)));
+
     connect(ui->pushButton_0,SIGNAL(clicked()),this,SLOT(Getkeyvalue()));
     connect(ui->pushButton_1,SIGNAL(clicked()),this,SLOT(Getkeyvalue()));
     connect(ui->pushButton_2,SIGNAL(clicked()),this,SLOT(Getkeyvalue()));
@@ -47,6 +52,7 @@ Dialog::Dialog(QWidget *parent) :
     connect(ui->pushButton_7,SIGNAL(clicked()),this,SLOT(Getkeyvalue()));
     connect(ui->pushButton_8,SIGNAL(clicked()),this,SLOT(Getkeyvalue()));
     connect(ui->pushButton_9,SIGNAL(clicked()),this,SLOT(Getkeyvalue()));
+
     GPIO_Configure("80","out");
     NRF24L01_Init();
     if(NRF24L01_check())
@@ -109,8 +115,16 @@ void Dialog::Getkeyvalue()
 
 void Dialog::on_pushButton_yes_clicked()
 {
-    QString str_time = ui->lineEdit->text();
-    time = startTimer(str_time.toInt());
+
+    buf[3] = (u8)ui->comboBox->currentIndex();
+    buf[4] = (u8)ui->lineEdit->text().toInt();
+    buf[5] = (u8)ui->lineEdit_2->text().toInt();
+    buf[6] = (u8)ui->lineEdit_3->text().toInt();
+    buf[7] = (u8)ui->lineEdit_4->text().toInt();
+    buf[8] = (u8)ui->lineEdit_5->text().toInt();
+    buf[9] = (u8)ui->lineEdit_6->text().toInt();
+    NRF24L01_TX_Mode();
+    NRF24L01_TxPacket(buf);
 }
 
 void Dialog::on_pushButton_no_clicked()
@@ -123,18 +137,18 @@ void Dialog::Disp_Rx_value(QString str)
     char tmp[10];
     if(str=="success")
     {
-        ui->comboBox->setCurrentIndex(buf[0]);
-        sprintf(tmp,"%u",buf[1]);
-        ui->lineEdit->setText(tmp);
-        sprintf(tmp,"%u",buf[2]);
-        ui->lineEdit_2->setText(tmp);
-        sprintf(tmp,"%u",buf[3]);
-        ui->lineEdit_3->setText(tmp);
+        ui->comboBox->setCurrentIndex(buf[3]);
         sprintf(tmp,"%u",buf[4]);
-        ui->lineEdit_4->setText(tmp);
+        ui->lineEdit->setText(tmp);
         sprintf(tmp,"%u",buf[5]);
-        ui->lineEdit_5->setText(tmp);
+        ui->lineEdit_2->setText(tmp);
         sprintf(tmp,"%u",buf[6]);
+        ui->lineEdit_3->setText(tmp);
+        sprintf(tmp,"%u",buf[7]);
+        ui->lineEdit_4->setText(tmp);
+        sprintf(tmp,"%u",buf[8]);
+        ui->lineEdit_5->setText(tmp);
+        sprintf(tmp,"%u",buf[9]);
         ui->lineEdit_6->setText(tmp);
     }
 
@@ -165,4 +179,10 @@ void Dialog::timerUpdate()
     QDateTime sys_time = QDateTime::currentDateTime();
     QString str_sys_time = sys_time.toString("yyyy-MM-dd hh:mm:ss dddd");
     ui->label_time->setText(str_sys_time);
+}
+
+void Dialog::on_pushButton_f2_clicked()
+{
+    QString str_time = ui->lineEdit->text();
+    time = startTimer(str_time.toInt());
 }

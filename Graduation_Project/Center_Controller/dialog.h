@@ -16,7 +16,7 @@ public:
 
 protected:
     void changeEvent(QEvent *e);
-    void keyPressEvent(QKeyEvent *e);
+    void keyPressEvent(QKeyEvent *);
 
 private:
     Ui::Dialog *ui;
@@ -25,9 +25,12 @@ private:
 
 signals:
     void Rx_flag(QString);
+    void Motion_stop();
     void Keyvalue(QString);
 
-private slots:
+
+public slots:
+    void on_pushButton_f2_clicked();
     void on_pushButton_cancel_clicked();
     void on_pushButton_no_clicked();
     void on_pushButton_yes_clicked();

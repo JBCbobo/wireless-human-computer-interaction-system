@@ -265,6 +265,8 @@ public:
         QFont font4;
         font4.setPointSize(16);
         lineEdit->setFont(font4);
+        lineEdit->setFocusPolicy(Qt::StrongFocus);
+        lineEdit->setMaxLength(3);
 
         horizontalLayout->addWidget(lineEdit);
 
@@ -288,6 +290,7 @@ public:
         lineEdit_2->setMinimumSize(QSize(80, 40));
         lineEdit_2->setMaximumSize(QSize(80, 40));
         lineEdit_2->setFont(font4);
+        lineEdit_2->setMaxLength(3);
 
         horizontalLayout_2->addWidget(lineEdit_2);
 
@@ -311,6 +314,7 @@ public:
         lineEdit_3->setMinimumSize(QSize(80, 40));
         lineEdit_3->setMaximumSize(QSize(80, 40));
         lineEdit_3->setFont(font4);
+        lineEdit_3->setMaxLength(3);
 
         horizontalLayout_3->addWidget(lineEdit_3);
 
@@ -334,6 +338,7 @@ public:
         lineEdit_4->setMinimumSize(QSize(80, 40));
         lineEdit_4->setMaximumSize(QSize(80, 40));
         lineEdit_4->setFont(font4);
+        lineEdit_4->setMaxLength(3);
 
         horizontalLayout_4->addWidget(lineEdit_4);
 
@@ -357,6 +362,7 @@ public:
         lineEdit_5->setMinimumSize(QSize(80, 40));
         lineEdit_5->setMaximumSize(QSize(80, 40));
         lineEdit_5->setFont(font4);
+        lineEdit_5->setMaxLength(3);
 
         horizontalLayout_5->addWidget(lineEdit_5);
 
@@ -380,6 +386,7 @@ public:
         lineEdit_6->setMinimumSize(QSize(80, 40));
         lineEdit_6->setMaximumSize(QSize(80, 40));
         lineEdit_6->setFont(font4);
+        lineEdit_6->setMaxLength(3);
 
         horizontalLayout_6->addWidget(lineEdit_6);
 
@@ -408,7 +415,7 @@ public:
 
         label_time = new QLabel(Dialog);
         label_time->setObjectName(QString::fromUtf8("label_time"));
-        label_time->setGeometry(QRect(460, 30, 211, 31));
+        label_time->setGeometry(QRect(440, 30, 241, 31));
         label_time->setFont(font4);
         QWidget::setTabOrder(comboBox, pushButton_1);
         QWidget::setTabOrder(pushButton_1, pushButton_2);
@@ -457,7 +464,7 @@ public:
         pushButton_no->setText(QApplication::translate("Dialog", "\345\210\240\351\231\244", 0, QApplication::UnicodeUTF8));
         pushButton_cancel->setText(QApplication::translate("Dialog", "\345\217\226\346\266\210", 0, QApplication::UnicodeUTF8));
         pushButton_f1->setText(QApplication::translate("Dialog", "\350\267\263\350\277\207", 0, QApplication::UnicodeUTF8));
-        pushButton_f2->setText(QApplication::translate("Dialog", "\345\244\215\344\275\215", 0, QApplication::UnicodeUTF8));
+        pushButton_f2->setText(QApplication::translate("Dialog", "\345\274\200\345\247\213", 0, QApplication::UnicodeUTF8));
         groupBox_2->setTitle(QApplication::translate("Dialog", "\351\222\273\345\255\224\347\261\273\345\236\213", 0, QApplication::UnicodeUTF8));
         pushButton_21->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224", 0, QApplication::UnicodeUTF8));
         pushButton_19->setText(QApplication::translate("Dialog", "\345\256\232\344\275\215", 0, QApplication::UnicodeUTF8));
@@ -470,8 +477,10 @@ public:
         pushButton_15->setText(QApplication::translate("Dialog", "\345\267\245\344\273\266\345\217\263\350\275\254", 0, QApplication::UnicodeUTF8));
         pushButton_18->setText(QApplication::translate("Dialog", "\345\217\263\350\275\254\347\273\206\350\260\203", 0, QApplication::UnicodeUTF8));
         label->setText(QApplication::translate("Dialog", "\350\275\254\345\212\250\351\200\237\345\272\246", 0, QApplication::UnicodeUTF8));
+        lineEdit->setInputMask(QString());
         label_5->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\351\200\237\345\272\246", 0, QApplication::UnicodeUTF8));
         label_6->setText(QApplication::translate("Dialog", "\346\211\223\345\255\224\346\254\241\346\225\260", 0, QApplication::UnicodeUTF8));
+        lineEdit_3->setInputMask(QString());
         label_7->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\346\267\261\345\272\246", 0, QApplication::UnicodeUTF8));
         label_8->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\351\227\264\350\267\235", 0, QApplication::UnicodeUTF8));
         label_9->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\350\241\214\350\267\235", 0, QApplication::UnicodeUTF8));

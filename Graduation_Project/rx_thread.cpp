@@ -21,7 +21,8 @@ void Rx_thread::timerEvent(QTimerEvent *event)
         NRF24L01_RX_Mode();
         if(!NRF24L01_RxPacket((unsigned char*)buf))
         {
-            emit Rx_flag("success");
+            if(buf[0]==0) emit Rx_flag("success");
+            else emit Motion_stop();
         }
     }
 }
