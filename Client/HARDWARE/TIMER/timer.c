@@ -1,6 +1,8 @@
 #include "timer.h"
 #include "GUI.h"
+#include "24l01.h"
 #include "key.h"
+#include "FramewinDLG.h"
 #include "usart.h"
 
 //////////////////////////////////////////////////////////////////////////////////	 
@@ -86,6 +88,35 @@ void TIM6_IRQHandler(void)
 	TIM_ClearITPendingBit(TIM6,TIM_IT_Update); //清除中断标志位
 }
 
+void TIM2_Int_Init(u16 arr,u16 psc)
+{
+	TIM_TimeBaseInitTypeDef	TIM_TimeBaseInitStructure;
+	NVIC_InitTypeDef NVIC_InitStructure;
+	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2,ENABLE);//开启TIM3时钟 
 
+	TIM_TimeBaseInitStructure.TIM_Prescaler=psc;   //分频值
+	TIM_TimeBaseInitStructure.TIM_CounterMode=TIM_CounterMode_Up;	   //计数模式
+	TIM_TimeBaseInitStructure.TIM_Period=arr;		   //自动重装数值
+	TIM_TimeBaseInitStructure.TIM_ClockDivision=TIM_CKD_DIV1;  //设置时钟分割
+	TIM_TimeBaseInit(TIM2,&TIM_TimeBaseInitStructure);
+	TIM_ITConfig(TIM2,TIM_IT_Update,ENABLE);//允许更新中断
+
+	NVIC_InitStructure.NVIC_IRQChannel=TIM2_IRQn;
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority=2;
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority=3;
+	NVIC_InitStructure.NVIC_IRQChannelCmd=ENABLE;
+	NVIC_Init(&NVIC_InitStructure);
+
+	TIM_Cmd(TIM2,ENABLE);		  //使能TIM3
+}
+
+void TIM2_IRQHandler(void)
+{
+	if(TIM_GetITStatus(TIM2,TIM_IT_Update)!=RESET)
+	{
+        _SendMsg();
+	}
+	TIM_ClearITPendingBit(TIM2,TIM_IT_Update); //清除中断标志位
+}
 
 

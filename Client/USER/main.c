@@ -43,6 +43,7 @@ int main(void)
  	TP_Init();				//触摸屏初始化
 	TIM3_Int_Init(999,71);	//1KHZ 定时器1ms 
 	TIM6_Int_Init(999,719);	//10ms中断
+    TIM2_Int_Init(4999,71);    //500ms中断
 	mem_init(); 			//初始化内部内存池
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_CRC,ENABLE);//使能CRC时钟，否则STemWin不能使用 
 	WM_SetCreateFlags(WM_CF_MEMDEV);
@@ -65,7 +66,6 @@ int main(void)
     HWIN = CreateFramewin();
     while(1)
     {
-
         SendKeyMsg();
         GUI_Delay(20);
 

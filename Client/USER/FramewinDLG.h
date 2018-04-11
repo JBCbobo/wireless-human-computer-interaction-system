@@ -4,7 +4,7 @@
 #include "DIALOG.h"
 
 
-#define MSG_KEY_DOWN (WM_USER + 5)
+#define MSG_UPDATE_DATA (WM_USER + 5)
 
 
 #define ID_FRAMEWIN_0 (GUI_ID_USER + 0x00)
@@ -32,5 +32,6 @@
 
 
 WM_HWIN CreateFramewin(void);
+void _SendMsg(void);
 
 #endif

@@ -27,15 +27,7 @@
 #include "EmWinHZFont.h"
 #include "FramewinDLG.h"
 
-
-
 #define x 20
-
-static int     _PaintCount2;
-
-static GUI_COLOR _aColors[]={
-GUI_BLUE, GUI_YELLOW, GUI_RED, GUI_LIGHTCYAN, GUI_DARKRED, GUI_DARKRED
-};
 
 static WM_HWIN DialogWin;
 extern GUI_CONST_STORAGE GUI_BITMAP bmwireless;
@@ -55,7 +47,8 @@ typedef struct User_data
 }User_data;
 
 User_data *u;
-uint8_t buf[32];
+
+u8 buf[32];
 /*********************************************************************
 *
 *       _aDialogCreate
@@ -63,7 +56,7 @@ uint8_t buf[32];
 static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { FRAMEWIN_CreateIndirect, "Framewin", ID_FRAMEWIN_0, 0, 0, 240, 320, 0, 0x0, 0 },
   
-  { DROPDOWN_CreateIndirect, "Dropdown", ID_DROPDOWN_0, 90, 67-x, 60, 50, 0, 0x64, 0 },
+  { DROPDOWN_CreateIndirect, "Dropdown", ID_DROPDOWN_0, 90, 87-x, 60, 50, 0, 0x64, 0 },
   { EDIT_CreateIndirect, "Edit", ID_EDIT_0, 90, 119-x, 60, 20, 0, 0x64, 0 },
   { EDIT_CreateIndirect, "Edit", ID_EDIT_1, 90, 151-x, 60, 20, 0, 0x64, 0 },
   { EDIT_CreateIndirect, "Edit", ID_EDIT_2, 90, 183-x, 60, 20, 0, 0x64, 0 },
@@ -73,7 +66,7 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
    
   
   { TEXT_CreateIndirect, "手持钻床控制器", ID_TEXT_1, 10, 10, 180, 40, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "钻头电机", ID_TEXT_0, 13, 67-x, 80, 20, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "钻头电机", ID_TEXT_0, 13, 87-x, 80, 20, 0, 0x0, 0 },
   { TEXT_CreateIndirect, "转动速度", ID_TEXT_2, 13, 119-x, 80, 20, 0, 0x0, 0 },
   { TEXT_CreateIndirect, "钻孔速度", ID_TEXT_3, 13, 151-x, 80, 20, 0, 0x0, 0 },
   { TEXT_CreateIndirect, "打孔次数", ID_TEXT_4, 13, 183-x, 80, 20, 0, 0x0, 0 },
@@ -83,23 +76,38 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   
   { BUTTON_CreateIndirect, "YES", ID_BUTTON_0, 13, 295, 60, 20, 0, 0x0, 0 },
   { BUTTON_CreateIndirect, "NO", ID_BUTTON_1, 83, 295, 60, 20, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "", ID_BUTTON_2, 170, 40, 60, 60, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "", ID_BUTTON_3, 170, 110, 60, 60, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "", ID_BUTTON_4, 170, 180, 60, 60, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "", ID_BUTTON_5, 170, 250, 60, 60, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "", ID_BUTTON_2, 170, 60, 60, 60, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "", ID_BUTTON_3, 170, 150, 60, 60, 0, 0x0, 0 },
+  { BUTTON_CreateIndirect, "", ID_BUTTON_4, 170, 240, 60, 60, 0, 0x0, 0 },
   
 };
 
-void _SendMsg(char *pStr)
+void _SendMsg(void)
 {
     WM_MESSAGE Message;
-    Message.MsgId =  MSG_KEY_DOWN;
-    Message.Data.p = pStr;
-    WM_SendMessage(WM_GetClientWindow(DialogWin),&Message);
-    WM_InvalidateWindow(DialogWin);  
+    Message.MsgId =  MSG_UPDATE_DATA;
+    WM_SendMessage(WM_GetClientWindow(DialogWin),&Message); 
 }
 
-static int Get_widget_value(GUI_HWIN hWin,int id)
+static void Set_widget_value(GUI_HWIN hWin,int id,u8 value)
+{
+    char tmp[10];
+    WM_HWIN hItem;
+    WM_CALLBACK *pCb;
+    hItem = WM_GetDialogItem(hWin, id);
+    pCb = WM_GetCallback(hItem);
+    if(pCb == DROPDOWN_Callback)
+    {    
+         DROPDOWN_SetSel(hItem,value);
+    }
+    else if(pCb == EDIT_Callback)
+    {
+        sprintf(tmp,"%u",value);
+        EDIT_SetText(hItem,tmp);
+    }
+}
+
+static u8 Get_widget_value(GUI_HWIN hWin,int id)
 {
     char tmp[10];
     WM_HWIN hItem;
@@ -113,20 +121,32 @@ static int Get_widget_value(GUI_HWIN hWin,int id)
     else if(pCb == EDIT_Callback)
     {
         EDIT_GetText(hItem,tmp,10);
-        return atoi(tmp);
+        return (u8)atoi(tmp);
     }
-    
 }
 
 void User_data_encode(GUI_HWIN hwin)
 {
-    buf[0] = Get_widget_value(hwin,ID_DROPDOWN_0);
-    buf[1] = Get_widget_value(hwin,ID_EDIT_0);
-    buf[2] = Get_widget_value(hwin,ID_EDIT_1);
-    buf[3] = Get_widget_value(hwin,ID_EDIT_2);
-    buf[4] = Get_widget_value(hwin,ID_EDIT_3);
-    buf[5] = Get_widget_value(hwin,ID_EDIT_4);
-    buf[6] = Get_widget_value(hwin,ID_EDIT_5); 
+    buf[1] = 0;
+    buf[2] = 0;
+    buf[3] = Get_widget_value(hwin,ID_DROPDOWN_0);
+    buf[4] = Get_widget_value(hwin,ID_EDIT_0);
+    buf[5] = Get_widget_value(hwin,ID_EDIT_1);
+    buf[6] = Get_widget_value(hwin,ID_EDIT_2);
+    buf[7] = Get_widget_value(hwin,ID_EDIT_3);
+    buf[8] = Get_widget_value(hwin,ID_EDIT_4);
+    buf[9] = Get_widget_value(hwin,ID_EDIT_5); 
+}
+
+void User_data_decode(GUI_HWIN hwin)
+{
+    Set_widget_value(hwin,ID_DROPDOWN_0,buf[3]);
+    Set_widget_value(hwin,ID_EDIT_0,buf[4]);
+    Set_widget_value(hwin,ID_EDIT_1,buf[5]);
+    Set_widget_value(hwin,ID_EDIT_2,buf[6]);
+    Set_widget_value(hwin,ID_EDIT_3,buf[7]);
+    Set_widget_value(hwin,ID_EDIT_4,buf[8]);
+    Set_widget_value(hwin,ID_EDIT_5,buf[9]);
 }
 
 static void _cbDesktop(WM_MESSAGE * pMsg) 
@@ -149,31 +169,26 @@ static void InitDialog(WM_MESSAGE * pMsg)
 
     hItem = pMsg->hWin;
     FRAMEWIN_SetTitleVis(hItem, 0);
-   
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
-    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
-    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_2);
-    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     BUTTON_SetBitmapEx(hItem,0,&bmwireless,0,0);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_3);
-    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     BUTTON_SetBitmapEx(hItem,0,&bmappstore,0,0);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_4);
-    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
+    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     BUTTON_SetBitmapEx(hItem,0,&bmset,0,0);
     
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_5);
-    //BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
-    BUTTON_SetBitmapEx(hItem,0,&bmnotebook,0,0);
-    
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_1);
-    TEXT_SetFont(hItem, &GUI_FontHZ24);
+    TEXT_SetFont(hItem, &GUI_FontHZ16);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
     TEXT_SetFont(hItem, &GUI_FontHZ12);
@@ -199,27 +214,34 @@ static void InitDialog(WM_MESSAGE * pMsg)
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
     EDIT_SetText(hItem, "30");
+    EDIT_SetMaxLen(hItem,3);
     EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
     WM_SetFocus(hItem);
  
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_1);
     EDIT_SetText(hItem, "22");
+    EDIT_SetMaxLen(hItem,3);
     EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_2);
     EDIT_SetText(hItem, "10");
+    EDIT_SetMaxLen(hItem,3);
     EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
+    
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_3);
     EDIT_SetText(hItem, "20");
+    EDIT_SetMaxLen(hItem,3);
     EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_4);
     EDIT_SetText(hItem, "5");
+    EDIT_SetMaxLen(hItem,3);
     EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_5);
     EDIT_SetText(hItem, "4");
+    EDIT_SetMaxLen(hItem,3); 
     EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
 
 
@@ -242,7 +264,6 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
   WM_HWIN hItem;
   int     NCode;
   int     Id;
-  User_data u;
 
   switch (pMsg->MsgId) {
               
@@ -260,35 +281,46 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
         default:;break;
     }
     break;
-    
+  case MSG_UPDATE_DATA:
+      NRF24L01_RX_Mode();
+      if(!NRF24L01_RxPacket(buf))
+      {
+          User_data_decode(pMsg->hWin);
+      }
+      break;
   case WM_PAINT:
       GUI_SetBkColor(GUI_LIGHTGRAY);
       GUI_Clear();
-      //WM_InvalidateWindow(WM_HBKWIN);
       break;      
     
   case WM_NOTIFY_PARENT:
-    WM_InvalidateWindow(WM_GetClientWindow(DialogWin));
     Id    = WM_GetId(pMsg->hWinSrc);
     NCode = pMsg->Data.v;
     switch(Id) {
-    case ID_BUTTON_0: // Notifications sent by 'YES'
+    case ID_BUTTON_0:
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
+        buf[0] = 0;
         User_data_encode(pMsg->hWin);
         NRF24L01_TX_Mode();
         if(NRF24L01_TxPacket(buf)==TX_OK)
         {
-            LED0 = ~LED0;
+            LED0 = 0;
         }
         break;
       case WM_NOTIFICATION_RELEASED:
         break;
       }
       break;
-    case ID_BUTTON_1: // Notifications sent by 'NO'
+    case ID_BUTTON_1:
       switch(NCode) {
       case WM_NOTIFICATION_CLICKED:
+        buf[0] = 1;
+        NRF24L01_TX_Mode();
+        if(NRF24L01_TxPacket(buf)==TX_OK)
+        {
+            LED0 = 1;
+        }
         break;
       case WM_NOTIFICATION_RELEASED:
         break;
@@ -314,7 +346,6 @@ static void _cbDialog(WM_MESSAGE * pMsg) {
 WM_HWIN CreateFramewin(void) {
     
   WM_HWIN hWin;
-  BUTTON_SetDefaultSkin(BUTTON_SKIN_FLEX);
   DialogWin = GUI_CreateDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), _cbDialog, WM_HBKWIN, 0, 0);
   hWin = DialogWin;  
   WM_SetCallback(WM_HBKWIN,_cbDesktop);
