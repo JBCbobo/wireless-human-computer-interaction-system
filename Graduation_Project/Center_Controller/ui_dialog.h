@@ -13,7 +13,6 @@
 #include <QtGui/QAction>
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
-#include <QtGui/QComboBox>
 #include <QtGui/QDialog>
 #include <QtGui/QGroupBox>
 #include <QtGui/QHBoxLayout>
@@ -21,6 +20,8 @@
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
+#include <QtGui/QRadioButton>
+#include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -46,10 +47,6 @@ public:
     QPushButton *pushButton_cancel;
     QPushButton *pushButton_f1;
     QPushButton *pushButton_f2;
-    QGroupBox *groupBox_2;
-    QPushButton *pushButton_21;
-    QPushButton *pushButton_19;
-    QPushButton *pushButton_20;
     QGroupBox *groupBox_3;
     QPushButton *pushButton_17;
     QPushButton *pushButton_16;
@@ -73,19 +70,15 @@ public:
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_7;
     QLineEdit *lineEdit_4;
-    QWidget *layoutWidget4;
-    QHBoxLayout *horizontalLayout_5;
-    QLabel *label_8;
-    QLineEdit *lineEdit_5;
-    QWidget *layoutWidget5;
-    QHBoxLayout *horizontalLayout_6;
-    QLabel *label_9;
-    QLineEdit *lineEdit_6;
-    QWidget *layoutWidget6;
-    QHBoxLayout *horizontalLayout_7;
-    QLabel *label_2;
-    QComboBox *comboBox;
     QLabel *label_time;
+    QPushButton *pushButton_10;
+    QPushButton *pushButton_11;
+    QPushButton *pushButton_12;
+    QWidget *widget;
+    QVBoxLayout *verticalLayout;
+    QRadioButton *radioButton;
+    QRadioButton *radioButton_2;
+    QRadioButton *radioButton_3;
 
     void setupUi(QDialog *Dialog)
     {
@@ -107,11 +100,11 @@ public:
         label_3->setFont(font1);
         label_4 = new QLabel(Dialog);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(710, 10, 71, 71));
+        label_4->setGeometry(QRect(710, 10, 30, 30));
         label_4->setStyleSheet(QString::fromUtf8(""));
         groupBox = new QGroupBox(Dialog);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(248, 258, 431, 191));
+        groupBox->setGeometry(QRect(220, 240, 431, 191));
         pushButton_9 = new QPushButton(groupBox);
         pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
         pushButton_9->setGeometry(QRect(20, 140, 70, 40));
@@ -190,27 +183,9 @@ public:
         pushButton_f2->setGeometry(QRect(340, 80, 70, 40));
         pushButton_f2->setFont(font2);
         pushButton_f2->setFocusPolicy(Qt::NoFocus);
-        groupBox_2 = new QGroupBox(Dialog);
-        groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(678, 258, 91, 191));
-        pushButton_21 = new QPushButton(groupBox_2);
-        pushButton_21->setObjectName(QString::fromUtf8("pushButton_21"));
-        pushButton_21->setGeometry(QRect(10, 140, 60, 40));
-        pushButton_21->setFont(font2);
-        pushButton_21->setFocusPolicy(Qt::NoFocus);
-        pushButton_19 = new QPushButton(groupBox_2);
-        pushButton_19->setObjectName(QString::fromUtf8("pushButton_19"));
-        pushButton_19->setGeometry(QRect(10, 20, 60, 40));
-        pushButton_19->setFont(font2);
-        pushButton_19->setFocusPolicy(Qt::NoFocus);
-        pushButton_20 = new QPushButton(groupBox_2);
-        pushButton_20->setObjectName(QString::fromUtf8("pushButton_20"));
-        pushButton_20->setGeometry(QRect(10, 80, 60, 40));
-        pushButton_20->setFont(font2);
-        pushButton_20->setFocusPolicy(Qt::NoFocus);
         groupBox_3 = new QGroupBox(Dialog);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(448, 118, 321, 131));
+        groupBox_3->setGeometry(QRect(322, 112, 331, 131));
         pushButton_17 = new QPushButton(groupBox_3);
         pushButton_17->setObjectName(QString::fromUtf8("pushButton_17"));
         pushButton_17->setGeometry(QRect(220, 20, 90, 40));
@@ -243,7 +218,7 @@ public:
         pushButton_18->setFocusPolicy(Qt::NoFocus);
         layoutWidget = new QWidget(Dialog);
         layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
-        layoutWidget->setGeometry(QRect(32, 202, 164, 42));
+        layoutWidget->setGeometry(QRect(40, 130, 164, 42));
         horizontalLayout = new QHBoxLayout(layoutWidget);
         horizontalLayout->setSpacing(6);
         horizontalLayout->setContentsMargins(11, 11, 11, 11);
@@ -272,7 +247,7 @@ public:
 
         layoutWidget1 = new QWidget(Dialog);
         layoutWidget1->setObjectName(QString::fromUtf8("layoutWidget1"));
-        layoutWidget1->setGeometry(QRect(32, 272, 164, 42));
+        layoutWidget1->setGeometry(QRect(40, 220, 164, 42));
         horizontalLayout_2 = new QHBoxLayout(layoutWidget1);
         horizontalLayout_2->setSpacing(6);
         horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
@@ -296,7 +271,7 @@ public:
 
         layoutWidget2 = new QWidget(Dialog);
         layoutWidget2->setObjectName(QString::fromUtf8("layoutWidget2"));
-        layoutWidget2->setGeometry(QRect(32, 342, 164, 42));
+        layoutWidget2->setGeometry(QRect(40, 310, 164, 42));
         horizontalLayout_3 = new QHBoxLayout(layoutWidget2);
         horizontalLayout_3->setSpacing(6);
         horizontalLayout_3->setContentsMargins(11, 11, 11, 11);
@@ -320,7 +295,7 @@ public:
 
         layoutWidget3 = new QWidget(Dialog);
         layoutWidget3->setObjectName(QString::fromUtf8("layoutWidget3"));
-        layoutWidget3->setGeometry(QRect(32, 412, 164, 42));
+        layoutWidget3->setGeometry(QRect(40, 390, 164, 42));
         horizontalLayout_4 = new QHBoxLayout(layoutWidget3);
         horizontalLayout_4->setSpacing(6);
         horizontalLayout_4->setContentsMargins(11, 11, 11, 11);
@@ -342,82 +317,51 @@ public:
 
         horizontalLayout_4->addWidget(lineEdit_4);
 
-        layoutWidget4 = new QWidget(Dialog);
-        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
-        layoutWidget4->setGeometry(QRect(250, 130, 164, 42));
-        horizontalLayout_5 = new QHBoxLayout(layoutWidget4);
-        horizontalLayout_5->setSpacing(6);
-        horizontalLayout_5->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
-        horizontalLayout_5->setContentsMargins(0, 0, 0, 0);
-        label_8 = new QLabel(layoutWidget4);
-        label_8->setObjectName(QString::fromUtf8("label_8"));
-        label_8->setMaximumSize(QSize(16777215, 49));
-        label_8->setFont(font3);
-
-        horizontalLayout_5->addWidget(label_8);
-
-        lineEdit_5 = new QLineEdit(layoutWidget4);
-        lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
-        lineEdit_5->setMinimumSize(QSize(80, 40));
-        lineEdit_5->setMaximumSize(QSize(80, 40));
-        lineEdit_5->setFont(font4);
-        lineEdit_5->setMaxLength(3);
-
-        horizontalLayout_5->addWidget(lineEdit_5);
-
-        layoutWidget5 = new QWidget(Dialog);
-        layoutWidget5->setObjectName(QString::fromUtf8("layoutWidget5"));
-        layoutWidget5->setGeometry(QRect(250, 200, 164, 42));
-        horizontalLayout_6 = new QHBoxLayout(layoutWidget5);
-        horizontalLayout_6->setSpacing(6);
-        horizontalLayout_6->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_6->setObjectName(QString::fromUtf8("horizontalLayout_6"));
-        horizontalLayout_6->setContentsMargins(0, 0, 0, 0);
-        label_9 = new QLabel(layoutWidget5);
-        label_9->setObjectName(QString::fromUtf8("label_9"));
-        label_9->setMaximumSize(QSize(16777215, 49));
-        label_9->setFont(font3);
-
-        horizontalLayout_6->addWidget(label_9);
-
-        lineEdit_6 = new QLineEdit(layoutWidget5);
-        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
-        lineEdit_6->setMinimumSize(QSize(80, 40));
-        lineEdit_6->setMaximumSize(QSize(80, 40));
-        lineEdit_6->setFont(font4);
-        lineEdit_6->setMaxLength(3);
-
-        horizontalLayout_6->addWidget(lineEdit_6);
-
-        layoutWidget6 = new QWidget(Dialog);
-        layoutWidget6->setObjectName(QString::fromUtf8("layoutWidget6"));
-        layoutWidget6->setGeometry(QRect(31, 131, 174, 42));
-        horizontalLayout_7 = new QHBoxLayout(layoutWidget6);
-        horizontalLayout_7->setSpacing(6);
-        horizontalLayout_7->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout_7->setObjectName(QString::fromUtf8("horizontalLayout_7"));
-        horizontalLayout_7->setContentsMargins(0, 0, 0, 0);
-        label_2 = new QLabel(layoutWidget6);
-        label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setFont(font3);
-
-        horizontalLayout_7->addWidget(label_2);
-
-        comboBox = new QComboBox(layoutWidget6);
-        comboBox->setObjectName(QString::fromUtf8("comboBox"));
-        comboBox->setMinimumSize(QSize(90, 40));
-        comboBox->setMaximumSize(QSize(90, 40));
-        comboBox->setFont(font3);
-        comboBox->setFocusPolicy(Qt::ClickFocus);
-
-        horizontalLayout_7->addWidget(comboBox);
-
         label_time = new QLabel(Dialog);
         label_time->setObjectName(QString::fromUtf8("label_time"));
-        label_time->setGeometry(QRect(440, 30, 241, 31));
+        label_time->setGeometry(QRect(440, 10, 241, 30));
         label_time->setFont(font4);
-        QWidget::setTabOrder(comboBox, pushButton_1);
+        pushButton_10 = new QPushButton(Dialog);
+        pushButton_10->setObjectName(QString::fromUtf8("pushButton_10"));
+        pushButton_10->setGeometry(QRect(680, 270, 101, 41));
+        pushButton_10->setFont(font2);
+        pushButton_10->setFocusPolicy(Qt::NoFocus);
+        pushButton_11 = new QPushButton(Dialog);
+        pushButton_11->setObjectName(QString::fromUtf8("pushButton_11"));
+        pushButton_11->setGeometry(QRect(680, 330, 101, 41));
+        pushButton_11->setFont(font2);
+        pushButton_11->setFocusPolicy(Qt::NoFocus);
+        pushButton_12 = new QPushButton(Dialog);
+        pushButton_12->setObjectName(QString::fromUtf8("pushButton_12"));
+        pushButton_12->setGeometry(QRect(680, 390, 101, 41));
+        pushButton_12->setFont(font2);
+        pushButton_12->setFocusPolicy(Qt::NoFocus);
+        widget = new QWidget(Dialog);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(222, 122, 81, 110));
+        verticalLayout = new QVBoxLayout(widget);
+        verticalLayout->setSpacing(6);
+        verticalLayout->setContentsMargins(11, 11, 11, 11);
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setContentsMargins(0, 0, 0, 0);
+        radioButton = new QRadioButton(widget);
+        radioButton->setObjectName(QString::fromUtf8("radioButton"));
+        radioButton->setFont(font4);
+
+        verticalLayout->addWidget(radioButton);
+
+        radioButton_2 = new QRadioButton(widget);
+        radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
+        radioButton_2->setFont(font4);
+
+        verticalLayout->addWidget(radioButton_2);
+
+        radioButton_3 = new QRadioButton(widget);
+        radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
+        radioButton_3->setFont(font4);
+
+        verticalLayout->addWidget(radioButton_3);
+
         QWidget::setTabOrder(pushButton_1, pushButton_2);
         QWidget::setTabOrder(pushButton_2, pushButton_3);
         QWidget::setTabOrder(pushButton_3, pushButton_4);
@@ -435,9 +379,6 @@ public:
         QWidget::setTabOrder(pushButton_17, pushButton_14);
         QWidget::setTabOrder(pushButton_14, pushButton_16);
         QWidget::setTabOrder(pushButton_16, pushButton_18);
-        QWidget::setTabOrder(pushButton_18, pushButton_19);
-        QWidget::setTabOrder(pushButton_19, pushButton_20);
-        QWidget::setTabOrder(pushButton_20, pushButton_21);
 
         retranslateUi(Dialog);
 
@@ -447,7 +388,7 @@ public:
     void retranslateUi(QDialog *Dialog)
     {
         Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("Dialog", "\346\225\260\346\216\247\351\222\273\345\272\212\346\216\247\345\210\266\345\231\250v1.0", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("Dialog", "\346\225\260\346\216\247\351\222\273\345\272\212\346\216\247\345\210\266\345\231\250v2.0", 0, QApplication::UnicodeUTF8));
         label_4->setText(QString());
         groupBox->setTitle(QApplication::translate("Dialog", "\346\225\260\345\255\227\351\224\256\345\214\272", 0, QApplication::UnicodeUTF8));
         pushButton_9->setText(QApplication::translate("Dialog", "9", 0, QApplication::UnicodeUTF8));
@@ -465,10 +406,6 @@ public:
         pushButton_cancel->setText(QApplication::translate("Dialog", "\345\217\226\346\266\210", 0, QApplication::UnicodeUTF8));
         pushButton_f1->setText(QApplication::translate("Dialog", "\350\267\263\350\277\207", 0, QApplication::UnicodeUTF8));
         pushButton_f2->setText(QApplication::translate("Dialog", "\345\274\200\345\247\213", 0, QApplication::UnicodeUTF8));
-        groupBox_2->setTitle(QApplication::translate("Dialog", "\351\222\273\345\255\224\347\261\273\345\236\213", 0, QApplication::UnicodeUTF8));
-        pushButton_21->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224", 0, QApplication::UnicodeUTF8));
-        pushButton_19->setText(QApplication::translate("Dialog", "\345\256\232\344\275\215", 0, QApplication::UnicodeUTF8));
-        pushButton_20->setText(QApplication::translate("Dialog", "\346\211\251\345\255\224", 0, QApplication::UnicodeUTF8));
         groupBox_3->setTitle(QApplication::translate("Dialog", "\347\216\257\346\250\241\350\275\254\345\212\250\346\216\247\345\210\266", 0, QApplication::UnicodeUTF8));
         pushButton_17->setText(QApplication::translate("Dialog", "\345\217\263\350\275\254\347\262\227\350\260\203", 0, QApplication::UnicodeUTF8));
         pushButton_16->setText(QApplication::translate("Dialog", "\345\267\245\344\273\266\345\267\246\350\275\254", 0, QApplication::UnicodeUTF8));
@@ -482,10 +419,13 @@ public:
         label_6->setText(QApplication::translate("Dialog", "\346\211\223\345\255\224\346\254\241\346\225\260", 0, QApplication::UnicodeUTF8));
         lineEdit_3->setInputMask(QString());
         label_7->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\346\267\261\345\272\246", 0, QApplication::UnicodeUTF8));
-        label_8->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\351\227\264\350\267\235", 0, QApplication::UnicodeUTF8));
-        label_9->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\350\241\214\350\267\235", 0, QApplication::UnicodeUTF8));
-        label_2->setText(QApplication::translate("Dialog", "\351\222\273\345\244\264\347\224\265\346\234\272", 0, QApplication::UnicodeUTF8));
         label_time->setText(QApplication::translate("Dialog", "timer", 0, QApplication::UnicodeUTF8));
+        pushButton_10->setText(QApplication::translate("Dialog", "\345\215\225\345\255\224\346\223\215\344\275\234", 0, QApplication::UnicodeUTF8));
+        pushButton_11->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224\350\256\276\347\275\256", 0, QApplication::UnicodeUTF8));
+        pushButton_12->setText(QApplication::translate("Dialog", "\346\227\240\347\272\277\350\256\276\347\275\256", 0, QApplication::UnicodeUTF8));
+        radioButton->setText(QApplication::translate("Dialog", "\345\256\232\344\275\215", 0, QApplication::UnicodeUTF8));
+        radioButton_2->setText(QApplication::translate("Dialog", "\346\211\251\345\255\224", 0, QApplication::UnicodeUTF8));
+        radioButton_3->setText(QApplication::translate("Dialog", "\351\222\273\345\255\224", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

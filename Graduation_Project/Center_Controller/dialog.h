@@ -40,6 +40,10 @@ public slots:
     void timerEvent(QTimerEvent *event);
     void timerUpdate();
 
+
+private slots:
+    void on_pushButton_11_clicked();
+    void on_pushButton_10_clicked();
 };
 
 #endif // DIALOG_H

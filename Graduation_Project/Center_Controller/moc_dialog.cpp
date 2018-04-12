@@ -22,7 +22,7 @@ static const uint qt_meta_data_Dialog[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-      12,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -44,6 +44,8 @@ static const uint qt_meta_data_Dialog[] = {
      207,    7,    7,    7, 0x0a,
      236,  230,    7,    7, 0x0a,
      261,    7,    7,    7, 0x0a,
+     275,    7,    7,    7, 0x08,
+     302,    7,    7,    7, 0x08,
 
        0        // eod
 };
@@ -57,6 +59,8 @@ static const char qt_meta_stringdata_Dialog[] = {
     "Disp_Rx_value(QString)\0Getkeyvalue()\0"
     "Update_number(QString)\0event\0"
     "timerEvent(QTimerEvent*)\0timerUpdate()\0"
+    "on_pushButton_11_clicked()\0"
+    "on_pushButton_10_clicked()\0"
 };
 
 void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -77,6 +81,8 @@ void Dialog::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 9: _t->Update_number((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 10: _t->timerEvent((*reinterpret_cast< QTimerEvent*(*)>(_a[1]))); break;
         case 11: _t->timerUpdate(); break;
+        case 12: _t->on_pushButton_11_clicked(); break;
+        case 13: _t->on_pushButton_10_clicked(); break;
         default: ;
         }
     }
@@ -114,9 +120,9 @@ int Dialog::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 12)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 12;
+        _id -= 14;
     }
     return _id;
 }

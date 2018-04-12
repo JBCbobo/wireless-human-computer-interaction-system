@@ -8,6 +8,8 @@
 #include "Hardware/Motion/Motion.h"
 #include "../rx_thread.h"
 #include "Hardware/NRF24L01/NRF24L01.h"
+#include "inputpara.h"
+#include "singl_motion.h"
 
 extern u8 buf[32];
 
@@ -23,16 +25,8 @@ Dialog::Dialog(QWidget *parent) :
     ui->lineEdit_2->setValidator(validator);
     ui->lineEdit_3->setValidator(validator);
     ui->lineEdit_4->setValidator(validator);
-    ui->lineEdit_5->setValidator(validator);
-    ui->lineEdit_6->setValidator(validator);
 
-    ui->comboBox->addItem("M1");
-    ui->comboBox->addItem("M2");
-    ui->comboBox->addItem("M3");
-    ui->comboBox->addItem("M4");
-    ui->comboBox->addItem("M5");
-    ui->comboBox->addItem("M6");
-   this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
+    this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
     Rx_thread *Reciver = new Rx_thread(this);
     QTimer *timer = new QTimer(this);
     timer->start(1000);
@@ -58,8 +52,8 @@ Dialog::Dialog(QWidget *parent) :
     if(NRF24L01_check())
     {
         QPixmap pix;
-        pix.load(":/images/image/wireless.bmp");
-        QBitmap mask = pix.createMaskFromColor(QColor(0,0,0),Qt::MaskInColor);
+        pix.load(":/images/image/wifi.bmp");
+        QBitmap mask = pix.createMaskFromColor(QColor(255,255,255),Qt::MaskInColor);
         pix.setMask(mask);
         ui->label_4->setAutoFillBackground(true);
         pix = pix.scaled(ui->label_4->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
@@ -116,13 +110,10 @@ void Dialog::Getkeyvalue()
 void Dialog::on_pushButton_yes_clicked()
 {
 
-    buf[3] = (u8)ui->comboBox->currentIndex();
     buf[4] = (u8)ui->lineEdit->text().toInt();
     buf[5] = (u8)ui->lineEdit_2->text().toInt();
     buf[6] = (u8)ui->lineEdit_3->text().toInt();
     buf[7] = (u8)ui->lineEdit_4->text().toInt();
-    buf[8] = (u8)ui->lineEdit_5->text().toInt();
-    buf[9] = (u8)ui->lineEdit_6->text().toInt();
     NRF24L01_TX_Mode();
     NRF24L01_TxPacket(buf);
 }
@@ -137,7 +128,6 @@ void Dialog::Disp_Rx_value(QString str)
     char tmp[10];
     if(str=="success")
     {
-        ui->comboBox->setCurrentIndex(buf[3]);
         sprintf(tmp,"%u",buf[4]);
         ui->lineEdit->setText(tmp);
         sprintf(tmp,"%u",buf[5]);
@@ -146,10 +136,6 @@ void Dialog::Disp_Rx_value(QString str)
         ui->lineEdit_3->setText(tmp);
         sprintf(tmp,"%u",buf[7]);
         ui->lineEdit_4->setText(tmp);
-        sprintf(tmp,"%u",buf[8]);
-        ui->lineEdit_5->setText(tmp);
-        sprintf(tmp,"%u",buf[9]);
-        ui->lineEdit_6->setText(tmp);
     }
 
 }
@@ -185,4 +171,18 @@ void Dialog::on_pushButton_f2_clicked()
 {
     QString str_time = ui->lineEdit->text();
     time = startTimer(str_time.toInt());
+}
+
+void Dialog::on_pushButton_10_clicked()
+{
+    Singl_Motion *Singl_Motion_dialog = new Singl_Motion(this);
+    Singl_Motion_dialog->setModal(true);
+    Singl_Motion_dialog->show();
+}
+
+void Dialog::on_pushButton_11_clicked()
+{
+    InputPara *inputPara_dialog = new InputPara(this);
+    inputPara_dialog->setModal(true);
+    inputPara_dialog->show();
 }
