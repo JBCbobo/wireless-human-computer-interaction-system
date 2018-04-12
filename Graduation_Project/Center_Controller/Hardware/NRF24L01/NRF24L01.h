@@ -10,23 +10,36 @@
 extern "C" {
 #endif
 
-#define DEV_PATH "/sys/class/gpio/"
 #define u8 unsigned char
+#define u16 unsigned int
 
+//typedef struct User_data
+//{
+//    u8 motion_num;//电机号
+//    u16 vm;      //转动速度
+//    u8 vt;       //钻孔速度
+//    u8 num;      //打孔次数
+//    u8 depth;    //打孔深度
+//    u8 h_space;  //间距
+//    u8 v_space;  //行距
+//}User_data;
 
-//used to active the chip in RX or TX mode
-#define CE_H system("echo 1 >"DEV_PATH"gpio14/value")
-#define CE_L system("echo 0 >"DEV_PATH"gpio14/value")
-#define IRQ 15
-//SPI signal
-#define CSN_H system("echo 1 >"DEV_PATH"gpio175/value")
-#define SCK_H system("echo 1 >"DEV_PATH"gpio13/value")
-#define MOSI_H system("echo 1 >"DEV_PATH"gpio12/value")
-#define MISO 10
+#define SYSFS_GPIO_EXPORT  "/sys/class/gpio/export"
+#define CE "/sys/class/gpio/gpio14/"
+#define CSN "/sys/class/gpio/gpio175/"
+#define SCK "/sys/class/gpio/gpio13/"
+#define IRQ "/sys/class/gpio/gpio15/"
+#define MISO "/sys/class/gpio/gpio10/"
+#define MOSI "/sys/class/gpio/gpio12/"
 
-#define CSN_L system("echo 0 >"DEV_PATH"gpio175/value")
-#define SCK_L system("echo 0 >"DEV_PATH"gpio13/value")
-#define MOSI_L system("echo 0 >"DEV_PATH"gpio12/value")
+#define CE_L write(CE_fd,"0",sizeof("0"))
+#define CE_H write(CE_fd,"1",sizeof("1"))
+#define CSN_H write(CSN_fd,"1",sizeof("1"))
+#define CSN_L write(CSN_fd,"0",sizeof("0"))
+#define MOSI_H write(MOSI_fd,"1",sizeof("1"))
+#define MOSI_L write(MOSI_fd,"0",sizeof("0"))
+#define SCK_H write(SCK_fd,"1",sizeof("1"))
+#define SCK_L write(SCK_fd,"0",sizeof("0"))
 
 //NRF24L01寄存器操作命令
 #define NRF_READ_REG    0x00  //读配置寄存器,低5位为寄存器地址
@@ -79,6 +92,7 @@ extern "C" {
 void NRF24L01_Init(void);
 void NRF24L01_RX_Mode(void);
 void NRF24L01_TX_Mode(void);
+void User_data_decode(void);
 u8 NRF24L01_check(void);
 u8 NRF24L01_TxPacket(u8 *txbuf);
 u8 NRF24L01_RxPacket(u8 *rxbuf);
