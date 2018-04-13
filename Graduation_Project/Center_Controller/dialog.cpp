@@ -19,13 +19,12 @@ Dialog::Dialog(QWidget *parent) :
 {
 
     ui->setupUi(this);
-
     QValidator *validator = new QIntValidator(0,255,this);
     ui->lineEdit->setValidator(validator);
     ui->lineEdit_2->setValidator(validator);
     ui->lineEdit_3->setValidator(validator);
     ui->lineEdit_4->setValidator(validator);
-
+    ui->radioButton->setChecked(true);
     this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
     Rx_thread *Reciver = new Rx_thread(this);
     QTimer *timer = new QTimer(this);
@@ -77,11 +76,6 @@ void Dialog::changeEvent(QEvent *e)
     default:
         break;
     }
-}
-
-void Dialog::keyPressEvent(QKeyEvent *e)
-{
-    e->ignore();
 }
 
 void Dialog::Update_number(QString value)

@@ -9,14 +9,19 @@ SOURCES += main.cpp \
     Hardware/NRF24L01/NRF24L01.c \
     ../rx_thread.cpp \
     inputpara.cpp \
-    singl_motion.cpp
+    singl_motion.cpp \
+    keypad.cpp \
+    mylineedit.cpp
 HEADERS += dialog.h \
     Hardware/Motion/Motion.h \
     Hardware/NRF24L01/NRF24L01.h \
     ../rx_thread.h \
     inputpara.h \
-    singl_motion.h
+    singl_motion.h \
+    keypad.h \
+    mylineedit.h
 FORMS += dialog.ui \
     inputpara.ui \
-    singl_motion.ui
+    singl_motion.ui \
+    keypad.ui
 RESOURCES += src.qrc

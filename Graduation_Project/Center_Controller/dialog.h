@@ -16,7 +16,6 @@ public:
 
 protected:
     void changeEvent(QEvent *e);
-    void keyPressEvent(QKeyEvent *);
 
 private:
     Ui::Dialog *ui;
@@ -24,10 +23,7 @@ private:
     QString str;
 
 signals:
-    void Rx_flag(QString);
-    void Motion_stop();
     void Keyvalue(QString);
-
 
 public slots:
     void on_pushButton_f2_clicked();

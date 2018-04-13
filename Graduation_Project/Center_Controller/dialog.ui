@@ -45,7 +45,7 @@
     </font>
    </property>
    <property name="text">
-    <string>数控钻床控制器v2.0</string>
+    <string>数控钻床控制器v2.1</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_4">
@@ -840,7 +840,7 @@
     <string>无线设置</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>222</x>
