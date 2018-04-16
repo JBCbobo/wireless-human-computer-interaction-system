@@ -1,0 +1,9 @@
+..\obj\wireless.o: ..\EMWIN\wireless.c
+..\obj\wireless.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
+..\obj\wireless.o: ..\EMWIN\STemWin\inc\GUI.h
+..\obj\wireless.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
+..\obj\wireless.o: ..\EMWIN\STemWin\Config\GUIConf.h
+..\obj\wireless.o: ..\EMWIN\STemWin\inc\GUI_Type.h
+..\obj\wireless.o: ..\EMWIN\STemWin\inc\LCD.h
+..\obj\wireless.o: ..\EMWIN\STemWin\inc\Global.h
+..\obj\wireless.o: ..\EMWIN\STemWin\inc\GUI_Version.h

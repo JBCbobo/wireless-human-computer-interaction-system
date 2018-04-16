@@ -1,0 +1,27 @@
+
+T6C78 000:320 SEGGER J-Link V4.98e Log File (0001ms, 0271ms total)
+T6C78 000:320 DLL Compiled: May  5 2015 11:00:52 (0001ms, 0271ms total)
+T6C78 000:320 Logging started @ 2018-04-16 17:44 (0001ms, 0271ms total)
+T6C78 000:321 JLINK_SetWarnOutHandler(...) (0000ms, 0271ms total)
+T6C78 000:321 JLINK_OpenEx(...)
+Firmware: J-Link ARM V8 compiled Nov 28 2014 13:44:46
+Hardware: V8.00
+S/N: 1631096674
+Feature(s): RDI,FlashDL,FlashBP,JFlash,GDBFULL  returns O.K. (0269ms, 0540ms total)
+T6C78 000:590 JLINK_SetErrorOutHandler(...) (0000ms, 0540ms total)
+T6C78 000:590 JLINK_ExecCommand("ProjectFile = "E:\GitHub\wireless-human-computer-interaction-system\Client\USER\JLinkSettings.ini"", ...)  returns 0x00 (0001ms, 0541ms total)
+T6C78 000:600 JLINK_ExecCommand("Device = STM32F103RC", ...)Device "STM32F103RC" selected.  returns 0x00 (0007ms, 0548ms total)
+T6C78 000:607 JLINK_ExecCommand("DisableConnectionTimeout", ...)  returns 0x01 (0000ms, 0548ms total)
+T6C78 000:607 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0548ms total)
+T6C78 000:607 JLINK_GetDLLVersion()  returns 49805 (0000ms, 0548ms total)
+T6C78 000:607 JLINK_GetFirmwareString(...) (0000ms, 0548ms total)
+T6C78 000:637 JLINK_GetDLLVersion()  returns 49805 (0000ms, 0548ms total)
+T6C78 000:637 JLINK_GetCompileDateTime() (0000ms, 0548ms total)
+T6C78 000:640 JLINK_GetFirmwareString(...) (0000ms, 0548ms total)
+T6C78 000:642 JLINK_GetHardwareVersion()  returns 0x13880 (0000ms, 0548ms total)
+T6C78 000:651 JLINK_TIF_Select(JLINKARM_TIF_JTAG)  returns 0x00 (0004ms, 0552ms total)
+T6C78 000:655 JLINK_SetSpeed(50000) (0000ms, 0552ms total)
+T6C78 000:655 JLINK_GetIdData(...) >0x2F8 JTAG>TotalIRLen = ?, IRPrint = 0x..000000000000000000000000 >0x30 JTAG>STM32Fxxxx: Cannot attach to CPU. Trying connect under reset. >0x2F8 JTAG>TotalIRLen = ?, IRPrint = 0x..000000000000000000000000 >0x30 JTAG> (0115ms, 0667ms total)
+T6C78 002:136 JLINK_Close() (0001ms, 0668ms total)
+T6C78 002:136  (0001ms, 0668ms total)
+T6C78 002:136 Closed (0001ms, 0668ms total)
