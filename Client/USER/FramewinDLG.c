@@ -1,4 +1,4 @@
-/*********************************************************************
+ï»¿/*********************************************************************
 *                                                                    *
 *                SEGGER Microcontroller GmbH & Co. KG                *
 *        Solutions for real time microcontroller applications        *
@@ -34,16 +34,18 @@ extern GUI_CONST_STORAGE GUI_BITMAP bmwireless;
 extern GUI_CONST_STORAGE GUI_BITMAP bmappstore;
 extern GUI_CONST_STORAGE GUI_BITMAP bmset;
 extern GUI_CONST_STORAGE GUI_BITMAP bmnotebook;
+extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont12;
+extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont16;
 
 typedef struct User_data 
 {
-    uint8_t motion_num;//µç»úºÅ
-    uint16_t vm;      //×ª¶¯ËÙ¶È
-    uint8_t vt;       //×ê¿×ËÙ¶È
-    uint8_t num;      //´ò¿×´ÎÊý
-    uint8_t depth;    //´ò¿×Éî¶È
-    uint8_t h_space;  //¼ä¾à
-    uint8_t v_space;  //ÐÐ¾à
+    uint8_t motion_num;//ç”µæœºå·
+    uint16_t vm;      //è½¬åŠ¨é€Ÿåº¦
+    uint8_t vt;       //é’»å­”é€Ÿåº¦
+    uint8_t num;      //æ‰“å­”æ¬¡æ•°
+    uint8_t depth;    //æ‰“å­”æ·±åº¦
+    uint8_t h_space;  //é—´è·
+    uint8_t v_space;  //è¡Œè·
 }User_data;
 
 User_data *u;
@@ -65,14 +67,14 @@ static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
   { EDIT_CreateIndirect, "Edit", ID_EDIT_5, 90, 279-x, 60, 20, 0, 0x64, 0 },
    
   
-  { TEXT_CreateIndirect, "ÊÖ³Ö×ê´²¿ØÖÆÆ÷", ID_TEXT_1, 10, 10, 180, 40, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "×êÍ·µç»ú", ID_TEXT_0, 13, 87-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "×ª¶¯ËÙ¶È", ID_TEXT_2, 13, 119-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "×ê¿×ËÙ¶È", ID_TEXT_3, 13, 151-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "´ò¿×´ÎÊý", ID_TEXT_4, 13, 183-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "×ê¿×Éî¶È", ID_TEXT_5, 13, 215-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "×ê¿×¼ä¾à", ID_TEXT_6, 13, 247-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "×ê¿×ÐÐ¾à", ID_TEXT_7, 13, 279-x, 80, 20, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "æ‰‹æŒé’»åºŠæŽ§åˆ¶å™¨", ID_TEXT_1, 10, 10, 180, 40, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "é’»å¤´ç”µæœº", ID_TEXT_0, 13, 87-x, 80, 20, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "è½¬åŠ¨é€Ÿåº¦", ID_TEXT_2, 13, 119-x, 80, 20, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "é’»å­”é€Ÿåº¦", ID_TEXT_3, 13, 151-x, 80, 20, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "æ‰“å­”æ¬¡æ•°", ID_TEXT_4, 13, 183-x, 80, 20, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "é’»å­”æ·±åº¦", ID_TEXT_5, 13, 215-x, 80, 20, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "é’»å­”é—´è·", ID_TEXT_6, 13, 247-x, 80, 20, 0, 0x0, 0 },
+  { TEXT_CreateIndirect, "é’»å­”è¡Œè·", ID_TEXT_7, 13, 279-x, 80, 20, 0, 0x0, 0 },
   
   { BUTTON_CreateIndirect, "YES", ID_BUTTON_0, 13, 295, 60, 20, 0, 0x0, 0 },
   { BUTTON_CreateIndirect, "NO", ID_BUTTON_1, 83, 295, 60, 20, 0, 0x0, 0 },
@@ -155,7 +157,7 @@ static void _cbDesktop(WM_MESSAGE * pMsg)
 
 	switch (pMsg->MsgId) 
 	{
-		/* ÖØ»æ */
+		/* é‡ç»˜ */
 		case WM_PAINT:
 			GUI_SetBkColor(GUI_LIGHTGRAY);
 			GUI_Clear();
@@ -169,6 +171,8 @@ static void InitDialog(WM_MESSAGE * pMsg)
 
     hItem = pMsg->hWin;
     FRAMEWIN_SetTitleVis(hItem, 0);
+    GUI_UC_SetEncodeUTF8();
+    
     hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
     BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
     
@@ -188,28 +192,28 @@ static void InitDialog(WM_MESSAGE * pMsg)
     BUTTON_SetBitmapEx(hItem,0,&bmset,0,0);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_1);
-    TEXT_SetFont(hItem, &GUI_FontHZ16);
+    TEXT_SetFont(hItem, &GUI_Fontfont16);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
-    TEXT_SetFont(hItem, &GUI_FontHZ12);
+    TEXT_SetFont(hItem, &GUI_Fontfont12);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_2);
-    TEXT_SetFont(hItem, &GUI_FontHZ12);
+    TEXT_SetFont(hItem, &GUI_Fontfont12);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_3);   
-    TEXT_SetFont(hItem, &GUI_FontHZ12);
+    TEXT_SetFont(hItem, &GUI_Fontfont12);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_4);
-    TEXT_SetFont(hItem, &GUI_FontHZ12);
+    TEXT_SetFont(hItem, &GUI_Fontfont12);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_5);
-    TEXT_SetFont(hItem, &GUI_FontHZ12);
+    TEXT_SetFont(hItem, &GUI_Fontfont12);
 
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_6);
-    TEXT_SetFont(hItem, &GUI_FontHZ12);
+    TEXT_SetFont(hItem, &GUI_Fontfont12);
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_7);
-    TEXT_SetFont(hItem, &GUI_FontHZ12);
+    TEXT_SetFont(hItem, &GUI_Fontfont12);
     
     
     hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
@@ -251,9 +255,6 @@ static void InitDialog(WM_MESSAGE * pMsg)
     DROPDOWN_AddString(hItem,"M1");
     DROPDOWN_AddString(hItem,"M2");
     DROPDOWN_AddString(hItem,"M3");
-    DROPDOWN_AddString(hItem,"M4");
-    DROPDOWN_AddString(hItem,"M5");
-    DROPDOWN_AddString(hItem,"M6");
 }
 
 /*********************************************************************

@@ -13,14 +13,13 @@
 #include "FramewinDLG.h"
 #include "EmWinHZFont.h"
 #include "ff.h"
-#include "fontupd.h"
 #include "exfuns.h"
 #include "DIALOG.h"
 #include "GUIDemo.h"
 #include "24l01.h"
 #include "led.h"
 
-
+extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont12;
 /************************************************
  ALIENTEK MiniSTM32开发板STemWin实验
  STemWin 移植实验
@@ -48,9 +47,6 @@ int main(void)
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_CRC,ENABLE);//使能CRC时钟，否则STemWin不能使用 
 	WM_SetCreateFlags(WM_CF_MEMDEV);
     LCD_Display_Dir(0);
-    exfuns_init();
-    f_mount(fs[1],"1",1);
-    font_init();
     NRF24L01_Init();
 	GUI_Init();
     
@@ -58,7 +54,7 @@ int main(void)
     {
         GUI_SetBkColor(BLACK);
         GUI_SetColor(WHITE);
-        GUI_SetFont(&GUI_FontHZ24);
+        GUI_SetFont(&GUI_Fontfont12);
         GUI_Clear();
         GUI_DispStringHCenterAt("连接中",120,50);
         GUI_Delay(1000);

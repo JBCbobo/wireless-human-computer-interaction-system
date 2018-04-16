@@ -459,16 +459,6 @@
               <FilePath>..\HARDWARE\SRAM\sram.c</FilePath>
             </File>
             <File>
-              <FileName>myiic.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\IIC\myiic.c</FilePath>
-            </File>
-            <File>
-              <FileName>24cxx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\HARDWARE\24CXX\24cxx.c</FilePath>
-            </File>
-            <File>
               <FileName>spi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\SPI\spi.c</FilePath>
@@ -522,6 +512,16 @@
               <FileName>flash.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\FLASH\flash.c</FilePath>
+            </File>
+            <File>
+              <FileName>24cxx.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\24CXX\24cxx.c</FilePath>
+            </File>
+            <File>
+              <FileName>myiic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\IIC\myiic.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -656,67 +656,17 @@
           </Files>
         </Group>
         <Group>
-          <GroupName>EMWIN_HZ</GroupName>
+          <GroupName>Fonts</GroupName>
           <Files>
             <File>
-              <FileName>GUI_FontHZ12.c</FileName>
+              <FileName>font12.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\EMWIN\STemWinHZ\GUI_FontHZ12.c</FilePath>
+              <FilePath>..\TEXT\font12.c</FilePath>
             </File>
             <File>
-              <FileName>GUI_FontHZ16.c</FileName>
+              <FileName>font16.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\EMWIN\STemWinHZ\GUI_FontHZ16.c</FilePath>
-            </File>
-            <File>
-              <FileName>GUI_FontHZ24.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\STemWinHZ\GUI_FontHZ24.c</FilePath>
-            </File>
-            <File>
-              <FileName>GUI_UC_EncodeNone.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\STemWinHZ\GUI_UC_EncodeNone.c</FilePath>
-            </File>
-            <File>
-              <FileName>GUICharPEx.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\STemWinHZ\GUICharPEx.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>FATFS</GroupName>
-          <Files>
-            <File>
-              <FileName>ff.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FATFS\src\ff.c</FilePath>
-            </File>
-            <File>
-              <FileName>diskio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FATFS\src\diskio.c</FilePath>
-            </File>
-            <File>
-              <FileName>mycc936.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FATFS\exfuns\mycc936.c</FilePath>
-            </File>
-            <File>
-              <FileName>exfuns.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\FATFS\exfuns\exfuns.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>TEXT</GroupName>
-          <Files>
-            <File>
-              <FileName>fontupd.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\TEXT\fontupd.c</FilePath>
+              <FilePath>..\TEXT\font16.c</FilePath>
             </File>
           </Files>
         </Group>

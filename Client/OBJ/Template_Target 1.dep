@@ -1,5 +1,5 @@
 Dependencies for Project 'Template', Target 'Target 1': (DO NOT MODIFY !)
-F (.\main.c)(0x5ACDD41C)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
+F (.\main.c)(0x5AD46143)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\main.o --omf_browse ..\obj\main.crf --depend ..\obj\main.d)
 I (..\SYSTEM\delay\delay.h)(0x5AB8BA99)
 I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
 I (..\USER\stm32f10x.h)(0x5AB8BA99)
@@ -14,7 +14,7 @@ I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
 I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-I (..\HARDWARE\MKEY\key.h)(0x5AB8BA98)
+I (..\HARDWARE\MKEY\key.h)(0x5AD45D74)
 I (..\HARDWARE\LCD\ILI93xx.h)(0x5AB8BA98)
 I (E:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5ABDC2FD)
 I (..\SYSTEM\usart\usart.h)(0x5AB8BA99)
@@ -76,7 +76,6 @@ I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x5AB8BA98)
 I (..\FATFS\src\ff.h)(0x5AB8BA98)
 I (..\FATFS\src\integer.h)(0x5AB8BA98)
 I (..\FATFS\src\ffconf.h)(0x5AB8BA98)
-I (..\TEXT\fontupd.h)(0x5AB8BA99)
 I (..\FATFS\exfuns\exfuns.h)(0x5AB8BA98)
 I (..\EMWIN\Demo\GUIDemo.h)(0x5AB8BA98)
 I (..\HARDWARE\NRF24L01\24l01.h)(0x5AB8BA98)
@@ -110,8 +109,8 @@ I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
 I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-F (.\FramewinDLG.c)(0x5ACDDE1E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\framewindlg.o --omf_browse ..\obj\framewindlg.crf --depend ..\obj\framewindlg.d)
-I (..\HARDWARE\MKEY\key.h)(0x5AB8BA98)
+F (.\FramewinDLG.c)(0x5AD47054)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\framewindlg.o --omf_browse ..\obj\framewindlg.crf --depend ..\obj\framewindlg.d)
+I (..\HARDWARE\MKEY\key.h)(0x5AD45D74)
 I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
 I (..\USER\stm32f10x.h)(0x5AB8BA99)
 I (..\CORE\core_cm3.h)(0x5AB8BA98)
@@ -238,39 +237,6 @@ I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
 I (..\SYSTEM\usart\usart.h)(0x5AB8BA99)
 I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
 I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
-F (..\HARDWARE\IIC\myiic.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\myiic.o --omf_browse ..\obj\myiic.crf --depend ..\obj\myiic.d)
-I (..\HARDWARE\IIC\myiic.h)(0x5AB8BA98)
-I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
-I (..\USER\stm32f10x.h)(0x5AB8BA99)
-I (..\CORE\core_cm3.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
-I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-I (..\SYSTEM\delay\delay.h)(0x5AB8BA99)
-F (..\HARDWARE\24CXX\24cxx.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\24cxx.o --omf_browse ..\obj\24cxx.crf --depend ..\obj\24cxx.d)
-I (..\HARDWARE\24CXX\24cxx.h)(0x5AB8BA98)
-I (..\HARDWARE\IIC\myiic.h)(0x5AB8BA98)
-I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
-I (..\USER\stm32f10x.h)(0x5AB8BA99)
-I (..\CORE\core_cm3.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
-I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-I (..\SYSTEM\delay\delay.h)(0x5AB8BA99)
 F (..\HARDWARE\SPI\spi.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\spi.o --omf_browse ..\obj\spi.crf --depend ..\obj\spi.d)
 I (..\HARDWARE\SPI\spi.h)(0x5AB8BA98)
 I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
@@ -369,7 +335,7 @@ I (..\EMWIN\STemWin\inc\LCD.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\Global.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\GUI_Version.h)(0x5AB8BA98)
 I (..\HARDWARE\NRF24L01\24l01.h)(0x5AB8BA98)
-I (..\HARDWARE\MKEY\key.h)(0x5AB8BA98)
+I (..\HARDWARE\MKEY\key.h)(0x5AD45D74)
 I (..\USER\FramewinDLG.h)(0x5ACDA973)
 I (..\EMWIN\STemWin\inc\DIALOG.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\WM.h)(0x5AB8BA98)
@@ -409,8 +375,8 @@ I (..\EMWIN\STemWin\inc\TREEVIEW.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\KNOB.h)(0x5AB8BA98)
 I (..\SYSTEM\usart\usart.h)(0x5AB8BA99)
 I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
-F (..\HARDWARE\MKEY\key.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
-I (..\HARDWARE\MKEY\key.h)(0x5AB8BA98)
+F (..\HARDWARE\MKEY\key.c)(0x5AD45D74)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\key.o --omf_browse ..\obj\key.crf --depend ..\obj\key.d)
+I (..\HARDWARE\MKEY\key.h)(0x5AD45D74)
 I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
 I (..\USER\stm32f10x.h)(0x5AB8BA99)
 I (..\CORE\core_cm3.h)(0x5AB8BA98)
@@ -523,6 +489,39 @@ I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
 I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
 I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
 I (..\HARDWARE\SPI\spi.h)(0x5AB8BA98)
+I (..\SYSTEM\delay\delay.h)(0x5AB8BA99)
+F (..\HARDWARE\24CXX\24cxx.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\24cxx.o --omf_browse ..\obj\24cxx.crf --depend ..\obj\24cxx.d)
+I (..\HARDWARE\24CXX\24cxx.h)(0x5AB8BA98)
+I (..\HARDWARE\IIC\myiic.h)(0x5AB8BA98)
+I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
+I (..\USER\stm32f10x.h)(0x5AB8BA99)
+I (..\CORE\core_cm3.h)(0x5AB8BA98)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
+I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
+I (..\SYSTEM\delay\delay.h)(0x5AB8BA99)
+F (..\HARDWARE\IIC\myiic.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\myiic.o --omf_browse ..\obj\myiic.crf --depend ..\obj\myiic.d)
+I (..\HARDWARE\IIC\myiic.h)(0x5AB8BA98)
+I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
+I (..\USER\stm32f10x.h)(0x5AB8BA99)
+I (..\CORE\core_cm3.h)(0x5AB8BA98)
+I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
+I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
+I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
+I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
 I (..\SYSTEM\delay\delay.h)(0x5AB8BA99)
 F (..\SYSTEM\delay\delay.c)(0x5AB8BA99)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\delay.o --omf_browse ..\obj\delay.crf --depend ..\obj\delay.d)
 I (..\SYSTEM\delay\delay.h)(0x5AB8BA99)
@@ -809,7 +808,7 @@ I (..\HARDWARE\TOUCH\gt9147.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\Config\GUIDRV_Template.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\GUIDRV_FlexColor.h)(0x5AB8BA98)
 F (..\EMWIN\STemWin\Lib\STemWin526_CM3_Keil.lib)(0x5AB8BA98)()
-F (..\EMWIN\STemWinHZ\GUI_FontHZ12.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_fonthz12.o --omf_browse ..\obj\gui_fonthz12.crf --depend ..\obj\gui_fonthz12.d)
+F (..\TEXT\font12.c)(0x5AD4543E)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\font12.o --omf_browse ..\obj\font12.crf --depend ..\obj\font12.d)
 I (..\EMWIN\STemWin\inc\GUI.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\Config\GUIConf.h)(0x5AB8BA98)
@@ -817,7 +816,7 @@ I (..\EMWIN\STemWin\inc\GUI_Type.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\LCD.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\Global.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\GUI_Version.h)(0x5AB8BA98)
-F (..\EMWIN\STemWinHZ\GUI_FontHZ16.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_fonthz16.o --omf_browse ..\obj\gui_fonthz16.crf --depend ..\obj\gui_fonthz16.d)
+F (..\TEXT\font16.c)(0x5AD4558A)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\font16.o --omf_browse ..\obj\font16.crf --depend ..\obj\font16.d)
 I (..\EMWIN\STemWin\inc\GUI.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\Config\GUIConf.h)(0x5AB8BA98)
@@ -825,149 +824,3 @@ I (..\EMWIN\STemWin\inc\GUI_Type.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\LCD.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\Global.h)(0x5AB8BA98)
 I (..\EMWIN\STemWin\inc\GUI_Version.h)(0x5AB8BA98)
-F (..\EMWIN\STemWinHZ\GUI_FontHZ24.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_fonthz24.o --omf_browse ..\obj\gui_fonthz24.crf --depend ..\obj\gui_fonthz24.d)
-I (..\EMWIN\STemWin\inc\GUI.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\Config\GUIConf.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_Type.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\LCD.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\Global.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_Version.h)(0x5AB8BA98)
-F (..\EMWIN\STemWinHZ\GUI_UC_EncodeNone.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\gui_uc_encodenone.o --omf_browse ..\obj\gui_uc_encodenone.crf --depend ..\obj\gui_uc_encodenone.d)
-I (..\EMWIN\STemWin\inc\GUI_Private.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\Config\GUIConf.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_Type.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\LCD.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\Global.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_Version.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\LCD_Protected.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_Debug.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5475F300)
-I (..\EMWIN\STemWin\inc\WM_GUI.h)(0x5AB8BA98)
-F (..\EMWIN\STemWinHZ\GUICharPEx.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\guicharpex.o --omf_browse ..\obj\guicharpex.crf --depend ..\obj\guicharpex.d)
-I (E:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x5475F300)
-I (..\EMWIN\STemWin\inc\GUI_Private.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_ConfDefaults.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\Config\GUIConf.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_Type.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\LCD.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\Global.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_Version.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\LCD_Protected.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\GUI_Debug.h)(0x5AB8BA98)
-I (..\EMWIN\STemWin\inc\WM_GUI.h)(0x5AB8BA98)
-I (..\TEXT\fontupd.h)(0x5AB8BA99)
-I (..\USER\stm32f10x.h)(0x5AB8BA99)
-I (..\CORE\core_cm3.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
-I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-I (..\HARDWARE\SPI\spi.h)(0x5AB8BA98)
-I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
-I (..\HARDWARE\FLASH\flash.h)(0x5AB8BA98)
-I (..\SYSTEM\usart\usart.h)(0x5AB8BA99)
-I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
-I (..\EMWIN\STemWinHZ\EmWin_ASCII_Font.h)(0x5AB8BA98)
-I (..\HARDWARE\LCD\ili93xx.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5ABDC2FD)
-I (E:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
-I (..\EMWIN\STemWinHZ\EmWinHZFont.h)(0x5AB8BA98)
-F (..\FATFS\src\ff.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\ff.o --omf_browse ..\obj\ff.crf --depend ..\obj\ff.d)
-I (..\FATFS\src\ff.h)(0x5AB8BA98)
-I (..\FATFS\src\integer.h)(0x5AB8BA98)
-I (..\FATFS\src\ffconf.h)(0x5AB8BA98)
-I (..\FATFS\src\diskio.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdarg.h)(0x5475F2FA)
-F (..\FATFS\src\diskio.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\diskio.o --omf_browse ..\obj\diskio.crf --depend ..\obj\diskio.d)
-I (..\FATFS\src\diskio.h)(0x5AB8BA98)
-I (..\FATFS\src\integer.h)(0x5AB8BA98)
-I (..\HARDWARE\SD\mmc_sd.h)(0x5AB8BA98)
-I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
-I (..\USER\stm32f10x.h)(0x5AB8BA99)
-I (..\CORE\core_cm3.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
-I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-I (..\HARDWARE\FLASH\flash.h)(0x5AB8BA98)
-I (..\MALLOC\malloc.h)(0x5AB8BA98)
-F (..\FATFS\exfuns\mycc936.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\mycc936.o --omf_browse ..\obj\mycc936.crf --depend ..\obj\mycc936.d)
-I (..\FATFS\src\ff.h)(0x5AB8BA98)
-I (..\FATFS\src\integer.h)(0x5AB8BA98)
-I (..\FATFS\src\ffconf.h)(0x5AB8BA98)
-I (..\TEXT\fontupd.h)(0x5AB8BA99)
-I (..\USER\stm32f10x.h)(0x5AB8BA99)
-I (..\CORE\core_cm3.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
-I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-I (..\HARDWARE\FLASH\flash.h)(0x5AB8BA98)
-I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
-F (..\FATFS\exfuns\exfuns.c)(0x5AB8BA98)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\exfuns.o --omf_browse ..\obj\exfuns.crf --depend ..\obj\exfuns.d)
-I (E:\Keil_v5\ARM\ARMCC\include\string.h)(0x5475F300)
-I (..\FATFS\exfuns\exfuns.h)(0x5AB8BA98)
-I (..\USER\stm32f10x.h)(0x5AB8BA99)
-I (..\CORE\core_cm3.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
-I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-I (..\FATFS\src\ff.h)(0x5AB8BA98)
-I (..\FATFS\src\integer.h)(0x5AB8BA98)
-I (..\FATFS\src\ffconf.h)(0x5AB8BA98)
-I (..\FATFS\exfuns\fattester.h)(0x5AB8BA98)
-I (..\MALLOC\malloc.h)(0x5AB8BA98)
-I (..\SYSTEM\usart\usart.h)(0x5AB8BA99)
-I (E:\Keil_v5\ARM\ARMCC\include\stdio.h)(0x5475F300)
-I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
-F (..\TEXT\fontupd.c)(0x5AB8BA99)(-c --cpu Cortex-M3 -D__MICROLIB -g -O2 --apcs=interwork -I..\SYSTEM\delay -I..\SYSTEM\sys -I..\SYSTEM\usart -I..\USER -I..\STM32F10x_FWLib\inc -I..\CORE -I..\FWLIB\STM32F10x_FWLib\inc -I..\HARDWARE\LCD -I..\HARDWARE\IIC -I..\HARDWARE\24CXX -I..\HARDWARE\SPI -I..\HARDWARE\FLASH -I..\HARDWARE\TOUCH -I..\HARDWARE\SRAM -I..\HARDWARE\TIMER -I..\MALLOC -I..\USMART -I..\EMWIN\STemWin\Config -I..\EMWIN\STemWin\inc -I..\EMWIN\Demo -I..\HARDWARE\MKEY -I..\HARDWARE\LED -I..\HARDWARE\NRF24L01 -I..\EMWIN\STemWinHZ -I..\TEXT -I..\FATFS\src -I..\HARDWARE\SD -I..\FATFS\exfuns-I E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE-I E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0-I E:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="514" -DSTM32F10X_HD -DSTM32F10X_HD -DUSE_STDPERIPH_DRIVER-o ..\obj\fontupd.o --omf_browse ..\obj\fontupd.crf --depend ..\obj\fontupd.d)
-I (..\TEXT\fontupd.h)(0x5AB8BA99)
-I (..\USER\stm32f10x.h)(0x5AB8BA99)
-I (..\CORE\core_cm3.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5475F300)
-I (..\USER\system_stm32f10x.h)(0x5AB8BA99)
-I (..\USER\stm32f10x_conf.h)(0x5AB8BA99)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h)(0x5AB8BA98)
-I (..\FWLIB\STM32F10x_FWLib\inc\misc.h)(0x5AB8BA98)
-I (..\FATFS\src\ff.h)(0x5AB8BA98)
-I (..\FATFS\src\integer.h)(0x5AB8BA98)
-I (..\FATFS\src\ffconf.h)(0x5AB8BA98)
-I (..\HARDWARE\FLASH\flash.h)(0x5AB8BA98)
-I (..\SYSTEM\sys\sys.h)(0x5AB8BA99)
-I (..\HARDWARE\LCD\ILI93xx.h)(0x5AB8BA98)
-I (E:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x5ABDC2FD)
-I (..\MALLOC\malloc.h)(0x5AB8BA98)

@@ -78,7 +78,6 @@
 ..\obj\main.o: ..\FATFS\src\ff.h
 ..\obj\main.o: ..\FATFS\src\integer.h
 ..\obj\main.o: ..\FATFS\src\ffconf.h
-..\obj\main.o: ..\TEXT\fontupd.h
 ..\obj\main.o: ..\FATFS\exfuns\exfuns.h
 ..\obj\main.o: ..\EMWIN\Demo\GUIDemo.h
 ..\obj\main.o: ..\HARDWARE\NRF24L01\24l01.h
