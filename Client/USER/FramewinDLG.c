@@ -1,4 +1,4 @@
-﻿/*********************************************************************
+/*********************************************************************
 *                                                                    *
 *                SEGGER Microcontroller GmbH & Co. KG                *
 *        Solutions for real time microcontroller applications        *
@@ -24,65 +24,152 @@
 #include "stdlib.h" 
 #include "led.h"
 #include "24L01.h"
-#include "EmWinHZFont.h"
 #include "FramewinDLG.h"
 
-#define x 20
-
-static WM_HWIN DialogWin;
 extern GUI_CONST_STORAGE GUI_BITMAP bmwireless;
 extern GUI_CONST_STORAGE GUI_BITMAP bmappstore;
 extern GUI_CONST_STORAGE GUI_BITMAP bmset;
 extern GUI_CONST_STORAGE GUI_BITMAP bmnotebook;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont12;
+extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont14;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont16;
+extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont24;
 
-typedef struct User_data 
-{
-    uint8_t motion_num;//电机号
-    uint16_t vm;      //转动速度
-    uint8_t vt;       //钻孔速度
-    uint8_t num;      //打孔次数
-    uint8_t depth;    //打孔深度
-    uint8_t h_space;  //间距
-    uint8_t v_space;  //行距
-}User_data;
 
-User_data *u;
+#define MAIN_BKCOLOR              0xD0D0D0
+#define MAIN_TEXTCOLOR            0x000000
+#define MAIN_FONT                 (&GUI_Fontfont16)
+#define MAIN_BORDER               10
+#define MAIN_TITLE_HEIGHT         30
+#define MAIN_LOGO_BITMAP          (&bmset)
+#define MAIN_LOGO_OFFSET_X        0
+#define MAIN_LOGO_OFFSET_Y        5
 
+#define FRAME_BKCOLOR             0xB0B0B0
+#define FRAME_TEXTCOLOR           0x000000
+#define FRAME_FONT                (&GUI_Fontfont12)
+#define FRAME_EFFECT              (&WIDGET_Effect_3D2L)
+#define FRAME_BORDER              FRAME_EFFECT->EffectSize
+#define FRAME_WIDTH               (LCD_GetXSize() - (FRAME_BORDER * 2) - (MAIN_BORDER * 2))
+#define FRAME_HEIGHT              (LCD_GetYSize() - (FRAME_BORDER * 2) - (MAIN_BORDER + MAIN_TITLE_HEIGHT))
+
+
+#define FRAME_BUTTON_BKCOLOR0     0xB8B8B8              /* Unpressed */
+#define FRAME_BUTTON_BKCOLOR1     0xE0E0E0              /* Pressed   */
+#define FRAME_BUTTON_BKCOLOR2     0xC0C0C0              /* Disabled  */
+#define FRAME_BUTTON_COLOR0       0x000000              /* Unpressed */
+#define FRAME_BUTTON_COLOR1       0x000000              /* Pressed   */
+#define FRAME_BUTTON_FONT         (&GUI_Fontfont12)
+#define FRAME_BUTTON_EFFECT       (&WIDGET_Effect_3D2L)
+#define DEFAULT_WIDGET_EFFECT     (&WIDGET_Effect_3D2L)
+
+#define MSG_UPDATE_DATA (WM_USER + 5)
+#define ID_FRAMEWIN_0 (GUI_ID_USER + 0x00)
+#define ID_DROPDOWN_0 (GUI_ID_USER + 0x01)
+#define ID_BUTTON_0 (GUI_ID_USER + 0x02)
+#define ID_TEXT_0 (GUI_ID_USER + 0x03)
+#define ID_BUTTON_1 (GUI_ID_USER + 0x04)
+#define ID_TEXT_1 (GUI_ID_USER + 0x05)
+#define ID_EDIT_0 (GUI_ID_USER + 0x06)
+#define ID_TEXT_2 (GUI_ID_USER + 0x07)
+#define ID_TEXT_3 (GUI_ID_USER + 0x08)
+#define ID_TEXT_4 (GUI_ID_USER + 0x09)
+#define ID_TEXT_5 (GUI_ID_USER + 0x0A)
+#define ID_EDIT_1 (GUI_ID_USER + 0x0B)
+#define ID_EDIT_2 (GUI_ID_USER + 0x0C)
+#define ID_EDIT_3 (GUI_ID_USER + 0x0D)
+#define ID_BUTTON_2 (GUI_ID_USER + 0x12)
+#define ID_BUTTON_3 (GUI_ID_USER + 0x13)
+#define ID_BUTTON_4 (GUI_ID_USER + 0x14)
+#define ID_BUTTON_5 (GUI_ID_USER + 0x15)
+
+static void _cbSelect(WM_MESSAGE* pMsg) ;
+static void _cbInputParameter(WM_MESSAGE* pMsg) ;
+static void _cbwireless(WM_MESSAGE* pMsg) ;
+static void _cbSingledrill(WM_MESSAGE* pMsg) ;
+static void _cbrundrill(WM_MESSAGE* pMsg) ;
+
+static WM_HWIN    _hLastFrame;
+static WM_HWIN DialogWin;
+static WM_HWIN    _hTitle;
 u8 buf[32];
-/*********************************************************************
-*
-*       _aDialogCreate
-*/
-static const GUI_WIDGET_CREATE_INFO _aDialogCreate[] = {
-  { FRAMEWIN_CreateIndirect, "Framewin", ID_FRAMEWIN_0, 0, 0, 240, 320, 0, 0x0, 0 },
-  
-  { DROPDOWN_CreateIndirect, "Dropdown", ID_DROPDOWN_0, 90, 87-x, 60, 50, 0, 0x64, 0 },
-  { EDIT_CreateIndirect, "Edit", ID_EDIT_0, 90, 119-x, 60, 20, 0, 0x64, 0 },
-  { EDIT_CreateIndirect, "Edit", ID_EDIT_1, 90, 151-x, 60, 20, 0, 0x64, 0 },
-  { EDIT_CreateIndirect, "Edit", ID_EDIT_2, 90, 183-x, 60, 20, 0, 0x64, 0 },
-  { EDIT_CreateIndirect, "Edit", ID_EDIT_3, 90, 215-x, 60, 20, 0, 0x64, 0 },
-  { EDIT_CreateIndirect, "Edit", ID_EDIT_4, 90, 247-x, 60, 20, 0, 0x64, 0 },
-  { EDIT_CreateIndirect, "Edit", ID_EDIT_5, 90, 279-x, 60, 20, 0, 0x64, 0 },
-   
-  
-  { TEXT_CreateIndirect, "手持钻床控制器", ID_TEXT_1, 10, 10, 180, 40, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "钻头电机", ID_TEXT_0, 13, 87-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "转动速度", ID_TEXT_2, 13, 119-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "钻孔速度", ID_TEXT_3, 13, 151-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "打孔次数", ID_TEXT_4, 13, 183-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "钻孔深度", ID_TEXT_5, 13, 215-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "钻孔间距", ID_TEXT_6, 13, 247-x, 80, 20, 0, 0x0, 0 },
-  { TEXT_CreateIndirect, "钻孔行距", ID_TEXT_7, 13, 279-x, 80, 20, 0, 0x0, 0 },
-  
-  { BUTTON_CreateIndirect, "YES", ID_BUTTON_0, 13, 295, 60, 20, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "NO", ID_BUTTON_1, 83, 295, 60, 20, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "", ID_BUTTON_2, 170, 60, 60, 60, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "", ID_BUTTON_3, 170, 150, 60, 60, 0, 0x0, 0 },
-  { BUTTON_CreateIndirect, "", ID_BUTTON_4, 170, 240, 60, 60, 0, 0x0, 0 },
-  
+
+
+/* ICONVIEW控件图标使用 */
+
+typedef struct {
+  const GUI_BITMAP * pBitmap;  
+  const char       * pText;
+} BITMAP_ITEM;
+
+static const BITMAP_ITEM _aBitmapItem[] = {
+    {&bmset,        "inputpara"       },
+    {&bmappstore,   "singledrill"     },
+    {&bmwireless,   "wireless"        },
+	{&bmnotebook,   "rundirll"        },
 };
+/* 图标对应的应用程序 */
+static void (* _apModules[])(WM_MESSAGE* pMsg) = 
+{
+	_cbInputParameter,
+	_cbwireless,
+    _cbSingledrill,
+    _cbrundrill,
+};
+
+
+/*
+*********************************************************************************************************
+*	函 数 名: _DeleteFrame
+*	功能说明: 删除创建的框架窗口
+*	形    参：无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _DeleteFrame(void) 
+{
+	WM_DeleteWindow(_hLastFrame);
+	_hLastFrame = 0;
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: _CreateFrame
+*	功能说明: 创建框架窗口
+*	形    参：cb  回调函数地址
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static WM_HWIN _CreateFrame(WM_CALLBACK* cb) 
+{
+	int x = 0;
+	int y = 0;
+	x = FRAME_BORDER + MAIN_BORDER;
+	y = FRAME_BORDER + MAIN_TITLE_HEIGHT;
+	_hLastFrame = WM_CreateWindowAsChild(x, y, FRAME_WIDTH, FRAME_HEIGHT, WM_HBKWIN, WM_CF_SHOW, cb, 0);
+	return _hLastFrame;
+}
+
+
+/*
+*********************************************************************************************************
+*	函 数 名: _PaintFrame
+*	功能说明: 框架窗口的重绘函数
+*	形    参：无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _PaintFrame(void) 
+{
+	GUI_RECT r;
+	WM_GetClientRect(&r);
+	GUI_SetBkColor(FRAME_BKCOLOR);
+	GUI_SetColor(FRAME_TEXTCOLOR);
+	GUI_SetFont(FRAME_FONT);
+	GUI_SetTextMode(GUI_TM_TRANS);
+	GUI_ClearRectEx(&r);
+}
+
 
 void _SendMsg(void)
 {
@@ -127,231 +214,566 @@ static u8 Get_widget_value(GUI_HWIN hWin,int id)
     }
 }
 
-void User_data_encode(GUI_HWIN hwin)
+void Get_User_Data(GUI_HWIN hwin)
 {
-    buf[1] = 0;
-    buf[2] = 0;
-    buf[3] = Get_widget_value(hwin,ID_DROPDOWN_0);
+
     buf[4] = Get_widget_value(hwin,ID_EDIT_0);
     buf[5] = Get_widget_value(hwin,ID_EDIT_1);
     buf[6] = Get_widget_value(hwin,ID_EDIT_2);
     buf[7] = Get_widget_value(hwin,ID_EDIT_3);
-    buf[8] = Get_widget_value(hwin,ID_EDIT_4);
-    buf[9] = Get_widget_value(hwin,ID_EDIT_5); 
 }
 
-void User_data_decode(GUI_HWIN hwin)
+void Set_User_Data(GUI_HWIN hwin)
 {
     Set_widget_value(hwin,ID_DROPDOWN_0,buf[3]);
     Set_widget_value(hwin,ID_EDIT_0,buf[4]);
     Set_widget_value(hwin,ID_EDIT_1,buf[5]);
     Set_widget_value(hwin,ID_EDIT_2,buf[6]);
     Set_widget_value(hwin,ID_EDIT_3,buf[7]);
-    Set_widget_value(hwin,ID_EDIT_4,buf[8]);
-    Set_widget_value(hwin,ID_EDIT_5,buf[9]);
+
+}
+/*
+*********************************************************************************************************
+*	函 数 名: _DrawDownRectEx
+*	功能说明: 显示凹陷的矩形框
+*	形    参：pEffect  控件显示效果
+*             pRect    GUI_RECT类型变量地址
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _DrawDownRectEx(const WIDGET_EFFECT* pEffect, const GUI_RECT* pRect) 
+{
+	WM_LOCK();
+	pEffect->pfDrawDownRect(pRect);
+	WM_UNLOCK();
 }
 
-static void _cbDesktop(WM_MESSAGE * pMsg) 
+/*
+*********************************************************************************************************
+*	函 数 名: _DrawDownRect
+*	功能说明: 显示凹陷的矩形框
+*	形    参：pEffect  控件显示效果
+*             x0       起始x轴坐标
+*             y0       起始y轴坐标
+*             x1       结束x轴坐标
+*             y1       结束y轴坐标
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _DrawDownRect(const WIDGET_EFFECT* pEffect, int x0, int y0, int x1, int y1) 
 {
-	unsigned i;
+	GUI_RECT r;
+	r.x0 = x0;
+	r.y0 = y0;
+	r.x1 = x1;
+	r.y1 = y1;
+	_DrawDownRectEx(pEffect, &r);
+}
 
+
+/*
+*********************************************************************************************************
+*	函 数 名: _CreateButton
+*	功能说明: 创建按钮
+*	形    参：hParent  父窗口
+*             pText    按键上显示的文本
+*             Id       按钮Id         
+*             x        x轴坐标
+*             y        y轴坐标
+*             w        按钮宽
+*             h        按钮高
+*             bmp      图片
+*             type     文字或图片
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static WM_HWIN _CreateButton(WM_HWIN hParent, const char* pText,const GUI_BITMAP* bmp,int type,int Id, int x, int y, int w, int h) 
+{
+	WM_HWIN hButton;
+	hButton = BUTTON_CreateEx(x, y, w, h, hParent, WM_CF_SHOW, 0, Id);
+    if(type==0)
+    {
+        BUTTON_SetText(hButton,pText);
+    }
+    else
+    {
+        BUTTON_SetBitmapEx(hButton,0,bmp,10,10);
+    }
+	BUTTON_SetFont      (hButton,    FRAME_BUTTON_FONT);
+	BUTTON_SetBkColor   (hButton, 0, FRAME_BUTTON_BKCOLOR0);
+	BUTTON_SetBkColor   (hButton, 1, FRAME_BUTTON_BKCOLOR1);
+	BUTTON_SetBkColor   (hButton, 2, FRAME_BUTTON_BKCOLOR2);
+	BUTTON_SetTextColor (hButton, 0, FRAME_BUTTON_COLOR0);
+	BUTTON_SetTextColor (hButton, 1, FRAME_BUTTON_COLOR1);
+	BUTTON_SetTextColor (hButton, 2, FRAME_BUTTON_COLOR0);
+	WIDGET_SetEffect    (hButton,    FRAME_BUTTON_EFFECT);
+	
+	/* 设置接收输入焦点的能力 */
+	BUTTON_SetFocussable(hButton,    1);
+	return hButton;
+}
+
+
+/*
+*********************************************************************************************************
+*	函 数 名: _CreateIcon
+*	功能说明: 创建按钮
+*	形    参：      
+*             x        x轴坐标
+*             y        y轴坐标
+*             w        按钮宽
+*             h        按钮高   
+*             hParent  父窗口
+*             Id       按钮Id   
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static WM_HWIN _CreateIcon( int x, int y, int w, int h,WM_HWIN hParent,int Id) 
+{
+    int i;
+    WM_HWIN hIcon;
+	/* 创建ICON控件 */
+	hIcon = ICONVIEW_CreateEx(x, y, w, h, hParent, WM_CF_SHOW | WM_CF_HASTRANS, ICONVIEW_CF_AUTOSCROLLBAR_V ,
+							  Id, 80, 80);
+	ICONVIEW_SetFont(hIcon, &GUI_Font13B_ASCII);
+	ICONVIEW_SetBkColor(hIcon, ICONVIEW_CI_SEL, 0x941000 | 0x80404040);
+	ICONVIEW_SetSpace(hIcon, GUI_COORD_Y, 10);
+	ICONVIEW_SetFrame(hIcon, GUI_COORD_Y, 10);
+	for (i = 0; i < GUI_COUNTOF(_aBitmapItem); i++)
+	{
+        
+		ICONVIEW_AddBitmapItem(hIcon,_aBitmapItem[i].pBitmap, _aBitmapItem[i].pText);
+	}
+	WM_SetFocus(hIcon);
+    return hIcon;
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: _CreateButton
+*	功能说明: 创建按钮
+*	形    参：      
+*             x        x轴坐标
+*             y        y轴坐标
+*             w        按钮宽
+*             h        按钮高   
+*             hParent  父窗口
+*             Id       按钮Id   
+*             maxlen   最大字符数
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static WM_HWIN _CreateEditwithText( int x, int y, int w, int h,WM_HWIN hParent,int Edit_Id,int maxLen,int Text_Id,const char* pText) 
+{
+	WM_HWIN hEdit;
+    WM_HWIN hText;
+    
+    hEdit = EDIT_CreateEx( x, y, w, h, hParent, WM_CF_SHOW, 0, Edit_Id, maxLen);
+    EDIT_SetFont(hEdit,GUI_FONT_24B_ASCII);
+    EDIT_SetTextAlign(hEdit, GUI_TA_CENTER);
+    WIDGET_SetEffect(hEdit, DEFAULT_WIDGET_EFFECT);
+    
+    hText = TEXT_CreateEx(x-w, y+h/4, w, h, hParent, WM_CF_SHOW, 0, Text_Id, pText);
+    TEXT_SetFont(hText,FRAME_FONT);
+	
+	/* 设置接收输入焦点的能力 */
+	EDIT_SetFocussable(hEdit,1);
+	return hEdit;
+}
+
+
+/*
+*********************************************************************************************************
+*	函 数 名: _cbBkWindow
+*	功能说明: 桌面窗口回调函数
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbBkWindow(WM_MESSAGE* pMsg) 
+{
 	switch (pMsg->MsgId) 
 	{
-		/* 重绘 */
-		case WM_PAINT:
-			GUI_SetBkColor(GUI_LIGHTGRAY);
-			GUI_Clear();
+		case WM_PAINT: 
+			{
+				int x, y, w, h;
+				GUI_SetBkColor(MAIN_BKCOLOR);
+				GUI_SetColor(MAIN_TEXTCOLOR);
+				GUI_SetFont(MAIN_FONT);
+				GUI_Clear();
+				x = MAIN_LOGO_OFFSET_X + MAIN_BORDER;
+				y = MAIN_LOGO_OFFSET_Y + ((MAIN_TITLE_HEIGHT - MAIN_LOGO_BITMAP->YSize) >> 1);
+				x = MAIN_BORDER;
+				y = MAIN_TITLE_HEIGHT;
+				w = LCD_GetXSize() - (MAIN_BORDER * 2);
+				h = LCD_GetYSize()  - (MAIN_BORDER + MAIN_TITLE_HEIGHT);
+				_DrawDownRect(FRAME_EFFECT, x, y, x + w - 1, y + h - 1);
+			} 
 			break;
+		default:
+			WM_DefaultProc(pMsg);
 	}
 }
 
-static void InitDialog(WM_MESSAGE * pMsg)
+/*
+*********************************************************************************************************
+*	函 数 名: _cbrundrill
+*	功能说明: 第四个界面，执行界面和完整数据界面
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbrundrill(WM_MESSAGE* pMsg) 
 {
-    WM_HWIN hItem;
-
-    hItem = pMsg->hWin;
-    FRAMEWIN_SetTitleVis(hItem, 0);
-    GUI_UC_SetEncodeUTF8();
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_0);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_1);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_2);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
-    BUTTON_SetBitmapEx(hItem,0,&bmwireless,0,0);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_3);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
-    BUTTON_SetBitmapEx(hItem,0,&bmappstore,0,0);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_BUTTON_4);
-    BUTTON_SetSkin(hItem,BUTTON_SKIN_FLEX);
-    BUTTON_SetBitmapEx(hItem,0,&bmset,0,0);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_1);
-    TEXT_SetFont(hItem, &GUI_Fontfont16);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_0);
-    TEXT_SetFont(hItem, &GUI_Fontfont12);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_2);
-    TEXT_SetFont(hItem, &GUI_Fontfont12);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_3);   
-    TEXT_SetFont(hItem, &GUI_Fontfont12);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_4);
-    TEXT_SetFont(hItem, &GUI_Fontfont12);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_5);
-    TEXT_SetFont(hItem, &GUI_Fontfont12);
-
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_6);
-    TEXT_SetFont(hItem, &GUI_Fontfont12);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_TEXT_7);
-    TEXT_SetFont(hItem, &GUI_Fontfont12);
-    
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_0);
-    EDIT_SetText(hItem, "30");
-    EDIT_SetMaxLen(hItem,3);
-    EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
-    WM_SetFocus(hItem);
- 
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_1);
-    EDIT_SetText(hItem, "22");
-    EDIT_SetMaxLen(hItem,3);
-    EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_2);
-    EDIT_SetText(hItem, "10");
-    EDIT_SetMaxLen(hItem,3);
-    EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
-    
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_3);
-    EDIT_SetText(hItem, "20");
-    EDIT_SetMaxLen(hItem,3);
-    EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_4);
-    EDIT_SetText(hItem, "5");
-    EDIT_SetMaxLen(hItem,3);
-    EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
-    
-    hItem = WM_GetDialogItem(pMsg->hWin, ID_EDIT_5);
-    EDIT_SetText(hItem, "4");
-    EDIT_SetMaxLen(hItem,3); 
-    EDIT_SetTextAlign(hItem, GUI_TA_HCENTER | GUI_TA_TOP);
-
-
-    hItem = WM_GetDialogItem(pMsg->hWin,ID_DROPDOWN_0);
-    DROPDOWN_SetFont(hItem,GUI_FONT_16_ASCII);
-    DROPDOWN_SetAutoScroll(hItem,1);
-    DROPDOWN_AddString(hItem,"M1");
-    DROPDOWN_AddString(hItem,"M2");
-    DROPDOWN_AddString(hItem,"M3");
-}
-
-/*********************************************************************
-*
-*       _cbDialog
-*/
-static void _cbDialog(WM_MESSAGE * pMsg) {
-  WM_HWIN hItem;
-  int     NCode;
-  int     Id;
-
-  switch (pMsg->MsgId) {
-              
-  case WM_INIT_DIALOG:
-    InitDialog(pMsg);
-    break;
-  case WM_KEY:
-    hItem = WM_GetDialogItem(DialogWin, ID_BUTTON_0);
-    switch(((WM_KEY_INFO*)(pMsg->Data.p))->Key)
-    {
-        case GUI_KEY_ENTER:
-            WM_SetFocus(hItem);
-            GUI_SendKeyMsg(GUI_KEY_ENTER,1);
+	WM_HWIN  hItem,hWin = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			/* 设置聚焦 */
+			WM_SetFocus(hWin);
+            _CreateButton(hWin, "确认",0,0,GUI_ID_BUTTON0, (FRAME_WIDTH >> 1)-90, 200, 80,  40);
+            _CreateButton(hWin, "取消",0,0,GUI_ID_BUTTON1, (FRAME_WIDTH >> 1), 200, 80,  40);
+			break;
+		 case WM_KEY:
+			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{ 
+                   case GUI_KEY_TAB:
+					WM_SetFocusOnNextChild(hWin);
+					break;
+			}
             break;
-        default:;break;
-    }
-    break;
-  case MSG_UPDATE_DATA:
-      NRF24L01_RX_Mode();
-      if(!NRF24L01_RxPacket(buf))
-      {
-          User_data_decode(pMsg->hWin);
-      }
-      break;
-  case WM_PAINT:
-      GUI_SetBkColor(GUI_LIGHTGRAY);
-      GUI_Clear();
-      break;      
-    
-  case WM_NOTIFY_PARENT:
-    Id    = WM_GetId(pMsg->hWinSrc);
-    NCode = pMsg->Data.v;
-    switch(Id) {
-    case ID_BUTTON_0:
-      switch(NCode) {
-      case WM_NOTIFICATION_CLICKED:
-        buf[0] = 0;
-        User_data_encode(pMsg->hWin);
-        NRF24L01_TX_Mode();
-        if(NRF24L01_TxPacket(buf)==TX_OK)
-        {
-            LED0 = 0;
-        }
-        break;
-      case WM_NOTIFICATION_RELEASED:
-        break;
-      }
-      break;
-    case ID_BUTTON_1:
-      switch(NCode) {
-      case WM_NOTIFICATION_CLICKED:
-        buf[0] = 1;
-        NRF24L01_TX_Mode();
-        if(NRF24L01_TxPacket(buf)==TX_OK)
-        {
-            LED0 = 1;
-        }
-        break;
-      case WM_NOTIFICATION_RELEASED:
-        break;
-      }
-      break;
-    }
-    break;
-
-  default:
-    WM_DefaultProc(pMsg);
-    break;
-  }
-
+		case WM_PAINT:
+			_PaintFrame();
+			break;
+        case WM_NOTIFY_PARENT:
+			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			{
+				int Id = WM_GetId(pMsg->hWinSrc);
+				switch (Id) 
+				{
+					case GUI_ID_BUTTON0:
+                        _DeleteFrame();
+                        _CreateFrame(&_cbSelect);
+						break;
+					case GUI_ID_BUTTON1:
+                         _DeleteFrame();
+                        _CreateFrame(&_cbSelect);
+						break;
+				}
+			}
+			break;
+		default:
+		WM_DefaultProc(pMsg);
+	}
 }
 
-/*********************************************************************
-*
-*       Public code
-*
-**********************************************************************
+
+/*
+*********************************************************************************************************
+*	函 数 名: _cbwireless
+*	功能说明: 第三个界面，无线测试
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
 */
+static void _cbwireless(WM_MESSAGE* pMsg) 
+{
+	WM_HWIN  hItem,hWin = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			/* 设置聚焦 */
+			WM_SetFocus(hWin);
+            _CreateButton(hWin, "确认",0,0,GUI_ID_BUTTON0, (FRAME_WIDTH >> 1)-90, 200, 80,  40);
+            _CreateButton(hWin, "取消",0,0,GUI_ID_BUTTON1, (FRAME_WIDTH >> 1), 200, 80,  40);
+            _CreateButton(hWin, "模块检测",0,0,GUI_ID_BUTTON2, (FRAME_WIDTH >> 1)-90, 30, 120,  40);
+            _CreateButton(hWin, "数据传输检测",0,0,GUI_ID_BUTTON3, (FRAME_WIDTH >> 1)-90, 80, 120,  40);
+			break;
+		 case WM_KEY:
+			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{ 
+                   case GUI_KEY_TAB:
+					WM_SetFocusOnNextChild(hWin);
+					break;
+			}
+            break;
+		case WM_PAINT:
+			_PaintFrame();
+			break;
+        case WM_NOTIFY_PARENT:
+			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			{
+				int Id = WM_GetId(pMsg->hWinSrc);
+				switch (Id) 
+				{
+					case GUI_ID_BUTTON0:
+                        _DeleteFrame();
+                        _CreateFrame(&_cbSelect);
+						break;
+					case GUI_ID_BUTTON1:
+                         _DeleteFrame();
+                        _CreateFrame(&_cbSelect);
+						break;
+				}
+			}
+			break;
+		default:
+		WM_DefaultProc(pMsg);
+	}
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: _cbSingledrill
+*	功能说明: 第二个界面，单孔操作
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbSingledrill(WM_MESSAGE* pMsg) 
+{
+	WM_HWIN  hItem,hWin = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			/* 设置聚焦 */
+			WM_SetFocus(hWin);
+			/* 创建两个按钮，用于选择中文和英文 */
+            hItem = DROPDOWN_CreateEx((FRAME_WIDTH >> 1) - 60, 40, 80,  80, hWin, WM_CF_SHOW, 0, GUI_ID_DROPDOWN0);
+            DROPDOWN_AddString(hItem,"M1");
+            DROPDOWN_AddString(hItem,"M2");
+            DROPDOWN_AddString(hItem,"M3");
+            DROPDOWN_SetFont(hItem,&GUI_Font24B_ASCII);
+			_CreateButton(hWin, "定位",0,0,GUI_ID_BUTTON0, (FRAME_WIDTH >> 1) - 60, 90, 60,  40);
+			_CreateButton(hWin, "扩孔",0,0,GUI_ID_BUTTON1, (FRAME_WIDTH >> 1)+10 , 90, 60,  40);
+            _CreateButton(hWin, "上升",0,0,GUI_ID_BUTTON2, (FRAME_WIDTH >> 1)-60, 160, 60,  40);
+            _CreateButton(hWin, "下降",0,0,GUI_ID_BUTTON3, (FRAME_WIDTH >> 1)+10, 160, 60,  40);
+            _CreateButton(hWin, "确认",0,0,GUI_ID_BUTTON4, (FRAME_WIDTH >> 1)-60, 230, 60,  40);
+            _CreateButton(hWin, "取消",0,0,GUI_ID_BUTTON5, (FRAME_WIDTH >> 1)+10, 230, 60,  40);
+			break;
+		 case WM_KEY:
+			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{ 
+                    case GUI_KEY_TAB:
+                        WM_SetFocusOnNextChild(hWin);
+					break;
+			}
+            break;
+		case WM_PAINT:
+			_PaintFrame();
+			break;
+        case WM_NOTIFY_PARENT:
+			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			{
+				int Id = WM_GetId(pMsg->hWinSrc);
+				switch (Id) 
+				{
+					case GUI_ID_BUTTON0:
+						break;
+					case GUI_ID_BUTTON5:
+                         _DeleteFrame();
+                        _CreateFrame(&_cbSelect);
+						break;
+				}
+			}
+			break;
+		default:
+		WM_DefaultProc(pMsg);
+	}
+}
+/*
+*********************************************************************************************************
+*	函 数 名: _cbInputdrillParameter
+*	功能说明: 第一个界面，用于大小钻头、奇偶数排等参数的设定
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbInputdrillParameter(WM_MESSAGE* pMsg) 
+{
+	WM_HWIN  hItem,hWin = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			/* 设置聚焦 */
+			WM_SetFocus(hWin);
+             _CreateEditwithText((FRAME_WIDTH >> 1) , 30, 80, 30, hWin, GUI_ID_EDIT0, 3,GUI_ID_TEXT1,"孔数");
+             _CreateEditwithText((FRAME_WIDTH >> 1) , 70, 80, 30, hWin, GUI_ID_EDIT1, 3,GUI_ID_TEXT2,"钻孔深度");
+             _CreateEditwithText((FRAME_WIDTH >> 1) , 110, 80, 30, hWin, GUI_ID_EDIT2, 3,GUI_ID_TEXT3,"扩孔深度");
+             _CreateButton(hWin, "确认",0,0,GUI_ID_BUTTON0, (FRAME_WIDTH >> 1)-90, 200, 80,  40);
+             _CreateButton(hWin, "取消",0,0,GUI_ID_BUTTON1, (FRAME_WIDTH >> 1), 200, 80,  40);
+			break;
+		 case WM_KEY:
+			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{
+                   case GUI_KEY_TAB:
+					WM_SetFocusOnNextChild(hWin);
+					break;
+			}
+            break;
+		case WM_PAINT:
+			_PaintFrame();
+			break;
+        case WM_NOTIFY_PARENT:
+			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			{
+				int Id = WM_GetId(pMsg->hWinSrc);
+				switch (Id) 
+				{
+					case GUI_ID_BUTTON0:
+                        _DeleteFrame();
+                        _CreateFrame(&_cbSelect);
+						break;
+					case GUI_ID_BUTTON1:
+                        _DeleteFrame();
+                        _CreateFrame(&_cbInputParameter);
+						break;
+				}
+			}
+			break;
+		default:
+		WM_DefaultProc(pMsg);
+	}
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: _cbInputParameter
+*	功能说明: 第一个界面，用于转速、深度等参数的设定
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbInputParameter(WM_MESSAGE* pMsg) 
+{
+	WM_HWIN  hItem,hWin = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			/* 设置聚焦 */
+			WM_SetFocus(hWin);
+             _CreateEditwithText((FRAME_WIDTH >> 1) , 30, 80, 30, hWin, GUI_ID_EDIT1, 3,GUI_ID_TEXT1,"转动速度");
+             _CreateEditwithText((FRAME_WIDTH >> 1) , 70, 80, 30, hWin, GUI_ID_EDIT2, 3,GUI_ID_TEXT2,"钻孔速度");
+             _CreateEditwithText((FRAME_WIDTH >> 1) , 110, 80, 30, hWin, GUI_ID_EDIT3, 3,GUI_ID_TEXT3,"打孔次数");
+             _CreateEditwithText((FRAME_WIDTH >> 1) , 150, 80, 30, hWin, GUI_ID_EDIT4, 3,GUI_ID_TEXT4,"钻孔深度");
+             _CreateButton(hWin, "钻孔设置",0,0,GUI_ID_BUTTON0, (FRAME_WIDTH >> 1)-90, 200, 80,  40);
+             _CreateButton(hWin, "返回",0,0,GUI_ID_BUTTON1, (FRAME_WIDTH >> 1), 200, 80,  40);
+			break;
+		 case WM_KEY:
+			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{ 
+                   case GUI_KEY_TAB:
+                        WM_SetFocusOnNextChild(hWin);
+                    break;
+			}
+            break;
+		case WM_PAINT:
+			_PaintFrame();
+
+			break;
+         case WM_NOTIFY_PARENT:
+			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			{
+				int Id = WM_GetId(pMsg->hWinSrc);
+				switch (Id) 
+				{
+					case GUI_ID_BUTTON0:
+
+                        _DeleteFrame();
+                        _CreateFrame(&_cbInputdrillParameter);
+						break;
+					case GUI_ID_BUTTON1:
+                        _DeleteFrame();
+                        _CreateFrame(&_cbSelect);
+						break;
+				}
+			}
+			break;
+		default:
+		WM_DefaultProc(pMsg);
+	}
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: _cbSelect
+*	功能说明: 主界面用作功能的选择
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbSelect(WM_MESSAGE* pMsg) 
+{
+	WM_HWIN hItem,hWin = pMsg->hWin;
+    int sel;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			/* 设置聚焦 */
+			WM_SetFocus(hWin);
+            _CreateIcon(25,32,FRAME_WIDTH,FRAME_HEIGHT,hWin,GUI_ID_ICONVIEW0); 
+			break;
+		 case WM_KEY:
+			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{ 
+                case GUI_KEY_TAB:
+					WM_SetFocusOnNextChild(hWin);
+					break;
+			}
+            break;
+		case WM_PAINT:
+			_PaintFrame();
+            /* 创建标题，居中显示 */
+            _hTitle = TEXT_CreateEx(0, 0, LCD_GetXSize(), 30, WM_HBKWIN, WM_CF_SHOW, 0, GUI_ID_TEXT0,"手持钻床控制器");
+            TEXT_SetFont(_hTitle, MAIN_FONT);
+			break;
+        case WM_NOTIFY_PARENT:
+			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			{
+				int Id = WM_GetId(pMsg->hWinSrc);
+				switch (Id) 
+				{
+                    
+                    case GUI_ID_ICONVIEW0:
+                        sel = ICONVIEW_GetSel(pMsg->hWinSrc);
+                        if(sel < GUI_COUNTOF(_aBitmapItem))
+						{
+                             _DeleteFrame();
+                            /* 进入相应的应用程序 */
+                            _CreateFrame(_apModules[sel]);
+						}
+                        break;
+				}
+			}
+			break;
+		default:
+		WM_DefaultProc(pMsg);
+	}
+}
+
 
 WM_HWIN CreateFramewin(void) {
     
-  WM_HWIN hWin;
-  DialogWin = GUI_CreateDialogBox(_aDialogCreate, GUI_COUNTOF(_aDialogCreate), _cbDialog, WM_HBKWIN, 0, 0);
-  hWin = DialogWin;  
-  WM_SetCallback(WM_HBKWIN,_cbDesktop);
+	/* 使能窗口使用内存设备 */
+	WM_SetCreateFlags(WM_CF_MEMDEV);
     
-  return hWin;
+	/* 使能控件的皮肤色 */
+	PROGBAR_SetDefaultSkin(PROGBAR_SKIN_FLEX);
+	FRAMEWIN_SetDefaultSkin(FRAMEWIN_SKIN_FLEX);
+	PROGBAR_SetDefaultSkin(PROGBAR_SKIN_FLEX);
+	BUTTON_SetDefaultSkin(BUTTON_SKIN_FLEX);
+	CHECKBOX_SetDefaultSkin(CHECKBOX_SKIN_FLEX);
+	DROPDOWN_SetDefaultSkin(DROPDOWN_SKIN_FLEX);
+	SCROLLBAR_SetDefaultSkin(SCROLLBAR_SKIN_FLEX);
+	SLIDER_SetDefaultSkin(SLIDER_SKIN_FLEX);
+	HEADER_SetDefaultSkin(HEADER_SKIN_FLEX);
+	RADIO_SetDefaultSkin(RADIO_SKIN_FLEX);
+	
+	/*设置桌面窗口回调*/
+	WM_SetCallback(WM_HBKWIN,&_cbBkWindow);
+	_CreateFrame(&_cbSelect);
+	
+	GUI_UC_SetEncodeUTF8();
 }
 
 
