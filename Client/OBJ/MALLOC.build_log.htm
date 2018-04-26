@@ -27,25 +27,35 @@ Project File Date:  04/23/2018
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling FramewinDLG.c...
-FramewinDLG.c(215): warning:  #940-D: missing return statement at end of non-void function "Get_widget_value"
+FramewinDLG.c(220): warning:  #940-D: missing return statement at end of non-void function "Get_widget_value"
   }
-FramewinDLG.c(430): warning:  #177-D: variable "hItem" was declared but never referenced
+FramewinDLG.c(482): warning:  #177-D: variable "hItem" was declared but never referenced
         WM_HWIN  hItem,hWin = pMsg->hWin;
-FramewinDLG.c(483): warning:  #177-D: variable "hItem" was declared but never referenced
+FramewinDLG.c(538): warning:  #177-D: variable "hItem" was declared but never referenced
         WM_HWIN  hItem,hWin = pMsg->hWin;
-FramewinDLG.c(596): warning:  #177-D: variable "hItem" was declared but never referenced
+FramewinDLG.c(615): warning:  #177-D: variable "hItem" was declared but never referenced
         WM_HWIN  hItem,hWin = pMsg->hWin;
-FramewinDLG.c(651): warning:  #177-D: variable "hItem" was declared but never referenced
+FramewinDLG.c(769): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+               _Createradio((FRAME_WIDTH >> 1)-100, 130, 80,70, hWin, GUI_ID_RADIO0,drill_Item,GUI_COUNTOF(drill_Item));
+FramewinDLG.c(770): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+               _Createradio((FRAME_WIDTH >> 1), 130, 80, 70, hWin, GUI_ID_RADIO1,   OddEven_Item,GUI_COUNTOF(OddEven_Item));
+FramewinDLG.c(748): warning:  #177-D: variable "hItem" was declared but never referenced
         WM_HWIN  hItem,hWin = pMsg->hWin;
-FramewinDLG.c(708): warning:  #177-D: variable "hItem" was declared but never referenced
+FramewinDLG.c(851): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+               _Createradio((FRAME_WIDTH >> 1), 50, 80,80, hWin, GUI_ID_RADIO0,model_Item,GUI_COUNTOF(model_Item));
+FramewinDLG.c(829): warning:  #177-D: variable "hItem" was declared but never referenced
+        WM_HWIN  hItem,hWin = pMsg->hWin;
+FramewinDLG.c(902): warning:  #177-D: variable "hItem" was declared but never referenced
         WM_HWIN hItem,hWin = pMsg->hWin;
-FramewinDLG.c(778): warning:  #940-D: missing return statement at end of non-void function "CreateFramewin"
+FramewinDLG.c(972): warning:  #940-D: missing return statement at end of non-void function "CreateFramewin"
   }
-FramewinDLG.c: 7 warnings, 0 errors
+FramewinDLG.c(94): warning:  #177-D: variable "_hLastFrame" was declared but never referenced
+  static WM_HWIN    _hLastFrame;
+FramewinDLG.c: 12 warnings, 0 errors
 linking...
-Program Size: Code=121604 RO-data=86708 RW-data=2188 ZI-data=41092  
+Program Size: Code=127172 RO-data=108336 RW-data=2176 ZI-data=41088  
 FromELF: creating hex file...
-"..\OBJ\MALLOC.axf" - 0 Error(s), 7 Warning(s).
+"..\OBJ\MALLOC.axf" - 0 Error(s), 12 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE

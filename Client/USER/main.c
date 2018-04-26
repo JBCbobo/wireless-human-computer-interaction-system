@@ -37,13 +37,13 @@ int main(void)
 	delay_init();	    	//延时函数初始化	  
 	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); 	//设置NVIC中断分组2:2位抢占优先级，2位响应优先级
 	uart_init(115200);	 	//串口初始化为115200
-    KEY_Init();	 			//按键初始化
+    //KEY_Init();	 			//按键初始化
 	LED_Init();
     TFTLCD_Init();			//LCD初始化	
 	TP_Init();				//触摸屏初始化
 	TIM3_Int_Init(999,71);	//1KHZ 定时器1ms 
 	TIM6_Int_Init(999,719);	//10ms中断
-	TIM2_Int_Init(4999,71);    //500ms中断
+	//TIM2_Int_Init(4999,71);    //500ms中断
 	mem_init(); 			//初始化内部内存池
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_CRC,ENABLE);//使能CRC时钟，否则STemWin不能使用 
 	WM_SetCreateFlags(WM_CF_MEMDEV);
@@ -52,17 +52,11 @@ int main(void)
 	GUI_Init();
     while(NRF24L01_Check())
     {
-        GUI_SetBkColor(BLACK);
-        GUI_SetColor(WHITE);
-        GUI_SetFont(&GUI_Fontfont12);
-        GUI_Clear();
-        GUI_DispStringHCenterAt("连接中\r\n",120,50);
-        GUI_Delay(1000);
     }
     HWIN = CreateFramewin();
     while(1)
     {
-        SendKeyMsg();
+       // SendKeyMsg();
         GUI_Delay(20);
 
     }
