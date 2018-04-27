@@ -1,0 +1,12 @@
+..\obj\wait_page.o: Wait_page.c
+..\obj\wait_page.o: ..\EMWIN\STemWin\inc\WM.h
+..\obj\wait_page.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
+..\obj\wait_page.o: ..\EMWIN\STemWin\Config\GUIConf.h
+..\obj\wait_page.o: ..\EMWIN\STemWin\inc\GUI_Type.h
+..\obj\wait_page.o: ..\EMWIN\STemWin\inc\LCD.h
+..\obj\wait_page.o: ..\EMWIN\STemWin\inc\Global.h
+..\obj\wait_page.o: ..\EMWIN\STemWin\inc\WM_GUI.h
+..\obj\wait_page.o: ..\EMWIN\STemWin\inc\GUI.h
+..\obj\wait_page.o: ..\EMWIN\STemWin\inc\GUI_Version.h
+..\obj\wait_page.o: E:\Keil_v5\ARM\ARMCC\include\stdint.h
+..\obj\wait_page.o: E:\Keil_v5\ARM\ARMCC\include\stdio.h

@@ -175,7 +175,7 @@
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3>"" ()</Flash3>
+          <Flash3></Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -453,6 +453,21 @@
               <FileType>1</FileType>
               <FilePath>..\EMWIN\ebook.c</FilePath>
             </File>
+            <File>
+              <FileName>paint.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\EMWIN\paint.c</FilePath>
+            </File>
+            <File>
+              <FileName>Welcome_page.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Welcome_page.c</FilePath>
+            </File>
+            <File>
+              <FileName>Wait_page.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Wait_page.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -687,6 +702,16 @@
               <FileName>font14.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\TEXT\font14.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>README</GroupName>
+          <Files>
+            <File>
+              <FileName>readme.txt</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\readme.txt</FilePath>
             </File>
           </Files>
         </Group>

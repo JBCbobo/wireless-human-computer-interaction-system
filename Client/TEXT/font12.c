@@ -22,7 +22,7 @@
 * Initial font height:  21                                           *
 * Range disabled:       0000 - FFFF                                  *
 * Read pattern file: E:\GitHub\wireless-human-computer-interaction-system\Client\TEXT\font12.txt*
-* Character enabled:   0x30 (48)                                     *
+* Read pattern file: E:\GitHub\wireless-human-computer-interaction-system\Client\TEXT\font12.txt*
 *                                                                    *
 **********************************************************************
 */
@@ -37,1226 +37,6 @@
    font.
 */
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont12;
-
-/* Start of unicode area <Basic Latin> */
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0020[  1] = { /* code 0020, SPACE */
-  ________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0021[ 12] = { /* code 0021, EXCLAMATION MARK */
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  ________,
-  ________,
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0022[  4] = { /* code 0022, QUOTATION MARK */
-  X_X_____,
-  X_X_____,
-  X_X_____,
-  X_X_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0023[ 22] = { /* code 0023, NUMBER SIGN */
-  ___X___X,________,
-  ___X___X,________,
-  ___X___X,________,
-  _XXXXXXX,XX______,
-  __X___X_,________,
-  __X___X_,________,
-  __X___X_,________,
-  XXXXXXXX,X_______,
-  __X___X_,________,
-  _X___X__,________,
-  _X___X__,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0024[ 15] = { /* code 0024, DOLLAR SIGN */
-  ___XX___,
-  __XXXX__,
-  _X_XX_X_,
-  XX_XX___,
-  XX_XX___,
-  XX_XX___,
-  _XXXX___,
-  ___XXX__,
-  ___XXXX_,
-  ___XXXX_,
-  ___XXXX_,
-  X__XXXX_,
-  _XXXXX__,
-  ___XX___,
-  ___XX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0025[ 24] = { /* code 0025, PERCENT SIGN */
-  _XXX____,_X______,
-  X___X___,X_______,
-  X___X___,X_______,
-  X___X__X,________,
-  X___X_X_,________,
-  _XXX__X_,________,
-  _____X__,XXX_____,
-  _____X_X,___X____,
-  ____X__X,___X____,
-  ___X___X,___X____,
-  ___X___X,___X____,
-  __X_____,XXX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0026[ 24] = { /* code 0026, AMPERSAND */
-  ___XXXX_,________,
-  __XX__XX,________,
-  __XX__XX,________,
-  __XX__XX,__XX____,
-  ___XXXX_,__XX____,
-  __XXXXX_,__XX____,
-  _XX___XX,__XX____,
-  XX_____X,X_X_____,
-  XX______,XXX_____,
-  XX______,XX______,
-  _XX____X,XXX_____,
-  __XXXXX_,__XXX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0027[  4] = { /* code 0027, APOSTROPHE */
-  X_______,
-  X_______,
-  X_______,
-  X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0028[ 15] = { /* code 0028, LEFT PARENTHESIS */
-  ___X____,
-  __X_____,
-  _X______,
-  _X______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  _X______,
-  _X______,
-  __X_____,
-  ___X____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0029[ 15] = { /* code 0029, RIGHT PARENTHESIS */
-  X_______,
-  _X______,
-  __X_____,
-  __X_____,
-  ___X____,
-  ___X____,
-  ___X____,
-  ___X____,
-  ___X____,
-  ___X____,
-  ___X____,
-  __X_____,
-  __X_____,
-  _X______,
-  X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_002A[  6] = { /* code 002A, ASTERISK */
-  ___X____,
-  ___X____,
-  XXXXXXX_,
-  ___X____,
-  __X_X___,
-  _X___X__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_002B[  7] = { /* code 002B, PLUS SIGN */
-  ___X____,
-  ___X____,
-  ___X____,
-  XXXXXXX_,
-  ___X____,
-  ___X____,
-  ___X____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_002C[  4] = { /* code 002C, COMMA */
-  _X______,
-  _X______,
-  X_______,
-  X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_002D[  1] = { /* code 002D, HYPHEN-MINUS */
-  XXXXX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_002E[  2] = { /* code 002E, FULL STOP */
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_002F[ 14] = { /* code 002F, SOLIDUS */
-  _____XX_,
-  ____XX__,
-  ____XX__,
-  ____XX__,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  __XX____,
-  __XX____,
-  __XX____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0030[ 12] = { /* code 0030, DIGIT ZERO */
-  __XXXX__,
-  _XX__XX_,
-  _X____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____X_,
-  _XX__XX_,
-  __XXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0031[ 12] = { /* code 0031, DIGIT ONE */
-  ___X____,
-  _XXX____,
-  X_XX____,
-  __XX____,
-  __XX____,
-  __XX____,
-  __XX____,
-  __XX____,
-  __XX____,
-  __XX____,
-  __XX____,
-  __XX____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0032[ 12] = { /* code 0032, DIGIT TWO */
-  _XXXX___,
-  X___XXX_,
-  _____XX_,
-  _____XX_,
-  _____XX_,
-  ____XX__,
-  ___XXX__,
-  __XX____,
-  _XX_____,
-  XX______,
-  XX______,
-  XXXXXXX_};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0033[ 12] = { /* code 0033, DIGIT THREE */
-  _XXXXX__,
-  X___XXX_,
-  _____XX_,
-  _____XX_,
-  ____XX__,
-  _XXXX___,
-  _____XX_,
-  ______XX,
-  ______XX,
-  ______XX,
-  X____XX_,
-  _XXXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0034[ 24] = { /* code 0034, DIGIT FOUR */
-  ______XX,________,
-  _____XXX,________,
-  ____XXXX,________,
-  ____X_XX,________,
-  ___XX_XX,________,
-  __XX__XX,________,
-  _XX___XX,________,
-  _X____XX,________,
-  XXXXXXXX,XX______,
-  ______XX,________,
-  ______XX,________,
-  ______XX,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0035[ 12] = { /* code 0035, DIGIT FIVE */
-  XXXXXX__,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XXXXX___,
-  ____XXX_,
-  _____XX_,
-  _____XX_,
-  _____XX_,
-  X___XX__,
-  _XXXX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0036[ 12] = { /* code 0036, DIGIT SIX */
-  ___XXXX_,
-  __XX____,
-  _XX_____,
-  XX______,
-  XX______,
-  XX_XXXX_,
-  XXX__XXX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  _XX__XX_,
-  __XXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0037[ 12] = { /* code 0037, DIGIT SEVEN */
-  XXXXXXX_,
-  _____XX_,
-  ____XX__,
-  ____XX__,
-  ____XX__,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  __XX____,
-  __XX____,
-  __XX____,
-  __XX____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0038[ 12] = { /* code 0038, DIGIT EIGHT */
-  ___XXXX_,
-  _XX___XX,
-  _XX___XX,
-  _XX___XX,
-  __XX_XX_,
-  ___XXX__,
-  _XX__XX_,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  _XX__XX_,
-  __XXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0039[ 12] = { /* code 0039, DIGIT NINE */
-  __XXXX__,
-  _XX__XX_,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  _XX__XXX,
-  __XXX_XX,
-  ______XX,
-  ______XX,
-  _____XX_,
-  _X___XX_,
-  __XXX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_003A[  9] = { /* code 003A, COLON */
-  XX______,
-  XX______,
-  ________,
-  ________,
-  ________,
-  ________,
-  ________,
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_003B[ 11] = { /* code 003B, SEMICOLON */
-  XX______,
-  XX______,
-  ________,
-  ________,
-  ________,
-  ________,
-  ________,
-  _X______,
-  _X______,
-  X_______,
-  X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_003C[  7] = { /* code 003C, LESS-THAN SIGN */
-  ______X_,
-  ___XXXX_,
-  _XXX____,
-  XX______,
-  _XXX____,
-  ___XXXX_,
-  ______X_};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_003D[  4] = { /* code 003D, EQUALS SIGN */
-  XXXXXXXX,
-  ________,
-  ________,
-  XXXXXXXX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_003E[  7] = { /* code 003E, GREATER-THAN SIGN */
-  X_______,
-  XXXX____,
-  ___XXX__,
-  _____XX_,
-  ___XXX__,
-  XXXX____,
-  X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_003F[ 12] = { /* code 003F, QUESTION MARK */
-  _XXXXX__,
-  X___XXX_,
-  _____XX_,
-  _____XX_,
-  ____XX__,
-  ___XX___,
-  __XX____,
-  __XX____,
-  ________,
-  ________,
-  __XX____,
-  __XX____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0040[ 28] = { /* code 0040, COMMERCIAL AT */
-  ____XXXX,XX______,
-  ___XX___,__XX____,
-  __X_____,___XX___,
-  _X____XX,XX__X___,
-  XX___X__,_X___X__,
-  X___X___,_X___X__,
-  X___X___,_X___X__,
-  X___X___,_X___X__,
-  X___X___,_X___X__,
-  X___XX__,XX__X___,
-  _X___XXX,_XXX____,
-  _XX_____,________,
-  __XX____,__X_____,
-  ____XXXX,XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0041[ 24] = { /* code 0041, LATIN CAPITAL LETTER A */
-  _____XX_,________,
-  ____XXXX,________,
-  ____XXXX,________,
-  ____X_XX,________,
-  ___XX__X,X_______,
-  ___XX__X,X_______,
-  __XX____,X_______,
-  __XXXXXX,XX______,
-  _XX_____,XX______,
-  _XX_____,XX______,
-  _X______,_XX_____,
-  XX______,_XX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0042[ 12] = { /* code 0042, LATIN CAPITAL LETTER B */
-  XXXXXX__,
-  XX___XX_,
-  XX___XX_,
-  XX___XX_,
-  XX__XX__,
-  XXXXX___,
-  XX___XX_,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX___XX_,
-  XXXXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0043[ 24] = { /* code 0043, LATIN CAPITAL LETTER C */
-  ____XXXX,________,
-  __XX____,X_______,
-  _XX_____,________,
-  _X______,________,
-  XX______,________,
-  XX______,________,
-  XX______,________,
-  XX______,________,
-  XX______,________,
-  _XX_____,________,
-  __XX____,X_______,
-  ___XXXXX,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0044[ 24] = { /* code 0044, LATIN CAPITAL LETTER D */
-  XXXXXX__,________,
-  XX____XX,________,
-  XX_____X,X_______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,X_______,
-  XX_____X,X_______,
-  XX____XX,________,
-  XXXXXX__,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0045[ 12] = { /* code 0045, LATIN CAPITAL LETTER E */
-  XXXXXXX_,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XXXXXX__,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XXXXXXX_};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0046[ 12] = { /* code 0046, LATIN CAPITAL LETTER F */
-  XXXXXX__,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XXXXXX__,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0047[ 24] = { /* code 0047, LATIN CAPITAL LETTER G */
-  ____XXXX,X_______,
-  __XX____,_X______,
-  _XX_____,________,
-  _XX_____,________,
-  XX______,________,
-  XX______,________,
-  XX____XX,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  _XX_____,XX______,
-  __XX____,XX______,
-  ___XXXXX,X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0048[ 24] = { /* code 0048, LATIN CAPITAL LETTER H */
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XXXXXXXX,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0049[ 12] = { /* code 0049, LATIN CAPITAL LETTER I */
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_004A[ 12] = { /* code 004A, LATIN CAPITAL LETTER J */
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  __XX____,
-  XXX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_004B[ 12] = { /* code 004B, LATIN CAPITAL LETTER K */
-  XX____XX,
-  XX___XX_,
-  XX__XX__,
-  XX_XX___,
-  XX_X____,
-  XXX_____,
-  XXXX____,
-  XX_X____,
-  XX_XX___,
-  XX__XX__,
-  XX___XX_,
-  XX____XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_004C[ 12] = { /* code 004C, LATIN CAPITAL LETTER L */
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XXXXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_004D[ 24] = { /* code 004D, LATIN CAPITAL LETTER M */
-  XX______,___X____,
-  XXX_____,__XX____,
-  XXX_____,__XX____,
-  X_XX____,_X_X____,
-  X_XX____,_X_X____,
-  X__XX___,XX_X____,
-  X__XX___,X__X____,
-  X___X___,X__X____,
-  X___XX_X,___X____,
-  X____X_X,___X____,
-  X____XXX,___X____,
-  X_____X_,___X____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_004E[ 24] = { /* code 004E, LATIN CAPITAL LETTER N */
-  XXX_____,XX______,
-  XXXX____,XX______,
-  XXXX____,XX______,
-  XX_XX___,XX______,
-  XX_XX___,XX______,
-  XX__XX__,XX______,
-  XX___X__,XX______,
-  XX___XX_,XX______,
-  XX____X_,XX______,
-  XX____XX,XX______,
-  XX_____X,XX______,
-  XX_____X,XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_004F[ 24] = { /* code 004F, LATIN CAPITAL LETTER O */
-  ___XXXXX,X_______,
-  __XX____,XX______,
-  _XX_____,_XX_____,
-  XX______,__XX____,
-  XX______,__XX____,
-  XX______,__XX____,
-  XX______,__XX____,
-  XX______,__XX____,
-  XX______,__XX____,
-  _XX_____,_XX_____,
-  __XX____,XX______,
-  ___XXXXX,X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0050[ 12] = { /* code 0050, LATIN CAPITAL LETTER P */
-  XXXXXX__,
-  XX___XX_,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX___XX_,
-  XXXXXX__,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0051[ 28] = { /* code 0051, LATIN CAPITAL LETTER Q */
-  ___XXXXX,X_______,
-  __XX____,XX______,
-  _XX_____,_XX_____,
-  XX______,__XX____,
-  XX______,__XX____,
-  XX______,__XX____,
-  XX______,__XX____,
-  XX______,__XX____,
-  XX______,__XX____,
-  _XX_____,_XX_____,
-  __XX____,XX______,
-  ___XXXXX,XX______,
-  ________,_XX_____,
-  ________,__XX____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0052[ 12] = { /* code 0052, LATIN CAPITAL LETTER R */
-  XXXXXX__,
-  XX__XXX_,
-  XX___XX_,
-  XX___XX_,
-  XX___XX_,
-  XX__XX__,
-  XXXXX___,
-  XX__X___,
-  XX__XX__,
-  XX___XX_,
-  XX___XX_,
-  XX____XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0053[ 12] = { /* code 0053, LATIN CAPITAL LETTER S */
-  __XXXX__,
-  _XX___X_,
-  XX______,
-  XX______,
-  XXX_____,
-  _XXX____,
-  ___XXX__,
-  _____XXX,
-  ______XX,
-  ______XX,
-  X____XXX,
-  _XXXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0054[ 12] = { /* code 0054, LATIN CAPITAL LETTER T */
-  XXXXXXXX,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0055[ 24] = { /* code 0055, LATIN CAPITAL LETTER U */
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  XX______,XX______,
-  _XX____X,X_______,
-  __XXXXXX,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0056[ 24] = { /* code 0056, LATIN CAPITAL LETTER V */
-  XX______,_XX_____,
-  XX______,XX______,
-  _XX_____,XX______,
-  _XX_____,XX______,
-  _XX____X,X_______,
-  __XX___X,X_______,
-  __XX__XX,________,
-  __XX__XX,________,
-  ___XX_X_,________,
-  ___XXXX_,________,
-  ___XXXX_,________,
-  ____XX__,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0057[ 24] = { /* code 0057, LATIN CAPITAL LETTER W */
-  XX_____X,X_____XX,
-  XX_____X,X_____XX,
-  _XX___XX,XX____X_,
-  _XX___XX,XX___XX_,
-  _XX___X_,_X___XX_,
-  _XX__XX_,_XX__XX_,
-  __X__XX_,_XX__X__,
-  __XX_X__,__X__X__,
-  __XXXX__,__XXXX__,
-  __XXXX__,__XXXX__,
-  ___XX___,___XX___,
-  ___XX___,___XX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0058[ 24] = { /* code 0058, LATIN CAPITAL LETTER X */
-  XX______,XX______,
-  _XX____X,X_______,
-  __X___XX,________,
-  __XX__XX,________,
-  ___XXXX_,________,
-  ____XX__,________,
-  ____XX__,________,
-  ___XXXX_,________,
-  __XX__XX,________,
-  __X___XX,________,
-  _XX____X,X_______,
-  XX______,XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0059[ 24] = { /* code 0059, LATIN CAPITAL LETTER Y */
-  XX______,XX______,
-  _XX____X,X_______,
-  _XX____X,X_______,
-  __XX__XX,________,
-  __XX__XX,________,
-  ___XXXX_,________,
-  ___XXXX_,________,
-  ____XX__,________,
-  ____XX__,________,
-  ____XX__,________,
-  ____XX__,________,
-  ____XX__,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_005A[ 24] = { /* code 005A, LATIN CAPITAL LETTER Z */
-  _XXXXXXX,XX______,
-  ________,X_______,
-  _______X,________,
-  ______X_,________,
-  _____XX_,________,
-  _____X__,________,
-  ____X___,________,
-  ___XX___,________,
-  __XX____,________,
-  __X_____,________,
-  _X______,________,
-  XXXXXXXX,XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_005B[ 15] = { /* code 005B, LEFT SQUARE BRACKET */
-  XXX_____,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  XXX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_005C[ 14] = { /* code 005C, REVERSE SOLIDUS */
-  X_______,
-  _X______,
-  _X______,
-  _XX_____,
-  __X_____,
-  __X_____,
-  ___X____,
-  ___X____,
-  ____X___,
-  ____X___,
-  ____XX__,
-  _____X__,
-  _____X__,
-  ______X_};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_005D[ 15] = { /* code 005D, RIGHT SQUARE BRACKET */
-  XXX_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  __X_____,
-  XXX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_005E[  7] = { /* code 005E, CIRCUMFLEX ACCENT */
-  ____X___,
-  ___XXX__,
-  ___X_X__,
-  __X__XX_,
-  _XX___X_,
-  _X____X_,
-  X______X};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_005F[  1] = { /* code 005F, LOW LINE */
-  XXXXXXX_};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0060[  3] = { /* code 0060, GRAVE ACCENT */
-  X_______,
-  _X______,
-  __X_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0061[  9] = { /* code 0061, LATIN SMALL LETTER A */
-  __XXXX__,
-  _X___XX_,
-  _____XX_,
-  ____XXX_,
-  _XXX_XX_,
-  XX___XX_,
-  XX___XX_,
-  XX__XXX_,
-  _XXX_XX_};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0062[ 26] = { /* code 0062, LATIN SMALL LETTER B */
-  XX______,________,
-  XX______,________,
-  XX______,________,
-  XX______,________,
-  XX_XXXX_,________,
-  XXX___XX,________,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XXX___XX,________,
-  XX_XXXX_,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0063[  9] = { /* code 0063, LATIN SMALL LETTER C */
-  __XXXX__,
-  _XX_____,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  _XX_____,
-  __XXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0064[ 13] = { /* code 0064, LATIN SMALL LETTER D */
-  ______XX,
-  ______XX,
-  ______XX,
-  ______XX,
-  __XXX_XX,
-  _XX__XXX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  _XX__XXX,
-  __XXX_XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0065[  9] = { /* code 0065, LATIN SMALL LETTER E */
-  __XXXX__,
-  _XX__XX_,
-  XX____XX,
-  XX____XX,
-  XXXXXXXX,
-  XX______,
-  XX______,
-  _XX___X_,
-  __XXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0066[ 13] = { /* code 0066, LATIN SMALL LETTER F */
-  __XXX___,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  XXXXX___,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0067[ 13] = { /* code 0067, LATIN SMALL LETTER G */
-  __XXX_XX,
-  _XX__XXX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  _XX__XXX,
-  __XXX_XX,
-  ______XX,
-  ______XX,
-  _X___XX_,
-  __XXXX__};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0068[ 13] = { /* code 0068, LATIN SMALL LETTER H */
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX_XXXX_,
-  XXX__XXX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0069[ 13] = { /* code 0069, LATIN SMALL LETTER I */
-  XX______,
-  XX______,
-  ________,
-  ________,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_006A[ 17] = { /* code 006A, LATIN SMALL LETTER J */
-  ___XX___,
-  ___XX___,
-  ________,
-  ________,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  ___XX___,
-  __XX____,
-  XXX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_006B[ 13] = { /* code 006B, LATIN SMALL LETTER K */
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX____X_,
-  XX___X__,
-  XX__X___,
-  XX_X____,
-  XXXX____,
-  XX_XX___,
-  XX__XX__,
-  XX___XX_,
-  XX____XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_006C[ 13] = { /* code 006C, LATIN SMALL LETTER L */
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_006D[ 18] = { /* code 006D, LATIN SMALL LETTER M */
-  XX_XXXX_,_XXX____,
-  XXX__XXX,X__XX___,
-  XX____XX,___XX___,
-  XX____XX,___XX___,
-  XX____XX,___XX___,
-  XX____XX,___XX___,
-  XX____XX,___XX___,
-  XX____XX,___XX___,
-  XX____XX,___XX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_006E[  9] = { /* code 006E, LATIN SMALL LETTER N */
-  XX_XXXX_,
-  XXX__XXX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_006F[ 18] = { /* code 006F, LATIN SMALL LETTER O */
-  __XXXXX_,________,
-  _XX___XX,________,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  _XX___XX,________,
-  __XXXXX_,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0070[ 26] = { /* code 0070, LATIN SMALL LETTER P */
-  XX_XXXX_,________,
-  XXX___XX,________,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XX_____X,X_______,
-  XXX___XX,________,
-  XX_XXXX_,________,
-  XX______,________,
-  XX______,________,
-  XX______,________,
-  XX______,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0071[ 13] = { /* code 0071, LATIN SMALL LETTER Q */
-  __XXX_XX,
-  _XX__XXX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  _XX__XXX,
-  __XXX_XX,
-  ______XX,
-  ______XX,
-  ______XX,
-  ______XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0072[  9] = { /* code 0072, LATIN SMALL LETTER R */
-  XX_XX___,
-  XXX_____,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______,
-  XX______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0073[  9] = { /* code 0073, LATIN SMALL LETTER S */
-  _XXXX___,
-  XX___X__,
-  XX______,
-  XXX_____,
-  _XXXX___,
-  ___XXX__,
-  ____XX__,
-  X___XX__,
-  _XXXX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0074[ 12] = { /* code 0074, LATIN SMALL LETTER T */
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  XXXXX___,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  _XX_____,
-  __XXX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0075[  9] = { /* code 0075, LATIN SMALL LETTER U */
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XX____XX,
-  XXX__XXX,
-  _XXXX_XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0076[  9] = { /* code 0076, LATIN SMALL LETTER V */
-  XX____XX,
-  XX____XX,
-  _XX__XX_,
-  _XX__XX_,
-  _XX__XX_,
-  __X__X__,
-  __XXXX__,
-  __XXXX__,
-  ___XX___};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0077[ 18] = { /* code 0077, LATIN SMALL LETTER W */
-  XX____X_,____X___,
-  XX____XX,____X___,
-  _XX__XXX,___X____,
-  _XX__XXX,___X____,
-  _XX__X__,X__X____,
-  __X__X__,X__X____,
-  __XXXX__,XXXX____,
-  __XXX___,_XX_____,
-  ___XX___,_XX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0078[  9] = { /* code 0078, LATIN SMALL LETTER X */
-  XX____XX,
-  _XX__XX_,
-  __X__X__,
-  __XXXX__,
-  ___XX___,
-  __XXXX__,
-  __X_XX__,
-  _XX__XX_,
-  XX____XX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_0079[ 13] = { /* code 0079, LATIN SMALL LETTER Y */
-  XX____XX,
-  _X____X_,
-  _XX__XX_,
-  _XX__XX_,
-  __X__X__,
-  __X_XX__,
-  __XXXX__,
-  ___XX___,
-  ___XX___,
-  ___X____,
-  ___X____,
-  __XX____,
-  XXX_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_007A[  9] = { /* code 007A, LATIN SMALL LETTER Z */
-  XXXXXXXX,
-  _____XX_,
-  _____X__,
-  ____XX__,
-  ___XX___,
-  __XX____,
-  __X_____,
-  _XX_____,
-  XXXXXXXX};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_007B[ 15] = { /* code 007B, LEFT CURLY BRACKET */
-  __X_____,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  X_______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  __X_____};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_007C[ 17] = { /* code 007C, VERTICAL LINE */
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______,
-  X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_007D[ 15] = { /* code 007D, RIGHT CURLY BRACKET */
-  X_______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  __X_____,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  _X______,
-  X_______};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_007E[  2] = { /* code 007E, TILDE */
-  _XXX___X,
-  X___XXX_};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_007F[  1] = { /* code 007F, <control> */
-  ________};
 
 /* Start of unicode area <CJK Unified Ideographs> */
 GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_4E0A[ 26] = { /* code 4E0A */
@@ -1357,6 +137,40 @@ GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_5076[ 30] = { /* code 5076 */
   __X__X__,______X_,
   __X__X__,___XXXX_};
 
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_51CF[ 30] = { /* code 51CF */
+  ________,___XXX__,
+  X_______,___X_XX_,
+  _X__XXXX,XXXXXXXX,
+  __X_X___,___X____,
+  ____X_XX,XX_X____,
+  ____X___,___X__X_,
+  __X_X___,___X__X_,
+  __X_X_XX,XX_X_X__,
+  _X__X_X_,_X_X_X__,
+  _X__X_X_,_X_XXX__,
+  _X__X_X_,_X_XX___,
+  X__X__XX,XX_XX__X,
+  X__X__X_,__XXX__X,
+  __XX____,_XX__X_X,
+  __X_____,X____XX_};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_52A0[ 30] = { /* code 52A0 */
+  ___X____,________,
+  ___X____,________,
+  ___X____,_XXXXXX_,
+  _XXXXXX_,_X____X_,
+  ___X__X_,_X____X_,
+  ___X__X_,_X____X_,
+  ___X__X_,_X____X_,
+  ___X__X_,_X____X_,
+  ___X__X_,_X____X_,
+  ___X__X_,_X____X_,
+  __X___X_,_X____X_,
+  __X___X_,_X____X_,
+  _XX___X_,_XXXXXX_,
+  _X_XXX__,_X____X_,
+  X_______,________};
+
 GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_52A8[ 28] = { /* code 52A8 */
   ________,_X______,
   _XXXXXX_,_X______,
@@ -1453,6 +267,23 @@ GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_5757[ 28] = { /* code 5757 */
   XXX____X,___X____,
   _____XX_,____XX__,
   ____XX__,______XX};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_589E[ 30] = { /* code 589E */
+  __X____X,_____X__,
+  __X_____,X__XX___,
+  __X__XXX,XXXXXXX_,
+  __X__X__,__X___X_,
+  XXXXXX_X,__X_X_X_,
+  __X__X__,X_XX__X_,
+  __X__XXX,XXXXXXX_,
+  __X__X__,______X_,
+  __X_____,________,
+  __X___XX,XXXXXX__,
+  __X_X_X_,_____X__,
+  _XXX__XX,XXXXXX__,
+  X_____X_,_____X__,
+  ______XX,XXXXXX__,
+  ______X_,_____X__};
 
 GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_5927[ 30] = { /* code 5927 */
   _______X,________,
@@ -1554,6 +385,22 @@ GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_5C0F[ 28] = { /* code 5C0F */
   ________,X_______,
   ____XXXX,________};
 
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_5C11[ 28] = { /* code 5C11 */
+  _______X,________,
+  _______X,________,
+  ___X___X,__X_____,
+  __XX___X,___X____,
+  __X____X,____X___,
+  __X____X,_____X__,
+  _X_____X,____X_X_,
+  XX_____X,___X____,
+  X______X,__X_____,
+  ________,_X______,
+  _______X,X_______,
+  _____XXX,________,
+  ___XXX__,________,
+  XXX_____,________};
+
 GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_5DE5[ 26] = { /* code 5DE5 */
   _XXXXXXX,XXXXXXX_,
   _______X,________,
@@ -1633,6 +480,22 @@ GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_6253[ 28] = { /* code 6253 */
   ___X____,____X___,
   ___X____,____X___,
   XXXX____,XXXXX___};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_6267[ 28] = { /* code 6267 */
+  __X_____,X_______,
+  __X_____,X_______,
+  __X_____,X_______,
+  XXXXXXXX,XXXXX___,
+  __X_____,X___X___,
+  __X_____,X___X___,
+  __X__XX_,X___X___,
+  __XXX__X,X___X___,
+  XXX____X,XX__X___,
+  __X____X,__X_X___,
+  __X___XX,____X__X,
+  __X___X_,____X__X,
+  __X__XX_,____X_XX,
+  XXX_XX__,_____XX_};
 
 GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_6269[ 28] = { /* code 6269 */
   __X_____,_X______,
@@ -1898,6 +761,21 @@ GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_7EC6[ 28] = { /* code 7EC6 */
   XX____XX,XXXXXXX_,
   ______X_,______X_};
 
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_7F6E[ 26] = { /* code 7F6E */
+  _XXXXXXX,XXXXX___,
+  _X___X__,_X__X___,
+  _XXXXXXX,XXXXX___,
+  _______X,________,
+  XXXXXXXX,XXXXXX__,
+  _______X,________,
+  __XXXXXX,XXXXX___,
+  __X_____,____X___,
+  __XXXXXX,XXXXX___,
+  __X_____,____X___,
+  __XXXXXX,XXXXX___,
+  __X_____,____X___,
+  XXXXXXXX,XXXXXX__};
+
 GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_884C[ 30] = { /* code 884C */
   ____X___,________,
   ___X___X,XXXXXXX_,
@@ -1931,6 +809,22 @@ GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_8BA4[ 30] = { /* code 8BA4 */
   __XX__X_,____X___,
   __X__XX_,____XX__,
   ____XX__,_____XX_};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_8BBE[ 28] = { /* code 8BBE */
+  _X____XX,XXXX____,
+  __X___X_,___X____,
+  ___X__X_,___X____,
+  _____X__,___X____,
+  XXX_XX__,___XXXX_,
+  __X_____,________,
+  __X__XXX,XXXXX___,
+  __X___X_,____X___,
+  __X___XX,___X____,
+  __X____X,__XX____,
+  __X_X___,XXX_____,
+  __XXX__X,XXX_____,
+  _XX__XXX,___XX___,
+  ___XX___,_____XX_};
 
 GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_8C03[ 28] = { /* code 8C03 */
   _X______,________,
@@ -2114,126 +1008,35 @@ GUI_CONST_STORAGE unsigned char acGUI_Fontfont12_964D[ 30] = { /* code 964D */
   X_______,_X______,
   X_______,_X______};
 
-GUI_CONST_STORAGE GUI_CHARINFO_EXT GUI_Fontfont12_CharInfo[148] = {
-   {   1,   1,   0,  17,   5, acGUI_Fontfont12_0020 } /* code 0020, SPACE */
-  ,{   2,  12,   2,   5,   5, acGUI_Fontfont12_0021 } /* code 0021, EXCLAMATION MARK */
-  ,{   3,   4,   2,   5,   7, acGUI_Fontfont12_0022 } /* code 0022, QUOTATION MARK */
-  ,{  10,  11,   0,   5,  10, acGUI_Fontfont12_0023 } /* code 0023, NUMBER SIGN */
-  ,{   7,  15,   1,   4,   9, acGUI_Fontfont12_0024 } /* code 0024, DOLLAR SIGN */
-  ,{  12,  12,   1,   5,  14, acGUI_Fontfont12_0025 } /* code 0025, PERCENT SIGN */
-  ,{  13,  12,   1,   5,  14, acGUI_Fontfont12_0026 } /* code 0026, AMPERSAND */
-  ,{   1,   4,   1,   5,   4, acGUI_Fontfont12_0027 } /* code 0027, APOSTROPHE */
-  ,{   4,  15,   1,   5,   5, acGUI_Fontfont12_0028 } /* code 0028, LEFT PARENTHESIS */
-  ,{   4,  15,   0,   5,   5, acGUI_Fontfont12_0029 } /* code 0029, RIGHT PARENTHESIS */
-  ,{   7,   6,   0,   5,   7, acGUI_Fontfont12_002A } /* code 002A, ASTERISK */
-  ,{   7,   7,   2,   8,  12, acGUI_Fontfont12_002B } /* code 002B, PLUS SIGN */
-  ,{   2,   4,   1,  15,   4, acGUI_Fontfont12_002C } /* code 002C, COMMA */
-  ,{   5,   1,   1,  12,   7, acGUI_Fontfont12_002D } /* code 002D, HYPHEN-MINUS */
-  ,{   2,   2,   1,  15,   4, acGUI_Fontfont12_002E } /* code 002E, FULL STOP */
-  ,{   7,  14,   0,   5,   7, acGUI_Fontfont12_002F } /* code 002F, SOLIDUS */
-  ,{   8,  12,   1,   5,   9, acGUI_Fontfont12_0030 } /* code 0030, DIGIT ZERO */
-  ,{   4,  12,   2,   5,   9, acGUI_Fontfont12_0031 } /* code 0031, DIGIT ONE */
-  ,{   7,  12,   1,   5,   9, acGUI_Fontfont12_0032 } /* code 0032, DIGIT TWO */
-  ,{   8,  12,   1,   5,   9, acGUI_Fontfont12_0033 } /* code 0033, DIGIT THREE */
-  ,{  10,  12,   0,   5,   9, acGUI_Fontfont12_0034 } /* code 0034, DIGIT FOUR */
-  ,{   7,  12,   2,   5,   9, acGUI_Fontfont12_0035 } /* code 0035, DIGIT FIVE */
-  ,{   8,  12,   1,   5,   9, acGUI_Fontfont12_0036 } /* code 0036, DIGIT SIX */
-  ,{   7,  12,   1,   5,   9, acGUI_Fontfont12_0037 } /* code 0037, DIGIT SEVEN */
-  ,{   8,  12,   1,   5,   9, acGUI_Fontfont12_0038 } /* code 0038, DIGIT EIGHT */
-  ,{   8,  12,   1,   5,   9, acGUI_Fontfont12_0039 } /* code 0039, DIGIT NINE */
-  ,{   2,   9,   1,   8,   4, acGUI_Fontfont12_003A } /* code 003A, COLON */
-  ,{   2,  11,   1,   8,   4, acGUI_Fontfont12_003B } /* code 003B, SEMICOLON */
-  ,{   7,   7,   2,   9,  12, acGUI_Fontfont12_003C } /* code 003C, LESS-THAN SIGN */
-  ,{   8,   4,   2,  10,  12, acGUI_Fontfont12_003D } /* code 003D, EQUALS SIGN */
-  ,{   7,   7,   3,   9,  12, acGUI_Fontfont12_003E } /* code 003E, GREATER-THAN SIGN */
-  ,{   7,  12,   1,   5,   8, acGUI_Fontfont12_003F } /* code 003F, QUESTION MARK */
-  ,{  14,  14,   1,   5,  17, acGUI_Fontfont12_0040 } /* code 0040, COMMERCIAL AT */
-  ,{  11,  12,   0,   5,  11, acGUI_Fontfont12_0041 } /* code 0041, LATIN CAPITAL LETTER A */
-  ,{   8,  12,   2,   5,  10, acGUI_Fontfont12_0042 } /* code 0042, LATIN CAPITAL LETTER B */
-  ,{   9,  12,   1,   5,  11, acGUI_Fontfont12_0043 } /* code 0043, LATIN CAPITAL LETTER C */
-  ,{  10,  12,   2,   5,  12, acGUI_Fontfont12_0044 } /* code 0044, LATIN CAPITAL LETTER D */
-  ,{   7,  12,   2,   5,   9, acGUI_Fontfont12_0045 } /* code 0045, LATIN CAPITAL LETTER E */
-  ,{   6,  12,   2,   5,   9, acGUI_Fontfont12_0046 } /* code 0046, LATIN CAPITAL LETTER F */
-  ,{  10,  12,   1,   5,  12, acGUI_Fontfont12_0047 } /* code 0047, LATIN CAPITAL LETTER G */
-  ,{   9,  12,   2,   5,  12, acGUI_Fontfont12_0048 } /* code 0048, LATIN CAPITAL LETTER H */
-  ,{   2,  12,   2,   5,   5, acGUI_Fontfont12_0049 } /* code 0049, LATIN CAPITAL LETTER I */
-  ,{   5,  12,   0,   5,   6, acGUI_Fontfont12_004A } /* code 004A, LATIN CAPITAL LETTER J */
-  ,{   8,  12,   2,   5,  10, acGUI_Fontfont12_004B } /* code 004B, LATIN CAPITAL LETTER K */
-  ,{   6,  12,   2,   5,   8, acGUI_Fontfont12_004C } /* code 004C, LATIN CAPITAL LETTER L */
-  ,{  12,  12,   2,   5,  16, acGUI_Fontfont12_004D } /* code 004D, LATIN CAPITAL LETTER M */
-  ,{  10,  12,   2,   5,  13, acGUI_Fontfont12_004E } /* code 004E, LATIN CAPITAL LETTER N */
-  ,{  12,  12,   1,   5,  13, acGUI_Fontfont12_004F } /* code 004F, LATIN CAPITAL LETTER O */
-  ,{   8,  12,   2,   5,  10, acGUI_Fontfont12_0050 } /* code 0050, LATIN CAPITAL LETTER P */
-  ,{  13,  14,   1,   5,  13, acGUI_Fontfont12_0051 } /* code 0051, LATIN CAPITAL LETTER Q */
-  ,{   8,  12,   2,   5,  10, acGUI_Fontfont12_0052 } /* code 0052, LATIN CAPITAL LETTER R */
-  ,{   8,  12,   1,   5,   9, acGUI_Fontfont12_0053 } /* code 0053, LATIN CAPITAL LETTER S */
-  ,{   8,  12,   1,   5,   9, acGUI_Fontfont12_0054 } /* code 0054, LATIN CAPITAL LETTER T */
-  ,{  10,  12,   1,   5,  12, acGUI_Fontfont12_0055 } /* code 0055, LATIN CAPITAL LETTER U */
-  ,{  11,  12,   0,   5,  11, acGUI_Fontfont12_0056 } /* code 0056, LATIN CAPITAL LETTER V */
-  ,{  16,  12,   0,   5,  16, acGUI_Fontfont12_0057 } /* code 0057, LATIN CAPITAL LETTER W */
-  ,{  10,  12,   0,   5,  10, acGUI_Fontfont12_0058 } /* code 0058, LATIN CAPITAL LETTER X */
-  ,{  10,  12,   0,   5,  10, acGUI_Fontfont12_0059 } /* code 0059, LATIN CAPITAL LETTER Y */
-  ,{  10,  12,   0,   5,  10, acGUI_Fontfont12_005A } /* code 005A, LATIN CAPITAL LETTER Z */
-  ,{   3,  15,   2,   5,   5, acGUI_Fontfont12_005B } /* code 005B, LEFT SQUARE BRACKET */
-  ,{   7,  14,   0,   5,   7, acGUI_Fontfont12_005C } /* code 005C, REVERSE SOLIDUS */
-  ,{   3,  15,   0,   5,   5, acGUI_Fontfont12_005D } /* code 005D, RIGHT SQUARE BRACKET */
-  ,{   8,   7,   2,   5,  12, acGUI_Fontfont12_005E } /* code 005E, CIRCUMFLEX ACCENT */
-  ,{   7,   1,   0,  20,   7, acGUI_Fontfont12_005F } /* code 005F, LOW LINE */
-  ,{   3,   3,   1,   4,   5, acGUI_Fontfont12_0060 } /* code 0060, GRAVE ACCENT */
-  ,{   7,   9,   1,   8,   9, acGUI_Fontfont12_0061 } /* code 0061, LATIN SMALL LETTER A */
-  ,{   9,  13,   1,   4,  10, acGUI_Fontfont12_0062 } /* code 0062, LATIN SMALL LETTER B */
-  ,{   6,   9,   1,   8,   8, acGUI_Fontfont12_0063 } /* code 0063, LATIN SMALL LETTER C */
-  ,{   8,  13,   1,   4,  10, acGUI_Fontfont12_0064 } /* code 0064, LATIN SMALL LETTER D */
-  ,{   8,   9,   1,   8,   9, acGUI_Fontfont12_0065 } /* code 0065, LATIN SMALL LETTER E */
-  ,{   5,  13,   1,   4,   6, acGUI_Fontfont12_0066 } /* code 0066, LATIN SMALL LETTER F */
-  ,{   8,  13,   1,   8,  10, acGUI_Fontfont12_0067 } /* code 0067, LATIN SMALL LETTER G */
-  ,{   8,  13,   1,   4,  10, acGUI_Fontfont12_0068 } /* code 0068, LATIN SMALL LETTER H */
-  ,{   2,  13,   1,   4,   4, acGUI_Fontfont12_0069 } /* code 0069, LATIN SMALL LETTER I */
-  ,{   5,  17,  -2,   4,   4, acGUI_Fontfont12_006A } /* code 006A, LATIN SMALL LETTER J */
-  ,{   8,  13,   1,   4,   9, acGUI_Fontfont12_006B } /* code 006B, LATIN SMALL LETTER K */
-  ,{   2,  13,   1,   4,   4, acGUI_Fontfont12_006C } /* code 006C, LATIN SMALL LETTER L */
-  ,{  13,   9,   1,   8,  15, acGUI_Fontfont12_006D } /* code 006D, LATIN SMALL LETTER M */
-  ,{   8,   9,   1,   8,  10, acGUI_Fontfont12_006E } /* code 006E, LATIN SMALL LETTER N */
-  ,{   9,   9,   1,   8,  10, acGUI_Fontfont12_006F } /* code 006F, LATIN SMALL LETTER O */
-  ,{   9,  13,   1,   8,  10, acGUI_Fontfont12_0070 } /* code 0070, LATIN SMALL LETTER P */
-  ,{   8,  13,   1,   8,  10, acGUI_Fontfont12_0071 } /* code 0071, LATIN SMALL LETTER Q */
-  ,{   5,   9,   1,   8,   6, acGUI_Fontfont12_0072 } /* code 0072, LATIN SMALL LETTER R */
-  ,{   6,   9,   1,   8,   7, acGUI_Fontfont12_0073 } /* code 0073, LATIN SMALL LETTER S */
-  ,{   5,  12,   1,   5,   6, acGUI_Fontfont12_0074 } /* code 0074, LATIN SMALL LETTER T */
-  ,{   8,   9,   1,   8,  10, acGUI_Fontfont12_0075 } /* code 0075, LATIN SMALL LETTER U */
-  ,{   8,   9,   0,   8,   8, acGUI_Fontfont12_0076 } /* code 0076, LATIN SMALL LETTER V */
-  ,{  13,   9,   0,   8,  13, acGUI_Fontfont12_0077 } /* code 0077, LATIN SMALL LETTER W */
-  ,{   8,   9,   0,   8,   8, acGUI_Fontfont12_0078 } /* code 0078, LATIN SMALL LETTER X */
-  ,{   8,  13,   0,   8,   8, acGUI_Fontfont12_0079 } /* code 0079, LATIN SMALL LETTER Y */
-  ,{   8,   9,   0,   8,   8, acGUI_Fontfont12_007A } /* code 007A, LATIN SMALL LETTER Z */
-  ,{   3,  15,   1,   5,   5, acGUI_Fontfont12_007B } /* code 007B, LEFT CURLY BRACKET */
-  ,{   1,  17,   1,   4,   4, acGUI_Fontfont12_007C } /* code 007C, VERTICAL LINE */
-  ,{   3,  15,   1,   5,   5, acGUI_Fontfont12_007D } /* code 007D, RIGHT CURLY BRACKET */
-  ,{   8,   2,   2,  11,  12, acGUI_Fontfont12_007E } /* code 007E, TILDE */
-  ,{   1,   1,   0,  17,   5, acGUI_Fontfont12_007F } /* code 007F, <control> */
-  ,{  16,  13,   0,   5,  16, acGUI_Fontfont12_4E0A } /* code 4E0A */
+GUI_CONST_STORAGE GUI_CHARINFO_EXT GUI_Fontfont12_CharInfo[59] = {
+   {  16,  13,   0,   5,  16, acGUI_Fontfont12_4E0A } /* code 4E0A */
   ,{  16,  14,   0,   5,  16, acGUI_Fontfont12_4E0B } /* code 4E0B */
   ,{  16,  14,   0,   4,  16, acGUI_Fontfont12_4EF6 } /* code 4EF6 */
   ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_4F20 } /* code 4F20 */
   ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_4F4D } /* code 4F4D */
   ,{  15,  15,   0,   4,  16, acGUI_Fontfont12_5076 } /* code 5076 */
+  ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_51CF } /* code 51CF */
+  ,{  15,  15,   0,   4,  16, acGUI_Fontfont12_52A0 } /* code 52A0 */
   ,{  14,  14,   1,   4,  16, acGUI_Fontfont12_52A8 } /* code 52A8 */
   ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_5347 } /* code 5347 */
   ,{  15,  13,   1,   5,  16, acGUI_Fontfont12_53D6 } /* code 53D6 */
   ,{  15,  15,   0,   4,  16, acGUI_Fontfont12_53F3 } /* code 53F3 */
   ,{  14,  14,   1,   5,  16, acGUI_Fontfont12_56DE } /* code 56DE */
   ,{  16,  14,   0,   4,  16, acGUI_Fontfont12_5757 } /* code 5757 */
+  ,{  15,  15,   0,   4,  16, acGUI_Fontfont12_589E } /* code 589E */
   ,{  15,  15,   0,   4,  16, acGUI_Fontfont12_5927 } /* code 5927 */
   ,{  14,  15,   1,   4,  16, acGUI_Fontfont12_5934 } /* code 5934 */
   ,{  15,  15,   0,   4,  16, acGUI_Fontfont12_5947 } /* code 5947 */
   ,{  15,  14,   0,   4,  16, acGUI_Fontfont12_5B54 } /* code 5B54 */
   ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_5B9A } /* code 5B9A */
   ,{  16,  14,   0,   4,  16, acGUI_Fontfont12_5C0F } /* code 5C0F */
+  ,{  15,  14,   1,   4,  16, acGUI_Fontfont12_5C11 } /* code 5C11 */
   ,{  16,  13,   0,   5,  16, acGUI_Fontfont12_5DE5 } /* code 5DE5 */
   ,{  16,  14,   0,   4,  16, acGUI_Fontfont12_5DE6 } /* code 5DE6 */
   ,{  16,  14,   0,   4,  16, acGUI_Fontfont12_5EA6 } /* code 5EA6 */
   ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_5F0F } /* code 5F0F */
   ,{  16,  14,   0,   4,  16, acGUI_Fontfont12_6253 } /* code 6253 */
+  ,{  16,  14,   0,   4,  16, acGUI_Fontfont12_6267 } /* code 6267 */
   ,{  15,  14,   1,   4,  16, acGUI_Fontfont12_6269 } /* code 6269 */
   ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_62E9 } /* code 62E9 */
   ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_636E } /* code 636E */
@@ -2250,8 +1053,10 @@ GUI_CONST_STORAGE GUI_CHARINFO_EXT GUI_Fontfont12_CharInfo[148] = {
   ,{  15,  14,   0,   4,  16, acGUI_Fontfont12_786E } /* code 786E */
   ,{  15,  15,   0,   4,  16, acGUI_Fontfont12_7C97 } /* code 7C97 */
   ,{  15,  14,   0,   4,  16, acGUI_Fontfont12_7EC6 } /* code 7EC6 */
+  ,{  14,  13,   1,   5,  16, acGUI_Fontfont12_7F6E } /* code 7F6E */
   ,{  16,  15,   0,   4,  16, acGUI_Fontfont12_884C } /* code 884C */
   ,{  15,  15,   1,   4,  16, acGUI_Fontfont12_8BA4 } /* code 8BA4 */
+  ,{  15,  14,   1,   5,  16, acGUI_Fontfont12_8BBE } /* code 8BBE */
   ,{  15,  14,   0,   4,  16, acGUI_Fontfont12_8C03 } /* code 8C03 */
   ,{  16,  13,   0,   5,  16, acGUI_Fontfont12_8DDD } /* code 8DDD */
   ,{  15,  16,   1,   3,  16, acGUI_Fontfont12_8F6C } /* code 8F6C */
@@ -2265,359 +1070,401 @@ GUI_CONST_STORAGE GUI_CHARINFO_EXT GUI_Fontfont12_CharInfo[148] = {
   ,{  14,  15,   1,   4,  16, acGUI_Fontfont12_964D } /* code 964D */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop51 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop57 = {
    0x964D /* first character */
   ,0x964D /* last character  */
-  ,&GUI_Fontfont12_CharInfo[147] /* address of first character */
+  ,&GUI_Fontfont12_CharInfo[ 58] /* address of first character */
   ,(GUI_CONST_STORAGE GUI_FONT_PROP_EXT *)0 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop50 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop56 = {
    0x95F4 /* first character */
   ,0x95F4 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[146] /* address of first character */
+  ,&GUI_Fontfont12_CharInfo[ 57] /* address of first character */
+  ,&GUI_Fontfont12_Prop57 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop55 = {
+   0x94BB /* first character */
+  ,0x94BB /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 56] /* address of first character */
+  ,&GUI_Fontfont12_Prop56 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop54 = {
+   0x9488 /* first character */
+  ,0x9488 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 55] /* address of first character */
+  ,&GUI_Fontfont12_Prop55 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop53 = {
+   0x901F /* first character */
+  ,0x901F /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 54] /* address of first character */
+  ,&GUI_Fontfont12_Prop54 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop52 = {
+   0x9009 /* first character */
+  ,0x9009 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 53] /* address of first character */
+  ,&GUI_Fontfont12_Prop53 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop51 = {
+   0x8FD4 /* first character */
+  ,0x8FD4 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 52] /* address of first character */
+  ,&GUI_Fontfont12_Prop52 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop50 = {
+   0x8F93 /* first character */
+  ,0x8F93 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 51] /* address of first character */
   ,&GUI_Fontfont12_Prop51 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop49 = {
-   0x94BB /* first character */
-  ,0x94BB /* last character  */
-  ,&GUI_Fontfont12_CharInfo[145] /* address of first character */
+   0x8F6C /* first character */
+  ,0x8F6C /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 50] /* address of first character */
   ,&GUI_Fontfont12_Prop50 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop48 = {
-   0x9488 /* first character */
-  ,0x9488 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[144] /* address of first character */
+   0x8DDD /* first character */
+  ,0x8DDD /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 49] /* address of first character */
   ,&GUI_Fontfont12_Prop49 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop47 = {
-   0x901F /* first character */
-  ,0x901F /* last character  */
-  ,&GUI_Fontfont12_CharInfo[143] /* address of first character */
+   0x8C03 /* first character */
+  ,0x8C03 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 48] /* address of first character */
   ,&GUI_Fontfont12_Prop48 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop46 = {
-   0x9009 /* first character */
-  ,0x9009 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[142] /* address of first character */
+   0x8BBE /* first character */
+  ,0x8BBE /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 47] /* address of first character */
   ,&GUI_Fontfont12_Prop47 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop45 = {
-   0x8FD4 /* first character */
-  ,0x8FD4 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[141] /* address of first character */
+   0x8BA4 /* first character */
+  ,0x8BA4 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 46] /* address of first character */
   ,&GUI_Fontfont12_Prop46 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop44 = {
-   0x8F93 /* first character */
-  ,0x8F93 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[140] /* address of first character */
+   0x884C /* first character */
+  ,0x884C /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 45] /* address of first character */
   ,&GUI_Fontfont12_Prop45 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop43 = {
-   0x8F6C /* first character */
-  ,0x8F6C /* last character  */
-  ,&GUI_Fontfont12_CharInfo[139] /* address of first character */
+   0x7F6E /* first character */
+  ,0x7F6E /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 44] /* address of first character */
   ,&GUI_Fontfont12_Prop44 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop42 = {
-   0x8DDD /* first character */
-  ,0x8DDD /* last character  */
-  ,&GUI_Fontfont12_CharInfo[138] /* address of first character */
+   0x7EC6 /* first character */
+  ,0x7EC6 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 43] /* address of first character */
   ,&GUI_Fontfont12_Prop43 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop41 = {
-   0x8C03 /* first character */
-  ,0x8C03 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[137] /* address of first character */
+   0x7C97 /* first character */
+  ,0x7C97 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 42] /* address of first character */
   ,&GUI_Fontfont12_Prop42 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop40 = {
-   0x8BA4 /* first character */
-  ,0x8BA4 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[136] /* address of first character */
+   0x786E /* first character */
+  ,0x786E /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 41] /* address of first character */
   ,&GUI_Fontfont12_Prop41 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop39 = {
-   0x884C /* first character */
-  ,0x884C /* last character  */
-  ,&GUI_Fontfont12_CharInfo[135] /* address of first character */
+   0x7535 /* first character */
+  ,0x7535 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 40] /* address of first character */
   ,&GUI_Fontfont12_Prop40 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop38 = {
-   0x7EC6 /* first character */
-  ,0x7EC6 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[134] /* address of first character */
+   0x6DF1 /* first character */
+  ,0x6DF1 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 39] /* address of first character */
   ,&GUI_Fontfont12_Prop39 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop37 = {
-   0x7C97 /* first character */
-  ,0x7C97 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[133] /* address of first character */
+   0x6D88 /* first character */
+  ,0x6D88 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 38] /* address of first character */
   ,&GUI_Fontfont12_Prop38 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop36 = {
-   0x786E /* first character */
-  ,0x786E /* last character  */
-  ,&GUI_Fontfont12_CharInfo[132] /* address of first character */
+   0x6D4B /* first character */
+  ,0x6D4B /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 37] /* address of first character */
   ,&GUI_Fontfont12_Prop37 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop35 = {
-   0x7535 /* first character */
-  ,0x7535 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[131] /* address of first character */
+   0x6B21 /* first character */
+  ,0x6B21 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 36] /* address of first character */
   ,&GUI_Fontfont12_Prop36 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop34 = {
-   0x6DF1 /* first character */
-  ,0x6DF1 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[130] /* address of first character */
+   0x6A21 /* first character */
+  ,0x6A21 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 35] /* address of first character */
   ,&GUI_Fontfont12_Prop35 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop33 = {
-   0x6D88 /* first character */
-  ,0x6D88 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[129] /* address of first character */
+   0x68C0 /* first character */
+  ,0x68C0 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 34] /* address of first character */
   ,&GUI_Fontfont12_Prop34 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop32 = {
-   0x6D4B /* first character */
-  ,0x6D4B /* last character  */
-  ,&GUI_Fontfont12_CharInfo[128] /* address of first character */
+   0x673A /* first character */
+  ,0x673A /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 33] /* address of first character */
   ,&GUI_Fontfont12_Prop33 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop31 = {
-   0x6B21 /* first character */
-  ,0x6B21 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[127] /* address of first character */
+   0x6570 /* first character */
+  ,0x6570 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 32] /* address of first character */
   ,&GUI_Fontfont12_Prop32 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop30 = {
-   0x6A21 /* first character */
-  ,0x6A21 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[126] /* address of first character */
+   0x6392 /* first character */
+  ,0x6392 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 31] /* address of first character */
   ,&GUI_Fontfont12_Prop31 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop29 = {
-   0x68C0 /* first character */
-  ,0x68C0 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[125] /* address of first character */
+   0x636E /* first character */
+  ,0x636E /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 30] /* address of first character */
   ,&GUI_Fontfont12_Prop30 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop28 = {
-   0x673A /* first character */
-  ,0x673A /* last character  */
-  ,&GUI_Fontfont12_CharInfo[124] /* address of first character */
+   0x62E9 /* first character */
+  ,0x62E9 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 29] /* address of first character */
   ,&GUI_Fontfont12_Prop29 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop27 = {
-   0x6570 /* first character */
-  ,0x6570 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[123] /* address of first character */
+   0x6269 /* first character */
+  ,0x6269 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 28] /* address of first character */
   ,&GUI_Fontfont12_Prop28 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop26 = {
-   0x6392 /* first character */
-  ,0x6392 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[122] /* address of first character */
+   0x6267 /* first character */
+  ,0x6267 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 27] /* address of first character */
   ,&GUI_Fontfont12_Prop27 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop25 = {
-   0x636E /* first character */
-  ,0x636E /* last character  */
-  ,&GUI_Fontfont12_CharInfo[121] /* address of first character */
+   0x6253 /* first character */
+  ,0x6253 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 26] /* address of first character */
   ,&GUI_Fontfont12_Prop26 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop24 = {
-   0x62E9 /* first character */
-  ,0x62E9 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[120] /* address of first character */
+   0x5F0F /* first character */
+  ,0x5F0F /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 25] /* address of first character */
   ,&GUI_Fontfont12_Prop25 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop23 = {
-   0x6269 /* first character */
-  ,0x6269 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[119] /* address of first character */
+   0x5EA6 /* first character */
+  ,0x5EA6 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 24] /* address of first character */
   ,&GUI_Fontfont12_Prop24 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop22 = {
-   0x6253 /* first character */
-  ,0x6253 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[118] /* address of first character */
+   0x5DE5 /* first character */
+  ,0x5DE6 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 22] /* address of first character */
   ,&GUI_Fontfont12_Prop23 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop21 = {
-   0x5F0F /* first character */
-  ,0x5F0F /* last character  */
-  ,&GUI_Fontfont12_CharInfo[117] /* address of first character */
+   0x5C11 /* first character */
+  ,0x5C11 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 21] /* address of first character */
   ,&GUI_Fontfont12_Prop22 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop20 = {
-   0x5EA6 /* first character */
-  ,0x5EA6 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[116] /* address of first character */
+   0x5C0F /* first character */
+  ,0x5C0F /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 20] /* address of first character */
   ,&GUI_Fontfont12_Prop21 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop19 = {
-   0x5DE5 /* first character */
-  ,0x5DE6 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[114] /* address of first character */
+   0x5B9A /* first character */
+  ,0x5B9A /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 19] /* address of first character */
   ,&GUI_Fontfont12_Prop20 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop18 = {
-   0x5C0F /* first character */
-  ,0x5C0F /* last character  */
-  ,&GUI_Fontfont12_CharInfo[113] /* address of first character */
+   0x5B54 /* first character */
+  ,0x5B54 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 18] /* address of first character */
   ,&GUI_Fontfont12_Prop19 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop17 = {
-   0x5B9A /* first character */
-  ,0x5B9A /* last character  */
-  ,&GUI_Fontfont12_CharInfo[112] /* address of first character */
+   0x5947 /* first character */
+  ,0x5947 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 17] /* address of first character */
   ,&GUI_Fontfont12_Prop18 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop16 = {
-   0x5B54 /* first character */
-  ,0x5B54 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[111] /* address of first character */
+   0x5934 /* first character */
+  ,0x5934 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 16] /* address of first character */
   ,&GUI_Fontfont12_Prop17 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop15 = {
-   0x5947 /* first character */
-  ,0x5947 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[110] /* address of first character */
+   0x5927 /* first character */
+  ,0x5927 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 15] /* address of first character */
   ,&GUI_Fontfont12_Prop16 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop14 = {
-   0x5934 /* first character */
-  ,0x5934 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[109] /* address of first character */
+   0x589E /* first character */
+  ,0x589E /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 14] /* address of first character */
   ,&GUI_Fontfont12_Prop15 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop13 = {
-   0x5927 /* first character */
-  ,0x5927 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[108] /* address of first character */
+   0x5757 /* first character */
+  ,0x5757 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 13] /* address of first character */
   ,&GUI_Fontfont12_Prop14 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop12 = {
-   0x5757 /* first character */
-  ,0x5757 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[107] /* address of first character */
+   0x56DE /* first character */
+  ,0x56DE /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 12] /* address of first character */
   ,&GUI_Fontfont12_Prop13 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop11 = {
-   0x56DE /* first character */
-  ,0x56DE /* last character  */
-  ,&GUI_Fontfont12_CharInfo[106] /* address of first character */
+   0x53F3 /* first character */
+  ,0x53F3 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 11] /* address of first character */
   ,&GUI_Fontfont12_Prop12 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop10 = {
-   0x53F3 /* first character */
-  ,0x53F3 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[105] /* address of first character */
+   0x53D6 /* first character */
+  ,0x53D6 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[ 10] /* address of first character */
   ,&GUI_Fontfont12_Prop11 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop9 = {
-   0x53D6 /* first character */
-  ,0x53D6 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[104] /* address of first character */
+   0x5347 /* first character */
+  ,0x5347 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[  9] /* address of first character */
   ,&GUI_Fontfont12_Prop10 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop8 = {
-   0x5347 /* first character */
-  ,0x5347 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[103] /* address of first character */
+   0x52A8 /* first character */
+  ,0x52A8 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[  8] /* address of first character */
   ,&GUI_Fontfont12_Prop9 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop7 = {
-   0x52A8 /* first character */
-  ,0x52A8 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[102] /* address of first character */
+   0x52A0 /* first character */
+  ,0x52A0 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[  7] /* address of first character */
   ,&GUI_Fontfont12_Prop8 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop6 = {
-   0x5076 /* first character */
-  ,0x5076 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[101] /* address of first character */
+   0x51CF /* first character */
+  ,0x51CF /* last character  */
+  ,&GUI_Fontfont12_CharInfo[  6] /* address of first character */
   ,&GUI_Fontfont12_Prop7 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop5 = {
-   0x4F4D /* first character */
-  ,0x4F4D /* last character  */
-  ,&GUI_Fontfont12_CharInfo[100] /* address of first character */
+   0x5076 /* first character */
+  ,0x5076 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[  5] /* address of first character */
   ,&GUI_Fontfont12_Prop6 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop4 = {
-   0x4F20 /* first character */
-  ,0x4F20 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[ 99] /* address of first character */
+   0x4F4D /* first character */
+  ,0x4F4D /* last character  */
+  ,&GUI_Fontfont12_CharInfo[  4] /* address of first character */
   ,&GUI_Fontfont12_Prop5 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop3 = {
-   0x4EF6 /* first character */
-  ,0x4EF6 /* last character  */
-  ,&GUI_Fontfont12_CharInfo[ 98] /* address of first character */
+   0x4F20 /* first character */
+  ,0x4F20 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[  3] /* address of first character */
   ,&GUI_Fontfont12_Prop4 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop2 = {
-   0x4E0A /* first character */
-  ,0x4E0B /* last character  */
-  ,&GUI_Fontfont12_CharInfo[ 96] /* address of first character */
+   0x4EF6 /* first character */
+  ,0x4EF6 /* last character  */
+  ,&GUI_Fontfont12_CharInfo[  2] /* address of first character */
   ,&GUI_Fontfont12_Prop3 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont12_Prop1 = {
-   0x0020 /* first character */
-  ,0x007F /* last character  */
+   0x4E0A /* first character */
+  ,0x4E0B /* last character  */
   ,&GUI_Fontfont12_CharInfo[  0] /* address of first character */
   ,&GUI_Fontfont12_Prop2 /* pointer to next GUI_FONT_PROP_EXT */
 };
