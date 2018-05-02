@@ -21,43 +21,37 @@
 
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont12;
 /************************************************
- ALIENTEK MiniSTM32¿ª·¢°åSTemWinÊµÑé
- STemWin ÒÆÖ²ÊµÑé
- ¼¼ÊõÖ§³Ö£ºwww.openedv.com
- ÌÔ±¦µêÆÌ£ºhttp://eboard.taobao.com 
- ¹Ø×¢Î¢ĞÅ¹«ÖÚÆ½Ì¨Î¢ĞÅºÅ£º"ÕıµãÔ­×Ó"£¬Ãâ·Ñ»ñÈ¡STM32×ÊÁÏ¡£
- ¹ãÖİÊĞĞÇÒíµç×Ó¿Æ¼¼ÓĞÏŞ¹«Ë¾  
- ×÷Õß£ºÕıµãÔ­×Ó @ALIENTEK
+ ALIENTEK MiniSTM32å¼€å‘æ¿STemWinå®éªŒ
+ STemWin ç§»æ¤å®éªŒ
+ æŠ€æœ¯æ”¯æŒï¼šwww.openedv.com
+ æ·˜å®åº—é“ºï¼šhttp://eboard.taobao.com 
+ å…³æ³¨å¾®ä¿¡å…¬ä¼—å¹³å°å¾®ä¿¡å·ï¼š"æ­£ç‚¹åŸå­"ï¼Œå…è´¹è·å–STM32èµ„æ–™ã€‚
+ å¹¿å·å¸‚æ˜Ÿç¿¼ç”µå­ç§‘æŠ€æœ‰é™å…¬å¸  
+ ä½œè€…ï¼šæ­£ç‚¹åŸå­ @ALIENTEK
 ************************************************/
 
 int main(void)
 {	
-    GUI_HWIN HWIN;
- 	delay_init();	    	//ÑÓÊ±º¯Êı³õÊ¼»¯	  
-	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); 	//ÉèÖÃNVICÖĞ¶Ï·Ö×é2:2Î»ÇÀÕ¼ÓÅÏÈ¼¶£¬2Î»ÏìÓ¦ÓÅÏÈ¼¶
-	uart_init(115200);	 	//´®¿Ú³õÊ¼»¯Îª115200
-	TFTLCD_Init();			//LCD³õÊ¼»¯	
-	KEY_Init();	 			//°´¼ü³õÊ¼»¯
-    LED_Init();
- 	TP_Init();				//´¥ÃşÆÁ³õÊ¼»¯
-	TIM3_Int_Init(999,71);	//1KHZ ¶¨Ê±Æ÷1ms 
-	TIM6_Int_Init(999,719);	//10msÖĞ¶Ï
-    TIM2_Int_Init(4999,71);    //500msÖĞ¶Ï
-	mem_init(); 			//³õÊ¼»¯ÄÚ²¿ÄÚ´æ³Ø
-	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_CRC,ENABLE);//Ê¹ÄÜCRCÊ±ÖÓ£¬·ñÔòSTemWin²»ÄÜÊ¹ÓÃ 
-	WM_SetCreateFlags(WM_CF_MEMDEV);
-    LCD_Display_Dir(0);
-    NRF24L01_Init();
-	GUI_Init();
+	GUI_HWIN HWIN;
     
+	delay_init();	    	//å»¶æ—¶å‡½æ•°åˆå§‹åŒ–	  
+	NVIC_PriorityGroupConfig(NVIC_PriorityGroup_2); 	//è®¾ç½®NVICä¸­æ–­åˆ†ç»„2:2ä½æŠ¢å ä¼˜å…ˆçº§ï¼Œ2ä½å“åº”ä¼˜å…ˆçº§
+	uart_init(115200);	 	//ä¸²å£åˆå§‹åŒ–ä¸º115200
+    KEY_Init();	 			//æŒ‰é”®åˆå§‹åŒ–
+	LED_Init();
+    TFTLCD_Init();			//LCDåˆå§‹åŒ–	
+	TP_Init();				//è§¦æ‘¸å±åˆå§‹åŒ–
+	TIM3_Int_Init(999,71);	//1KHZ å®šæ—¶å™¨1ms 
+	TIM6_Int_Init(999,719);	//10msä¸­æ–­
+	//TIM2_Int_Init(4999,71);    //500msä¸­æ–­
+	mem_init(); 			//åˆå§‹åŒ–å†…éƒ¨å†…å­˜æ± 
+	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_CRC,ENABLE);//ä½¿èƒ½CRCæ—¶é’Ÿï¼Œå¦åˆ™STemWinä¸èƒ½ä½¿ç”¨ 
+	WM_SetCreateFlags(WM_CF_MEMDEV);
+	LCD_Display_Dir(0);
+	NRF24L01_Init();
+	GUI_Init();
     while(NRF24L01_Check())
     {
-        GUI_SetBkColor(BLACK);
-        GUI_SetColor(WHITE);
-        GUI_SetFont(&GUI_Fontfont12);
-        GUI_Clear();
-        GUI_DispStringHCenterAt("Á¬½ÓÖĞ",120,50);
-        GUI_Delay(1000);
     }
     HWIN = CreateFramewin();
     while(1)
@@ -68,5 +62,4 @@ int main(void)
     }
 
 }
-
 

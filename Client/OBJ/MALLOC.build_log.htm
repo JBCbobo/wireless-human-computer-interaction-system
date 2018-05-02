@@ -5,32 +5,73 @@
 <h2>Tool Versions:</h2>
 IDE-Version: ��Vision V5.14.0.0
 Copyright (C) 2015 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: BB Jbc, BB, LIC=NQQQD-89H8W-HL2CL-0ZWXI-5WIZ0-8J2NM
+License Information: Jayce Jayce, GUET, LIC=8VR63-ARBI9-V1UP8-3YVWR-0ZQPR-WDWXV
  
 Tool Versions:
-Toolchain:       MDK-ARM Standard  Version: 5.15.0
+Toolchain:       MDK-ARM Standard  Version: 5.14.0.0
 Toolchain Path:  E:\Keil_v5\ARM\ARMCC\Bin
 C Compiler:      Armcc.exe V5.05 update 1 (build 106)
 Assembler:       Armasm.exe V5.05 update 1 (build 106)
 Linker/Locator:  ArmLink.exe V5.05 update 1 (build 106)
 Library Manager: ArmAr.exe V5.05 update 1 (build 106)
 Hex Converter:   FromElf.exe V5.05 update 1 (build 106)
-CPU DLL:         SARMCM3.DLL V5.15.0
-Dialog DLL:      DCM.DLL V1.13.2.0
-Target DLL:      Segger\JL2CM3.dll V2.99.15.0
-Dialog DLL:      TCM.DLL V1.14.5.0
+CPU DLL:         SARMCM3.DLL V5.14.0.0
+Dialog DLL:      DCM.DLL V1.13.1.0
+Target DLL:      Segger\JL2CM3.dll V2.99.13.0
+Dialog DLL:      TCM.DLL V1.14.4.0
  
 <h2>Project:</h2>
 E:\GitHub\wireless-human-computer-interaction-system\Client\USER\Template.uvprojx
-Project File Date:  04/11/2018
+Project File Date:  04/26/2018
 
 <h2>Output:</h2>
 Build target 'Target 1'
-"..\OBJ\MALLOC.axf" - 0 Error(s), 0 Warning(s).
+compiling FramewinDLG.c...
+FramewinDLG.c(209): warning:  #177-D: variable "tmp" was declared but never referenced
+      char tmp[10];
+FramewinDLG.c(264): warning:  #940-D: missing return statement at end of non-void function "Get_widget_value"
+  }
+FramewinDLG.c(318): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+      Set_text_value(hWin,GUI_ID_TEXT7,buf[1],model_Item); //模式
+FramewinDLG.c(325): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+      Set_text_value(hWin,GUI_ID_TEXT8,buf[9],OddEven_Item);  //奇偶数排
+FramewinDLG.c(328): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+      Set_text_value(hWin,GUI_ID_TEXT9,buf[12],drill_Item); //大小钻头
+FramewinDLG.c(568): warning:  #177-D: variable "hItem" was declared but never referenced
+        WM_HWIN  hItem,hWin = pMsg->hWin;
+FramewinDLG.c(608): warning:  #177-D: variable "hItem" was declared but never referenced
+        WM_HWIN  hItem,hWin = pMsg->hWin;
+FramewinDLG.c(685): warning:  #177-D: variable "hItem" was declared but never referenced
+        WM_HWIN  hItem,hWin = pMsg->hWin;
+FramewinDLG.c(760): warning:  #177-D: variable "hItem" was declared but never referenced
+        WM_HWIN  hItem,hWin = pMsg->hWin;
+FramewinDLG.c(918): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+      _Createradio((FRAME_WIDTH >> 1), 100, 80,70, hWin, GUI_ID_RADIO1,drill_Item,GUI_COUNTOF(drill_Item));      
+FramewinDLG.c(946): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+      _Createradio((FRAME_WIDTH >> 1), 20, 80, 70, hWin, GUI_ID_RADIO0,   OddEven_Item,GUI_COUNTOF(OddEven_Item));
+FramewinDLG.c(958): warning:  #177-D: variable "hItem" was declared but never referenced
+        WM_HWIN  hItem,hWin = pMsg->hWin;
+FramewinDLG.c(1049): warning:  #167-D: argument of type "char (*)[10]" is incompatible with parameter of type "const char (*)[10]"
+              _Createradio((FRAME_WIDTH >> 1), 50, 80,80, hWin, GUI_ID_RADIO0,model_Item,GUI_COUNTOF(model_Item));
+FramewinDLG.c(1032): warning:  #177-D: variable "hItem" was declared but never referenced
+        WM_HWIN  hItem,hWin = pMsg->hWin;
+FramewinDLG.c(1098): warning:  #177-D: variable "hItem" was declared but never referenced
+        WM_HWIN hItem,hWin = pMsg->hWin;
+FramewinDLG.c(1164): warning:  #940-D: missing return statement at end of non-void function "CreateFramewin"
+  }
+FramewinDLG.c(97): warning:  #177-D: variable "_hLastFrame" was declared but never referenced
+  static WM_HWIN    _hLastFrame;
+FramewinDLG.c(99): warning:  #177-D: variable "_hTitle" was declared but never referenced
+  static WM_HWIN    _hTitle;
+FramewinDLG.c: 18 warnings, 0 errors
+linking...
+Program Size: Code=128676 RO-data=121172 RW-data=2268 ZI-data=41092  
+FromELF: creating hex file...
+"..\OBJ\MALLOC.axf" - 0 Error(s), 18 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   E:\GitHub\wireless-human-computer-interaction-system\Client\USER\RTE
-  E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\2.1.0
+  E:\Keil_v5\ARM\PACK\Keil\STM32F1xx_DFP\1.0.5\Device\Include
 
 <h2>Collection of Component Files used:</h2>
 </pre>

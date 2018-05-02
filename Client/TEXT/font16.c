@@ -14,12 +14,12 @@
 **********************************************************************
 *                                                                    *
 * Source file: font16.c                                              *
-* Font:        ËÎÌå                                                  *
-* Height:      21                                                    *
+* Font:        Î¢ÈíÑÅºÚ                                              *
+* Height:      28                                                    *
 *                                                                    *
 **********************************************************************
 *                                                                    *
-* Initial font height:  21                                           *
+* Initial font height:  28                                           *
 * Range disabled:       0000 - FFFF                                  *
 * Read pattern file: E:\GitHub\wireless-human-computer-interaction-system\Client\TEXT\font16.txt*
 *                                                                    *
@@ -38,235 +38,452 @@
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont16;
 
 /* Start of unicode area <CJK Unified Ideographs> */
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5236[ 63] = { /* code 5236 */
-  ________,________,________,
-  ______X_,________,__X_____,
-  ______X_,________,__X_____,
-  ___X__X_,________,__X_____,
-  ___X__X_,______X_,__X_____,
-  ___XXXXX,XXX___X_,__X_____,
-  __X___X_,______X_,__X_____,
-  __X___X_,______X_,__X_____,
-  __XXXXXX,XXXX__X_,__X_____,
-  ______X_,______X_,__X_____,
-  __XXXXXX,XXXX__X_,__X_____,
-  __X___X_,__X___X_,__X_____,
-  __X___X_,__X___X_,__X_____,
-  __X___X_,__X___X_,__X_____,
-  __X___X_,__X___X_,__X_____,
-  __X___X_,X_X_____,__X_____,
-  __X___X_,_XX_____,__X_____,
-  ______X_,________,__X_____,
-  ______X_,_______X,XXX_____,
-  ______X_,________,_X______,
-  ________,________,________};
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_4F5C[ 57] = { /* code 4F5C */
+  _____XX_,_XX_____,________,
+  ____XXX_,_XX_____,________,
+  ____XX__,XX______,________,
+  ____XX__,XXXXXXXX,XXXX____,
+  ___XX___,XX_XX___,________,
+  ___XX__X,X__XX___,________,
+  __XXX__X,X__XX___,________,
+  __XXX_XX,___XX___,________,
+  _XXXX__X,___XXXXX,XXX_____,
+  XX_XX___,___XX___,________,
+  X__XX___,___XX___,________,
+  ___XX___,___XX___,________,
+  ___XX___,___XX___,________,
+  ___XX___,___XXXXX,XXX_____,
+  ___XX___,___XX___,________,
+  ___XX___,___XX___,________,
+  ___XX___,___XX___,________,
+  ___XX___,___XX___,________,
+  ___XX___,___XX___,________};
 
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5668[ 63] = { /* code 5668 */
-  ________,________,________,
-  ________,________,________,
-  ____XXXX,X___XXXX,X_______,
-  ____X___,X___X___,X_______,
-  ____X___,X___X___,X_______,
-  ____X___,X___X___,X_______,
-  ____XXXX,X___XXXX,X_______,
-  ____X___,XX__XX__,X_______,
-  ________,_XX___XX,________,
-  _XXXXXXX,XXXXXXXX,XXX_____,
-  ________,X___X___,________,
-  _______X,_____X__,________,
-  _____XX_,______XX,________,
-  ____XXXX,XX_XXXXX,XXXX____,
-  __XXX___,X__X____,X_X_____,
-  ____X___,X__X____,X_______,
-  ____X___,X__X____,X_______,
-  ____XXXX,X__XXXXX,X_______,
-  ____X___,X__X____,X_______,
-  ____X___,___X____,X_______,
-  ________,________,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5E8A[ 63] = { /* code 5E8A */
-  ________,________,________,
-  ________,__X_____,________,
-  ________,___X____,________,
-  ________,___X____,________,
-  ___XXXXX,XXX_XXXX,XXX_____,
-  ___X____,___X____,________,
-  ___X____,___X____,________,
-  ___X____,___X____,________,
-  ___XXXXX,XX_X_XXX,XXX_____,
-  ___X____,__XXX___,________,
-  ___X____,_X_X_X__,________,
-  ___X____,_X_X_X__,________,
-  ___X____,X__X__X_,________,
-  ___X___X,___X__X_,________,
-  __X____X,___X___X,________,
-  __X___X_,___X____,XX______,
-  __X__X__,___X____,XXXX____,
-  _X__X___,___X____,________,
-  _X_X____,___X____,________,
-  ________,___X____,________,
-  ________,________,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_624B[ 63] = { /* code 624B */
-  ________,________,________,
-  ________,_______X,X_______,
-  ________,___XXXXX,X_______,
-  ___XXXXX,XXX_____,________,
-  ________,__X_____,________,
-  ________,__X_____,________,
-  ________,__X_____,X_______,
-  ___XXXXX,XXXXXXXX,XX______,
-  ________,__X_____,________,
-  ________,__X_____,________,
-  ________,__X_____,__X_____,
-  _XXXXXXX,XXXXXXXX,XXXX____,
-  ________,__X_____,________,
-  ________,__X_____,________,
-  ________,__X_____,________,
-  ________,__X_____,________,
-  ________,__X_____,________,
-  ________,__X_____,________,
-  _______X,XXX_____,________,
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5165[ 57] = { /* code 5165 */
+  _______X,________,________,
+  _______X,X_______,________,
+  ________,XX______,________,
   ________,_X______,________,
-  ________,________,________};
-
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_6301[ 63] = { /* code 6301 */
-  ________,________,________,
-  ____X___,_____X__,________,
-  ____XX__,_____X__,________,
-  ____XX__,_____X__,________,
-  ____XX__,XXXXXXXX,XX______,
-  _XXXXXXX,_____X__,________,
-  ____XX__,_____X__,________,
-  ____XX__,_____X__,________,
-  ____XX_X,XXXXXXXX,XXXX____,
-  ____XXXX,_______X,X_______,
+  ________,_XX_____,________,
+  ________,_XX_____,________,
+  ________,_XXX____,________,
+  ________,XX_X____,________,
+  ________,XX_XX___,________,
+  ________,X___X___,________,
+  _______X,X___XX__,________,
+  ______XX,_____X__,________,
+  ______XX,_____XX_,________,
+  _____XX_,______XX,________,
   ____XX__,_______X,________,
-  _XXXXX__,XXXXXXXX,XXX_____,
-  __X_XX__,_______X,________,
-  ____XX__,_X_____X,________,
-  ____XX__,__X____X,________,
-  ____XX__,__XX___X,________,
-  ____XX__,_______X,________,
-  ____XX__,_______X,________,
-  ___XX___,____XXXX,________,
-  ____X___,______X_,________,
-  ________,________,________};
+  ___XX___,________,X_______,
+  __XX____,________,XX______,
+  _XX_____,________,_XXX____,
+  XX______,________,___XX___};
 
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_63A7[ 63] = { /* code 63A7 */
-  ________,________,________,
-  ____X___,________,________,
-  ____X___,____XX__,________,
-  ____X___,_____XX_,________,
-  ____X___,_XXXXXXX,XXX_____,
-  _XXXXXXX,_X______,__X_____,
-  ____X___,X_______,_X______,
-  ____X___,___XX__X,________,
-  ____X___,__XX____,XX______,
-  ____X_XX,_X______,_XX_____,
-  ____XX__,X_______,__X_____,
-  __XXX___,_XXXXXXX,XX______,
-  _XX_X___,_____X__,________,
-  ____X___,_____X__,________,
-  ____X___,_____X__,________,
-  ____X___,_____X__,________,
-  ____X___,_____X__,__X_____,
-  ____X__X,XXXXXXXX,XXXX____,
-  __XXX___,________,________,
-  ____X___,________,________,
-  ________,________,________};
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5236[ 54] = { /* code 5236 */
+  ______XX,________,__XX____,
+  ___XX_XX,________,__XX____,
+  ___XX_XX,______XX,__XX____,
+  __XXXXXX,XXXX__XX,__XX____,
+  __XX__XX,______XX,__XX____,
+  _XX___XX,______XX,__XX____,
+  __X___XX,______XX,__XX____,
+  XXXXXXXX,XXXXXXXX,__XX____,
+  ______XX,______XX,__XX____,
+  ______XX,______XX,__XX____,
+  __XXXXXX,XXXXX_XX,__XX____,
+  __XX__XX,___XX_XX,__XX____,
+  __XX__XX,___XX_XX,__XX____,
+  __XX__XX,___XX___,__XX____,
+  __XX__XX,___XX___,__XX____,
+  __XX__XX,___XX___,__XX____,
+  __XX__XX,XXXX____,__XX____,
+  ______XX,______XX,XXX_____};
 
-GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_94BB[ 63] = { /* code 94BB */
-  ________,________,________,
-  ____X___,_____X__,________,
-  ____XX__,_____X__,________,
-  ____X___,X____X__,________,
-  ____XXXX,X____X__,________,
-  ___X____,_____X__,__X_____,
-  ___X____,_____XXX,XXXX____,
-  __X_____,_____X__,________,
-  __XXXXXX,X____X__,________,
-  _X__XX__,_____X__,________,
-  ____XX__,_____X__,________,
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5355[ 57] = { /* code 5355 */
+  ____X___,_______X,________,
+  ____XXX_,______XX,________,
+  _____XXX,____XXX_,________,
   __XXXXXX,XXXXXXXX,XXX_____,
-  ____XX__,__X_____,_X______,
-  ____XX__,__X_____,_X______,
-  ____XX__,__X_____,_X______,
-  ____XX_X,X_X_____,_X______,
-  ____XXX_,__X_____,_X______,
-  ____XX__,__XXXXXX,XX______,
-  ____XX__,__X_____,_X______,
-  ________,__X_____,_X______,
-  ________,________,________};
+  __XX____,_XX_____,_XX_____,
+  __XX____,_XX_____,_XX_____,
+  __XXXXXX,XXXXXXXX,XXX_____,
+  __XX____,_XX_____,_XX_____,
+  __XX____,_XX_____,_XX_____,
+  __XX____,_XX_____,_XX_____,
+  __XXXXXX,XXXXXXXX,XXX_____,
+  __XX____,_XX_____,_XX_____,
+  ________,_XX_____,________,
+  ________,_XX_____,________,
+  XXXXXXXX,XXXXXXXX,XXXXX___,
+  ________,_XX_____,________,
+  ________,_XX_____,________,
+  ________,_XX_____,________,
+  ________,_XX_____,________};
 
-GUI_CONST_STORAGE GUI_CHARINFO GUI_Fontfont16_CharInfo[7] = {
-   {  21,  21,  3, acGUI_Fontfont16_5236 } /* code 5236 */
-  ,{  21,  21,  3, acGUI_Fontfont16_5668 } /* code 5668 */
-  ,{  21,  21,  3, acGUI_Fontfont16_5E8A } /* code 5E8A */
-  ,{  21,  21,  3, acGUI_Fontfont16_624B } /* code 624B */
-  ,{  21,  21,  3, acGUI_Fontfont16_6301 } /* code 6301 */
-  ,{  21,  21,  3, acGUI_Fontfont16_63A7 } /* code 63A7 */
-  ,{  21,  21,  3, acGUI_Fontfont16_94BB } /* code 94BB */
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_53C2[ 57] = { /* code 53C2 */
+  ________,X_______,________,
+  _______X,X____X__,________,
+  ______XX,____XXX_,________,
+  ____XX__,______XX,________,
+  ___XXXXX,XXXXXXXX,XX______,
+  ________,_XX_____,X_______,
+  ________,XX______,________,
+  _XXXXXXX,XXXXXXXX,XXXX____,
+  ______XX,_____XX_,________,
+  _____XX_,___XX_XX,________,
+  ___XX___,_XXX___X,XX______,
+  _XXX___X,X____XX_,_XX_____,
+  XX__XXX_,___XXX__,___XX___,
+  ________,XXXX____,X_______,
+  _____XXX,X_____XX,________,
+  ___XXX__,____XXX_,________,
+  ________,__XXX___,________,
+  ______XX,XX______,________,
+  ___XXX__,________,________};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5668[ 54] = { /* code 5668 */
+  __XXXXXX,XX_XXXXX,XXX_____,
+  __XX____,XX_XX___,_XX_____,
+  __XX____,XX_XX___,_XX_____,
+  __XX____,XX_XX___,_XX_____,
+  __XXXXXX,XX_XXXXX,XXX_____,
+  __XX____,XX_XX_X_,_XX_____,
+  ________,__XX__XX,________,
+  ________,__XX___X,X_______,
+  _XXXXXXX,XXXXXXXX,XXXXX___,
+  ________,XXXXX___,________,
+  _____XXX,X____XXX,________,
+  XXXXX___,_______X,XXXXX___,
+  __XXXXXX,XX_XXXXX,XXX_____,
+  __XX____,XX_XX___,_XX_____,
+  __XX____,XX_XX___,_XX_____,
+  __XX____,XX_XX___,_XX_____,
+  __XXXXXX,XX_XXXXX,XXX_____,
+  __XX____,XX_XX___,_XX_____};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5B54[ 54] = { /* code 5B54 */
+  ________,_____XX_,________,
+  _XXXXXXX,XXX__XX_,________,
+  ________,XXX__XX_,________,
+  _______X,XX___XX_,________,
+  ______XX,X____XX_,________,
+  _____XXX,_____XX_,________,
+  _____XX_,_____XX_,________,
+  _____XX_,_____XX_,________,
+  _____XXX,XXX__XX_,________,
+  ___XXXX_,_____XX_,________,
+  XXX__XX_,_____XX_,________,
+  _____XX_,_____XX_,________,
+  _____XX_,_____XX_,___XX___,
+  _____XX_,_____XX_,___XX___,
+  _____XX_,_____XX_,___XX___,
+  _____XX_,_____XX_,___XX___,
+  _____XX_,_____XX_,__XX____,
+  _XXXXX__,______XX,XXXX____};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_5E8A[ 60] = { /* code 5E8A */
+  ________,__X_____,________,
+  ________,__XX____,________,
+  ________,__XXX___,________,
+  __XXXXXX,XXXXXXXX,XXXX____,
+  __XX____,________,________,
+  __XX____,___XX___,________,
+  __XX____,___XX___,________,
+  __XX____,___XX___,________,
+  __XX_XXX,XXXXXXXX,XXX_____,
+  __XX____,__XXXX__,________,
+  __XX____,_X_XX_X_,________,
+  __XX____,XX_XX_X_,________,
+  __XX____,X__XX__X,________,
+  __XX___X,X__XX__X,________,
+  __XX__XX,___XX___,X_______,
+  __X__XX_,___XX___,_X______,
+  _XX_XX__,___XX___,_XX_____,
+  _XXXX___,___XX___,__XX____,
+  XX______,___XX___,________,
+  XX______,___XX___,________};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_624B[ 54] = { /* code 624B */
+  ________,_____XXX,XXX_____,
+  _XXXXXXX,XXXXX___,________,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  _XXXXXXX,XXXXXXXX,XXX_____,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  XXXXXXXX,XXXXXXXX,XXXXX___,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  ________,__XX____,________,
+  _____XXX,XXX_____,________};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_6301[ 57] = { /* code 6301 */
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX___,XXXXXXXX,XXXX____,
+  XXXXXXXX,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX__X,XXXXXXXX,XXXXX___,
+  ___XX___,________,________,
+  ___XX_X_,________,XX______,
+  __XXXX__,________,XX______,
+  XX_XX__X,XXXXXXXX,XXXXX___,
+  ___XX___,________,XX______,
+  ___XX___,XX______,XX______,
+  ___XX___,_XXX____,XX______,
+  ___XX___,___X____,XX______,
+  ___XX___,________,XX______,
+  ___XX___,________,XX______,
+  XXXX____,_____XXX,X_______};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_63A7[ 60] = { /* code 63A7 */
+  ___XX___,_____X__,________,
+  ___XX___,_____X__,________,
+  ___XX___,_____X__,________,
+  ___XX__X,XXXXXXXX,XXXX____,
+  XXXXXX_X,X_______,__XX____,
+  ___XX__X,X_______,__XX____,
+  ___XX__X,X___X_X_,__XX____,
+  ___XX___,___XX_XX,________,
+  ___XX___,__XX____,X_______,
+  ___XX_XX,_XX_____,_X______,
+  __XXXX__,XX______,_XX_____,
+  XX_XX___,________,________,
+  ___XX___,_XXXXXXX,XX______,
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX__X,XXXXXXXX,XXXXX___,
+  XXXX____,________,________};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_64CD[ 57] = { /* code 64CD */
+  ___XX___,________,________,
+  ___XX___,XXXXXXXX,XX______,
+  ___XX___,XX______,XX______,
+  ___XX___,XX______,XX______,
+  XXXXXXX_,XXXXXXXX,XX______,
+  ___XX___,XX______,XX______,
+  ___XX___,________,________,
+  ___XX__X,XXXXX_XX,XXXX____,
+  ___XX__X,X__XX_XX,__XX____,
+  ___XXXXX,X__XX_XX,__XX____,
+  __XXX__X,XXXXX_XX,XXXX____,
+  XX_XX__X,X__XX_XX,__XX____,
+  ___XX___,____XX__,________,
+  ___XX__X,XXXXXXXX,XXXXX___,
+  ___XX___,___XXXX_,________,
+  ___XX___,__X_XX_X,________,
+  ___XX___,_X__XX__,X_______,
+  ___XX__X,X___XX__,_XX_____,
+  XXXX__XX,____XX__,___XX___};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_6570[ 60] = { /* code 6570 */
+  _____XX_,______XX,________,
+  _X___XX_,_X____XX,________,
+  _XX__XX_,XX___XX_,________,
+  __X__XX_,X____XX_,________,
+  _____XX_,_____XXX,XXXXX___,
+  _XXXXXXX,XXX_XX__,__XX____,
+  ____XXX_,____XX__,__XX____,
+  ___XXXXX,___XXX__,__XX____,
+  _XXX_XX_,X__X_X__,__XX____,
+  XX___XX_,_X___XX_,_XX_____,
+  ____XX__,______X_,_XX_____,
+  ___XX___,______X_,_XX_____,
+  XXXXXXXX,XX____XX,_X______,
+  __XX____,XX_____X,XX______,
+  _XX____X,X______X,X_______,
+  __XXX__X,X______X,XX______,
+  ____XXXX,______XX,_XX_____,
+  ____XXXX,X____XX_,__XX____,
+  __XXX___,XX_XXX__,___XX___,
+  XX______,__XX____,____XX__};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_8F93[ 57] = { /* code 8F93 */
+  __XX____,____XXX_,________,
+  __XX____,___XXXX_,________,
+  __XX____,__XX__XX,________,
+  XXXXXXX_,_XX____X,X_______,
+  _XX_____,XX______,XX______,
+  _XX____X,XXXXXXXX,XXX_____,
+  _XXXX_XX,________,__XX____,
+  _XXXX___,________,________,
+  XX_XX__X,XXXXX___,_XX_____,
+  XX_XX__X,X__XX_XX,_XX_____,
+  XXXXXX_X,X__XX_XX,_XX_____,
+  ___XX__X,XXXXX_XX,_XX_____,
+  ___XX__X,X__XX_XX,_XX_____,
+  ___XXXXX,X__XX_XX,_XX_____,
+  XXXXX__X,XXXXX_XX,_XX_____,
+  ___XX__X,X__XX_XX,_XX_____,
+  ___XX__X,X__XX___,_XX_____,
+  ___XX__X,X__XX___,_XX_____,
+  ___XX__X,XXXXX_XX,XX______};
+
+GUI_CONST_STORAGE unsigned char acGUI_Fontfont16_94BB[ 57] = { /* code 94BB */
+  ___XX___,_____XX_,________,
+  __XXX___,_____XX_,________,
+  __XX____,_____XX_,________,
+  _XXXXXXX,X____XX_,________,
+  _XX_____,_____XXX,XXXXX___,
+  XX______,_____XX_,________,
+  XXXXXXXX,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  ___XX___,_____XX_,________,
+  XXXXXXXX,_XXXXXXX,XXXX____,
+  ___XX___,_XX_____,__XX____,
+  ___XX___,_XX_____,__XX____,
+  ___XX___,_XX_____,__XX____,
+  ___XX___,_XX_____,__XX____,
+  ___XX___,_XX_____,__XX____,
+  ___XX_XX,_XX_____,__XX____,
+  ___XXXX_,_XXXXXXX,XXXX____,
+  __XX____,_XX_____,__XX____};
+
+GUI_CONST_STORAGE GUI_CHARINFO_EXT GUI_Fontfont16_CharInfo[15] = {
+   {  20,  19,   0,   5,  21, acGUI_Fontfont16_4F5C } /* code 4F5C */
+  ,{  21,  19,   0,   5,  21, acGUI_Fontfont16_5165 } /* code 5165 */
+  ,{  20,  18,   0,   5,  21, acGUI_Fontfont16_5236 } /* code 5236 */
+  ,{  21,  19,   0,   5,  21, acGUI_Fontfont16_5355 } /* code 5355 */
+  ,{  21,  19,   0,   5,  21, acGUI_Fontfont16_53C2 } /* code 53C2 */
+  ,{  21,  18,   0,   6,  21, acGUI_Fontfont16_5668 } /* code 5668 */
+  ,{  21,  18,   0,   5,  21, acGUI_Fontfont16_5B54 } /* code 5B54 */
+  ,{  20,  20,   1,   4,  21, acGUI_Fontfont16_5E8A } /* code 5E8A */
+  ,{  21,  18,   0,   5,  21, acGUI_Fontfont16_624B } /* code 624B */
+  ,{  21,  19,   0,   5,  21, acGUI_Fontfont16_6301 } /* code 6301 */
+  ,{  21,  20,   0,   4,  21, acGUI_Fontfont16_63A7 } /* code 63A7 */
+  ,{  21,  19,   0,   5,  21, acGUI_Fontfont16_64CD } /* code 64CD */
+  ,{  22,  20,   0,   5,  21, acGUI_Fontfont16_6570 } /* code 6570 */
+  ,{  20,  19,   1,   5,  21, acGUI_Fontfont16_8F93 } /* code 8F93 */
+  ,{  21,  19,   0,   5,  21, acGUI_Fontfont16_94BB } /* code 94BB */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_Fontfont16_Prop7 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop15 = {
    0x94BB /* first character */
   ,0x94BB /* last character  */
-  ,&GUI_Fontfont16_CharInfo[  6] /* address of first character */
-  ,(GUI_CONST_STORAGE GUI_FONT_PROP *)0 /* pointer to next GUI_FONT_PROP */
+  ,&GUI_Fontfont16_CharInfo[ 14] /* address of first character */
+  ,(GUI_CONST_STORAGE GUI_FONT_PROP_EXT *)0 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_Fontfont16_Prop6 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop14 = {
+   0x8F93 /* first character */
+  ,0x8F93 /* last character  */
+  ,&GUI_Fontfont16_CharInfo[ 13] /* address of first character */
+  ,&GUI_Fontfont16_Prop15 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop13 = {
+   0x6570 /* first character */
+  ,0x6570 /* last character  */
+  ,&GUI_Fontfont16_CharInfo[ 12] /* address of first character */
+  ,&GUI_Fontfont16_Prop14 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop12 = {
+   0x64CD /* first character */
+  ,0x64CD /* last character  */
+  ,&GUI_Fontfont16_CharInfo[ 11] /* address of first character */
+  ,&GUI_Fontfont16_Prop13 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop11 = {
    0x63A7 /* first character */
   ,0x63A7 /* last character  */
-  ,&GUI_Fontfont16_CharInfo[  5] /* address of first character */
-  ,&GUI_Fontfont16_Prop7 /* pointer to next GUI_FONT_PROP */
+  ,&GUI_Fontfont16_CharInfo[ 10] /* address of first character */
+  ,&GUI_Fontfont16_Prop12 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_Fontfont16_Prop5 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop10 = {
    0x6301 /* first character */
   ,0x6301 /* last character  */
-  ,&GUI_Fontfont16_CharInfo[  4] /* address of first character */
-  ,&GUI_Fontfont16_Prop6 /* pointer to next GUI_FONT_PROP */
+  ,&GUI_Fontfont16_CharInfo[  9] /* address of first character */
+  ,&GUI_Fontfont16_Prop11 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_Fontfont16_Prop4 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop9 = {
    0x624B /* first character */
   ,0x624B /* last character  */
-  ,&GUI_Fontfont16_CharInfo[  3] /* address of first character */
-  ,&GUI_Fontfont16_Prop5 /* pointer to next GUI_FONT_PROP */
+  ,&GUI_Fontfont16_CharInfo[  8] /* address of first character */
+  ,&GUI_Fontfont16_Prop10 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_Fontfont16_Prop3 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop8 = {
    0x5E8A /* first character */
   ,0x5E8A /* last character  */
-  ,&GUI_Fontfont16_CharInfo[  2] /* address of first character */
-  ,&GUI_Fontfont16_Prop4 /* pointer to next GUI_FONT_PROP */
+  ,&GUI_Fontfont16_CharInfo[  7] /* address of first character */
+  ,&GUI_Fontfont16_Prop9 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_Fontfont16_Prop2 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop7 = {
+   0x5B54 /* first character */
+  ,0x5B54 /* last character  */
+  ,&GUI_Fontfont16_CharInfo[  6] /* address of first character */
+  ,&GUI_Fontfont16_Prop8 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop6 = {
    0x5668 /* first character */
   ,0x5668 /* last character  */
-  ,&GUI_Fontfont16_CharInfo[  1] /* address of first character */
-  ,&GUI_Fontfont16_Prop3 /* pointer to next GUI_FONT_PROP */
+  ,&GUI_Fontfont16_CharInfo[  5] /* address of first character */
+  ,&GUI_Fontfont16_Prop7 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
-GUI_CONST_STORAGE GUI_FONT_PROP GUI_Fontfont16_Prop1 = {
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop5 = {
+   0x53C2 /* first character */
+  ,0x53C2 /* last character  */
+  ,&GUI_Fontfont16_CharInfo[  4] /* address of first character */
+  ,&GUI_Fontfont16_Prop6 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop4 = {
+   0x5355 /* first character */
+  ,0x5355 /* last character  */
+  ,&GUI_Fontfont16_CharInfo[  3] /* address of first character */
+  ,&GUI_Fontfont16_Prop5 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop3 = {
    0x5236 /* first character */
   ,0x5236 /* last character  */
+  ,&GUI_Fontfont16_CharInfo[  2] /* address of first character */
+  ,&GUI_Fontfont16_Prop4 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop2 = {
+   0x5165 /* first character */
+  ,0x5165 /* last character  */
+  ,&GUI_Fontfont16_CharInfo[  1] /* address of first character */
+  ,&GUI_Fontfont16_Prop3 /* pointer to next GUI_FONT_PROP_EXT */
+};
+
+GUI_CONST_STORAGE GUI_FONT_PROP_EXT GUI_Fontfont16_Prop1 = {
+   0x4F5C /* first character */
+  ,0x4F5C /* last character  */
   ,&GUI_Fontfont16_CharInfo[  0] /* address of first character */
-  ,&GUI_Fontfont16_Prop2 /* pointer to next GUI_FONT_PROP */
+  ,&GUI_Fontfont16_Prop2 /* pointer to next GUI_FONT_PROP_EXT */
 };
 
 GUI_CONST_STORAGE GUI_FONT GUI_Fontfont16 = {
-   GUI_FONTTYPE_PROP /* type of font    */
-  ,21 /* height of font  */
-  ,21 /* space of font y */
+   GUI_FONTTYPE_PROP_EXT /* type of font    */
+  ,28 /* height of font  */
+  ,28 /* space of font y */
   ,1 /* magnification x */
   ,1 /* magnification y */
   ,{&GUI_Fontfont16_Prop1}
-  ,18 /* Baseline */
-  ,10 /* Height of lowercase characters */
-  ,14 /* Height of capital characters */
+  ,22 /* Baseline */
+  ,11 /* Height of lowercase characters */
+  ,16 /* Height of capital characters */
 };
 

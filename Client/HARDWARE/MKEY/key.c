@@ -115,7 +115,8 @@ void SendKeyMsg(void)
         case '*':break;
         case 'M':GUI_SendKeyMsg(GUI_KEY_INSERT,1);break;
         case 'D':GUI_SendKeyMsg(GUI_KEY_RIGHT,1);break;
-        case 'E':GUI_SendKeyMsg(GUI_KEY_LEFT,1);break;
+        case 'E':GUI_SendKeyMsg(GUI_KEY_TAB ,1);break;
+        
         case 'C':GUI_SendKeyMsg(GUI_KEY_BACKSPACE,1);break;
         case 'Y':GUI_SendKeyMsg(GUI_KEY_ENTER,1);break;
         default:GUI_SendKeyMsg(key_value,1);break;

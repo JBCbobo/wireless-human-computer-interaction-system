@@ -1,11 +1,16 @@
 --cpu Cortex-M3
-"..\obj\main.o"
 "..\obj\stm32f10x_it.o"
 "..\obj\system_stm32f10x.o"
-"..\obj\framewindlg.o"
 "..\obj\wireless.o"
 "..\obj\appstore.o"
 "..\obj\set.o"
+"..\obj\framewindlg.o"
+"..\obj\main.o"
+"..\obj\notebook.o"
+"..\obj\ebook.o"
+"..\obj\paint.o"
+"..\obj\welcome_page.o"
+"..\obj\wait_page.o"
 "..\obj\ili93xx.o"
 "..\obj\sram.o"
 "..\obj\spi.o"
@@ -43,6 +48,8 @@
 "..\EMWIN\STemWin\Lib\STemWin526_CM3_Keil.lib"
 "..\obj\font12.o"
 "..\obj\font16.o"
+"..\obj\font24.o"
+"..\obj\font14.o"
 --library_type=microlib --strict --scatter "..\OBJ\MALLOC.sct"
 --summary_stderr --info summarysizes --map --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers
