@@ -74,7 +74,7 @@ public:
     QPushButton *pushButton_10;
     QPushButton *pushButton_11;
     QPushButton *pushButton_12;
-    QWidget *widget;
+    QWidget *layoutWidget4;
     QVBoxLayout *verticalLayout;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
@@ -336,27 +336,27 @@ public:
         pushButton_12->setGeometry(QRect(680, 390, 101, 41));
         pushButton_12->setFont(font2);
         pushButton_12->setFocusPolicy(Qt::NoFocus);
-        widget = new QWidget(Dialog);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(222, 122, 81, 110));
-        verticalLayout = new QVBoxLayout(widget);
+        layoutWidget4 = new QWidget(Dialog);
+        layoutWidget4->setObjectName(QString::fromUtf8("layoutWidget4"));
+        layoutWidget4->setGeometry(QRect(222, 122, 81, 110));
+        verticalLayout = new QVBoxLayout(layoutWidget4);
         verticalLayout->setSpacing(6);
         verticalLayout->setContentsMargins(11, 11, 11, 11);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        radioButton = new QRadioButton(widget);
+        radioButton = new QRadioButton(layoutWidget4);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
         radioButton->setFont(font4);
 
         verticalLayout->addWidget(radioButton);
 
-        radioButton_2 = new QRadioButton(widget);
+        radioButton_2 = new QRadioButton(layoutWidget4);
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
         radioButton_2->setFont(font4);
 
         verticalLayout->addWidget(radioButton_2);
 
-        radioButton_3 = new QRadioButton(widget);
+        radioButton_3 = new QRadioButton(layoutWidget4);
         radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
         radioButton_3->setFont(font4);
 
@@ -388,7 +388,7 @@ public:
     void retranslateUi(QDialog *Dialog)
     {
         Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", 0, QApplication::UnicodeUTF8));
-        label_3->setText(QApplication::translate("Dialog", "\346\225\260\346\216\247\351\222\273\345\272\212\346\216\247\345\210\266\345\231\250v2.0", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("Dialog", "\346\225\260\346\216\247\351\222\273\345\272\212\346\216\247\345\210\266\345\231\250v2.1", 0, QApplication::UnicodeUTF8));
         label_4->setText(QString());
         groupBox->setTitle(QApplication::translate("Dialog", "\346\225\260\345\255\227\351\224\256\345\214\272", 0, QApplication::UnicodeUTF8));
         pushButton_9->setText(QApplication::translate("Dialog", "9", 0, QApplication::UnicodeUTF8));
