@@ -1,0 +1,9 @@
+..\obj\ebook.o: ..\EMWIN\ebook.c
+..\obj\ebook.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
+..\obj\ebook.o: ..\EMWIN\STemWin\inc\GUI.h
+..\obj\ebook.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
+..\obj\ebook.o: ..\EMWIN\STemWin\Config\GUIConf.h
+..\obj\ebook.o: ..\EMWIN\STemWin\inc\GUI_Type.h
+..\obj\ebook.o: ..\EMWIN\STemWin\inc\LCD.h
+..\obj\ebook.o: ..\EMWIN\STemWin\inc\Global.h
+..\obj\ebook.o: ..\EMWIN\STemWin\inc\GUI_Version.h
