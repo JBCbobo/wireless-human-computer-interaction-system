@@ -13,9 +13,11 @@
 ..\obj\lcdconf_flexcolor_template.o: E:\Keil_v5\ARM\ARMCC\include\stdint.h
 ..\obj\lcdconf_flexcolor_template.o: ..\USER\system_stm32f10x.h
 ..\obj\lcdconf_flexcolor_template.o: ..\USER\stm32f10x_conf.h
-..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
+..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\lcdconf_flexcolor_template.o: ..\USER\stm32f10x.h
+..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\lcdconf_flexcolor_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h

@@ -3,7 +3,7 @@
 
 #include "DIALOG.h"
 
-WM_HWIN CreateFramewin(void);
+void CreateFramewin(void);
 void _SendMsg(void);
 
 #endif

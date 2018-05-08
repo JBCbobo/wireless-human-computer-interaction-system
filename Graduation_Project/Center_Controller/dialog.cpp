@@ -6,7 +6,7 @@
 #include <QValidator>
 #include "ui_dialog.h"
 #include "Hardware/Motion/Motion.h"
-#include "../rx_thread.h"
+#include "thread/rx_thread.h"
 #include "Hardware/NRF24L01/NRF24L01.h"
 #include "inputpara.h"
 #include "singl_motion.h"

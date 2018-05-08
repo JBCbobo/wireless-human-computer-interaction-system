@@ -2,6 +2,7 @@
 #include "ILI93xx.h"
 #include "delay.h"
 #include "stdlib.h"
+#include "stdio.h"
 #include "math.h"
 #include "24cxx.h"	    
 //////////////////////////////////////////////////////////////////////////////////	 
@@ -237,7 +238,8 @@ void TP_Save_Adjdata(void)
 u8 TP_Get_Adjdata(void)
 {					  
 	u8 temp;
-	temp=AT24CXX_ReadOneByte(SAVE_ADDR_BASE+13);//读取标记字,看是否校准过！ 		 
+	temp=AT24CXX_ReadOneByte(SAVE_ADDR_BASE+13);//读取标记字,看是否校准过！ 
+	printf("%u\n",temp);
 	if(temp==0X0A)//触摸屏已经校准过了			   
 	{    												 
 		*((u32*)&tp_dev.xfac)=AT24CXX_ReadLenByte(SAVE_ADDR_BASE,4);	//得到x校准参数(将tp_dev.xfac的地址强制转换为u32类型,再赋值)   
@@ -400,46 +402,36 @@ READJ:
 u8 TP_Init(void)
 {		
 	GPIO_InitTypeDef GPIO_InitStructure;	//GPIO 
-	if(lcddev.id==0X5510)		//电容触摸屏
-	{
-		if(GT9147_Init()==0)	//是GT9147
-		{ 
-			tp_dev.scan=GT9147_Scan;	//扫描函数指向GT9147触摸屏扫描
-		}else
-		{
-			OTT2001A_Init();
-			tp_dev.scan=OTT2001A_Scan;	//扫描函数指向OTT2001A触摸屏扫描
-		}
-		tp_dev.touchtype|=0X80;	//电容屏 
-		tp_dev.touchtype|=lcddev.dir&0X01;//横屏还是竖屏 
-		return 0;
-	}else
-	{ 
-		//注意,时钟使能之后,对GPIO的操作才有效
-		//所以上拉之前,必须使能时钟.才能实现真正的上拉输出
+
+	//注意,时钟使能之后,对GPIO的操作才有效
+	//所以上拉之前,必须使能时钟.才能实现真正的上拉输出
  
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC  | RCC_APB2Periph_AFIO, ENABLE);
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOC|RCC_APB2Periph_GPIOA, ENABLE);
 		
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_3|GPIO_Pin_0|GPIO_Pin_13;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_8|GPIO_Pin_11|GPIO_Pin_15;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_Out_PP;  
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_Init(GPIOC, &GPIO_InitStructure);	
+	GPIO_Init(GPIOA, &GPIO_InitStructure);	
 
-	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_1|GPIO_Pin_2;
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
 	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPU ; 
 	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	
+	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_13;
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING ; 
+	GPIO_Init(GPIOC, &GPIO_InitStructure);
+	
   //GPIOC->ODR|=0X200f;    //PC0~3 13 全部上拉  
-		TP_Read_XY(&tp_dev.x[0],&tp_dev.y[0]);//第一次读取初始化	 
-		AT24CXX_Init();//初始化24CXX
-		if(TP_Get_Adjdata())return 0;//已经校准
-		else			   //未校准?
-		{ 										    
-			LCD_Clear(WHITE);//清屏
-			TP_Adjust();  //屏幕校准 
-			TP_Save_Adjdata();	 
-		}			
-		TP_Get_Adjdata();	
-	}
+	TP_Read_XY(&tp_dev.x[0],&tp_dev.y[0]);//第一次读取初始化	 
+	AT24CXX_Init();//初始化24CXX
+	if(TP_Get_Adjdata())return 0;//已经校准
+	else			   //未校准?
+	{ 										    
+		LCD_Clear(RED);//清屏
+		TP_Adjust();  //屏幕校准 
+		TP_Save_Adjdata();	 
+	}			
+	TP_Get_Adjdata();	
 	return 1; 									 
 }
 

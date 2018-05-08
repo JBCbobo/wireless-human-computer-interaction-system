@@ -21,9 +21,11 @@
 ..\obj\guidrv_template.o: E:\Keil_v5\ARM\ARMCC\include\stdint.h
 ..\obj\guidrv_template.o: ..\USER\system_stm32f10x.h
 ..\obj\guidrv_template.o: ..\USER\stm32f10x_conf.h
-..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
+..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\guidrv_template.o: ..\USER\stm32f10x.h
+..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h

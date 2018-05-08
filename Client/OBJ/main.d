@@ -6,9 +6,11 @@
 ..\obj\main.o: E:\Keil_v5\ARM\ARMCC\include\stdint.h
 ..\obj\main.o: ..\USER\system_stm32f10x.h
 ..\obj\main.o: ..\USER\stm32f10x_conf.h
-..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\main.o: ..\USER\stm32f10x.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
