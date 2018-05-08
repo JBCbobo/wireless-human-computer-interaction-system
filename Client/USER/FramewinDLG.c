@@ -32,6 +32,7 @@ extern GUI_CONST_STORAGE GUI_BITMAP bmset;
 extern GUI_CONST_STORAGE GUI_BITMAP bmnotebook;
 extern GUI_CONST_STORAGE GUI_BITMAP bmebook;
 extern GUI_CONST_STORAGE GUI_BITMAP bmpaint;
+extern GUI_CONST_STORAGE GUI_BITMAP bmbackground;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont12;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont14;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont16;
@@ -94,9 +95,7 @@ static void _cbringmold(WM_MESSAGE* pMsg) ;
 void Welcome_page(void);
 void Wait_page(void);
 
-static WM_HWIN    _hLastFrame;
 static WM_HWIN    _hCurrentFrame;
-static WM_HWIN    _hTitle;
 u8 buf[32];
 
 
@@ -192,6 +191,7 @@ static void _PaintFrame(void)
 	GUI_SetBkColor(FRAME_BKCOLOR);
 	GUI_SetColor(FRAME_TEXTCOLOR);
 	GUI_SetFont(FRAME_FONT);
+	//GUI_BMP_Draw(&bmbackground,0,0);
 	GUI_SetTextMode(GUI_TM_TRANS);
 	GUI_ClearRectEx(&r);
 }
@@ -206,7 +206,6 @@ void _SendMsg(void)
 
 static void Set_text_value(GUI_HWIN hWin,int id,u8 value,const char pText[][10])
 {
-    char tmp[10];
     WM_HWIN hItem;
     WM_CALLBACK *pCb;
     hItem = WM_GetDialogItem(hWin, id);
@@ -565,7 +564,7 @@ static void _cbBkWindow(WM_MESSAGE* pMsg)
 */
 static void _cbwait(WM_MESSAGE* pMsg) 
 {
-	WM_HWIN  hItem,hWin = pMsg->hWin;
+	WM_HWIN  hWin = pMsg->hWin;
 	switch (pMsg->MsgId) 
 	{
 		case WM_CREATE:
@@ -605,7 +604,7 @@ static void _cbwait(WM_MESSAGE* pMsg)
 */
 static void _cbringmold(WM_MESSAGE* pMsg) 
 {
-	WM_HWIN  hItem,hWin = pMsg->hWin;
+	WM_HWIN  hWin = pMsg->hWin;
 	switch (pMsg->MsgId) 
 	{
 		case WM_CREATE:
@@ -682,7 +681,7 @@ static void _cbringmold(WM_MESSAGE* pMsg)
 */
 static void _cbrundrill(WM_MESSAGE* pMsg) 
 {
-	WM_HWIN  hItem,hWin = pMsg->hWin;
+	WM_HWIN hWin = pMsg->hWin;
 	switch (pMsg->MsgId) 
 	{
 		case WM_CREATE:
@@ -757,7 +756,7 @@ static void _cbrundrill(WM_MESSAGE* pMsg)
 */
 static void _cbwireless(WM_MESSAGE* pMsg) 
 {
-	WM_HWIN  hItem,hWin = pMsg->hWin;
+	WM_HWIN hWin = pMsg->hWin;
 	switch (pMsg->MsgId) 
 	{
 		case WM_CREATE:
@@ -1029,7 +1028,7 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
 */
 static void _cbInputParameter(WM_MESSAGE* pMsg) 
 {
-	WM_HWIN  hItem,hWin = pMsg->hWin;
+	WM_HWIN  hWin = pMsg->hWin;
 	switch (pMsg->MsgId) 
 	{
 		case WM_CREATE:
@@ -1095,7 +1094,7 @@ static void _cbInputParameter(WM_MESSAGE* pMsg)
 */
 static void _cbSelect(WM_MESSAGE* pMsg) 
 {
-	WM_HWIN hItem,hWin = pMsg->hWin;
+	WM_HWIN hWin = pMsg->hWin;
     int sel;
 	switch (pMsg->MsgId) 
 	{
@@ -1137,7 +1136,7 @@ static void _cbSelect(WM_MESSAGE* pMsg)
 	}
 }
 
-WM_HWIN CreateFramewin(void) {
+void CreateFramewin(void) {
     
 	/* 使能窗口使用内存设备 */
 	WM_SetCreateFlags(WM_CF_MEMDEV);

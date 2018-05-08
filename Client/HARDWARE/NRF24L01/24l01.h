@@ -59,8 +59,8 @@
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 //24L01操作线
 #define NRF24L01_CE   PAout(4) //24L01片选信号
-#define NRF24L01_CSN  PCout(4) //SPI片选信号	   
-#define NRF24L01_IRQ  PAin(1)  //IRQ主机数据输入
+#define NRF24L01_CSN  PAout(3) //SPI片选信号	   
+#define NRF24L01_IRQ  PDin(2)  //IRQ主机数据输入
 //24L01发送接收数据宽度定义
 #define TX_ADR_WIDTH    5   	//5字节的地址宽度
 #define RX_ADR_WIDTH    5   	//5字节的地址宽度

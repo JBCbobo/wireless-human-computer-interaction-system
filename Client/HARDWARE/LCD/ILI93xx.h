@@ -81,7 +81,7 @@ extern u16  BACK_COLOR; //背景颜色.默认为白色
 
 ////////////////////////////////////////////////////////////////////
 //-----------------LCD端口定义---------------- 
-#define	LCD_LED PCout(10) 				//LCD背光    	PC10 
+#define	LCD_LED PAout(12) 				//LCD背光    	PA12 
 
 /*
 #define	LCD_CS_SET  GPIOC->BSRR=1<<9    //片选端口  		PC9
@@ -97,13 +97,13 @@ extern u16  BACK_COLOR; //背景颜色.默认为白色
 
 #define	LCD_CS_SET  GPIO_SetBits(GPIOC,GPIO_Pin_9)    //片选端口  		PC9
 #define	LCD_RS_SET	GPIO_SetBits(GPIOC,GPIO_Pin_8)    //数据/命令 		PC8	   
-#define	LCD_WR_SET	GPIO_SetBits(GPIOC,GPIO_Pin_7)   //写数据			PC7
-#define	LCD_RD_SET	GPIO_SetBits(GPIOC,GPIO_Pin_6)   //读数据			PC6
+#define	LCD_WR_SET	GPIO_SetBits(GPIOC,GPIO_Pin_15)   //写数据			PC15
+#define	LCD_RD_SET	GPIO_SetBits(GPIOC,GPIO_Pin_14)   //读数据			PC14
 								    
 #define	LCD_CS_CLR  GPIO_ResetBits(GPIOC,GPIO_Pin_9)    //片选端口  		PC9
 #define	LCD_RS_CLR	GPIO_ResetBits(GPIOC,GPIO_Pin_8)     //数据/命令		PC8	   
-#define	LCD_WR_CLR	GPIO_ResetBits(GPIOC,GPIO_Pin_7)     //写数据			PC7
-#define	LCD_RD_CLR	GPIO_ResetBits(GPIOC,GPIO_Pin_6)    //读数据			PC6  
+#define	LCD_WR_CLR	GPIO_ResetBits(GPIOC,GPIO_Pin_15)     //写数据			PC15
+#define	LCD_RD_CLR	GPIO_ResetBits(GPIOC,GPIO_Pin_14)    //读数据			PC14 
 
 
 

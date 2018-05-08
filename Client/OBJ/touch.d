@@ -6,9 +6,11 @@
 ..\obj\touch.o: E:\Keil_v5\ARM\ARMCC\include\stdint.h
 ..\obj\touch.o: ..\USER\system_stm32f10x.h
 ..\obj\touch.o: ..\USER\stm32f10x_conf.h
-..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
+..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\touch.o: ..\USER\stm32f10x.h
+..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\touch.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
@@ -19,6 +21,7 @@
 ..\obj\touch.o: ..\HARDWARE\LCD\ILI93xx.h
 ..\obj\touch.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
 ..\obj\touch.o: ..\SYSTEM\delay\delay.h
+..\obj\touch.o: E:\Keil_v5\ARM\ARMCC\include\stdio.h
 ..\obj\touch.o: E:\Keil_v5\ARM\ARMCC\include\math.h
 ..\obj\touch.o: ..\HARDWARE\24CXX\24cxx.h
 ..\obj\touch.o: ..\HARDWARE\IIC\myiic.h
