@@ -7,21 +7,19 @@ SOURCES += main.cpp \
     dialog.cpp \
     Hardware/Motion/Motion.c \
     Hardware/NRF24L01/NRF24L01.c \
-    ../rx_thread.cpp \
     inputpara.cpp \
     singl_motion.cpp \
     keypad.cpp \
-    mylineedit.cpp \
-    thread/rx_thread.cpp
+    thread/rx_thread.cpp \
+    mylineedit/mylineedit.cpp
 HEADERS += dialog.h \
     Hardware/Motion/Motion.h \
     Hardware/NRF24L01/NRF24L01.h \
-    ../rx_thread.h \
     inputpara.h \
     singl_motion.h \
     keypad.h \
-    mylineedit.h \
-    thread/rx_thread.h
+    thread/rx_thread.h \
+    mylineedit/mylineedit.h
 FORMS += dialog.ui \
     inputpara.ui \
     singl_motion.ui \
