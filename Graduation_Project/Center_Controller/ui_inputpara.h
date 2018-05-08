@@ -19,7 +19,7 @@
 #include <QtGui/QLabel>
 #include <QtGui/QPushButton>
 #include <QtGui/QRadioButton>
-#include "mylineedit.h"
+#include "mylineedit/mylineedit.h"
 
 QT_BEGIN_NAMESPACE
 

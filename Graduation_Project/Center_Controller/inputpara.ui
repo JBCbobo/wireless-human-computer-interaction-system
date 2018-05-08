@@ -260,10 +260,7 @@
   <customwidget>
    <class>myLineEdit</class>
    <extends>QLineEdit</extends>
-   <header>mylineedit.h</header>
-   <slots>
-    <signal>SendDialog(Keypad*)</signal>
-   </slots>
+   <header>mylineedit/mylineedit.h</header>
   </customwidget>
  </customwidgets>
  <resources>
