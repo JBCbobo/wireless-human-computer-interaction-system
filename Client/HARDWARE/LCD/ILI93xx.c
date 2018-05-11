@@ -1177,7 +1177,7 @@ void TFTLCD_Init(void)
 		delay_us(120);
 		LCD_WR_REG(0x2900);	
 	}
-	LCD_Display_Dir(0);		 	//默认为横屏
+	LCD_Display_Dir(1);		 	//默认为横屏
 	LCD_LED=1;					//点亮背光
 	LCD_Clear(WHITE);
 }  		  

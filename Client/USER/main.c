@@ -42,7 +42,6 @@ int main(void)
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_CRC,ENABLE);//使能CRC时钟，否则STemWin不能使用 
 	NRF24L01_Init();
 	GUI_Init();
-    while(NRF24L01_Check());
     CreateFramewin();
     while(1)
     {

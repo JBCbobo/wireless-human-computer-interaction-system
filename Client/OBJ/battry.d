@@ -1,0 +1,9 @@
+..\obj\battry.o: ..\EMWIN\battry.c
+..\obj\battry.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
+..\obj\battry.o: ..\EMWIN\STemWin\inc\GUI.h
+..\obj\battry.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
+..\obj\battry.o: ..\EMWIN\STemWin\Config\GUIConf.h
+..\obj\battry.o: ..\EMWIN\STemWin\inc\GUI_Type.h
+..\obj\battry.o: ..\EMWIN\STemWin\inc\LCD.h
+..\obj\battry.o: ..\EMWIN\STemWin\inc\Global.h
+..\obj\battry.o: ..\EMWIN\STemWin\inc\GUI_Version.h

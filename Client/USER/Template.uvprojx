@@ -468,6 +468,36 @@
               <FileType>1</FileType>
               <FilePath>.\Wait_page.c</FilePath>
             </File>
+            <File>
+              <FileName>wifi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\EMWIN\wifi.c</FilePath>
+            </File>
+            <File>
+              <FileName>colthes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\EMWIN\colthes.c</FilePath>
+            </File>
+            <File>
+              <FileName>battry.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\EMWIN\battry.c</FilePath>
+            </File>
+            <File>
+              <FileName>TopLine.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\EMWIN\TopLine.c</FilePath>
+            </File>
+            <File>
+              <FileName>return.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\EMWIN\return.c</FilePath>
+            </File>
+            <File>
+              <FileName>settings.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\EMWIN\settings.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

@@ -1,0 +1,9 @@
+..\obj\wifi.o: ..\EMWIN\wifi.c
+..\obj\wifi.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
+..\obj\wifi.o: ..\EMWIN\STemWin\inc\GUI.h
+..\obj\wifi.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
+..\obj\wifi.o: ..\EMWIN\STemWin\Config\GUIConf.h
+..\obj\wifi.o: ..\EMWIN\STemWin\inc\GUI_Type.h
+..\obj\wifi.o: ..\EMWIN\STemWin\inc\LCD.h
+..\obj\wifi.o: ..\EMWIN\STemWin\inc\Global.h
+..\obj\wifi.o: ..\EMWIN\STemWin\inc\GUI_Version.h

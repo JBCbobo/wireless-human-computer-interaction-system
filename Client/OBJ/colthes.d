@@ -1,0 +1,9 @@
+..\obj\colthes.o: ..\EMWIN\colthes.c
+..\obj\colthes.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
+..\obj\colthes.o: ..\EMWIN\STemWin\inc\GUI.h
+..\obj\colthes.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
+..\obj\colthes.o: ..\EMWIN\STemWin\Config\GUIConf.h
+..\obj\colthes.o: ..\EMWIN\STemWin\inc\GUI_Type.h
+..\obj\colthes.o: ..\EMWIN\STemWin\inc\LCD.h
+..\obj\colthes.o: ..\EMWIN\STemWin\inc\Global.h
+..\obj\colthes.o: ..\EMWIN\STemWin\inc\GUI_Version.h
