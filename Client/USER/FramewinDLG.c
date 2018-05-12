@@ -24,6 +24,7 @@
 #include "stdlib.h" 
 #include "led.h"
 #include "24L01.h"
+#include "touch.h"
 #include "FramewinDLG.h"
 
 extern GUI_CONST_STORAGE GUI_BITMAP bmwireless;
@@ -38,6 +39,8 @@ extern GUI_CONST_STORAGE GUI_BITMAP bmbattry;
 extern GUI_CONST_STORAGE GUI_BITMAP bmTopLine;
 extern GUI_CONST_STORAGE GUI_BITMAP bmreturn;
 extern GUI_CONST_STORAGE GUI_BITMAP bmsettings;
+extern GUI_CONST_STORAGE GUI_BITMAP bmyes;
+extern GUI_CONST_STORAGE GUI_BITMAP bmdel;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont12;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont14;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont16;
@@ -67,25 +70,11 @@ extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont24;
 #define FRAME_BUTTON_EFFECT       (&WIDGET_Effect_3D2L)
 #define DEFAULT_WIDGET_EFFECT     (&WIDGET_Effect_3D2L)
 
-#define MSG_UPDATE_DATA (WM_USER + 5)
-#define ID_FRAMEWIN_0 (GUI_ID_USER + 0x00)
-#define ID_DROPDOWN_0 (GUI_ID_USER + 0x01)
-#define ID_BUTTON_0 (GUI_ID_USER + 0x02)
-#define ID_TEXT_0 (GUI_ID_USER + 0x03)
-#define ID_BUTTON_1 (GUI_ID_USER + 0x04)
-#define ID_TEXT_1 (GUI_ID_USER + 0x05)
-#define ID_EDIT_0 (GUI_ID_USER + 0x06)
-#define ID_TEXT_2 (GUI_ID_USER + 0x07)
-#define ID_TEXT_3 (GUI_ID_USER + 0x08)
-#define ID_TEXT_4 (GUI_ID_USER + 0x09)
-#define ID_TEXT_5 (GUI_ID_USER + 0x0A)
-#define ID_EDIT_1 (GUI_ID_USER + 0x0B)
-#define ID_EDIT_2 (GUI_ID_USER + 0x0C)
-#define ID_EDIT_3 (GUI_ID_USER + 0x0D)
-#define ID_BUTTON_2 (GUI_ID_USER + 0x12)
-#define ID_BUTTON_3 (GUI_ID_USER + 0x13)
-#define ID_BUTTON_4 (GUI_ID_USER + 0x14)
-#define ID_BUTTON_5 (GUI_ID_USER + 0x15)
+#define MSG_SEND_DATA (WM_USER + 5)
+#define GUI_ID_BUTTON_YES (GUI_ID_USER + 0x00)
+#define GUI_ID_BUTTON_DEL (GUI_ID_USER + 0X01)
+#define GUI_ID_BUTTON_RETURN (GUI_ID_USER + 0X02)
+
 
 static void _cbSelect(WM_MESSAGE* pMsg) ;
 static void _cbInputParameter(WM_MESSAGE* pMsg) ;
@@ -98,6 +87,8 @@ void Welcome_page(void);
 void Wait_page(void);
 
 static WM_HWIN    _hCurrentFrame;
+static WM_HWIN    _hKeypadFrame;
+
 u8 buf[32];
 
 
@@ -133,7 +124,7 @@ static const BITMAP_ITEM _aBitmapItem[] = {
     {&bmsettings,      "设置"          }
 };
 /* 图标对应的应用程序 */
-static void (* _apModules[])(WM_MESSAGE* pMsg) = 
+static void (* _apModules[6])(WM_MESSAGE* pMsg) = 
 {
 	_cbInputParameter,
     _cbSingledrill,
@@ -178,11 +169,13 @@ static WM_HWIN _CreateFrame(WM_CALLBACK* cb)
 }
 
 
-void _SendMsg(void)
+static void _SendKeyvalue(WM_HWIN hWin, char *pStr)
 {
     WM_MESSAGE Message;
-    Message.MsgId =  MSG_UPDATE_DATA;
-    WM_SendMessage(WM_GetClientWindow(_hCurrentFrame),&Message); 
+    Message.MsgId =  MSG_SEND_DATA;
+    Message.Data.p = pStr;
+    WM_SendMessage(hWin,&Message);
+    //WM_InvalidateWindow(hWin);
 }
 
 
@@ -300,32 +293,78 @@ void Set_Data(GUI_HWIN hWin)
 	
 }
 
+
 /*
 *********************************************************************************************************
-*	函 数 名: _cbButton
+*	函 数 名: _cbButtonText
 *	功能说明: 按钮回调函数
 *	形    参: pMsg  消息指针
 *	返 回 值: 无
 *********************************************************************************************************
 */
-static void _cbButton(WM_MESSAGE * pMsg) 
+static void _cbButtonText(WM_MESSAGE * pMsg) 
 {
+	char str[4];
 	WM_HWIN  hWin;
-
+	GUI_RECT Rect;
 	hWin  = pMsg->hWin;
+
 	switch (pMsg->MsgId) 
 	{
 		case WM_PAINT:
+			WM_GetClientRect(&Rect);
+			BUTTON_GetUserData(hWin,str,sizeof(str));
+			if (BUTTON_IsPressed(hWin)) 
+			{
+				GUI_SetColor(GUI_DARKGRAY);
+				GUI_FillRoundedRect(Rect.x0, Rect.y0, Rect.x1, Rect.y1, 5);
+				GUI_SetBkColor(GUI_DARKGRAY);
+				GUI_SetColor(GUI_WHITE); 
+			} 
+			else 
+			{
+				GUI_SetColor(GUI_LIGHTBLUE);
+				GUI_FillRoundedRect(Rect.x0, Rect.y0, Rect.x1, Rect.y1, 5);
+				GUI_SetBkColor(GUI_LIGHTBLUE);
+				GUI_SetColor(GUI_WHITE);   
+			}
+			GUI_SetFont(&GUI_Font16_ASCII);
+			GUI_DispStringInRect(str, &Rect, GUI_TA_HCENTER | GUI_TA_VCENTER);
+			break;
+			
+		default:
+			BUTTON_Callback(pMsg);
+	}
+}
+
+/*
+*********************************************************************************************************
+*	函 数 名: _cbButtonPic
+*	功能说明: 按钮回调函数
+*	形    参: pMsg  消息指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbButtonPic(WM_MESSAGE * pMsg) 
+{
+	WM_HWIN  hWin;
+	GUI_BITMAP bmstr;
+	hWin  = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		
+		case WM_PAINT:
+			BUTTON_GetUserData(hWin,&bmstr,sizeof(GUI_BITMAP));
 			if (BUTTON_IsPressed(hWin)) 
 			{
 				GUI_SetBkColor(GUI_WHITE);
 				GUI_SetAlpha(0xb0);
-				GUI_DrawBitmap(&bmreturn, 0, 0);
+				GUI_DrawBitmap(&bmstr, 0, 0);
 				GUI_SetAlpha(0);		
 			} 
 			else 
 			{
-				GUI_DrawBitmap(&bmreturn, 0, 0);		
+				GUI_DrawBitmap(&bmstr, 0, 0);		
 			}
 			break;
 			
@@ -374,6 +413,33 @@ static void _DrawDownRect(const WIDGET_EFFECT* pEffect, int x0, int y0, int x1, 
 
 /*
 *********************************************************************************************************
+*	函 数 名: _CreateUserButton
+*	功能说明: 创建按钮
+*	形    参：
+*             x        x轴坐标
+*             y        y轴坐标
+*             w        按钮宽
+*             h        按钮高
+*             hParent  父窗口     
+*             Id       按钮Id   
+*             pDest    缓冲区指针
+*			  NumByte  字节数
+*             _cbButton 回调函数
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static WM_HWIN _CreateUserButton(int x, int y, int w, int h, WM_HWIN hParent, int Id, const void *pDest,int NumBytes, WM_CALLBACK *_cbButton) 
+{
+	WM_HWIN hButton;
+	hButton = BUTTON_CreateUser(x, y, w, h, hParent, WM_CF_SHOW, 0, Id, NumBytes);
+	BUTTON_SetUserData(hButton,pDest,NumBytes);
+	WM_SetHasTrans(hButton);
+	WM_SetCallback(hButton, _cbButton);
+	return hButton;
+}
+
+/*
+*********************************************************************************************************
 *	函 数 名: _CreateButton
 *	功能说明: 创建按钮
 *	形    参：
@@ -384,24 +450,17 @@ static void _DrawDownRect(const WIDGET_EFFECT* pEffect, int x0, int y0, int x1, 
 *             hParent  父窗口     
 *             Id       按钮Id   
 *             pText    按键上显示的文本
-*             bmp      图片
-*             type     文字或图片
 *	返 回 值: 无
 *********************************************************************************************************
 */
-static WM_HWIN _CreateButton(int x, int y, int w, int h, WM_HWIN hParent, int Id, const char* pText,const GUI_BITMAP* bmp,int type) 
+static WM_HWIN _CreateButton(int x, int y, int w, int h, WM_HWIN hParent, int Id, const char* pText) 
 {
 	WM_HWIN hButton;
 	hButton = BUTTON_CreateEx(x, y, w, h, hParent, WM_CF_SHOW, 0, Id);
-    if(type==0)
-    {
-        BUTTON_SetText(hButton,pText);
-    }
-    else
-    {
-        BUTTON_SetBitmapEx(hButton,0,bmp,10,10);
-    }
+
+
 	BUTTON_SetFont      (hButton,    FRAME_BUTTON_FONT);
+	BUTTON_SetText(hButton,pText);
 	BUTTON_SetBkColor   (hButton, 0, FRAME_BUTTON_BKCOLOR0);
 	BUTTON_SetBkColor   (hButton, 1, FRAME_BUTTON_BKCOLOR1);
 	BUTTON_SetBkColor   (hButton, 2, FRAME_BUTTON_BKCOLOR2);
@@ -435,11 +494,11 @@ static WM_HWIN _CreateIcon( int x, int y, int w, int h,WM_HWIN hParent,int Id)
     WM_HWIN hIcon;
 	/* 创建ICON控件 */
 	hIcon = ICONVIEW_CreateEx(x, y, w, h, hParent, WM_CF_SHOW | WM_CF_HASTRANS, ICONVIEW_CF_AUTOSCROLLBAR_V ,
-							  Id, 80, 80);
+							  Id, 65, 65);
 	ICONVIEW_SetFont(hIcon, &GUI_Fontfont12);
 	ICONVIEW_SetBkColor(hIcon, ICONVIEW_CI_SEL, 0x941000 | 0x80404040);
-	ICONVIEW_SetSpace(hIcon, GUI_COORD_Y, 10);
-	ICONVIEW_SetFrame(hIcon, GUI_COORD_Y, 10);
+	ICONVIEW_SetSpace(hIcon, GUI_COORD_Y, 30);
+	ICONVIEW_SetSpace(hIcon, GUI_COORD_X, 30);
 	for (i = 0; i < GUI_COUNTOF(_aBitmapItem); i++)
 	{
         
@@ -550,6 +609,22 @@ static void _cbBkWindow(WM_MESSAGE* pMsg)
 
 /*
 *********************************************************************************************************
+*	函 数 名: _Paintkeypad
+*	功能说明: keypad框架窗口的重绘函数
+*	形    参：无
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _Paintkeypad(void) 
+{
+	//GUI_DrawGradientH((FRAME_WIDTH >> 1)-120, 165, 40*6+10, 30*2+10, 0xdda0dd, 0xe14169);
+	GUI_SetBkColor(GUI_LIGHTGRAY);
+	//GUI_FillRoundedRect((FRAME_WIDTH >> 1)-120, 165, 40*6+10, 30*2+10,5);
+	GUI_Clear();
+}
+
+/*
+*********************************************************************************************************
 *	函 数 名: _PaintFrame
 *	功能说明: 框架窗口的重绘函数
 *	形    参：无
@@ -574,6 +649,97 @@ static void _PaintFrame(void)
 	GUI_SetFont(FRAME_FONT);
 
 }
+
+
+/*
+*********************************************************************************************************
+*	函 数 名: _cbkeypad
+*	功能说明: 第七个界面，小键盘
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbkeypad(WM_MESSAGE* pMsg) 
+{
+	WM_HWIN hItem,hWin = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			_CreateUserButton(0,    5, 40,  30,hWin, GUI_ID_BUTTON0, "0",2, _cbButtonText);
+			_CreateUserButton(40,   5, 40,  30,hWin, GUI_ID_BUTTON1, "1",2, _cbButtonText);
+			_CreateUserButton(80,   5, 40,  30,hWin, GUI_ID_BUTTON2, "2",2, _cbButtonText);
+			_CreateUserButton(120,  5, 40,  30,hWin, GUI_ID_BUTTON3, "3",2, _cbButtonText);
+			_CreateUserButton(160,  5, 40,  30,hWin, GUI_ID_BUTTON4, "4",2, _cbButtonText);
+			_CreateUserButton(200,  5, 40,  30,hWin, GUI_ID_BUTTON_YES, "Yes",4, _cbButtonText);
+			_CreateUserButton(0,    40, 40,  30,hWin, GUI_ID_BUTTON5, "5",2, _cbButtonText);
+			_CreateUserButton(40,   40, 40,  30,hWin, GUI_ID_BUTTON6, "6",2, _cbButtonText);
+			_CreateUserButton(80,   40, 40,  30,hWin, GUI_ID_BUTTON7, "7",2, _cbButtonText);
+			_CreateUserButton(120,  40, 40,  30,hWin, GUI_ID_BUTTON8, "8",2, _cbButtonText);
+			_CreateUserButton(160,  40, 40,  30,hWin, GUI_ID_BUTTON9, "9",2, _cbButtonText);
+			_CreateUserButton(200,  40, 40,  30,hWin, GUI_ID_BUTTON_DEL, "Del",4, _cbButtonText);
+			break;
+		 case WM_KEY:
+			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{ 
+                   case GUI_KEY_TAB:
+					WM_SetFocusOnNextChild(hWin);
+					break;
+			}
+            break;
+		case WM_PAINT:
+			_Paintkeypad();
+			break;
+        case WM_NOTIFY_PARENT:
+			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			{
+				int Id = WM_GetId(pMsg->hWinSrc);
+				switch (Id) 
+				{
+					case GUI_ID_BUTTON0:
+						_SendKeyvalue(_hCurrentFrame,"0");
+						break;
+					case GUI_ID_BUTTON1:
+						_SendKeyvalue(_hCurrentFrame,"1");
+						break;
+					case GUI_ID_BUTTON2:
+						_SendKeyvalue(_hCurrentFrame,"2");
+						break;
+					case GUI_ID_BUTTON3:
+						_SendKeyvalue(_hCurrentFrame,"3");
+						break;
+					case GUI_ID_BUTTON4:
+						_SendKeyvalue(_hCurrentFrame,"4");
+						break;
+					case GUI_ID_BUTTON5:
+						_SendKeyvalue(_hCurrentFrame,"5");
+						break;
+					case GUI_ID_BUTTON6:
+						_SendKeyvalue(_hCurrentFrame,"6");
+						break;
+					case GUI_ID_BUTTON7:
+						_SendKeyvalue(_hCurrentFrame,"7");
+						break;
+					case GUI_ID_BUTTON8:
+						_SendKeyvalue(_hCurrentFrame,"8");
+						break;
+					case GUI_ID_BUTTON9:
+						_SendKeyvalue(_hCurrentFrame,"9");
+						break;
+					case GUI_ID_BUTTON_YES:
+						WM_DeleteWindow(_hKeypadFrame);
+                        _hKeypadFrame = 0;
+						break;
+					case GUI_ID_BUTTON_DEL:
+						_SendKeyvalue(_hCurrentFrame,"Del");
+						break;
+				}
+			}
+			break;
+		default:
+		WM_DefaultProc(pMsg);
+	}
+}
+	
 
 /*
 *********************************************************************************************************
@@ -634,11 +800,11 @@ static void _cbSetup(WM_MESSAGE* pMsg)
 		case WM_CREATE:
 			/* 设置聚焦 */
 			WM_SetFocus(hWin);
-            hItem = _CreateButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, "",0,0);
-			WM_SetHasTrans(hItem);
-			WM_SetCallback(hItem, _cbButton);
-		    _CreateButton((FRAME_WIDTH >> 1)-90, 60, 70,  40,hWin,GUI_ID_BUTTON2, "背光调整",0,0);
-            _CreateButton((FRAME_WIDTH >> 1),    60, 70,  40,hWin,GUI_ID_BUTTON3, "颜色转换",0,0);
+            _CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, &bmreturn, sizeof(bmreturn), _cbButtonPic);
+		    _CreateButton((FRAME_WIDTH >> 1)-90, 60, 70,  40,hWin,GUI_ID_BUTTON2, "背光调整");
+            _CreateButton((FRAME_WIDTH >> 1),    60, 70,  40,hWin,GUI_ID_BUTTON3, "颜色转换");
+		    _CreateButton((FRAME_WIDTH >> 1)-90, 110, 70,  40,hWin,GUI_ID_BUTTON4, "屏幕校准");
+			_CreateButton((FRAME_WIDTH >> 1),    110, 70,  40,hWin,GUI_ID_BUTTON5, "横竖屏");
 			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
@@ -659,6 +825,14 @@ static void _cbSetup(WM_MESSAGE* pMsg)
 				{
 					case GUI_ID_BUTTON0:
                         _DeleteFrame();
+						break;
+					
+					case GUI_ID_BUTTON4:
+						GUI_SetBkColor(GUI_WHITE);
+						GUI_Clear();
+                        TP_Adjust();  //屏幕校准 
+						TP_Save_Adjdata();
+						WM_InvalidateWindow(_hCurrentFrame);
 						break;
 				}
 			}
@@ -686,15 +860,13 @@ static void _cbringmold(WM_MESSAGE* pMsg)
 		case WM_CREATE:
 			/* 设置聚焦 */
 			WM_SetFocus(hWin);
-            hItem = _CreateButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, "",0,0);
-			WM_SetHasTrans(hItem);
-			WM_SetCallback(hItem, _cbButton);
-            _CreateButton((FRAME_WIDTH >> 1)-130,60, 70,  40,hWin,GUI_ID_BUTTON2,"工件左转",0,0);
-            _CreateButton((FRAME_WIDTH >> 1)-130,110, 70,  40,hWin,GUI_ID_BUTTON3, "工件右转",0,0);
-            _CreateButton((FRAME_WIDTH >> 1)-40, 60, 70,  40,hWin, GUI_ID_BUTTON4,"右转细调",0,0);
-            _CreateButton((FRAME_WIDTH >> 1)-40, 110, 70,  40,hWin, GUI_ID_BUTTON5,"右转粗调",0,0);
-            _CreateButton((FRAME_WIDTH >> 1)+50, 60, 70,  40,hWin, GUI_ID_BUTTON6,"转速减少",0,0);
-            _CreateButton((FRAME_WIDTH >> 1)+50, 110, 70,  40,hWin, GUI_ID_BUTTON7,"转速增加",0,0);
+            _CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, &bmreturn, sizeof(bmreturn), _cbButtonPic);
+            _CreateButton((FRAME_WIDTH >> 1)-130,60, 70,  40,hWin,GUI_ID_BUTTON2,"工件左转");
+            _CreateButton((FRAME_WIDTH >> 1)-130,110, 70,  40,hWin,GUI_ID_BUTTON3, "工件右转");
+            _CreateButton((FRAME_WIDTH >> 1)-40, 60, 70,  40,hWin, GUI_ID_BUTTON4,"右转细调");
+            _CreateButton((FRAME_WIDTH >> 1)-40, 110, 70,  40,hWin, GUI_ID_BUTTON5,"右转粗调");
+            _CreateButton((FRAME_WIDTH >> 1)+50, 60, 70,  40,hWin, GUI_ID_BUTTON6,"转速减少");
+            _CreateButton((FRAME_WIDTH >> 1)+50, 110, 70,  40,hWin, GUI_ID_BUTTON7,"转速增加");
 			buf[0] = 4;
 			break;
 		 case WM_KEY:
@@ -779,9 +951,7 @@ static void _cbrundrill(WM_MESSAGE* pMsg)
             _CreateEdit((FRAME_WIDTH >> 1)-40,    110, 65, 20, hWin, GUI_ID_EDIT3, 3,0);
             _CreateEdit((FRAME_WIDTH >> 1)+60, 60, 65, 20, hWin, GUI_ID_EDIT4, 3,0);
         
-            hItem = _CreateButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, "",0,0);
-			WM_SetHasTrans(hItem);
-			WM_SetCallback(hItem, _cbButton);
+			_CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, &bmreturn, sizeof(bmreturn), _cbButtonPic);
 			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
@@ -834,11 +1004,9 @@ static void _cbwireless(WM_MESSAGE* pMsg)
 		case WM_CREATE:
 			/* 设置聚焦 */
 			WM_SetFocus(hWin);
-            hItem = _CreateButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, "",0,0);
-			WM_SetHasTrans(hItem);
-			WM_SetCallback(hItem, _cbButton);
-            _CreateButton((FRAME_WIDTH >> 1)-90, 60, 120,  40, hWin, GUI_ID_BUTTON2, "模块检测",0,0);
-            _CreateButton((FRAME_WIDTH >> 1)-90, 110, 120,  40, hWin, GUI_ID_BUTTON3,"数据传输检测",0,0);
+			_CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, &bmreturn, sizeof(bmreturn), _cbButtonPic);
+            _CreateButton((FRAME_WIDTH >> 1)-90, 60, 120,  40, hWin, GUI_ID_BUTTON2, "模块检测");
+            _CreateButton((FRAME_WIDTH >> 1)-90, 110, 120,  40, hWin, GUI_ID_BUTTON3,"数据传输检测");
 		    buf[0] = 2;              //用于测试
 			break;
 		 case WM_KEY:
@@ -912,14 +1080,12 @@ static void _cbSingledrill(WM_MESSAGE* pMsg)
             DROPDOWN_AddString(hItem,"M2");
             DROPDOWN_AddString(hItem,"M3");
             DROPDOWN_SetFont(hItem,&GUI_Font24B_ASCII);
-			_CreateButton((FRAME_WIDTH >> 1)-40,60,  80,  40, hWin, GUI_ID_BUTTON2,"定位",0,0);
-			_CreateButton((FRAME_WIDTH >> 1)-40,120,  80,  40, hWin, GUI_ID_BUTTON3,"扩孔",0,0);
-            _CreateButton((FRAME_WIDTH >> 1)+50,60, 80,  40, hWin, GUI_ID_BUTTON4,"上升",0,0);
-            _CreateButton((FRAME_WIDTH >> 1)+50,120, 80,  40, hWin, GUI_ID_BUTTON5,"下降",0,0);
+			_CreateButton((FRAME_WIDTH >> 1)-40,60,  80,  40, hWin, GUI_ID_BUTTON2,"定位");
+			_CreateButton((FRAME_WIDTH >> 1)-40,120,  80,  40, hWin, GUI_ID_BUTTON3,"扩孔");
+            _CreateButton((FRAME_WIDTH >> 1)+50,60, 80,  40, hWin, GUI_ID_BUTTON4,"上升");
+            _CreateButton((FRAME_WIDTH >> 1)+50,120, 80,  40, hWin, GUI_ID_BUTTON5,"下降");
         
-            hItem = _CreateButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, "",0,0);
-			WM_SetHasTrans(hItem);
-			WM_SetCallback(hItem, _cbButton);
+			_CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, &bmreturn, sizeof(bmreturn), _cbButtonPic);
 			buf[0] = 3;
 			Set_widget_value(hWin,GUI_ID_DROPDOWN0,buf[2]);
 			break;
@@ -1031,10 +1197,8 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
 		case WM_CREATE:
 			/* 设置聚焦 */
 			WM_SetFocus(hWin);
-            _CreateButton((FRAME_WIDTH >> 1)-90, 190, 80,  40,hWin, GUI_ID_BUTTON0,"执行",0,0);
-            hItem = _CreateButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON1, "",0,0);
-			WM_SetHasTrans(hItem);
-			WM_SetCallback(hItem, _cbButton);
+            _CreateButton((FRAME_WIDTH >> 1)-90, 190, 80,  40,hWin, GUI_ID_BUTTON0,"执行");
+			_CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON1, &bmreturn, sizeof(bmreturn), _cbButtonPic);
             Input_Basice_Data(hWin);
             if(buf[1]==1)
             {
@@ -1047,6 +1211,11 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
             }
             Set_Drill_Data(hWin);
 			buf[0] = 0;              //用发送数据
+			break;
+			
+		case MSG_SEND_DATA:
+			hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT2);
+			EDIT_SetText(hItem, pMsg->Data.p);
 			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
@@ -1081,9 +1250,19 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
 						break;
 					case GUI_ID_BUTTON1:
                         _DeleteFrame();
-                        _CreateFrame(&_cbInputParameter);
+						_hKeypadFrame = 0;
+						_CreateFrame(&_cbInputParameter);					
 						break;
+					case GUI_ID_EDIT0:
+					case GUI_ID_EDIT1:
+					case GUI_ID_EDIT2:
+						if(_hKeypadFrame == 0)
+						{
+							_hKeypadFrame = WM_CreateWindowAsChild((FRAME_WIDTH>>1)-125, 170, 40*6, 30*2+10, hWin, WM_CF_SHOW,_cbkeypad, 0);
+						}
+					break;
 				}
+				
 			}
 			break;
 		default:
@@ -1110,10 +1289,8 @@ static void _cbInputParameter(WM_MESSAGE* pMsg)
             _CreateText((FRAME_WIDTH >> 1)-90, 50, 80, 20, hWin, GUI_ID_TEXT0,"模式选择");
             _Createradio((FRAME_WIDTH >> 1)-90, 80, 80,80, hWin, GUI_ID_RADIO0,model_Item,GUI_COUNTOF(model_Item));
             Set_User_Data(hWin);
-            _CreateButton((FRAME_WIDTH >> 1)-90, 190, 80,  40,hWin, GUI_ID_BUTTON0, "设置",0,0);
-            hItem = _CreateButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON1, "",0,0);
-			WM_SetHasTrans(hItem);
-			WM_SetCallback(hItem, _cbButton);
+            _CreateButton((FRAME_WIDTH >> 1)-90, 190, 80,  40,hWin, GUI_ID_BUTTON0, "设置");
+			_CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON1, &bmreturn, sizeof(bmreturn), _cbButtonPic);
 			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
@@ -1134,7 +1311,7 @@ static void _cbInputParameter(WM_MESSAGE* pMsg)
 				{
 					case GUI_ID_BUTTON0:
                         Get_User_Data(hWin);
-                        _DeleteFrame();
+						_DeleteFrame();
                         _CreateFrame(&_cbInputdrillParameter);
 						break;
 					case GUI_ID_BUTTON1:
@@ -1165,7 +1342,7 @@ static void _cbSelect(WM_MESSAGE* pMsg)
 		case WM_CREATE:
 			/* 设置聚焦 */
 			WM_SetFocus(hWin);
-            _CreateIcon(30,30,FRAME_WIDTH,FRAME_HEIGHT,hWin,GUI_ID_ICONVIEW0); 
+            _CreateIcon(20,50,65*3+2*40,65*2+40,hWin,GUI_ID_ICONVIEW0); 
 			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
@@ -1179,20 +1356,23 @@ static void _cbSelect(WM_MESSAGE* pMsg)
 			_PaintFrame();
 			break;
         case WM_NOTIFY_PARENT:
-			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			switch (WM_GetId(pMsg->hWinSrc)) 
 			{
-				int Id = WM_GetId(pMsg->hWinSrc);
-				switch (Id) 
-				{
-                    case GUI_ID_ICONVIEW0:
-                        sel = ICONVIEW_GetSel(pMsg->hWinSrc);
-                        if(sel < GUI_COUNTOF(_aBitmapItem))
-						{
-                            /* 进入相应的应用程序 */
-                            _CreateFrame(_apModules[sel]);
-						}
-                        break;
-				}
+				/* 点击ICONVIEW上相应的图标，打开相应的窗口 */
+				case GUI_ID_ICONVIEW0:
+					switch (pMsg->Data.v) 
+					{
+							case WM_NOTIFICATION_RELEASED:
+								sel = ICONVIEW_GetSel(pMsg->hWinSrc);
+								if(sel < GUI_COUNTOF(_aBitmapItem))
+								{
+									/* 进入相应的应用程序 */
+									_CreateFrame(_apModules[sel]);
+								}
+							break;
+					}
+				break;
+			
 			}
 			break;
 		default:

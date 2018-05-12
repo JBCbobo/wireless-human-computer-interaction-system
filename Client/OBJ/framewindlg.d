@@ -20,6 +20,9 @@
 ..\obj\framewindlg.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
 ..\obj\framewindlg.o: ..\HARDWARE\LED\led.h
 ..\obj\framewindlg.o: ..\HARDWARE\NRF24L01\24L01.h
+..\obj\framewindlg.o: ..\HARDWARE\TOUCH\touch.h
+..\obj\framewindlg.o: ..\HARDWARE\TOUCH\ott2001a.h
+..\obj\framewindlg.o: ..\HARDWARE\TOUCH\gt9147.h
 ..\obj\framewindlg.o: FramewinDLG.h
 ..\obj\framewindlg.o: ..\EMWIN\STemWin\inc\DIALOG.h
 ..\obj\framewindlg.o: ..\EMWIN\STemWin\inc\WM.h

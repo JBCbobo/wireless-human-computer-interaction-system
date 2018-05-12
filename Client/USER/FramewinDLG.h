@@ -4,6 +4,5 @@
 #include "DIALOG.h"
 
 void CreateFramewin(void);
-void _SendMsg(void);
 
 #endif
