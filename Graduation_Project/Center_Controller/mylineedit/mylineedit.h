@@ -11,7 +11,7 @@ public:
     explicit myLineEdit(QWidget *parent = 0);
     void mousePressEvent(QMouseEvent *);
 signals:
-    void SendDialog(Keypad *);
+    void Showkeypad(void);
 
 public slots:
 

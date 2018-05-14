@@ -6,6 +6,8 @@ Singl_Motion::Singl_Motion(QWidget *parent) :
     ui(new Ui::Singl_Motion)
 {
     ui->setupUi(this);
+    this->move(0,60);
+    this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
     ui->Motion_Number->addItem("M1");
     ui->Motion_Number->addItem("M2");
     ui->Motion_Number->addItem("M3");

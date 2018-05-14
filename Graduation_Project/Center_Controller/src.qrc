@@ -1,6 +1,9 @@
 <RCC>
     <qresource prefix="/images">
-        <file>image/wireless.bmp</file>
         <file>image/wifi.bmp</file>
+        <file>image/start.png</file>
+        <file>image/wireless.bmp</file>
+        <file alias="wireless2">image/wifi_72px_1187422_easyicon.png</file>
+        <file>image/wifi.png</file>
     </qresource>
 </RCC>

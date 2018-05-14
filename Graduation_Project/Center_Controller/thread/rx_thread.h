@@ -14,7 +14,6 @@ protected:
 
 signals:
     void Rx_flag(QString);
-    void Motion_stop();
 
 public slots:
 

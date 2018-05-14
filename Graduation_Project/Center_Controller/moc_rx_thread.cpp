@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../rx_thread.h"
+#include "thread/rx_thread.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'rx_thread.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
@@ -22,22 +22,21 @@ static const uint qt_meta_data_Rx_thread[] = {
        6,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       1,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       2,       // signalCount
+       1,       // signalCount
 
  // signals: signature, parameters, type, tag, flags
       11,   10,   10,   10, 0x05,
-      28,   10,   10,   10, 0x05,
 
        0        // eod
 };
 
 static const char qt_meta_stringdata_Rx_thread[] = {
-    "Rx_thread\0\0Rx_flag(QString)\0Motion_stop()\0"
+    "Rx_thread\0\0Rx_flag(QString)\0"
 };
 
 void Rx_thread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -47,7 +46,6 @@ void Rx_thread::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, v
         Rx_thread *_t = static_cast<Rx_thread *>(_o);
         switch (_id) {
         case 0: _t->Rx_flag((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 1: _t->Motion_stop(); break;
         default: ;
         }
     }
@@ -85,9 +83,9 @@ int Rx_thread::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 1)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 1;
     }
     return _id;
 }
@@ -97,11 +95,5 @@ void Rx_thread::Rx_flag(QString _t1)
 {
     void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
-}
-
-// SIGNAL 1
-void Rx_thread::Motion_stop()
-{
-    QMetaObject::activate(this, &staticMetaObject, 1, 0);
 }
 QT_END_MOC_NAMESPACE

@@ -7,21 +7,28 @@ SOURCES += main.cpp \
     dialog.cpp \
     Hardware/Motion/Motion.c \
     Hardware/NRF24L01/NRF24L01.c \
-    inputpara.cpp \
     singl_motion.cpp \
     keypad.cpp \
     thread/rx_thread.cpp \
-    mylineedit/mylineedit.cpp
+    mylineedit/mylineedit.cpp \
+    Src/wireless/wireless.cpp \
+    Src/ringmold/ringmold.cpp \
+    Src/inputpara/inputpara.cpp
 HEADERS += dialog.h \
     Hardware/Motion/Motion.h \
     Hardware/NRF24L01/NRF24L01.h \
-    inputpara.h \
     singl_motion.h \
     keypad.h \
     thread/rx_thread.h \
-    mylineedit/mylineedit.h
+    mylineedit/mylineedit.h \
+    Src/wireless/wireless.h \
+    Src/ringmold/ringmold.h \
+    Src/inputpara/inputpara.h
 FORMS += dialog.ui \
-    inputpara.ui \
     singl_motion.ui \
-    keypad.ui
+    keypad.ui \
+    Src/wireless/wireless.ui \
+    Src/ringmold/ringmold.ui \
+    Src/inputpara/inputpara.ui
 RESOURCES += src.qrc
+OTHER_FILES += 

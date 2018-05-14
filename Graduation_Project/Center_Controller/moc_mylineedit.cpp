@@ -6,7 +6,7 @@
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "mylineedit.h"
+#include "mylineedit/mylineedit.h"
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mylineedit.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 63
@@ -36,7 +36,7 @@ static const uint qt_meta_data_myLineEdit[] = {
 };
 
 static const char qt_meta_stringdata_myLineEdit[] = {
-    "myLineEdit\0\0SendDialog(Keypad*)\0"
+    "myLineEdit\0\0Showkeypad()\0"
 };
 
 void myLineEdit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
@@ -45,10 +45,11 @@ void myLineEdit::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_ASSERT(staticMetaObject.cast(_o));
         myLineEdit *_t = static_cast<myLineEdit *>(_o);
         switch (_id) {
-        case 0: _t->SendDialog((*reinterpret_cast< Keypad*(*)>(_a[1]))); break;
+        case 0: _t->Showkeypad(); break;
         default: ;
         }
     }
+    Q_UNUSED(_a);
 }
 
 const QMetaObjectExtraData myLineEdit::staticMetaObjectExtraData = {
@@ -91,9 +92,8 @@ int myLineEdit::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
 }
 
 // SIGNAL 0
-void myLineEdit::SendDialog(Keypad * _t1)
+void myLineEdit::Showkeypad()
 {
-    void *_a[] = { 0, const_cast<void*>(reinterpret_cast<const void*>(&_t1)) };
-    QMetaObject::activate(this, &staticMetaObject, 0, _a);
+    QMetaObject::activate(this, &staticMetaObject, 0, 0);
 }
 QT_END_MOC_NAMESPACE

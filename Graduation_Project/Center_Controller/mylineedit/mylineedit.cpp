@@ -9,8 +9,6 @@ myLineEdit::myLineEdit(QWidget *parent) :
 
 void myLineEdit::mousePressEvent(QMouseEvent *)
 {   
-    Keypad * keypad = new Keypad(this);
-    keypad->setModal(true);
-    keypad->show();
-    emit SendDialog(keypad);
+
+    emit Showkeypad();
 }

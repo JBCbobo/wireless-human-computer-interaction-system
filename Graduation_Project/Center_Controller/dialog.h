@@ -3,6 +3,10 @@
 
 #include <QDialog>
 
+class wireless;
+class ringmold;
+class inputpara;
+
 namespace Ui {
     class Dialog;
 }
@@ -21,25 +25,22 @@ private:
     Ui::Dialog *ui;
     int time;
     QString str;
-
-signals:
-    void Keyvalue(QString);
+    wireless *m_wireless;
+    ringmold *m_ringmold;
+    inputpara *m_inputpara;
 
 public slots:
-    void on_pushButton_f2_clicked();
-    void on_pushButton_cancel_clicked();
-    void on_pushButton_no_clicked();
-    void on_pushButton_yes_clicked();
     void Disp_Rx_value(QString);
-    void Getkeyvalue();
-    void Update_number(QString);
-    void timerEvent(QTimerEvent *event);
     void timerUpdate();
 
 
 private slots:
+    void on_pushButton_clicked();
+    void on_pushButton_13_clicked();
+    void on_pushButton_12_clicked();
     void on_pushButton_11_clicked();
     void on_pushButton_10_clicked();
+
 };
 
 #endif // DIALOG_H
