@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>320</height>
+    <width>640</width>
+    <height>380</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,58 +16,96 @@
   <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>41</x>
-     <y>61</y>
-     <width>299</width>
-     <height>66</height>
+     <x>100</x>
+     <y>80</y>
+     <width>381</width>
+     <height>201</height>
     </rect>
    </property>
    <layout class="QGridLayout" name="gridLayout">
     <item row="0" column="0">
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="pushButton_turnleft">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>工件左转</string>
       </property>
      </widget>
     </item>
     <item row="0" column="1">
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="pushButton_fine">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>右转细调</string>
       </property>
      </widget>
     </item>
     <item row="0" column="2">
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="pushButton_reduce">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>转速增加</string>
+       <string>转速减少</string>
       </property>
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="pushButton_turnright">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>工件右转</string>
       </property>
      </widget>
     </item>
     <item row="1" column="1">
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="pushButton_coarse">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
       <property name="text">
        <string>右转粗调</string>
       </property>
      </widget>
     </item>
     <item row="1" column="2">
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="pushButton_increas">
+      <property name="font">
+       <font>
+        <pointsize>16</pointsize>
+       </font>
+      </property>
       <property name="text">
-       <string>转速减少</string>
+       <string>转速增加</string>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>pushButton_turnleft</tabstop>
+  <tabstop>pushButton_turnright</tabstop>
+  <tabstop>pushButton_fine</tabstop>
+  <tabstop>pushButton_coarse</tabstop>
+  <tabstop>pushButton_reduce</tabstop>
+  <tabstop>pushButton_increas</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>

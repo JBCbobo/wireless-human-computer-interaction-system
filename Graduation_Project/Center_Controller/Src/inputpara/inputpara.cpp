@@ -38,6 +38,21 @@ inputpara::~inputpara()
     delete ui;
 }
 
+void inputpara::SetWidgetValue()
+{
+//    sprintf(tmp,"%u",buf[9]); //转动速度
+//    ui->lineEdit->setText(tmp);
+//    sprintf(tmp,"%u",buf[10]); //钻动速度
+//    ui->lineEdit_2->setText(tmp);
+//    sprintf(tmp,"%u",buf[4]); //孔数
+//    ui->lineEdit_3->setText(tmp);
+//    sprintf(tmp,"%u",buf[7]);//钻孔速度
+//    ui->lineEdit_4->setText(tmp);
+//    ui->label_drill->setText(tr(drill_Item[buf[8]])); //大小钻头
+//    ui->label_model->setText(tr(model_Item[buf[1]])); //模式
+//    ui->label_oddeven->setText(tr(OddEven_Item[buf[5]]));//奇偶数排
+}
+
 void inputpara::changeEvent(QEvent *e)
 {
     QWidget::changeEvent(e);

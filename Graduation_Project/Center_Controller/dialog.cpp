@@ -3,13 +3,14 @@
 #include <QDebug>
 #include <QKeyEvent>
 #include <QDateTime>
+#include <QMessageBox>
 #include <QIcon>
 #include "ui_dialog.h"
 #include "Hardware/Motion/Motion.h"
 #include "thread/rx_thread.h"
 #include "Hardware/NRF24L01/NRF24L01.h"
 #include "Src/inputpara/inputpara.h"
-#include "singl_motion.h"
+#include "Src/singlemotion/singlemotion.h"
 #include "Src/ringmold/ringmold.h"
 #include "Src/wireless/wireless.h"
 
@@ -37,7 +38,11 @@ Dialog::Dialog(QWidget *parent) :
 {
 
     ui->setupUi(this);
-    ui->radioButton->setChecked(true);
+    QPixmap pix;
+    pix.load(":/images/image/colthes.png");
+    pix = pix.scaled(ui->label_wifi->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+    ui->label_colthes->setPixmap(pix);
+    ui->pushButton->hide();
     this->setWindowFlags(this->windowFlags()|Qt::FramelessWindowHint);
     Rx_thread *Reciver = new Rx_thread(this);
     QTimer *timer = new QTimer(this);
@@ -50,17 +55,20 @@ Dialog::Dialog(QWidget *parent) :
     {
         QPixmap pix;
         pix.load(":/images/image/wifi.png");
-        pix = pix.scaled(ui->label_4->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
-        ui->label_4->setPixmap(pix);
+        pix = pix.scaled(ui->label_wifi->size(),Qt::IgnoreAspectRatio,Qt::SmoothTransformation);
+        ui->label_wifi->setPixmap(pix);
     }
-    Reciver->start();
+    Reciver->start();//开启线程
     m_ringmold = new ringmold(this);
     m_wireless = new wireless(this);
     m_inputpara = new inputpara(this);
-
-    ui->stackedWidget->addWidget(m_ringmold);
-    ui->stackedWidget->addWidget(m_wireless);
-    ui->stackedWidget->addWidget(m_inputpara);
+    m_singlemotion = new singlemotion(this);
+    ui->stackedWidget->addWidget(m_ringmold);//Index 2
+    ui->stackedWidget->addWidget(m_wireless);//Index 3
+    ui->stackedWidget->addWidget(m_inputpara);//Index 4
+    ui->stackedWidget->addWidget(m_singlemotion);//Index 5
+    connect(this,SIGNAL(single(int,int)),m_singlemotion,SLOT(clicked_pushButton(int,int)));
+    connect(this,SIGNAL(mold(int)),m_ringmold,SLOT(clicked_pushButton(int)));
 }
 
 Dialog::~Dialog()
@@ -104,15 +112,16 @@ void Dialog::Disp_Rx_value(QString str)
     }
     else if(str=="singlemotion")
     {
-
+        emit single(buf[2],buf[16]);
     }
     else if(str=="ringmold")
     {
-
+        emit mold(buf[13]);
     }
 
 }
 
+//显示系统时间
 void Dialog::timerUpdate()
 {
     QDateTime sys_time = QDateTime::currentDateTime();
@@ -122,27 +131,32 @@ void Dialog::timerUpdate()
 
 void Dialog::on_pushButton_10_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(5);
+    ui->pushButton->show();
+    ui->stackedWidget->setCurrentIndex(5); //单孔操作
 }
 
 void Dialog::on_pushButton_11_clicked()
 {
 
-    ui->stackedWidget->setCurrentIndex(4);
+    ui->pushButton->show();
+    ui->stackedWidget->setCurrentIndex(4); //输入参数
 }
 
 void Dialog::on_pushButton_12_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(3);
+    ui->pushButton->show();
+    ui->stackedWidget->setCurrentIndex(3); //无线设置
 }
 
 
 void Dialog::on_pushButton_13_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(2);
+    ui->pushButton->show();
+    ui->stackedWidget->setCurrentIndex(2); //环模操作
 }
 
 void Dialog::on_pushButton_clicked()
 {
-     ui->stackedWidget->setCurrentIndex(0);
+     ui->pushButton->hide();
+     ui->stackedWidget->setCurrentIndex(0); //主界面
 }

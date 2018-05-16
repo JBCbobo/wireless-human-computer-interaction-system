@@ -14,11 +14,13 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QGroupBox>
+#include <QtGui/QHBoxLayout>
 #include <QtGui/QHeaderView>
 #include <QtGui/QLabel>
 #include <QtGui/QLineEdit>
 #include <QtGui/QPushButton>
 #include <QtGui/QRadioButton>
+#include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -45,24 +47,29 @@ public:
     QGroupBox *groupBox_2;
     QRadioButton *radioButton;
     QRadioButton *radioButton_2;
-    QLineEdit *lineEdit_3;
     QGroupBox *groupBox;
     QRadioButton *radioButton_3;
     QRadioButton *radioButton_4;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout;
     QLabel *label;
     QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
+    QVBoxLayout *verticalLayout_2;
     QLabel *label_2;
+    QLineEdit *lineEdit_2;
+    QVBoxLayout *verticalLayout_3;
     QLabel *label_3;
+    QLineEdit *lineEdit_3;
 
     void setupUi(QWidget *inputpara)
     {
         if (inputpara->objectName().isEmpty())
             inputpara->setObjectName(QString::fromUtf8("inputpara"));
-        inputpara->resize(800, 320);
+        inputpara->resize(640, 380);
         groupBox_3 = new QGroupBox(inputpara);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
-        groupBox_3->setGeometry(QRect(240, 30, 431, 191));
+        groupBox_3->setGeometry(QRect(30, 150, 431, 191));
         pushButton_9 = new QPushButton(groupBox_3);
         pushButton_9->setObjectName(QString::fromUtf8("pushButton_9"));
         pushButton_9->setGeometry(QRect(20, 140, 70, 40));
@@ -143,7 +150,7 @@ public:
         pushButton_f2->setFocusPolicy(Qt::NoFocus);
         groupBox_2 = new QGroupBox(inputpara);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
-        groupBox_2->setGeometry(QRect(110, 120, 111, 81));
+        groupBox_2->setGeometry(QRect(490, 130, 111, 81));
         groupBox_2->setFlat(true);
         radioButton = new QRadioButton(groupBox_2);
         radioButton->setObjectName(QString::fromUtf8("radioButton"));
@@ -155,14 +162,9 @@ public:
         radioButton_2->setObjectName(QString::fromUtf8("radioButton_2"));
         radioButton_2->setGeometry(QRect(10, 50, 97, 21));
         radioButton_2->setFont(font1);
-        lineEdit_3 = new QLineEdit(inputpara);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
-        lineEdit_3->setGeometry(QRect(20, 240, 71, 31));
-        lineEdit_3->setFont(font1);
-        lineEdit_3->setMaxLength(3);
         groupBox = new QGroupBox(inputpara);
         groupBox->setObjectName(QString::fromUtf8("groupBox"));
-        groupBox->setGeometry(QRect(100, 30, 121, 71));
+        groupBox->setGeometry(QRect(480, 50, 121, 71));
         groupBox->setFlat(true);
         radioButton_3 = new QRadioButton(groupBox);
         radioButton_3->setObjectName(QString::fromUtf8("radioButton_3"));
@@ -172,28 +174,74 @@ public:
         radioButton_4->setObjectName(QString::fromUtf8("radioButton_4"));
         radioButton_4->setGeometry(QRect(20, 10, 97, 21));
         radioButton_4->setFont(font1);
-        label = new QLabel(inputpara);
+        widget = new QWidget(inputpara);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(70, 30, 351, 101));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        label = new QLabel(widget);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(20, 20, 61, 21));
-        label->setFont(font1);
-        lineEdit = new QLineEdit(inputpara);
+        QFont font2;
+        font2.setPointSize(16);
+        label->setFont(font2);
+
+        verticalLayout->addWidget(label);
+
+        lineEdit = new QLineEdit(widget);
         lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
-        lineEdit->setGeometry(QRect(20, 60, 71, 31));
-        lineEdit->setFont(font1);
+        lineEdit->setFont(font2);
         lineEdit->setMaxLength(3);
-        lineEdit_2 = new QLineEdit(inputpara);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
-        lineEdit_2->setGeometry(QRect(20, 150, 71, 31));
-        lineEdit_2->setFont(font1);
-        lineEdit_2->setMaxLength(3);
-        label_2 = new QLabel(inputpara);
+
+        verticalLayout->addWidget(lineEdit);
+
+
+        horizontalLayout->addLayout(verticalLayout);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
+        label_2 = new QLabel(widget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(20, 110, 81, 21));
-        label_2->setFont(font1);
-        label_3 = new QLabel(inputpara);
+        label_2->setFont(font2);
+
+        verticalLayout_2->addWidget(label_2);
+
+        lineEdit_2 = new QLineEdit(widget);
+        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_2->setFont(font2);
+        lineEdit_2->setMaxLength(3);
+
+        verticalLayout_2->addWidget(lineEdit_2);
+
+
+        horizontalLayout->addLayout(verticalLayout_2);
+
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
+        label_3 = new QLabel(widget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(20, 200, 81, 31));
-        label_3->setFont(font1);
+        label_3->setFont(font2);
+
+        verticalLayout_3->addWidget(label_3);
+
+        lineEdit_3 = new QLineEdit(widget);
+        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        lineEdit_3->setFont(font2);
+        lineEdit_3->setMaxLength(3);
+
+        verticalLayout_3->addWidget(lineEdit_3);
+
+
+        horizontalLayout->addLayout(verticalLayout_3);
+
+        QWidget::setTabOrder(lineEdit, lineEdit_2);
+        QWidget::setTabOrder(lineEdit_2, lineEdit_3);
+        QWidget::setTabOrder(lineEdit_3, radioButton_4);
+        QWidget::setTabOrder(radioButton_4, radioButton_3);
+        QWidget::setTabOrder(radioButton_3, radioButton);
+        QWidget::setTabOrder(radioButton, radioButton_2);
 
         retranslateUi(inputpara);
 

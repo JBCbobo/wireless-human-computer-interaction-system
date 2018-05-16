@@ -15,7 +15,6 @@
 #include <QtGui/QButtonGroup>
 #include <QtGui/QHeaderView>
 #include <QtGui/QPushButton>
-#include <QtGui/QVBoxLayout>
 #include <QtGui/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -23,8 +22,6 @@ QT_BEGIN_NAMESPACE
 class Ui_wireless
 {
 public:
-    QWidget *widget;
-    QVBoxLayout *verticalLayout;
     QPushButton *pushButton_3;
     QPushButton *pushButton_6;
 
@@ -32,24 +29,17 @@ public:
     {
         if (wireless->objectName().isEmpty())
             wireless->setObjectName(QString::fromUtf8("wireless"));
-        wireless->resize(800, 320);
-        widget = new QWidget(wireless);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(201, 141, 103, 66));
-        verticalLayout = new QVBoxLayout(widget);
-        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
-        verticalLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton_3 = new QPushButton(widget);
+        wireless->resize(640, 380);
+        pushButton_3 = new QPushButton(wireless);
         pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
-
-        verticalLayout->addWidget(pushButton_3);
-
-        pushButton_6 = new QPushButton(widget);
+        pushButton_3->setGeometry(QRect(150, 80, 131, 61));
+        QFont font;
+        font.setPointSize(16);
+        pushButton_3->setFont(font);
+        pushButton_6 = new QPushButton(wireless);
         pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
-
-        verticalLayout->addWidget(pushButton_6);
-
-        pushButton_3->raise();
+        pushButton_6->setGeometry(QRect(330, 80, 131, 61));
+        pushButton_6->setFont(font);
 
         retranslateUi(wireless);
 

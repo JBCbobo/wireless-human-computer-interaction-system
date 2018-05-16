@@ -25,54 +25,67 @@ class Ui_ringmold
 public:
     QWidget *widget;
     QGridLayout *gridLayout;
-    QPushButton *pushButton;
-    QPushButton *pushButton_3;
-    QPushButton *pushButton_5;
-    QPushButton *pushButton_2;
-    QPushButton *pushButton_4;
-    QPushButton *pushButton_6;
+    QPushButton *pushButton_turnleft;
+    QPushButton *pushButton_fine;
+    QPushButton *pushButton_reduce;
+    QPushButton *pushButton_turnright;
+    QPushButton *pushButton_coarse;
+    QPushButton *pushButton_increas;
 
     void setupUi(QWidget *ringmold)
     {
         if (ringmold->objectName().isEmpty())
             ringmold->setObjectName(QString::fromUtf8("ringmold"));
-        ringmold->resize(800, 320);
+        ringmold->resize(640, 380);
         widget = new QWidget(ringmold);
         widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(41, 61, 299, 66));
+        widget->setGeometry(QRect(100, 80, 381, 201));
         gridLayout = new QGridLayout(widget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         gridLayout->setContentsMargins(0, 0, 0, 0);
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pushButton_turnleft = new QPushButton(widget);
+        pushButton_turnleft->setObjectName(QString::fromUtf8("pushButton_turnleft"));
+        QFont font;
+        font.setPointSize(16);
+        pushButton_turnleft->setFont(font);
 
-        gridLayout->addWidget(pushButton, 0, 0, 1, 1);
+        gridLayout->addWidget(pushButton_turnleft, 0, 0, 1, 1);
 
-        pushButton_3 = new QPushButton(widget);
-        pushButton_3->setObjectName(QString::fromUtf8("pushButton_3"));
+        pushButton_fine = new QPushButton(widget);
+        pushButton_fine->setObjectName(QString::fromUtf8("pushButton_fine"));
+        pushButton_fine->setFont(font);
 
-        gridLayout->addWidget(pushButton_3, 0, 1, 1, 1);
+        gridLayout->addWidget(pushButton_fine, 0, 1, 1, 1);
 
-        pushButton_5 = new QPushButton(widget);
-        pushButton_5->setObjectName(QString::fromUtf8("pushButton_5"));
+        pushButton_reduce = new QPushButton(widget);
+        pushButton_reduce->setObjectName(QString::fromUtf8("pushButton_reduce"));
+        pushButton_reduce->setFont(font);
 
-        gridLayout->addWidget(pushButton_5, 0, 2, 1, 1);
+        gridLayout->addWidget(pushButton_reduce, 0, 2, 1, 1);
 
-        pushButton_2 = new QPushButton(widget);
-        pushButton_2->setObjectName(QString::fromUtf8("pushButton_2"));
+        pushButton_turnright = new QPushButton(widget);
+        pushButton_turnright->setObjectName(QString::fromUtf8("pushButton_turnright"));
+        pushButton_turnright->setFont(font);
 
-        gridLayout->addWidget(pushButton_2, 1, 0, 1, 1);
+        gridLayout->addWidget(pushButton_turnright, 1, 0, 1, 1);
 
-        pushButton_4 = new QPushButton(widget);
-        pushButton_4->setObjectName(QString::fromUtf8("pushButton_4"));
+        pushButton_coarse = new QPushButton(widget);
+        pushButton_coarse->setObjectName(QString::fromUtf8("pushButton_coarse"));
+        pushButton_coarse->setFont(font);
 
-        gridLayout->addWidget(pushButton_4, 1, 1, 1, 1);
+        gridLayout->addWidget(pushButton_coarse, 1, 1, 1, 1);
 
-        pushButton_6 = new QPushButton(widget);
-        pushButton_6->setObjectName(QString::fromUtf8("pushButton_6"));
+        pushButton_increas = new QPushButton(widget);
+        pushButton_increas->setObjectName(QString::fromUtf8("pushButton_increas"));
+        pushButton_increas->setFont(font);
 
-        gridLayout->addWidget(pushButton_6, 1, 2, 1, 1);
+        gridLayout->addWidget(pushButton_increas, 1, 2, 1, 1);
 
+        QWidget::setTabOrder(pushButton_turnleft, pushButton_turnright);
+        QWidget::setTabOrder(pushButton_turnright, pushButton_fine);
+        QWidget::setTabOrder(pushButton_fine, pushButton_coarse);
+        QWidget::setTabOrder(pushButton_coarse, pushButton_reduce);
+        QWidget::setTabOrder(pushButton_reduce, pushButton_increas);
 
         retranslateUi(ringmold);
 
@@ -82,12 +95,12 @@ public:
     void retranslateUi(QWidget *ringmold)
     {
         ringmold->setWindowTitle(QApplication::translate("ringmold", "Form", 0, QApplication::UnicodeUTF8));
-        pushButton->setText(QApplication::translate("ringmold", "\345\267\245\344\273\266\345\267\246\350\275\254", 0, QApplication::UnicodeUTF8));
-        pushButton_3->setText(QApplication::translate("ringmold", "\345\217\263\350\275\254\347\273\206\350\260\203", 0, QApplication::UnicodeUTF8));
-        pushButton_5->setText(QApplication::translate("ringmold", "\350\275\254\351\200\237\345\242\236\345\212\240", 0, QApplication::UnicodeUTF8));
-        pushButton_2->setText(QApplication::translate("ringmold", "\345\267\245\344\273\266\345\217\263\350\275\254", 0, QApplication::UnicodeUTF8));
-        pushButton_4->setText(QApplication::translate("ringmold", "\345\217\263\350\275\254\347\262\227\350\260\203", 0, QApplication::UnicodeUTF8));
-        pushButton_6->setText(QApplication::translate("ringmold", "\350\275\254\351\200\237\345\207\217\345\260\221", 0, QApplication::UnicodeUTF8));
+        pushButton_turnleft->setText(QApplication::translate("ringmold", "\345\267\245\344\273\266\345\267\246\350\275\254", 0, QApplication::UnicodeUTF8));
+        pushButton_fine->setText(QApplication::translate("ringmold", "\345\217\263\350\275\254\347\273\206\350\260\203", 0, QApplication::UnicodeUTF8));
+        pushButton_reduce->setText(QApplication::translate("ringmold", "\350\275\254\351\200\237\345\207\217\345\260\221", 0, QApplication::UnicodeUTF8));
+        pushButton_turnright->setText(QApplication::translate("ringmold", "\345\267\245\344\273\266\345\217\263\350\275\254", 0, QApplication::UnicodeUTF8));
+        pushButton_coarse->setText(QApplication::translate("ringmold", "\345\217\263\350\275\254\347\262\227\350\260\203", 0, QApplication::UnicodeUTF8));
+        pushButton_increas->setText(QApplication::translate("ringmold", "\350\275\254\351\200\237\345\242\236\345\212\240", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

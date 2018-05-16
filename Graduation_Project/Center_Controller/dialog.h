@@ -6,6 +6,7 @@
 class wireless;
 class ringmold;
 class inputpara;
+class singlemotion;
 
 namespace Ui {
     class Dialog;
@@ -28,7 +29,11 @@ private:
     wireless *m_wireless;
     ringmold *m_ringmold;
     inputpara *m_inputpara;
+    singlemotion *m_singlemotion;
 
+signals:
+    void single(int,int);
+    void mold(int);
 public slots:
     void Disp_Rx_value(QString);
     void timerUpdate();

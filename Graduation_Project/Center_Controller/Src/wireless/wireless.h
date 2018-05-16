@@ -18,6 +18,10 @@ protected:
 
 private:
     Ui::wireless *ui;
+
+private slots:
+    void on_pushButton_6_clicked();
+    void on_pushButton_3_clicked();
 };
 
 #endif // WIRELESS_H

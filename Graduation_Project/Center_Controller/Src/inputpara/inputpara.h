@@ -12,6 +12,7 @@ class inputpara : public QWidget {
     Q_OBJECT
 public:
     inputpara(QWidget *parent = 0);
+    void SetWidgetValue();
     ~inputpara();
 
 protected:

@@ -150,6 +150,8 @@ static void NRF24L01_read_buf(u8 reg,u8 *pBf,u8 len)
     CSN_H;
 }
 
+//失败返回 0
+//成功返回 1
 u8 NRF24L01_check(void)
 {
     u8 i;

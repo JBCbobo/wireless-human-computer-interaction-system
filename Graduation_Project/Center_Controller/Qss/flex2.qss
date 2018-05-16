@@ -1,0 +1,3 @@
+QDialog#Dialog{
+background-image: url(:/images/image/start.png);
+}

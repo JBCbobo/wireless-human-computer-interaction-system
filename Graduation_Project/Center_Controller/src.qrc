@@ -1,9 +1,14 @@
 <RCC>
     <qresource prefix="/images">
-        <file>image/wifi.bmp</file>
         <file>image/start.png</file>
-        <file>image/wireless.bmp</file>
-        <file alias="wireless2">image/wifi_72px_1187422_easyicon.png</file>
         <file>image/wifi.png</file>
+        <file>image/colthes.png</file>
+        <file>image/return.png</file>
+        <file>image/return2.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>Qss/default.qss</file>
+        <file>Qss/flex1.qss</file>
+        <file>Qss/flex2.qss</file>
     </qresource>
 </RCC>
