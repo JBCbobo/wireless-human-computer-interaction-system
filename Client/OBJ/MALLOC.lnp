@@ -10,7 +10,6 @@
 "..\obj\ebook.o"
 "..\obj\paint.o"
 "..\obj\welcome_page.o"
-"..\obj\wait_page.o"
 "..\obj\wifi.o"
 "..\obj\colthes.o"
 "..\obj\battry.o"

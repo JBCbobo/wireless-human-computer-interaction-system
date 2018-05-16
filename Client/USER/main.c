@@ -38,6 +38,7 @@ int main(void)
 	TP_Init();				//触摸屏初始化
 	TIM3_Int_Init(999,71);	//1KHZ 定时器1ms 
 	TIM6_Int_Init(999,719);	//10ms中断
+	TIM2_Int_Init(9999,719);//100ms中断
 	mem_init(); 			//初始化内部内存池
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_CRC,ENABLE);//使能CRC时钟，否则STemWin不能使用 
 	NRF24L01_Init();

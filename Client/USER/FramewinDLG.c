@@ -92,6 +92,7 @@ static WM_HWIN    _hKeypadFrame;
 u8 buf[32];
 
 
+
 /* ICONVIEW控件图标使用 */
 
 typedef struct {
@@ -175,7 +176,6 @@ static void _SendKeyvalue(WM_HWIN hWin, char *pStr)
     Message.MsgId =  MSG_SEND_DATA;
     Message.Data.p = pStr;
     WM_SendMessage(hWin,&Message);
-    //WM_InvalidateWindow(hWin);
 }
 
 
@@ -203,7 +203,7 @@ static void Set_widget_value(GUI_HWIN hWin,int id,u8 value)
     {    
          DROPDOWN_SetSel(hItem,value);
     }
-    else if(pCb == EDIT_Callback)
+    else if(pCb == EDIT_Callback&&value != 0)
     {
         sprintf(tmp,"%u",value);
         EDIT_SetText(hItem,tmp);
@@ -265,6 +265,7 @@ void Get_Drill_Data(GUI_HWIN hWin)
 
 void Set_Drill_Data(GUI_HWIN hWin)
 {
+	
     Set_widget_value(hWin,GUI_ID_EDIT0,buf[4]);
     Set_widget_value(hWin,GUI_ID_RADIO0,buf[5]);
     if(buf[1]==1)
@@ -435,6 +436,7 @@ static WM_HWIN _CreateUserButton(int x, int y, int w, int h, WM_HWIN hParent, in
 	BUTTON_SetUserData(hButton,pDest,NumBytes);
 	WM_SetHasTrans(hButton);
 	WM_SetCallback(hButton, _cbButton);
+	BUTTON_SetFocussable(hButton,    0);
 	return hButton;
 }
 
@@ -617,9 +619,7 @@ static void _cbBkWindow(WM_MESSAGE* pMsg)
 */
 static void _Paintkeypad(void) 
 {
-	//GUI_DrawGradientH((FRAME_WIDTH >> 1)-120, 165, 40*6+10, 30*2+10, 0xdda0dd, 0xe14169);
 	GUI_SetBkColor(GUI_LIGHTGRAY);
-	//GUI_FillRoundedRect((FRAME_WIDTH >> 1)-120, 165, 40*6+10, 30*2+10,5);
 	GUI_Clear();
 }
 
@@ -642,8 +642,8 @@ static void _PaintFrame(void)
 	GUI_SetFont(MAIN_FONT);
 	GUI_SetTextMode(GUI_TM_TRANS);
 	GUI_DispStringAt("手持钻床控制器",0, 7);
-	GUI_DrawBitmap(&bmcolthes, 250, 7);
-	GUI_DrawBitmap(&bmwifi, 270, 7);
+	GUI_DrawBitmap(&bmwifi, 250, 7);
+	GUI_DrawBitmap(&bmcolthes, 270, 7);
 	GUI_DrawBitmap(&bmbattry, 290, 7);
 	GUI_SetColor(FRAME_TEXTCOLOR);
 	GUI_SetFont(FRAME_FONT);
@@ -689,48 +689,48 @@ static void _cbkeypad(WM_MESSAGE* pMsg)
 		case WM_PAINT:
 			_Paintkeypad();
 			break;
-        case WM_NOTIFY_PARENT:
+        case WM_NOTIFY_PARENT:	
 			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
 			{
 				int Id = WM_GetId(pMsg->hWinSrc);
 				switch (Id) 
 				{
 					case GUI_ID_BUTTON0:
-						_SendKeyvalue(_hCurrentFrame,"0");
+						GUI_SendKeyMsg('0',1);
 						break;
 					case GUI_ID_BUTTON1:
-						_SendKeyvalue(_hCurrentFrame,"1");
+						GUI_SendKeyMsg('1',1);
 						break;
 					case GUI_ID_BUTTON2:
-						_SendKeyvalue(_hCurrentFrame,"2");
+						GUI_SendKeyMsg('2',1);
 						break;
 					case GUI_ID_BUTTON3:
-						_SendKeyvalue(_hCurrentFrame,"3");
+						GUI_SendKeyMsg('3',1);
 						break;
 					case GUI_ID_BUTTON4:
-						_SendKeyvalue(_hCurrentFrame,"4");
+						GUI_SendKeyMsg('3',1);
 						break;
 					case GUI_ID_BUTTON5:
-						_SendKeyvalue(_hCurrentFrame,"5");
+						GUI_SendKeyMsg('3',1);
 						break;
 					case GUI_ID_BUTTON6:
-						_SendKeyvalue(_hCurrentFrame,"6");
+						GUI_SendKeyMsg('3',1);
 						break;
 					case GUI_ID_BUTTON7:
-						_SendKeyvalue(_hCurrentFrame,"7");
+						GUI_SendKeyMsg('3',1);
 						break;
 					case GUI_ID_BUTTON8:
-						_SendKeyvalue(_hCurrentFrame,"8");
+						GUI_SendKeyMsg('3',1);
 						break;
 					case GUI_ID_BUTTON9:
-						_SendKeyvalue(_hCurrentFrame,"9");
+						GUI_SendKeyMsg('3',1);
 						break;
 					case GUI_ID_BUTTON_YES:
 						WM_DeleteWindow(_hKeypadFrame);
                         _hKeypadFrame = 0;
 						break;
 					case GUI_ID_BUTTON_DEL:
-						_SendKeyvalue(_hCurrentFrame,"Del");
+						GUI_SendKeyMsg(GUI_KEY_BACKSPACE,1);
 						break;
 				}
 			}
@@ -896,21 +896,26 @@ static void _cbringmold(WM_MESSAGE* pMsg)
 						buf[13] = 2;
 						break;
 					case GUI_ID_BUTTON4:
-						buf[14] = 1;
+						buf[13] = 3;
 						break;
 					case GUI_ID_BUTTON5:
-						buf[14] = 2;
+						buf[13] = 4;
 						break;  
 					case GUI_ID_BUTTON6:
-						buf[15] = 1;
+						buf[13] = 5;
 						break;
 					case GUI_ID_BUTTON7:
-						buf[15] = 2;
+						buf[13] = 6;
 						break;
 				}
 				NRF24L01_TX_Mode();
 				NRF24L01_TxPacket(buf);
 			}
+//			else if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+//			{
+//				buf[13] = 0;
+//			}
+			buf[13] = 0;
 			break;
 		default:
 		WM_DefaultProc(pMsg);
@@ -1116,15 +1121,19 @@ static void _cbSingledrill(WM_MESSAGE* pMsg)
 						buf[16] = 2;
 						break;
 					case GUI_ID_BUTTON4:
-						buf[17] = 1;
+						buf[16] = 3;
 						break;
 					case GUI_ID_BUTTON5:
-						buf[17] = 2;
+						buf[16] = 4;
 						break;  
 				}
 				NRF24L01_TX_Mode();
 				NRF24L01_TxPacket(buf);
 			}
+//			else if(pMsg->Data.v == WM_NOTIFICATION_RELEASED)
+//			{
+//				buf[16] = 0;		
+//			}
 			else if(pMsg->Data.v == WM_NOTIFICATION_SEL_CHANGED)
 			{
 				int Id = WM_GetId(pMsg->hWinSrc);
@@ -1134,7 +1143,10 @@ static void _cbSingledrill(WM_MESSAGE* pMsg)
                         buf[2] = Get_widget_value(hWin,GUI_ID_DROPDOWN0);
 						break;
 				}
+				NRF24L01_TX_Mode();
+				NRF24L01_TxPacket(buf);
 			}
+			buf[16] = 0;
 			break;
 		default:
 		WM_DefaultProc(pMsg);
@@ -1212,11 +1224,6 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
             Set_Drill_Data(hWin);
 			buf[0] = 0;              //用发送数据
 			break;
-			
-		case MSG_SEND_DATA:
-			hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_EDIT2);
-			EDIT_SetText(hItem, pMsg->Data.p);
-			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{
@@ -1256,10 +1263,8 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
 					case GUI_ID_EDIT0:
 					case GUI_ID_EDIT1:
 					case GUI_ID_EDIT2:
-						if(_hKeypadFrame == 0)
-						{
-							_hKeypadFrame = WM_CreateWindowAsChild((FRAME_WIDTH>>1)-125, 170, 40*6, 30*2+10, hWin, WM_CF_SHOW,_cbkeypad, 0);
-						}
+						_hKeypadFrame = WM_CreateWindowAsChild((FRAME_WIDTH>>1)-125, 170, 40*6, 30*2+10, hWin, WM_CF_SHOW,_cbkeypad, 0);
+						WM_MakeModal(_hKeypadFrame);
 					break;
 				}
 				

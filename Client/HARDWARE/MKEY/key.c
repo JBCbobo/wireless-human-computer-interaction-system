@@ -9,13 +9,7 @@
 uint8_t KeyDesk[] = 
 {	
 	
-	'.',  '0',  'E',  'D',     //'Y'表示yes        确定键	
-	
-	'3',  '2',  '1',  'C',     //'D'表示delete     回删键
-	
-	'6',  '5',  '4',  'B',     //'E'表示eliminate  清除键
-	
-	'9',  '8',  '7',  'A'      //'C'表示cancle     取消键
+	'H',  'E',  'Y',  'T',     //'Y'表示yes        确定键	
 };
  
 //IO低4位输出低电平
@@ -76,26 +70,13 @@ uint8_t scan_MatrixKey(void)
 		{   	
 	        column = tmp & 0X00F0;//获取列号 
 	        GPIO_Configuration2();
-	        row = PORT & 0X000F;//获取行号                                         
+	        row = PORT & 0X000F;//获取行号    	
 	        switch ((uint8_t)((column | row)))//column|row为按键被按下对应端口的编码 注意IO使用的是高八位还是低八位。
 	        {   
-	            //按键对应的码表
-				case 0XEE: MatrixKey_value = KeyDesk[15]; break;
-	            case 0XDE: MatrixKey_value = KeyDesk[14]; break;
-	            case 0XBE: MatrixKey_value = KeyDesk[13]; break;                
-	            case 0X7E: MatrixKey_value = KeyDesk[12]; break;                                              
-	            case 0XED: MatrixKey_value = KeyDesk[11]; break;
-	            case 0XDD: MatrixKey_value = KeyDesk[10]; break;
-	            case 0XBD: MatrixKey_value = KeyDesk[9];  break;
-	            case 0X7D: MatrixKey_value = KeyDesk[8];  break;                                  
-	            case 0XEB: MatrixKey_value = KeyDesk[7];  break;
-	            case 0XDB: MatrixKey_value = KeyDesk[6];  break;
-	            case 0XBB: MatrixKey_value = KeyDesk[5];  break;
-	            case 0X7B: MatrixKey_value = KeyDesk[4];  break;                                    
-	            case 0XE7: MatrixKey_value = KeyDesk[3];  break;
-	            case 0XD7: MatrixKey_value = KeyDesk[2];  break;
-	            case 0XB7: MatrixKey_value = KeyDesk[1];  break;
-	            case 0X77: MatrixKey_value = KeyDesk[0];  break;
+				case 0xE5: MatrixKey_value = KeyDesk[3];break;
+				case 0xD5: MatrixKey_value = KeyDesk[2];break;
+				case 0xB5: MatrixKey_value = KeyDesk[1];break;
+				case 0x75: MatrixKey_value = KeyDesk[0];break;
 	            default:   break;     
 	        }
 		while((PORT&0x000F)!=0x000F);			//松手检测		
@@ -113,13 +94,8 @@ void SendKeyMsg(void)
     switch(key_value)
     {
         case '*':break;
-        case 'M':GUI_SendKeyMsg(GUI_KEY_INSERT,1);break;
-        case 'D':GUI_SendKeyMsg(GUI_KEY_RIGHT,1);break;
-        case 'E':GUI_SendKeyMsg(GUI_KEY_TAB ,1);break;
-        
-        case 'C':GUI_SendKeyMsg(GUI_KEY_BACKSPACE,1);break;
+        case 'T':GUI_SendKeyMsg(GUI_KEY_TAB ,1);break;
         case 'Y':GUI_SendKeyMsg(GUI_KEY_ENTER,1);break;
-        default:GUI_SendKeyMsg(key_value,1);break;
     }
 }
 

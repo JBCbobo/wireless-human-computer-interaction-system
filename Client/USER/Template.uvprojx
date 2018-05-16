@@ -464,11 +464,6 @@
               <FilePath>.\Welcome_page.c</FilePath>
             </File>
             <File>
-              <FileName>Wait_page.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Wait_page.c</FilePath>
-            </File>
-            <File>
               <FileName>wifi.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\EMWIN\wifi.c</FilePath>

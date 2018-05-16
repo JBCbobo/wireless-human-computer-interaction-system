@@ -4,6 +4,7 @@
 #include "stdio.h"
 
 void Welcome_page(void);
+u8 wifi_flag;
 
 /*********************************************************************
 *
@@ -67,14 +68,26 @@ static void _cbBk(WM_MESSAGE * pMsg)
 	{
 		/* 桌面窗口的重绘 */
 		case WM_PAINT:
+			GUI_SetFont(GUI_FONT_24_ASCII);
+			GUI_SetColor(GUI_BLACK);
+			GUI_SetTextMode(GUI_TM_TRANS);
 			GUI_DrawGradientV(0, 0, LCD_GetXSize()-1, LCD_GetYSize() - 1, GUI_WHITE, GUI_GRAY);
-
-		    for (i = 0, xPos = LCD_GetXSize() / 2 - 2 * Step; i < 5; i++, xPos += Step) 
-			{
-				pBm = (idx == i) ? &_bmWhiteCircle_10x10 : &_bmWhiteCircle_6x6;
-				GUI_DrawBitmap(pBm, xPos - pBm->XSize / 2, 160-pBm->YSize/2);
+		
+			if(!wifi_flag)
+			{	
+				for (i = 0, xPos = LCD_GetXSize() / 2 - 2 * Step; i < 5; i++, xPos += Step) 
+				{
+					pBm = (idx == i) ? &_bmWhiteCircle_10x10 : &_bmWhiteCircle_6x6;
+					GUI_DrawBitmap(pBm, xPos - pBm->XSize / 2, 160-pBm->YSize/2);
+				}
+				GUI_DispStringHCenterAt("Welcome",160,60);
 			}
-			
+			else
+			{
+				GUI_DispStringHCenterAt("NRF24L01 error!",160,60);
+				GUI_SetFont(GUI_FONT_16_ASCII);
+				GUI_DispStringHCenterAt("NRF24L01 error!\n Please Check NRF24L01\n then restart the mechine!",160,90);
+			}
 		break;
 			
 	}
@@ -83,18 +96,23 @@ static void _cbBk(WM_MESSAGE * pMsg)
 void Welcome_page(void)
 {
 	
-	uint8_t loop = 255 ;
+	uint8_t loop = 50 ;
 	GUI_RECT Rect = {50, 155, 200, 165};
 
 	/* 设置桌面窗口的回调函数 */
 	WM_SetCallback(WM_HBKWIN, _cbBk);
 
 	/* 设置启动界面的动态显示 */
-	while (NRF24L01_Check()&&loop--)
+	while ((NRF24L01_Check()&&loop))
 	{
-		idx = (255- loop) % 5;
+		
+		idx = (50 - loop--) % 5;
 		/* 让指定区域无效从而触发回调函数的WM_PAINT重绘消息 */
 		WM_InvalidateArea(&Rect);
 		GUI_Delay(200);
 	}
+	if(!loop) wifi_flag = 1; //失败
+	WM_InvalidateWindow(WM_HBKWIN);
+	GUI_Delay(200);
+	while(wifi_flag);
 }
