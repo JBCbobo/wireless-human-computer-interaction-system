@@ -365,7 +365,7 @@
               <MiscControls>--multibyte_chars --locale=english</MiscControls>
               <Define>STM32F10X_HD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\FWLIB\STM32F10x_FWLib\inc;..\HARDWARE\LCD;..\HARDWARE\IIC;..\HARDWARE\24CXX;..\HARDWARE\SPI;..\HARDWARE\FLASH;..\HARDWARE\TOUCH;..\HARDWARE\SRAM;..\HARDWARE\TIMER;..\MALLOC;..\USMART;..\EMWIN\STemWin\Config;..\EMWIN\STemWin\inc;..\EMWIN\Demo;..\HARDWARE\MKEY;..\HARDWARE\LED;..\HARDWARE\NRF24L01;..\EMWIN\STemWinHZ;..\TEXT;..\FATFS\src;..\HARDWARE\SD;..\FATFS\exfuns</IncludePath>
+              <IncludePath>..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\USER;..\STM32F10x_FWLib\inc;..\CORE;..\FWLIB\STM32F10x_FWLib\inc;..\HARDWARE\LCD;..\HARDWARE\IIC;..\HARDWARE\24CXX;..\HARDWARE\SPI;..\HARDWARE\FLASH;..\HARDWARE\TOUCH;..\HARDWARE\SRAM;..\HARDWARE\TIMER;..\MALLOC;..\USMART;..\EMWIN\STemWin\Config;..\EMWIN\STemWin\inc;..\EMWIN\Demo;..\HARDWARE\MKEY;..\HARDWARE\LED;..\HARDWARE\NRF24L01;..\EMWIN\STemWinHZ;..\TEXT;..\FATFS\src;..\HARDWARE\SD;..\FATFS\exfuns;..\HARDWARE\EXTI;..\HARDWARE\WKUP;..\HARDWARE\IWDG;..\HARDWARE\WWDG</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -419,21 +419,6 @@
               <FilePath>.\system_stm32f10x.c</FilePath>
             </File>
             <File>
-              <FileName>wireless.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\wireless.c</FilePath>
-            </File>
-            <File>
-              <FileName>appstore.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\appstore.c</FilePath>
-            </File>
-            <File>
-              <FileName>set.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\set.c</FilePath>
-            </File>
-            <File>
               <FileName>FramewinDLG.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\FramewinDLG.c</FilePath>
@@ -444,59 +429,9 @@
               <FilePath>.\main.c</FilePath>
             </File>
             <File>
-              <FileName>notebook.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\notebook.c</FilePath>
-            </File>
-            <File>
-              <FileName>ebook.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\ebook.c</FilePath>
-            </File>
-            <File>
-              <FileName>paint.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\paint.c</FilePath>
-            </File>
-            <File>
               <FileName>Welcome_page.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Welcome_page.c</FilePath>
-            </File>
-            <File>
-              <FileName>wifi.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\wifi.c</FilePath>
-            </File>
-            <File>
-              <FileName>colthes.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\colthes.c</FilePath>
-            </File>
-            <File>
-              <FileName>battry.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\battry.c</FilePath>
-            </File>
-            <File>
-              <FileName>return.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\return.c</FilePath>
-            </File>
-            <File>
-              <FileName>settings.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\settings.c</FilePath>
-            </File>
-            <File>
-              <FileName>yes.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\yes.c</FilePath>
-            </File>
-            <File>
-              <FileName>del.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\EMWIN\del.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -543,40 +478,100 @@
               <FileType>1</FileType>
               <FilePath>..\HARDWARE\IIC\myiic.c</FilePath>
             </File>
+            <File>
+              <FileName>exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\EXTI\exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>wkup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\WKUP\wkup.c</FilePath>
+            </File>
+            <File>
+              <FileName>iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\IWDG\iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>wwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\HARDWARE\WWDG\wwdg.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>SYSTEM</GroupName>
+          <GroupName>IMAGE</GroupName>
           <Files>
             <File>
-              <FileName>delay.c</FileName>
+              <FileName>Check.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SYSTEM\delay\delay.c</FilePath>
+              <FilePath>..\IMAGE\Check.c</FilePath>
             </File>
             <File>
-              <FileName>sys.c</FileName>
+              <FileName>input.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SYSTEM\sys\sys.c</FilePath>
+              <FilePath>..\IMAGE\input.c</FilePath>
             </File>
             <File>
-              <FileName>usart.c</FileName>
+              <FileName>singlemotion.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\SYSTEM\usart\usart.c</FilePath>
+              <FilePath>..\IMAGE\singlemotion.c</FilePath>
+            </File>
+            <File>
+              <FileName>ringmold.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\IMAGE\ringmold.c</FilePath>
+            </File>
+            <File>
+              <FileName>setup.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\IMAGE\setup.c</FilePath>
+            </File>
+            <File>
+              <FileName>wireless.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\IMAGE\wireless.c</FilePath>
+            </File>
+            <File>
+              <FileName>battry.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\IMAGE\battry.c</FilePath>
+            </File>
+            <File>
+              <FileName>colthes.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\IMAGE\colthes.c</FilePath>
+            </File>
+            <File>
+              <FileName>return.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\IMAGE\return.c</FilePath>
+            </File>
+            <File>
+              <FileName>wifi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\IMAGE\wifi.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>CORE</GroupName>
+          <GroupName>Fonts</GroupName>
           <Files>
             <File>
-              <FileName>core_cm3.c</FileName>
+              <FileName>font12.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\CORE\core_cm3.c</FilePath>
+              <FilePath>..\TEXT\font12.c</FilePath>
             </File>
             <File>
-              <FileName>startup_stm32f10x_hd.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\CORE\startup_stm32f10x_hd.s</FilePath>
+              <FileName>font16.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TEXT\font16.c</FilePath>
+            </File>
+            <File>
+              <FileName>font14.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\TEXT\font14.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -643,6 +638,56 @@
               <FileType>1</FileType>
               <FilePath>..\FWLIB\STM32F10x_FWLib\src\stm32f10x_bkp.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWLIB\STM32F10x_FWLib\src\stm32f10x_exti.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_iwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWLIB\STM32F10x_FWLib\src\stm32f10x_iwdg.c</FilePath>
+            </File>
+            <File>
+              <FileName>stm32f10x_wwdg.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\FWLIB\STM32F10x_FWLib\src\stm32f10x_wwdg.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>SYSTEM</GroupName>
+          <Files>
+            <File>
+              <FileName>delay.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SYSTEM\delay\delay.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SYSTEM\sys\sys.c</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\SYSTEM\usart\usart.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>CORE</GroupName>
+          <Files>
+            <File>
+              <FileName>core_cm3.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\CORE\core_cm3.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_stm32f10x_hd.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\CORE\startup_stm32f10x_hd.s</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -682,26 +727,6 @@
               <FileName>STemWin526_CM3_Keil.lib</FileName>
               <FileType>4</FileType>
               <FilePath>..\EMWIN\STemWin\Lib\STemWin526_CM3_Keil.lib</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
-          <GroupName>Fonts</GroupName>
-          <Files>
-            <File>
-              <FileName>font12.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\TEXT\font12.c</FilePath>
-            </File>
-            <File>
-              <FileName>font16.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\TEXT\font16.c</FilePath>
-            </File>
-            <File>
-              <FileName>font14.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\TEXT\font14.c</FilePath>
             </File>
           </Files>
         </Group>

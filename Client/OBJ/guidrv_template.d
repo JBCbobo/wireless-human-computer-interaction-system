@@ -23,12 +23,17 @@
 ..\obj\guidrv_template.o: ..\USER\stm32f10x_conf.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\guidrv_template.o: ..\USER\stm32f10x.h
+..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
+..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
+..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_flash.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_iwdg.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\guidrv_template.o: ..\FWLIB\STM32F10x_FWLib\inc\misc.h
 ..\obj\guidrv_template.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h

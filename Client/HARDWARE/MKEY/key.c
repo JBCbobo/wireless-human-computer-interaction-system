@@ -2,9 +2,12 @@
 #include "stdlib.h"
 #include "GUI.h"
 #include "WM.h"
+#include "ILI93xx.h"
+#include "24l01.h"
 #include "delay.h"
 #include "sys.h" 
 
+extern u8 buf[32];
 
 uint8_t KeyDesk[] = 
 {	
@@ -86,16 +89,38 @@ uint8_t scan_MatrixKey(void)
 	return MatrixKey_value;
 }
 
-
 void SendKeyMsg(void)
 {
     char key_value;
+	static u8 display_flag = 0;
     key_value = scan_MatrixKey();
     switch(key_value)
     {
         case '*':break;
-        case 'T':GUI_SendKeyMsg(GUI_KEY_TAB ,1);break;
-        case 'Y':GUI_SendKeyMsg(GUI_KEY_ENTER,1);break;
+        case 'T':
+			GUI_SendKeyMsg(GUI_KEY_HOME,1);
+		break;
+        case 'Y':
+			if(display_flag == 1)
+			{
+				LCD_DisplayOn();													//开显示
+				LCD_LED = 1;
+				display_flag = 0;
+			}
+			else
+			{
+				LCD_DisplayOff();													//关显示
+				LCD_LED = 0;
+				display_flag = 1;
+			}
+		break;
+        case 'E':
+		break;
+		case 'H':
+			buf[0] = 6;
+			NRF24L01_TX_Mode();
+			NRF24L01_TxPacket(buf);
+		break;
     }
 }
 

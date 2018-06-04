@@ -1,0 +1,9 @@
+..\obj\ringmold.o: ..\IMAGE\ringmold.c
+..\obj\ringmold.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
+..\obj\ringmold.o: ..\EMWIN\STemWin\inc\GUI.h
+..\obj\ringmold.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
+..\obj\ringmold.o: ..\EMWIN\STemWin\Config\GUIConf.h
+..\obj\ringmold.o: ..\EMWIN\STemWin\inc\GUI_Type.h
+..\obj\ringmold.o: ..\EMWIN\STemWin\inc\LCD.h
+..\obj\ringmold.o: ..\EMWIN\STemWin\inc\Global.h
+..\obj\ringmold.o: ..\EMWIN\STemWin\inc\GUI_Version.h

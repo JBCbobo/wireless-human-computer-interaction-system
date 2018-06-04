@@ -17,12 +17,17 @@
 ..\obj\welcome_page.o: ..\USER\stm32f10x_conf.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\welcome_page.o: ..\USER\stm32f10x.h
+..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
+..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
+..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_flash.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_iwdg.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\welcome_page.o: ..\FWLIB\STM32F10x_FWLib\inc\misc.h
 ..\obj\welcome_page.o: E:\Keil_v5\ARM\ARMCC\include\stdio.h

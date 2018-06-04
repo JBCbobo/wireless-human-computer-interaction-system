@@ -239,7 +239,6 @@ u8 TP_Get_Adjdata(void)
 {					  
 	u8 temp;
 	temp=AT24CXX_ReadOneByte(SAVE_ADDR_BASE+13);//读取标记字,看是否校准过！ 
-	printf("%u\n",temp);
 	if(temp==0X0A)//触摸屏已经校准过了			   
 	{    												 
 		*((u32*)&tp_dev.xfac)=AT24CXX_ReadLenByte(SAVE_ADDR_BASE,4);	//得到x校准参数(将tp_dev.xfac的地址强制转换为u32类型,再赋值)   

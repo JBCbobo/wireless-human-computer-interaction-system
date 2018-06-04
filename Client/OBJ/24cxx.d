@@ -9,12 +9,17 @@
 ..\obj\24cxx.o: ..\USER\stm32f10x_conf.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\24cxx.o: ..\USER\stm32f10x.h
+..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
+..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
+..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_flash.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_iwdg.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\24cxx.o: ..\FWLIB\STM32F10x_FWLib\inc\misc.h
 ..\obj\24cxx.o: ..\SYSTEM\delay\delay.h

@@ -1,4 +1,4 @@
-..\obj\wifi.o: ..\EMWIN\wifi.c
+..\obj\wifi.o: ..\IMAGE\wifi.c
 ..\obj\wifi.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
 ..\obj\wifi.o: ..\EMWIN\STemWin\inc\GUI.h
 ..\obj\wifi.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h

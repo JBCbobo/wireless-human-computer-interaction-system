@@ -1,4 +1,4 @@
-..\obj\wireless.o: ..\EMWIN\wireless.c
+..\obj\wireless.o: ..\IMAGE\wireless.c
 ..\obj\wireless.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
 ..\obj\wireless.o: ..\EMWIN\STemWin\inc\GUI.h
 ..\obj\wireless.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h

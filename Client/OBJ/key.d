@@ -8,13 +8,18 @@
 ..\obj\key.o: ..\USER\stm32f10x_conf.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\key.o: ..\USER\stm32f10x.h
+..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
+..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
+..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_flash.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_iwdg.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\key.o: ..\FWLIB\STM32F10x_FWLib\inc\misc.h
 ..\obj\key.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
 ..\obj\key.o: ..\EMWIN\STemWin\inc\GUI.h
@@ -26,4 +31,6 @@
 ..\obj\key.o: ..\EMWIN\STemWin\inc\GUI_Version.h
 ..\obj\key.o: ..\EMWIN\STemWin\inc\WM.h
 ..\obj\key.o: ..\EMWIN\STemWin\inc\WM_GUI.h
+..\obj\key.o: ..\HARDWARE\LCD\ILI93xx.h
+..\obj\key.o: ..\HARDWARE\NRF24L01\24l01.h
 ..\obj\key.o: ..\SYSTEM\delay\delay.h

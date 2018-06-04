@@ -23,24 +23,26 @@
 #include "stdio.h"
 #include "stdlib.h" 
 #include "led.h"
+#include "string.h"
 #include "24L01.h"
 #include "touch.h"
 #include "FramewinDLG.h"
 
 extern GUI_CONST_STORAGE GUI_BITMAP bmwireless;
-extern GUI_CONST_STORAGE GUI_BITMAP bmappstore;
-extern GUI_CONST_STORAGE GUI_BITMAP bmset;
-extern GUI_CONST_STORAGE GUI_BITMAP bmnotebook;
-extern GUI_CONST_STORAGE GUI_BITMAP bmebook;
-extern GUI_CONST_STORAGE GUI_BITMAP bmsettings;
-extern GUI_CONST_STORAGE GUI_BITMAP bmwifi;
+extern GUI_CONST_STORAGE GUI_BITMAP bmsinglemotion;
+extern GUI_CONST_STORAGE GUI_BITMAP bminput;
+extern GUI_CONST_STORAGE GUI_BITMAP bmCheck;
+extern GUI_CONST_STORAGE GUI_BITMAP bmringmold;
+
+extern GUI_CONST_STORAGE GUI_BITMAP bmsetup;
+
 extern GUI_CONST_STORAGE GUI_BITMAP bmcolthes;
 extern GUI_CONST_STORAGE GUI_BITMAP bmbattry;
-extern GUI_CONST_STORAGE GUI_BITMAP bmTopLine;
 extern GUI_CONST_STORAGE GUI_BITMAP bmreturn;
-extern GUI_CONST_STORAGE GUI_BITMAP bmsettings;
+extern GUI_CONST_STORAGE GUI_BITMAP bmwifi;
 extern GUI_CONST_STORAGE GUI_BITMAP bmyes;
 extern GUI_CONST_STORAGE GUI_BITMAP bmdel;
+
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont12;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont14;
 extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont16;
@@ -49,31 +51,27 @@ extern GUI_CONST_STORAGE GUI_FONT GUI_Fontfont24;
 
 
 #define MAIN_BKCOLOR              0xD0D0D0
-#define MAIN_TEXTCOLOR            0x000000
+#define MAIN_TEXTCOLOR            GUI_DARKGRAY
 #define MAIN_FONT                 (&GUI_Fontfont16)
 
-#define FRAME_BKCOLOR             0xB0B0B0
-#define FRAME_TEXTCOLOR           0x000000
 #define FRAME_FONT                (&GUI_Fontfont12)
-#define FRAME_EFFECT              (&WIDGET_Effect_3D2L)
+#define FRAME_EFFECT              (&WIDGET_Effect_None)
 #define FRAME_BORDER              FRAME_EFFECT->EffectSize
 #define FRAME_WIDTH               (LCD_GetXSize() - (FRAME_BORDER * 2))
 #define FRAME_HEIGHT              (LCD_GetYSize() - (FRAME_BORDER * 2))
 
 
-#define FRAME_BUTTON_BKCOLOR0     0xB8B8B8              /* Unpressed */
-#define FRAME_BUTTON_BKCOLOR1     0xE0E0E0              /* Pressed   */
-#define FRAME_BUTTON_BKCOLOR2     0xC0C0C0              /* Disabled  */
-#define FRAME_BUTTON_COLOR0       0x000000              /* Unpressed */
-#define FRAME_BUTTON_COLOR1       0x000000              /* Pressed   */
-#define FRAME_BUTTON_FONT         (&GUI_Fontfont12)
-#define FRAME_BUTTON_EFFECT       (&WIDGET_Effect_3D2L)
-#define DEFAULT_WIDGET_EFFECT     (&WIDGET_Effect_3D2L)
+#define DEFAULT_WIDGET_EFFECT     (&WIDGET_Effect_None)
 
 #define MSG_SEND_DATA (WM_USER + 5)
 #define GUI_ID_BUTTON_YES (GUI_ID_USER + 0x00)
 #define GUI_ID_BUTTON_DEL (GUI_ID_USER + 0X01)
 #define GUI_ID_BUTTON_RETURN (GUI_ID_USER + 0X02)
+
+
+#define MAX_HOLE 50 //最大孔数
+#define MAX_REAMING 20 //最大扩孔深度
+#define MAX_DRILLING 20//最大钻孔深度
 
 
 static void _cbSelect(WM_MESSAGE* pMsg) ;
@@ -83,6 +81,7 @@ static void _cbSingledrill(WM_MESSAGE* pMsg) ;
 static void _cbrundrill(WM_MESSAGE* pMsg) ;
 static void _cbringmold(WM_MESSAGE* pMsg) ;
 static void _cbSetup(WM_MESSAGE* pMsg) ;
+static void _cbkeypad(WM_MESSAGE* pMsg) ;
 void Welcome_page(void);
 void Wait_page(void);
 
@@ -90,8 +89,17 @@ static WM_HWIN    _hCurrentFrame;
 static WM_HWIN    _hKeypadFrame;
 
 u8 buf[32];
-
-
+int PROGBAR_Value = 1;
+int edit_id = 0;
+int parameter_flag = 0;
+u8 flex_index = 0 ; 
+u8 PROGBAR_Max  = 0;
+extern volatile u8 RT_flag;
+BUTTON_SKINFLEX_PROPS BUTTON_FLAT_FLEX;
+DROPDOWN_SKINFLEX_PROPS DROPDOWN_FLAT_FLEX;
+PROGBAR_SKINFLEX_PROPS PROGBAR_FLAT_FLEX;
+RADIO_SKINFLEX_PROPS RADIO_FLAT_FLEX;
+U32 FRAME_TEXTCOLOR = GUI_BLACK;
 
 /* ICONVIEW控件图标使用 */
 
@@ -117,12 +125,12 @@ char OddEven_Item[][10]={
 };
 
 static const BITMAP_ITEM _aBitmapItem[] = {
-    {&bmset,        "输入参数"       },
-    {&bmappstore,   "电机操作"     },
-    {&bmwireless,   "无线测试"        },
-	{&bmnotebook,   "检测"        },
-    {&bmebook,      "环模操作"        },
-    {&bmsettings,      "设置"          }
+    {&bminput,          "输入参数"       },
+    {&bmsinglemotion,   "电机操作"     },
+    {&bmwireless,       "无线测试"        },
+	{&bmCheck   ,   "检测"        },
+    {&bmringmold,      "环模操作"        },
+    {&bmsetup,  	 "设置"          }
 };
 /* 图标对应的应用程序 */
 static void (* _apModules[6])(WM_MESSAGE* pMsg) = 
@@ -216,7 +224,7 @@ static void Set_widget_value(GUI_HWIN hWin,int id,u8 value)
 
 static u8 Get_widget_value(GUI_HWIN hWin,int id)
 {
-    char tmp[10];
+    char tmp[4];
     WM_HWIN hItem;
     WM_CALLBACK *pCb;
     hItem = WM_GetDialogItem(hWin, id);
@@ -231,8 +239,8 @@ static u8 Get_widget_value(GUI_HWIN hWin,int id)
     }
     else if(pCb == EDIT_Callback)
     {
-        EDIT_GetText(hItem,tmp,10);
-        return (u8)atoi(tmp);
+        EDIT_GetText(hItem,tmp,4);
+		return (u8)atoi(tmp);
     }
 
 }
@@ -251,9 +259,14 @@ void Get_Drill_Data(GUI_HWIN hWin)
 {
     buf[4] = Get_widget_value(hWin,GUI_ID_EDIT0);
     buf[5] = Get_widget_value(hWin,GUI_ID_RADIO0);
+	buf[6] = 0;
+	buf[7] = 0;
+	buf[8] = 0;
     if(buf[1]==1)
     {
         buf[6] = Get_widget_value(hWin,GUI_ID_EDIT1);  
+		buf[7] = 0;
+		buf[8] = 0;
     }
     else if(buf[1]==2)
     {
@@ -293,7 +306,129 @@ void Set_Data(GUI_HWIN hWin)
 	Set_widget_value(hWin,GUI_ID_EDIT1,buf[10]);//钻孔速度
 	
 }
+static void Input_Check(GUI_HWIN hWin,int id)
+{
+	WM_HWIN hItem;
+	char tmp[4];
+	hItem = WM_GetDialogItem(hWin, id);
+	edit_id = id;
+	EDIT_GetText(hItem,tmp,4);
+	if(!strcmp(tmp,"err"))
+	{
+		EDIT_SetText(hItem,"");
+	}
+	_hKeypadFrame = WM_CreateWindowAsChild((FRAME_WIDTH>>1)-125, 170, 40*6, 30*2+10, hWin, WM_CF_SHOW, _cbkeypad, 0);
+	WM_MakeModal(_hKeypadFrame);
+}
+static void Parameter_Check(GUI_HWIN hWin,int id)
+{
+	WM_HWIN hItem;
+	Get_Drill_Data(hWin);
+	hItem = WM_GetDialogItem(hWin, id);
+	parameter_flag = 0;
+	switch(buf[1])
+	{
+		//钻孔
+		case 2:
+			if(buf[7]<=0||buf[7]>MAX_DRILLING)
+			{
+				EDIT_SetText(hItem,"err");
+				parameter_flag = 1;
+			}
+		//扩孔
+		case 1:
+			if(buf[6]<=0||buf[6]>MAX_REAMING)
+			{
+				EDIT_SetText(hItem,"err");
+				parameter_flag = 1;
+			}
+		//定位
+		case 0:    
+			if(buf[4]<=0||buf[4]>MAX_HOLE)
+			{
+				EDIT_SetText(hItem,"err");
+				parameter_flag = 1;
+			}
+			break;
+	}
+	
+}
 
+static void Button_Set_flat(U32 color1, U32 color2)
+{
+	BUTTON_GetSkinFlexProps(&BUTTON_FLAT_FLEX,BUTTON_SKINFLEX_PI_ENABLED);
+	BUTTON_FLAT_FLEX.aColorFrame[0]	= color1;
+	BUTTON_FLAT_FLEX.aColorFrame[1]	= color1;
+	BUTTON_FLAT_FLEX.aColorFrame[2]	= color1;
+	BUTTON_FLAT_FLEX.aColorLower[0]	= color1;
+	BUTTON_FLAT_FLEX.aColorLower[1]	= color1;
+	BUTTON_FLAT_FLEX.aColorUpper[0]	= color1;
+	BUTTON_FLAT_FLEX.aColorUpper[1]	= color1;
+	BUTTON_SetSkinFlexProps(&BUTTON_FLAT_FLEX,BUTTON_SKINFLEX_PI_ENABLED);
+	BUTTON_SetSkinFlexProps(&BUTTON_FLAT_FLEX,BUTTON_SKINFLEX_PI_FOCUSSED);
+	BUTTON_FLAT_FLEX.aColorFrame[0]	= color2;
+	BUTTON_FLAT_FLEX.aColorFrame[1]	= color2;
+	BUTTON_FLAT_FLEX.aColorFrame[2]	= color2;
+	BUTTON_FLAT_FLEX.aColorLower[0]	= color2;
+	BUTTON_FLAT_FLEX.aColorLower[1]	= color2;
+	BUTTON_FLAT_FLEX.aColorUpper[0]	= color2;
+	BUTTON_FLAT_FLEX.aColorUpper[1]	= color2;
+	BUTTON_SetSkinFlexProps(&BUTTON_FLAT_FLEX,BUTTON_SKINFLEX_PI_PRESSED);
+}
+
+static void Dropdwon_Set_flat(U32 color1, U32 color2)
+{
+	DROPDOWN_GetSkinFlexProps(&DROPDOWN_FLAT_FLEX,DROPDOWN_SKINFLEX_PI_ENABLED);
+	DROPDOWN_FLAT_FLEX.aColorFrame[0]	= color1;
+	DROPDOWN_FLAT_FLEX.aColorFrame[1]	= color1;
+	DROPDOWN_FLAT_FLEX.aColorFrame[2]	= color1;
+	DROPDOWN_FLAT_FLEX.aColorLower[0]	= color1;
+	DROPDOWN_FLAT_FLEX.aColorLower[1]	= color1;
+	DROPDOWN_FLAT_FLEX.aColorUpper[0]	= color1;
+	DROPDOWN_FLAT_FLEX.aColorUpper[1]	= color1;
+	DROPDOWN_SetSkinFlexProps(&DROPDOWN_FLAT_FLEX,DROPDOWN_SKINFLEX_PI_ENABLED);
+	DROPDOWN_SetSkinFlexProps(&DROPDOWN_FLAT_FLEX,DROPDOWN_SKINFLEX_PI_FOCUSSED);
+	DROPDOWN_FLAT_FLEX.aColorFrame[0]	= color2;
+	DROPDOWN_FLAT_FLEX.aColorFrame[1]	= color2;
+	DROPDOWN_FLAT_FLEX.aColorFrame[2]	= color2;
+	DROPDOWN_FLAT_FLEX.aColorLower[0]	= color2;
+	DROPDOWN_FLAT_FLEX.aColorLower[1]	= color2;
+	DROPDOWN_FLAT_FLEX.aColorUpper[0]	= color2;
+	DROPDOWN_FLAT_FLEX.aColorUpper[1]	= color2;
+	DROPDOWN_SetSkinFlexProps(&DROPDOWN_FLAT_FLEX,DROPDOWN_SKINFLEX_PI_EXPANDED);
+}
+
+
+static void Progbar_Set_flat(U32 color1, U32 color2)
+{
+	PROGBAR_GetSkinFlexProps(&PROGBAR_FLAT_FLEX,0);
+	PROGBAR_FLAT_FLEX.aColorLowerL[0]	= color1;
+	PROGBAR_FLAT_FLEX.aColorLowerL[1]	= color1;
+	PROGBAR_FLAT_FLEX.aColorUpperL[0]	= color1;
+	PROGBAR_FLAT_FLEX.aColorUpperL[1]	= color1;
+	PROGBAR_FLAT_FLEX.aColorLowerR[0]	= color2;
+	PROGBAR_FLAT_FLEX.aColorLowerR[1]	= color2;
+	PROGBAR_FLAT_FLEX.aColorUpperR[0]	= color2;
+	PROGBAR_FLAT_FLEX.aColorUpperR[1]	= color2;
+	PROGBAR_SetSkinFlexProps(&PROGBAR_FLAT_FLEX,0);
+}
+
+static void Radio_Set_flat(U32 color1, U32 color2, U32 color3)
+{
+	RADIO_GetSkinFlexProps(&RADIO_FLAT_FLEX,RADIO_SKINFLEX_PI_PRESSED);
+	RADIO_FLAT_FLEX.aColorButton[0]	= color1;
+	RADIO_FLAT_FLEX.aColorButton[1]	= color1;
+	RADIO_FLAT_FLEX.aColorButton[2]	= color1;
+	RADIO_FLAT_FLEX.aColorButton[3]	= color2;
+	RADIO_FLAT_FLEX.ButtonSize = 12;
+	RADIO_SetSkinFlexProps(&RADIO_FLAT_FLEX,RADIO_SKINFLEX_PI_PRESSED);
+	RADIO_FLAT_FLEX.aColorButton[0]	= color1;
+	RADIO_FLAT_FLEX.aColorButton[1]	= color1;
+	RADIO_FLAT_FLEX.aColorButton[2]	= color1;
+	RADIO_FLAT_FLEX.aColorButton[3]	= color3;
+	RADIO_FLAT_FLEX.ButtonSize = 12;
+	RADIO_SetSkinFlexProps(&RADIO_FLAT_FLEX,RADIO_SKINFLEX_PI_UNPRESSED);
+}
 
 /*
 *********************************************************************************************************
@@ -460,19 +595,12 @@ static WM_HWIN _CreateButton(int x, int y, int w, int h, WM_HWIN hParent, int Id
 	WM_HWIN hButton;
 	hButton = BUTTON_CreateEx(x, y, w, h, hParent, WM_CF_SHOW, 0, Id);
 
-
-	BUTTON_SetFont      (hButton,    FRAME_BUTTON_FONT);
+	BUTTON_SetFont      (hButton,    &GUI_Fontfont12);
 	BUTTON_SetText(hButton,pText);
-	BUTTON_SetBkColor   (hButton, 0, FRAME_BUTTON_BKCOLOR0);
-	BUTTON_SetBkColor   (hButton, 1, FRAME_BUTTON_BKCOLOR1);
-	BUTTON_SetBkColor   (hButton, 2, FRAME_BUTTON_BKCOLOR2);
-	BUTTON_SetTextColor (hButton, 0, FRAME_BUTTON_COLOR0);
-	BUTTON_SetTextColor (hButton, 1, FRAME_BUTTON_COLOR1);
-	BUTTON_SetTextColor (hButton, 2, FRAME_BUTTON_COLOR0);
-	WIDGET_SetEffect    (hButton,    FRAME_BUTTON_EFFECT);
+	BUTTON_SetTextColor(hButton,0,FRAME_TEXTCOLOR);
 	
 	/* 设置接收输入焦点的能力 */
-	BUTTON_SetFocussable(hButton,    1);
+	BUTTON_SetFocussable(hButton,    0);
 	return hButton;
 }
 
@@ -495,11 +623,12 @@ static WM_HWIN _CreateIcon( int x, int y, int w, int h,WM_HWIN hParent,int Id)
     int i;
     WM_HWIN hIcon;
 	/* 创建ICON控件 */
-	hIcon = ICONVIEW_CreateEx(x, y, w, h, hParent, WM_CF_SHOW | WM_CF_HASTRANS, ICONVIEW_CF_AUTOSCROLLBAR_V ,
-							  Id, 65, 65);
+	hIcon = ICONVIEW_CreateEx(x, y, w, h, hParent, WM_CF_SHOW | WM_CF_HASTRANS,ICONVIEW_CF_AUTOSCROLLBAR_V ,
+							  Id, 65, 80);
 	ICONVIEW_SetFont(hIcon, &GUI_Fontfont12);
-	ICONVIEW_SetBkColor(hIcon, ICONVIEW_CI_SEL, 0x941000 | 0x80404040);
-	ICONVIEW_SetSpace(hIcon, GUI_COORD_Y, 30);
+	ICONVIEW_SetBkColor(hIcon, ICONVIEW_CI_SEL, 0x941000 | 0xA0404040);
+	ICONVIEW_SetIconAlign(hIcon,ICONVIEW_IA_TOP);
+	ICONVIEW_SetSpace(hIcon, GUI_COORD_Y, 20);
 	ICONVIEW_SetSpace(hIcon, GUI_COORD_X, 30);
 	for (i = 0; i < GUI_COUNTOF(_aBitmapItem); i++)
 	{
@@ -529,6 +658,7 @@ static void _CreateText( int x, int y, int w, int h,WM_HWIN hParent,int Text_Id,
     WM_HWIN hText;
     hText = TEXT_CreateEx(x, y, w, h, hParent, WM_CF_SHOW, 0, Text_Id, pText);
     TEXT_SetFont(hText,FRAME_FONT);
+	TEXT_SetTextColor(hText,FRAME_TEXTCOLOR);
 } 
 /*
 *********************************************************************************************************
@@ -580,6 +710,7 @@ static WM_HWIN _Createradio( int x, int y, int w, int h,WM_HWIN hParent,int Id, 
     int i=0;
     hRadio = RADIO_CreateEx(x,y,w,h,hParent,WM_CF_SHOW,0,Id,num,30);
     RADIO_SetFont(hRadio,FRAME_FONT);
+	RADIO_SetTextColor(hRadio,FRAME_TEXTCOLOR);
     for(i=0;i<num;i++)
     {
         RADIO_SetText(hRadio,*(pText+i),i);
@@ -607,8 +738,6 @@ static void _cbBkWindow(WM_MESSAGE* pMsg)
 			WM_DefaultProc(pMsg);
 	}
 }
-
-
 /*
 *********************************************************************************************************
 *	函 数 名: _Paintkeypad
@@ -622,7 +751,6 @@ static void _Paintkeypad(void)
 	GUI_SetBkColor(GUI_LIGHTGRAY);
 	GUI_Clear();
 }
-
 /*
 *********************************************************************************************************
 *	函 数 名: _PaintFrame
@@ -634,113 +762,48 @@ static void _Paintkeypad(void)
 static void _PaintFrame(void) 
 {
 
-	GUI_DrawGradientH(0, 0, LCD_GetXSize()-1, LCD_GetYSize(), 0xdda0dd, 0xe14169);
+	switch(flex_index)
+	{
+		case 0: 
+			GUI_DrawGradientH(0, 0, LCD_GetXSize()-1, LCD_GetYSize(), 0xbebab7, 0x635548);
+			Button_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+			Dropdwon_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+			Progbar_Set_flat(GUI_GREEN,GUI_LIGHTGRAY);
+			Radio_Set_flat(GUI_LIGHTGRAY,GUI_BLACK,GUI_WHITE);
+		break;
+		case 1:
+			GUI_DrawGradientH(0, 0, LCD_GetXSize()-1, LCD_GetYSize(), 0xf7b691, 0xf79191);
+			Button_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+			Dropdwon_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+			Progbar_Set_flat(GUI_GREEN,GUI_LIGHTGRAY);
+			Radio_Set_flat(GUI_LIGHTGRAY,GUI_BLACK,GUI_WHITE);
+			break;
+		case 2:
+			GUI_DrawGradientH(0, 0, LCD_GetXSize()-1, LCD_GetYSize(), 0xdda0dd, 0xe14159);
+			Button_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+			Dropdwon_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+			Progbar_Set_flat(GUI_GREEN,GUI_LIGHTGRAY);
+			Radio_Set_flat(GUI_LIGHTGRAY,GUI_BLACK,GUI_WHITE);
+			break;
+		default:
+			GUI_DrawGradientH(0, 0, LCD_GetXSize()-1, LCD_GetYSize(), 0xbebab7, 0x635548);
+			Button_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+			Dropdwon_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+			Progbar_Set_flat(GUI_GREEN,GUI_LIGHTGRAY);
+			Radio_Set_flat(GUI_LIGHTGRAY,GUI_BLACK,GUI_WHITE);
+		break;			
+	}
 	GUI_SetColor(GUI_LIGHTGRAY);
-	GUI_FillRoundedRect(0,0,315,30,5);
+	GUI_FillRoundedRect(0,0,320,30,5);
 	
 	GUI_SetColor(MAIN_TEXTCOLOR);
 	GUI_SetFont(MAIN_FONT);
 	GUI_SetTextMode(GUI_TM_TRANS);
 	GUI_DispStringAt("手持钻床控制器",0, 7);
-	GUI_DrawBitmap(&bmwifi, 250, 7);
-	GUI_DrawBitmap(&bmcolthes, 270, 7);
+	GUI_DrawBitmap(&bmwifi, 270, 7);
 	GUI_DrawBitmap(&bmbattry, 290, 7);
-	GUI_SetColor(FRAME_TEXTCOLOR);
-	GUI_SetFont(FRAME_FONT);
 
 }
-
-
-/*
-*********************************************************************************************************
-*	函 数 名: _cbkeypad
-*	功能说明: 第七个界面，小键盘
-*	形    参：pMsg  参数指针
-*	返 回 值: 无
-*********************************************************************************************************
-*/
-static void _cbkeypad(WM_MESSAGE* pMsg) 
-{
-	WM_HWIN hItem,hWin = pMsg->hWin;
-	switch (pMsg->MsgId) 
-	{
-		case WM_CREATE:
-			_CreateUserButton(0,    5, 40,  30,hWin, GUI_ID_BUTTON0, "0",2, _cbButtonText);
-			_CreateUserButton(40,   5, 40,  30,hWin, GUI_ID_BUTTON1, "1",2, _cbButtonText);
-			_CreateUserButton(80,   5, 40,  30,hWin, GUI_ID_BUTTON2, "2",2, _cbButtonText);
-			_CreateUserButton(120,  5, 40,  30,hWin, GUI_ID_BUTTON3, "3",2, _cbButtonText);
-			_CreateUserButton(160,  5, 40,  30,hWin, GUI_ID_BUTTON4, "4",2, _cbButtonText);
-			_CreateUserButton(200,  5, 40,  30,hWin, GUI_ID_BUTTON_YES, "Yes",4, _cbButtonText);
-			_CreateUserButton(0,    40, 40,  30,hWin, GUI_ID_BUTTON5, "5",2, _cbButtonText);
-			_CreateUserButton(40,   40, 40,  30,hWin, GUI_ID_BUTTON6, "6",2, _cbButtonText);
-			_CreateUserButton(80,   40, 40,  30,hWin, GUI_ID_BUTTON7, "7",2, _cbButtonText);
-			_CreateUserButton(120,  40, 40,  30,hWin, GUI_ID_BUTTON8, "8",2, _cbButtonText);
-			_CreateUserButton(160,  40, 40,  30,hWin, GUI_ID_BUTTON9, "9",2, _cbButtonText);
-			_CreateUserButton(200,  40, 40,  30,hWin, GUI_ID_BUTTON_DEL, "Del",4, _cbButtonText);
-			break;
-		 case WM_KEY:
-			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
-			{ 
-                   case GUI_KEY_TAB:
-					WM_SetFocusOnNextChild(hWin);
-					break;
-			}
-            break;
-		case WM_PAINT:
-			_Paintkeypad();
-			break;
-        case WM_NOTIFY_PARENT:	
-			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
-			{
-				int Id = WM_GetId(pMsg->hWinSrc);
-				switch (Id) 
-				{
-					case GUI_ID_BUTTON0:
-						GUI_SendKeyMsg('0',1);
-						break;
-					case GUI_ID_BUTTON1:
-						GUI_SendKeyMsg('1',1);
-						break;
-					case GUI_ID_BUTTON2:
-						GUI_SendKeyMsg('2',1);
-						break;
-					case GUI_ID_BUTTON3:
-						GUI_SendKeyMsg('3',1);
-						break;
-					case GUI_ID_BUTTON4:
-						GUI_SendKeyMsg('3',1);
-						break;
-					case GUI_ID_BUTTON5:
-						GUI_SendKeyMsg('3',1);
-						break;
-					case GUI_ID_BUTTON6:
-						GUI_SendKeyMsg('3',1);
-						break;
-					case GUI_ID_BUTTON7:
-						GUI_SendKeyMsg('3',1);
-						break;
-					case GUI_ID_BUTTON8:
-						GUI_SendKeyMsg('3',1);
-						break;
-					case GUI_ID_BUTTON9:
-						GUI_SendKeyMsg('3',1);
-						break;
-					case GUI_ID_BUTTON_YES:
-						WM_DeleteWindow(_hKeypadFrame);
-                        _hKeypadFrame = 0;
-						break;
-					case GUI_ID_BUTTON_DEL:
-						GUI_SendKeyMsg(GUI_KEY_BACKSPACE,1);
-						break;
-				}
-			}
-			break;
-		default:
-		WM_DefaultProc(pMsg);
-	}
-}
-	
-
 /*
 *********************************************************************************************************
 *	函 数 名: _cbwait
@@ -751,30 +814,49 @@ static void _cbkeypad(WM_MESSAGE* pMsg)
 */
 static void _cbwait(WM_MESSAGE* pMsg) 
 {
-	WM_HWIN  hWin = pMsg->hWin;
+	WM_HWIN  hItem,hWin = pMsg->hWin;
 	switch (pMsg->MsgId) 
 	{
 		case WM_CREATE:
 			/* 设置聚焦 */
 			WM_SetFocus(hWin);
+			hItem = TEXT_CreateEx((FRAME_WIDTH >> 1)-70 , 120, 200, 20, hWin, WM_CF_SHOW, 0, GUI_ID_TEXT0,"Drilling...");
+			TEXT_SetFont(hItem,&GUI_Font20B_ASCII);
+			hItem = PROGBAR_CreateEx((FRAME_WIDTH >> 1) - 70, 150, 130,  40, hWin, WM_CF_SHOW, 0, GUI_ID_PROGBAR0);
             WM_CreateTimer(hWin,0,1000,0);
+			PROGBAR_Max = buf[4];
+			PROGBAR_SetMinMax(hItem ,0,PROGBAR_Max);
 			break;
 		 case WM_KEY:
+			 switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{ 
+			}
             break;
          case WM_TIMER:
-            NRF24L01_RX_Mode();
-            NRF24L01_RxPacket(buf);
-            if(buf[0] == 1)
-            {
-                //执行完成
-            }
-//			else
-//			{
+			hItem = WM_GetDialogItem(pMsg->hWin, GUI_ID_PROGBAR0);
+			if(RT_flag == 0xff)
+			{
+				GUI_MessageBox("Send error!","error",0);
+				RT_flag = 0;
+			}
+			else if(RT_flag == MAX_TX)
+			{
+				GUI_MessageBox("Send error Max resend!","error",0);
+				RT_flag = 0;
+			}
+			NRF24L01_RX_Mode();
+			if(PROGBAR_Max!=0)
+			{
+				PROGBAR_Max--;
+				PROGBAR_SetValue(hItem,PROGBAR_Value++);
+				WM_RestartTimer(pMsg->Data.v,1000);
+			}
+			else
+			{
 				_DeleteFrame();
-//			}
-//			WM_RestartTimer(pMsg->Data.v,1000);
+				PROGBAR_Value = 1;
+			}
 			break;
-
 		case WM_PAINT:
 			_PaintFrame();
             break;
@@ -782,8 +864,6 @@ static void _cbwait(WM_MESSAGE* pMsg)
 		WM_DefaultProc(pMsg);
 	}
 }
-
-
 /*
 *********************************************************************************************************
 *	函 数 名: _cbSetup
@@ -802,15 +882,15 @@ static void _cbSetup(WM_MESSAGE* pMsg)
 			WM_SetFocus(hWin);
             _CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, &bmreturn, sizeof(bmreturn), _cbButtonPic);
 		    _CreateButton((FRAME_WIDTH >> 1)-90, 60, 70,  40,hWin,GUI_ID_BUTTON2, "背光调整");
-            _CreateButton((FRAME_WIDTH >> 1),    60, 70,  40,hWin,GUI_ID_BUTTON3, "颜色转换");
+            _CreateButton((FRAME_WIDTH >> 1),    60, 70,  40,hWin,GUI_ID_BUTTON3, "更换风格");
 		    _CreateButton((FRAME_WIDTH >> 1)-90, 110, 70,  40,hWin,GUI_ID_BUTTON4, "屏幕校准");
-			_CreateButton((FRAME_WIDTH >> 1),    110, 70,  40,hWin,GUI_ID_BUTTON5, "横竖屏");
+			_CreateButton((FRAME_WIDTH >> 1),    110, 70,  40,hWin,GUI_ID_BUTTON5, "敬请期待");
 			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{ 
-                   case GUI_KEY_TAB:
-					WM_SetFocusOnNextChild(hWin);
+				   	case GUI_KEY_HOME:
+						_DeleteFrame();
 					break;
 			}
             break;
@@ -826,7 +906,19 @@ static void _cbSetup(WM_MESSAGE* pMsg)
 					case GUI_ID_BUTTON0:
                         _DeleteFrame();
 						break;
-					
+					case GUI_ID_BUTTON3:
+						flex_index++;
+						if(flex_index > 2) flex_index = 0;
+						switch(flex_index)
+						{
+							case 0:FRAME_TEXTCOLOR = GUI_BLACK;break;
+							case 1:FRAME_TEXTCOLOR = GUI_BLACK;break;
+							case 2:FRAME_TEXTCOLOR = GUI_WHITE;break;
+							default:FRAME_TEXTCOLOR = GUI_BLACK;break;
+						}
+						_DeleteFrame();
+						_CreateFrame(&_cbSetup);
+						break;
 					case GUI_ID_BUTTON4:
 						GUI_SetBkColor(GUI_WHITE);
 						GUI_Clear();
@@ -872,8 +964,8 @@ static void _cbringmold(WM_MESSAGE* pMsg)
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{ 
-                   case GUI_KEY_TAB:
-					WM_SetFocusOnNextChild(hWin);
+				   	case GUI_KEY_HOME:
+						_DeleteFrame();
 					break;
 			}
             break;
@@ -911,10 +1003,6 @@ static void _cbringmold(WM_MESSAGE* pMsg)
 				NRF24L01_TX_Mode();
 				NRF24L01_TxPacket(buf);
 			}
-//			else if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
-//			{
-//				buf[13] = 0;
-//			}
 			buf[13] = 0;
 			break;
 		default:
@@ -946,23 +1034,27 @@ static void _cbrundrill(WM_MESSAGE* pMsg)
 		    _CreateText((FRAME_WIDTH >> 1)-40     , 90,  65, 20, hWin, GUI_ID_TEXT3,"扩孔深度");
             _CreateText((FRAME_WIDTH >> 1)+60 , 40, 65, 20, hWin, GUI_ID_TEXT4,"钻孔深度");
 		
-            _CreateText((FRAME_WIDTH >> 1)-90     , 210, 65, 20, hWin, GUI_ID_TEXT5,"模式");
-            _CreateText((FRAME_WIDTH >> 1)-40 , 210, 65, 20, hWin, GUI_ID_TEXT6,"奇偶数排");
-            _CreateText((FRAME_WIDTH >> 1)+20    , 210, 65, 20, hWin, GUI_ID_TEXT7,"大小钻头");
+            _CreateText((FRAME_WIDTH >> 1)-120     , 210, 65, 20, hWin, GUI_ID_TEXT5,"模式");
+            _CreateText((FRAME_WIDTH >> 1)-70 , 210, 65, 20, hWin, GUI_ID_TEXT6,"奇偶数排");
+            _CreateText((FRAME_WIDTH >> 1)+10    , 210, 65, 20, hWin, GUI_ID_TEXT7,"大小钻头");
         
             _CreateEdit((FRAME_WIDTH >> 1)-140, 60, 65, 20, hWin, GUI_ID_EDIT0, 3,0);
             _CreateEdit((FRAME_WIDTH >> 1)-40,    60, 65, 20, hWin, GUI_ID_EDIT1, 3,0);
             _CreateEdit((FRAME_WIDTH >> 1)-140, 110,65, 20, hWin, GUI_ID_EDIT2, 3,0);
             _CreateEdit((FRAME_WIDTH >> 1)-40,    110, 65, 20, hWin, GUI_ID_EDIT3, 3,0);
             _CreateEdit((FRAME_WIDTH >> 1)+60, 60, 65, 20, hWin, GUI_ID_EDIT4, 3,0);
-        
+		
+            _CreateButton((FRAME_WIDTH >> 1)+60, 90, 65,  40, hWin, GUI_ID_BUTTON1, "检测");
 			_CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, &bmreturn, sizeof(bmreturn), _cbButtonPic);
+		    buf[0] = 5;
+//			NRF24L01_TX_Mode();
+//			NRF24L01_TxPacket(buf);
 			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{ 
-                   case GUI_KEY_TAB:
-					WM_SetFocusOnNextChild(hWin);
+				   	case GUI_KEY_HOME:
+						_DeleteFrame();
 					break;
 			}
             break;
@@ -972,9 +1064,12 @@ static void _cbrundrill(WM_MESSAGE* pMsg)
 			GUI_DrawRoundedRect((FRAME_WIDTH >> 1)-140,210,(FRAME_WIDTH >> 1)+80,230,5);
 			break;
         case WM_TIMER:
-            NRF24L01_RX_Mode();
-            NRF24L01_RxPacket(buf);
-            Set_Data(hWin);
+			if(RT_flag == TX_OK || RT_flag == RX_OK)
+			{
+				NRF24L01_RX_Mode();
+				Set_Data(hWin);
+				RT_flag = 0;
+			}
             WM_RestartTimer(pMsg->Data.v,500);
             break;
         case WM_NOTIFY_PARENT:
@@ -984,7 +1079,12 @@ static void _cbrundrill(WM_MESSAGE* pMsg)
 				switch (Id) 
 				{
 					case GUI_ID_BUTTON0:
+						NRF24L01_TX_Mode();
                         _DeleteFrame();
+						break;
+					case GUI_ID_BUTTON1:
+						NRF24L01_TX_Mode();
+						NRF24L01_TxPacket(buf);
 						break;
 				}
 			}
@@ -1017,8 +1117,8 @@ static void _cbwireless(WM_MESSAGE* pMsg)
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{ 
-                   case GUI_KEY_TAB:
-					WM_SetFocusOnNextChild(hWin);
+				  	case GUI_KEY_HOME:
+						_DeleteFrame();
 					break;
 			}
             break;
@@ -1046,15 +1146,23 @@ static void _cbwireless(WM_MESSAGE* pMsg)
 						break;
                     case GUI_ID_BUTTON3:
                         NRF24L01_TX_Mode();
-                        if(NRF24L01_TxPacket(buf)==TX_OK)
-                        {
-                            GUI_MessageBox("Send Data Successful","Normol",GUI_MESSAGEBOX_CF_MODAL);
-                        }
-                        else
-                        {
-                            GUI_MessageBox("Send Data failed","Error",GUI_MESSAGEBOX_CF_MODAL);
-                        }
-						break;
+						NRF24L01_TxPacket(buf);
+						if(RT_flag == TX_OK)
+						{
+							GUI_MessageBox("Send success!","Normal",0);
+							RT_flag = 0;
+						}
+						else if(RT_flag == MAX_TX)
+						{
+							GUI_MessageBox("Send error Max resend!","error",0);
+							RT_flag = 0;
+						}
+						else
+						{
+							GUI_MessageBox("other error!","error",0);
+							RT_flag = 0;
+						}
+					break;
 				}
 			}
 			break;
@@ -1089,7 +1197,6 @@ static void _cbSingledrill(WM_MESSAGE* pMsg)
 			_CreateButton((FRAME_WIDTH >> 1)-40,120,  80,  40, hWin, GUI_ID_BUTTON3,"扩孔");
             _CreateButton((FRAME_WIDTH >> 1)+50,60, 80,  40, hWin, GUI_ID_BUTTON4,"上升");
             _CreateButton((FRAME_WIDTH >> 1)+50,120, 80,  40, hWin, GUI_ID_BUTTON5,"下降");
-        
 			_CreateUserButton((FRAME_WIDTH >> 1)+120, 200, 30,  30,hWin, GUI_ID_BUTTON0, &bmreturn, sizeof(bmreturn), _cbButtonPic);
 			buf[0] = 3;
 			Set_widget_value(hWin,GUI_ID_DROPDOWN0,buf[2]);
@@ -1097,8 +1204,9 @@ static void _cbSingledrill(WM_MESSAGE* pMsg)
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{ 
-                    case GUI_KEY_TAB:
-                        WM_SetFocusOnNextChild(hWin);
+
+					case GUI_KEY_HOME:
+						_DeleteFrame();
 					break;
 			}
             break;
@@ -1125,15 +1233,11 @@ static void _cbSingledrill(WM_MESSAGE* pMsg)
 						break;
 					case GUI_ID_BUTTON5:
 						buf[16] = 4;
-						break;  
+						break; 
 				}
 				NRF24L01_TX_Mode();
 				NRF24L01_TxPacket(buf);
 			}
-//			else if(pMsg->Data.v == WM_NOTIFICATION_RELEASED)
-//			{
-//				buf[16] = 0;		
-//			}
 			else if(pMsg->Data.v == WM_NOTIFICATION_SEL_CHANGED)
 			{
 				int Id = WM_GetId(pMsg->hWinSrc);
@@ -1154,6 +1258,99 @@ static void _cbSingledrill(WM_MESSAGE* pMsg)
 }
 
 
+
+/*
+*********************************************************************************************************
+*	函 数 名: _cbkeypad
+*	功能说明: 第七个界面，小键盘
+*	形    参：pMsg  参数指针
+*	返 回 值: 无
+*********************************************************************************************************
+*/
+static void _cbkeypad(WM_MESSAGE* pMsg) 
+{
+	WM_HWIN hItem,hWin = pMsg->hWin;
+	switch (pMsg->MsgId) 
+	{
+		case WM_CREATE:
+			_CreateUserButton(0,    5, 40,  30,hWin, GUI_ID_BUTTON0, "0",2, _cbButtonText);
+			_CreateUserButton(40,   5, 40,  30,hWin, GUI_ID_BUTTON1, "1",2, _cbButtonText);
+			_CreateUserButton(80,   5, 40,  30,hWin, GUI_ID_BUTTON2, "2",2, _cbButtonText);
+			_CreateUserButton(120,  5, 40,  30,hWin, GUI_ID_BUTTON3, "3",2, _cbButtonText);
+			_CreateUserButton(160,  5, 40,  30,hWin, GUI_ID_BUTTON4, "4",2, _cbButtonText);
+			_CreateUserButton(200,  5, 40,  30,hWin, GUI_ID_BUTTON_YES, "Yes",4, _cbButtonText);
+			_CreateUserButton(0,    40, 40,  30,hWin, GUI_ID_BUTTON5, "5",2, _cbButtonText);
+			_CreateUserButton(40,   40, 40,  30,hWin, GUI_ID_BUTTON6, "6",2, _cbButtonText);
+			_CreateUserButton(80,   40, 40,  30,hWin, GUI_ID_BUTTON7, "7",2, _cbButtonText);
+			_CreateUserButton(120,  40, 40,  30,hWin, GUI_ID_BUTTON8, "8",2, _cbButtonText);
+			_CreateUserButton(160,  40, 40,  30,hWin, GUI_ID_BUTTON9, "9",2, _cbButtonText);
+			_CreateUserButton(200,  40, 40,  30,hWin, GUI_ID_BUTTON_DEL, "Del",4, _cbButtonText);
+			break;
+		 case WM_KEY:
+			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
+			{ 
+
+				   	case GUI_KEY_HOME:
+						_DeleteFrame();
+					    _hKeypadFrame = 0;
+					break;
+			}
+            break;
+		case WM_PAINT:
+			_Paintkeypad();
+			break;
+        case WM_NOTIFY_PARENT:	
+			if (pMsg->Data.v == WM_NOTIFICATION_RELEASED) 
+			{
+				int Id = WM_GetId(pMsg->hWinSrc);
+				switch (Id) 
+				{
+					case GUI_ID_BUTTON0:
+						GUI_SendKeyMsg('0',1);
+						break;
+					case GUI_ID_BUTTON1:
+						GUI_SendKeyMsg('1',1);
+						break;
+					case GUI_ID_BUTTON2:
+						GUI_SendKeyMsg('2',1);
+						break;
+					case GUI_ID_BUTTON3:
+						GUI_SendKeyMsg('3',1);
+						break;
+					case GUI_ID_BUTTON4:
+						GUI_SendKeyMsg('4',1);
+						break;
+					case GUI_ID_BUTTON5:
+						GUI_SendKeyMsg('5',1);
+						break;
+					case GUI_ID_BUTTON6:
+						GUI_SendKeyMsg('6',1);
+						break;
+					case GUI_ID_BUTTON7:
+						GUI_SendKeyMsg('7',1);
+						break;
+					case GUI_ID_BUTTON8:
+						GUI_SendKeyMsg('8',1);
+						break;
+					case GUI_ID_BUTTON9:
+						GUI_SendKeyMsg('9',1);
+						break;
+					case GUI_ID_BUTTON_YES:
+						Parameter_Check(_hCurrentFrame,edit_id);
+						WM_DeleteWindow(_hKeypadFrame);				
+						_hKeypadFrame = 0;
+						break;
+					case GUI_ID_BUTTON_DEL:
+						GUI_SendKeyMsg(GUI_KEY_BACKSPACE,1);
+						break;
+				}
+			}
+			break;
+		default:
+		WM_DefaultProc(pMsg);
+	}
+}
+	
 /*
 *********************************************************************************************************
 *	函 数 名: Input_Drill_Depth()
@@ -1227,8 +1424,8 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{
-                   case GUI_KEY_TAB:
-					WM_SetFocusOnNextChild(hWin);
+					case GUI_KEY_HOME:
+						_DeleteFrame();
 					break;
 			}
             break;
@@ -1242,18 +1439,21 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
 				switch (Id) 
 				{
 					case GUI_ID_BUTTON0:
-                        Get_Drill_Data(hWin);
-                        NRF24L01_TX_Mode();
-                        if(NRF24L01_TxPacket(buf)==TX_OK)
+						Parameter_Check(hWin,edit_id);
+						printf("%u",parameter_flag);
+						if(parameter_flag == 0)
                         {
+							Get_Drill_Data(hWin);
+							NRF24L01_TX_Mode();
+							NRF24L01_TxPacket(buf);
 							_DeleteFrame();
 							_CreateFrame(&_cbwait);
-                        }
-                        else
-                        {
-							_DeleteFrame();
-                            GUI_MessageBox("Send Data failed","Error",GUI_MESSAGEBOX_CF_MODAL);
-                        }   
+							parameter_flag = 1;
+						}
+						else
+						{
+							GUI_MessageBox("parameter error!","error",0);
+						}
 						break;
 					case GUI_ID_BUTTON1:
                         _DeleteFrame();
@@ -1261,10 +1461,13 @@ static void _cbInputdrillParameter(WM_MESSAGE* pMsg)
 						_CreateFrame(&_cbInputParameter);					
 						break;
 					case GUI_ID_EDIT0:
+						Input_Check(hWin,GUI_ID_EDIT0);
+					break;
 					case GUI_ID_EDIT1:
+						Input_Check(hWin,GUI_ID_EDIT1);
+					break;
 					case GUI_ID_EDIT2:
-						_hKeypadFrame = WM_CreateWindowAsChild((FRAME_WIDTH>>1)-125, 170, 40*6, 30*2+10, hWin, WM_CF_SHOW,_cbkeypad, 0);
-						WM_MakeModal(_hKeypadFrame);
+						Input_Check(hWin,GUI_ID_EDIT2);
 					break;
 				}
 				
@@ -1300,9 +1503,9 @@ static void _cbInputParameter(WM_MESSAGE* pMsg)
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{ 
-                   case GUI_KEY_TAB:
-                        WM_SetFocusOnNextChild(hWin);
-                    break;
+				 case GUI_KEY_HOME:
+						_DeleteFrame();
+					break;
 			}
             break;
 		case WM_PAINT:
@@ -1347,14 +1550,11 @@ static void _cbSelect(WM_MESSAGE* pMsg)
 		case WM_CREATE:
 			/* 设置聚焦 */
 			WM_SetFocus(hWin);
-            _CreateIcon(20,50,65*3+2*40,65*2+40,hWin,GUI_ID_ICONVIEW0); 
+            _CreateIcon(20,40,65*3+2*40,80*2+30,hWin,GUI_ID_ICONVIEW0); 
 			break;
 		 case WM_KEY:
 			switch (((WM_KEY_INFO*)(pMsg->Data.p))->Key) 
 			{ 
-                case GUI_KEY_TAB:
-					WM_SetFocusOnNextChild(hWin);
-					break;
 			}
             break;
 		case WM_PAINT:
@@ -1377,7 +1577,6 @@ static void _cbSelect(WM_MESSAGE* pMsg)
 							break;
 					}
 				break;
-			
 			}
 			break;
 		default:
@@ -1391,19 +1590,16 @@ void CreateFramewin(void) {
 	WM_SetCreateFlags(WM_CF_MEMDEV);
     
 	/* 使能控件的皮肤色 */
-	PROGBAR_SetDefaultSkin(PROGBAR_SKIN_FLEX);
 	FRAMEWIN_SetDefaultSkin(FRAMEWIN_SKIN_FLEX);
 	PROGBAR_SetDefaultSkin(PROGBAR_SKIN_FLEX);
 	BUTTON_SetDefaultSkin(BUTTON_SKIN_FLEX);
-	CHECKBOX_SetDefaultSkin(CHECKBOX_SKIN_FLEX);
 	DROPDOWN_SetDefaultSkin(DROPDOWN_SKIN_FLEX);
-	SCROLLBAR_SetDefaultSkin(SCROLLBAR_SKIN_FLEX);
-	SLIDER_SetDefaultSkin(SLIDER_SKIN_FLEX);
-	HEADER_SetDefaultSkin(HEADER_SKIN_FLEX);
 	RADIO_SetDefaultSkin(RADIO_SKIN_FLEX);
-	
+	Button_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+	Dropdwon_Set_flat(GUI_LIGHTGRAY,GUI_LIGHTBLUE);
+	Progbar_Set_flat(GUI_GREEN,GUI_LIGHTGRAY);
+	Radio_Set_flat(GUI_LIGHTGRAY,GUI_BLACK,GUI_WHITE);
 	Welcome_page();
-	
 	/*设置桌面窗口回调*/
 	WM_SetCallback(WM_HBKWIN,&_cbBkWindow);
 	_CreateFrame(&_cbSelect);

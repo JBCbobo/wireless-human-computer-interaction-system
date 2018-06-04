@@ -17,7 +17,7 @@
 #include "DIALOG.h"
 #include "GUIDemo.h"
 #include "24l01.h"
-#include "led.h"
+#include "exti.h"
 
 /************************************************
  ALIENTEK MiniSTM32开发板STemWin实验
@@ -42,12 +42,12 @@ int main(void)
 	mem_init(); 			//初始化内部内存池
 	RCC_AHBPeriphClockCmd(RCC_AHBPeriph_CRC,ENABLE);//使能CRC时钟，否则STemWin不能使用 
 	NRF24L01_Init();
+	EXTIX_Init();
 	GUI_Init();
     CreateFramewin();
     while(1)
     {
-        SendKeyMsg();
-        GUI_Delay(20);
+        GUI_Delay(10);
     }
 
 }

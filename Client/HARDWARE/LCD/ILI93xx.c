@@ -666,7 +666,7 @@ void TFTLCD_Init(void)
 			}
  		}  	
 	}
- 	printf(" LCD ID:%x\r\n",lcddev.id); //¥Ú”°LCD ID   
+ 	//printf(" LCD ID:%x\r\n",lcddev.id); //¥Ú”°LCD ID   
 	
 	/*9341*/
 	if(lcddev.id == 0x9341)

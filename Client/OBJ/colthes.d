@@ -1,4 +1,4 @@
-..\obj\colthes.o: ..\EMWIN\colthes.c
+..\obj\colthes.o: ..\IMAGE\colthes.c
 ..\obj\colthes.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
 ..\obj\colthes.o: ..\EMWIN\STemWin\inc\GUI.h
 ..\obj\colthes.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h

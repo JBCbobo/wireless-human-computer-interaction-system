@@ -8,13 +8,18 @@
 ..\obj\main.o: ..\USER\stm32f10x_conf.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_bkp.h
 ..\obj\main.o: ..\USER\stm32f10x.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_dma.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_exti.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_flash.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_fsmc.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_gpio.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_iwdg.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_pwr.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_rcc.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_spi.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_tim.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_usart.h
+..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\stm32f10x_wwdg.h
 ..\obj\main.o: ..\FWLIB\STM32F10x_FWLib\inc\misc.h
 ..\obj\main.o: ..\HARDWARE\MKEY\key.h
 ..\obj\main.o: ..\HARDWARE\LCD\ILI93xx.h
@@ -83,4 +88,4 @@
 ..\obj\main.o: ..\FATFS\exfuns\exfuns.h
 ..\obj\main.o: ..\EMWIN\Demo\GUIDemo.h
 ..\obj\main.o: ..\HARDWARE\NRF24L01\24l01.h
-..\obj\main.o: ..\HARDWARE\LED\led.h
+..\obj\main.o: ..\HARDWARE\EXTI\exti.h

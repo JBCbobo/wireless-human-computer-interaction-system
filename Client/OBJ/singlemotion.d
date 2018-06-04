@@ -1,0 +1,9 @@
+..\obj\singlemotion.o: ..\IMAGE\singlemotion.c
+..\obj\singlemotion.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
+..\obj\singlemotion.o: ..\EMWIN\STemWin\inc\GUI.h
+..\obj\singlemotion.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h
+..\obj\singlemotion.o: ..\EMWIN\STemWin\Config\GUIConf.h
+..\obj\singlemotion.o: ..\EMWIN\STemWin\inc\GUI_Type.h
+..\obj\singlemotion.o: ..\EMWIN\STemWin\inc\LCD.h
+..\obj\singlemotion.o: ..\EMWIN\STemWin\inc\Global.h
+..\obj\singlemotion.o: ..\EMWIN\STemWin\inc\GUI_Version.h

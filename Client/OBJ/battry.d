@@ -1,4 +1,4 @@
-..\obj\battry.o: ..\EMWIN\battry.c
+..\obj\battry.o: ..\IMAGE\battry.c
 ..\obj\battry.o: E:\Keil_v5\ARM\ARMCC\include\stdlib.h
 ..\obj\battry.o: ..\EMWIN\STemWin\inc\GUI.h
 ..\obj\battry.o: ..\EMWIN\STemWin\inc\GUI_ConfDefaults.h

@@ -1468,6 +1468,7 @@ extern const tGUI_XBF_APIList GUI_XBF_APIList_Prop_AA4_Ext;
 
 #define GUI_KEY_F1                40
 #define GUI_KEY_F2                41
+          
 
 /*********************************************************************
 *

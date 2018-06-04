@@ -32,7 +32,7 @@
 #ifndef   YSIZE_PHYS
   #error Physical Y size of display is not defined!
 #endif
-#ifndef   GUICC_565
+#ifndef   GUICC_M565
   #error Color conversion not defined!
 #endif
 #ifndef   GUIDRV_FLEXCOLOR
